@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zahtevcir>
+    <primalac naziv="" adresa="">
+    </primalac>
+    
+    <naslov>ZAHTEV za pristup informacijama od javnog znacaja</naslov>
+    
+    <sadrzaj>
+        <paragraf>На основу члана 15. ст. 1. Закона о слободном приступу информацијама 
+            од јавног значаја („Службени гласник РС“, бр. 120/04, 54/07, 104/09 и 36/10),
+            од горе наведеног органа захтевам:*
+        </paragraf>
+        
+        <zahtevi>
+            <zahtev id="1" isChecked="">обавештење да ли поседује тражену информацију</zahtev>
+            <zahtev id="2" isChecked="">⁫увид у документ који садржи тражену информацију</zahtev>
+            <zahtev id="3" isChecked="">копију документа који садржи тражену информацију</zahtev>
+            <zahtev id="4" isChecked="">достављање копије документа који садржи тражену информацију:**
+                <nacinDostave>
+                    <dostava id="posta" isChecked="false"></dostava>
+                    <dostava id="elektronskaPosta" isChecked="false"></dostava>
+                    <dostava id="faks" isChecked="false"></dostava>
+                    <dostava id="drugo" isChecked="false">
+                        <opis></opis>
+                    </dostava>
+                </nacinDostave>
+            </zahtev>
+            
+            <paragraph>Овај захтев се односи на следеће информације:
+                <informacije>
+                    
+                </informacije>
+            </paragraph>
+        </zahtevi>
+        
+        <opstaliPodaci>
+            <mesto></mesto>
+            <datum></datum>
+            
+            <trazilacInformacija>
+                <ime></ime>
+                <prezime></prezime>
+                <adresa></adresa>
+                <kontakt></kontakt>
+            </trazilacInformacija>
+        </opstaliPodaci>
+        
+    </sadrzaj>
+    
+</zahtevcir>
