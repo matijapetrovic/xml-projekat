@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zalba naziv=" ЖАЛБА КАДА ОРГАН ВЛАСТИ НИЈЕ ПОСТУПИО/ није поступио у целости/ ПО ЗАХТЕВУ ТРАЖИОЦА У ЗАКОНСКОМ  РОКУ  (ЋУТАЊЕ УПРАВЕ)">
+    
+    <primalac> Повереникy за информације од јавног значаја и заштиту података о личности</primalac>
+    <adresaPrimaoca>
+        <mesto>Београд</mesto>
+        <ulica>Булевар краља Александрa </ulica>
+        <broj>15</broj>
+    </adresaPrimaoca>
+    
+    <sadrzaj>
+        <paragraf>
+            У складу са чланом <clan> 22.</clan> <zakon>Закона о слободном приступу информацијама од јавног значаја</zakon> подносим:
+            <predmetSlanja>Ж А Л Б У</predmetSlanja>
+            против
+            <nazivOrgana opis="навести назив органа">
+            </nazivOrgana>
+        </paragraf>
+        
+        <paragraf>
+            због тога што орган власти: 
+            <razlogSlanja smernica="због тога што орган власти: ">није поступио / није поступио у целости /  у законском року</razlogSlanja>
+        </paragraf>
+        
+        <paragraf>
+            по мом захтеву  за слободан приступ информацијама од јавног значаја који сам поднео  том
+            органу  дана <godina></godina> године, а којим сам тражио/ла да ми се у складу са Законом о
+            слободном приступу информацијама од јавног значаја омогући увид- копија документа који
+            садржи информације  о /у вези са :
+            <podaciOZahtevuIInformacijama opis="навести податке о захтеву и информацији/ама"></podaciOZahtevuIInformacijama>
+        </paragraf>
+        
+        <paragraf>
+            <zakljucak>
+                <predlog>
+                    На основу изнетог, предлажем да Повереник уважи моју жалбу и омогући ми приступ траженој/им  информацији/ма.
+                </predlog>
+                <dokaz>
+                    <opis>
+                        Као доказ , уз жалбу достављам копију захтева са доказом о предаји органу власти.
+                    </opis>
+                </dokaz>
+                <napomena>
+                    Напомена: Код жалбе  због непоступању по захтеву у целости, треба приложити и добијени одговор органа власти.
+                </napomena>
+            </zakljucak>
+        </paragraf>
+    </sadrzaj>
+    
+    <podnosilacZalbe>
+        <naziv>
+            <ime></ime>
+            <prezime></prezime>
+        </naziv>
+        <potpis></potpis>
+        <adresa></adresa>
+        <drugiPodaci opis="други подаци за контакт"></drugiPodaci>
+        <potpis></potpis>
+    </podnosilacZalbe>
+    
+    У <mesto></mesto>, дана <dan></dan> 201<godina></godina> године
+</zalba>
