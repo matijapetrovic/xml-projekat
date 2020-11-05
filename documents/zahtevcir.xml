@@ -13,25 +13,25 @@
         </paragraf>
         
         <zahtevi>
-            <zahtev id="1" isChecked="">обавештење да ли поседује тражену информацију</zahtev>
-            <zahtev id="2" isChecked="">⁫увид у документ који садржи тражену информацију</zahtev>
-            <zahtev id="3" isChecked="">копију документа који садржи тражену информацију</zahtev>
-            <zahtev id="4" isChecked="">достављање копије документа који садржи тражену информацију:**
+            <zahtev id="1" odabrano="ne">обавештење да ли поседује тражену информацију</zahtev>
+            <zahtev id="2" odabrano="ne">⁫увид у документ који садржи тражену информацију</zahtev>
+            <zahtev id="3" odabrano="ne">копију документа који садржи тражену информацију</zahtev>
+            <zahtev id="4" odabrano="ne">достављање копије документа који садржи тражену информацију:**
                 <nacinDostave>
-                    <dostava id="posta" isChecked="false"></dostava>
-                    <dostava id="elektronskaPosta" isChecked="false"></dostava>
-                    <dostava id="faks" isChecked="false"></dostava>
-                    <dostava id="drugo" isChecked="false">
+                    <dostava id="posta" odabrano="ne"></dostava>
+                    <dostava id="elektronskaPosta" odabrano="ne"></dostava>
+                    <dostava id="faks" odabrano="ne"></dostava>
+                    <dostava id="drugo" odabrano="ne">
                         <opis></opis>
                     </dostava>
                 </nacinDostave>
             </zahtev>
             
-            <paragraph>Овај захтев се односи на следеће информације:
+            <paragraf>Овај захтев се односи на следеће информације:
                 <informacije>
                     
                 </informacije>
-            </paragraph>
+            </paragraf>
         </zahtevi>
         
         <opstaliPodaci>
