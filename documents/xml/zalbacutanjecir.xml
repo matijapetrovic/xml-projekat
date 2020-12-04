@@ -53,15 +53,11 @@
             <ime></ime>
             <prezime></prezime>
         </naziv>
+        <potpis></potpis>
         <adresa></adresa>
         <drugiPodaci opis="други подаци за контакт"></drugiPodaci>
         <potpis></potpis>
     </podnosilacZalbe>
     
-    <podaciOPodnosenjuZahteva>
-        <mesto></mesto>
-        <dan></dan>
-        <godina></godina>
-    </podaciOPodnosenjuZahteva>
-  
+    У <mesto></mesto>, дана <dan></dan> 201<godina></godina> године
 </zalba>
