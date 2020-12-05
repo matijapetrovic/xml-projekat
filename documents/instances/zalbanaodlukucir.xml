@@ -1,83 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<zalba naziv= "ЖАЛБА  ПРОТИВ  ОДЛУКЕ ОРГАНА  ВЛАСТИ КОЈОМ ЈЕ ОДБИЈЕН ИЛИ ОДБАЧЕН ЗАХТЕВ ЗА ПРИСТУП ИНФОРМАЦИЈИ">
-    
-    <primalac> Повереникy за информације од јавног значаја и заштиту података о личности</primalac>
-    <adresaPrimaoca>
-        <mesto>Београд</mesto>
-        <ulica>Булевар краља Александрa </ulica>
-        <broj>15</broj>
-    </adresaPrimaoca>
-    
-    <sadrzaj>
-        <paragraf>
-            <predmetSlanja>Ж А Л Б У</predmetSlanja>
-            <ime opis="навести име жалиоца"></ime>
-            <prezime opis="навести презиме жалиоца"></prezime>
-            <naziv opis="навести назив жалиоца"></naziv>
-            <adresa opis="навести адресу жалиоца"></adresa>
-            <sediste opis="навести седисте жалиоца"></sediste>
-        </paragraf>
-        
-        <paragraf>
-            против решења-закључка:
-            <nazivOrgana smernica="назив органа који је донео одлуку"></nazivOrgana>
-            Број
-            <broj smernica="назив органа који је донео одлуку"></broj>
-            од
-            <godina smernica="година када је тај орган одбио или одбацио приступ информацији"></godina>
-            године.
-        </paragraf>
-        
-        <paragraf>
-            Наведеном одлуком органа власти (решењем, закључком, обавештењем у писаној форми са елементима одлуке),
-            супротно закону, одбијен-одбачен је мој захтев који сам поднео/ла-упутио/ла дана <dan></dan> <godina></godina> године
-            и тако ми ускраћено-онемогућено остваривање уставног и законског права на слободан приступ информацијама од јавног значаја.
-            Oдлуку побијам у целости, односно у делу којим <razlog smernica="разлог зашто подноси жалбу"></razlog>
-            јер није заснована на Закону о слободном приступу информацијама од јавног значаја.
-        </paragraf>
-            
-        <paragraf>
-            <zakljucak>
-                <razlog>
-                    На основу изнетих разлога, предлажем да Повереник уважи моју жалбу,  поништи одлука првостепеног органа и
-                    омогући ми приступ траженој/им  информацији/ма.
-                </razlog>
-                
-                <zakonPodnosenjaZalbe>
-                    Жалбу подносим благовремено, у законском року утврђеном у члану 22. ст. 1. Закона о слободном приступу информацијама од јавног значаја.
-                </zakonPodnosenjaZalbe>
-            </zakljucak>
-        </paragraf>
-        
-        
-        <podnosilacZalbe>
-            <naziv>
-                <ime></ime>
-                <prezime></prezime>
-            </naziv>
-            <adresa></adresa>
-            <drugiPodaci opis="други подаци за контакт"></drugiPodaci>
-            <potpis></potpis>
-        </podnosilacZalbe>
-        
-        
-        <paragraf>
-            <napomena>
-                <lista tip="bullet">
-                    <stavka>	
-                        У жалби се мора навести одлука која се побија (решење, закључак, обавештење), назив органа који је одлуку донео,
-                        као и број и датум одлуке. Довољно је да жалилац наведе у жалби у ком погледу је незадовољан одлуком,
-                        с тим да жалбу не мора посебно образложити. Ако жалбу изјављује на овом обрасцу, додатно образложење може
-                        посебно приложити.
-                    </stavka>
-                    <stavka>
-                        Уз жалбу обавезно приложити копију поднетог захтева и доказ о његовој предаји-упућивању органу као и копију
-                        одлуке органа која се оспорава жалбом.
-                    </stavka>
-                </lista>
-            </napomena>
-        </paragraf>
-    </sadrzaj>
-</zalba>
-    
+<zod:zalbaO xmlns="zalbaO"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:zod="zalbaO"
+    xsi:schemaLocation="zalbaO file:/C:/Users/Matija/Desktop/xml-projekat/documents/schemas/zalbanaodlukucir.xsd">
+    <zod:primalac>
+        <zod:adresaPrimaoca>
+            <zod:mesto>Novi Sad</zod:mesto>
+            <zod:ulica>Bulevar Oslobodjena</zod:ulica>
+            <zod:broj>65</zod:broj>
+        </zod:adresaPrimaoca>
+    </zod:primalac>
+    <zod:sadrzaj>
+        <zod:paragraf1>
+            <zod:predmetSlanja>Predmet1</zod:predmetSlanja>
+            <zod:osoba>
+                <zod:ime>Ime1</zod:ime>
+                <zod:prezime>Prezime1</zod:prezime>
+            </zod:osoba>
+            <zod:naziv>Naziv1</zod:naziv>
+            <zod:adresa>
+                <zod:mesto>Mesto1</zod:mesto>
+                <zod:ulica>Ulica1</zod:ulica>
+                <zod:broj>123</zod:broj>
+            </zod:adresa>
+            <sediste>15</sediste>
+        </zod:paragraf1>
+        <zod:paragraf2>
+            <zod:nazivOrgana>Naziv2</zod:nazivOrgana>
+            <zod:broj>17</zod:broj>
+            <zod:godina>2020</zod:godina>
+        </zod:paragraf2>
+        <zod:paragraf3>
+            <zod:dan>31</zod:dan>
+            <zod:godina>2020</zod:godina>
+            <zod:razlog>Razlog1</zod:razlog>
+        </zod:paragraf3>
+        <zod:paragraf4>
+            <zod:zakljucak>
+                <zod:razlog>Razlog2</zod:razlog>
+                <zod:zakonPodnosenjaZalbe>ZakonNeki</zod:zakonPodnosenjaZalbe>
+            </zod:zakljucak>
+        </zod:paragraf4>
+    </zod:sadrzaj>
+    <zod:podnosilacZalbe>
+        <zod:osoba>
+            <zod:ime>Ime2</zod:ime>
+            <zod:prezime>Prezime2</zod:prezime>
+        </zod:osoba>
+        <zod:adresa>
+            <zod:mesto>Mesto2</zod:mesto>
+            <zod:ulica>Ulica2</zod:ulica>
+            <zod:broj>12</zod:broj>
+        </zod:adresa>
+        <potpis>Potpis1</potpis>
+    </zod:podnosilacZalbe>
+    <podaciPodnosenjaZalbe>
+        <mesto>Mesto3</mesto>
+        <dan>10</dan>
+        <godina>2010</godina>
+    </podaciPodnosenjaZalbe>
+    <napomena>
+        <lista>
+            <stavka1>Stavka1</stavka1>
+            <stavka2>Stavka2</stavka2>
+        </lista>
+    </napomena>
+</zod:zalbaO>
