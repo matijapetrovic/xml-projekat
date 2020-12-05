@@ -13,7 +13,16 @@
 	            <xs:element name="PodnosiocZahteva" type="ob:CTPodnosiocZahteva"/>
 	            <xs:element name="TrazenaInformacija" type="ob:CTTrazenaInformacija"/>
 	            <xs:element name="InformacijeOUvidu" type="ob:CTInformacijeOUvidu"/>
+	            <xs:element name="Troskovi" type="ob:CTTroskovi"/>
 	            <xs:element name="InformacijeOUplati" type="ob:CTInformacijeOUplati"/>
+	            <xs:element name="Dostavljeno">
+	                <xs:simpleType>
+	                    <xs:restriction base="xs:string">
+	                        <xs:enumeration value="Imenovanom"/>
+	                        <xs:enumeration value="Arhivi"/>
+	                    </xs:restriction>
+	                </xs:simpleType>
+	            </xs:element>
 	        </xs:sequence>
 	    </xs:complexType>
 	</xs:element>
@@ -28,7 +37,7 @@
             <xs:element name="Ime" type="xs:string"/>
             <xs:element name="Prezime" type="xs:string"/>
             <xs:element name="Naziv" type="xs:string"/>
-            <xs:element name="Adresa" type="xs:string"/>
+            <xs:element name="Adresa" type="ob:CTAdresa"/>
         </xs:sequence>
     </xs:complexType>
 	<xs:complexType name="CTInformacijeOUvidu">
@@ -37,31 +46,52 @@
 	        <xs:element name="Satnica" type="xs:time"/>
 	        <xs:element name="SatnicaOd" type="xs:time"/>
 	        <xs:element name="SatnicaDo" type="xs:time"/>
-	        <xs:element name="Mesto" type="xs:string"/>
-	        <xs:element name="Ulica" type="xs:string"/>
-	        <xs:element name="Broj" type="xs:positiveInteger"/>
+	        <xs:element name="Adresa" type="ob:CTAdresa"/>
 	        <xs:element name="BrojKancelarije" type="xs:positiveInteger"/>
 	    </xs:sequence>
 	</xs:complexType>
+    <xs:complexType name="CTAdresa">
+        <xs:sequence>
+            <xs:element name="Mesto" type="xs:string"/>
+            <xs:element name="Ulica" type="xs:string"/>
+            <xs:element name="Broj" type="xs:positiveInteger"/>
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="CTTrazenaInformacija">
         <xs:sequence>
-            <xs:element name="Godina" type="xs:gYear"/>
-            <xs:element name="Opis" type="xs:string"/>
+            <xs:element name="DatumZahteva" type="xs:date"/>
+            <xs:element name="OpisInformacije" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CTTroskovi">
+        <xs:sequence>
+            <xs:element fixed="3.0" name="CenaA4" type="xs:decimal"/>
+            <xs:element fixed="6.0" name="CenaA3" type="xs:decimal"/>
+            <xs:element fixed="35.0" name="CenaCD" type="xs:decimal"/>
+            <xs:element fixed="20.0" name="CenaDisketa" type="xs:decimal"/>
+            <xs:element fixed="40.0" name="CenaDVD" type="xs:decimal"/>
+            <xs:element fixed="150.0" name="CenaAudioKaseta" type="xs:decimal"/>
+            <xs:element fixed="300.0" name="CenaVideoKaseta" type="xs:decimal"/>
+            <xs:element fixed="30.0" name="CenaEDokument" type="xs:decimal"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="CTInformacijeOUplati">
         <xs:sequence>
-            <xs:element name="IznosTroskova" type="xs:decimal"/>
-            <xs:element name="ZiroRacun">
+            <xs:element name="UkupniTroskovi" type="xs:decimal"/>
+            <xs:element fixed="840-0000742328843-30" name="ZiroRacun">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:pattern value="\d{3}-\d{13}-\d{2}"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="PozivNaBroj" type="xs:integer"></xs:element>
+            <xs:element fixed="97" name="BrojModela">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{2}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
         </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="CTDostavljeno">
     </xs:complexType>
 </xs:schema>
