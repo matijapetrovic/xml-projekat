@@ -90,4 +90,10 @@ public class CTTrazenaInformacija {
         this.opisInformacije = value;
     }
 
+    @Override
+    public String toString() {
+        return "Podaci o trazenoj informaciji: \n" +
+                "\tDatum zahteva: " + getDatumZahteva() +
+                "\n\tOpis informacije: " + getOpisInformacije() + "\n";
+    }
 }

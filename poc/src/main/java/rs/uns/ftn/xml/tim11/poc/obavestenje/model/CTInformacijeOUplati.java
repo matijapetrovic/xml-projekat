@@ -128,4 +128,12 @@ public class CTInformacijeOUplati {
         this.brojModela = value;
     }
 
+
+    @Override
+    public String toString() {
+        return "Podaci o uplati: \n" +
+                "\tUkupni troskovi: " + getUkupniTroskovi() +
+                "\n\tZiro racun: " + getZiroRacun() +
+                "\n\tBroj modela: " + getBrojModela() + "\n";
+    }
 }

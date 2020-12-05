@@ -256,4 +256,17 @@ public class CTTroskovi {
         this.cenaEDokument = value;
     }
 
+    @Override
+    public String toString() {
+        return "Podaci o troskovima:" +
+                "\n\tCena A4: " + getCenaA4() +
+                "\n\tCena A4: " + getCenaA3() +
+                "\n\tCena A4: " + getCenaCD() +
+                "\n\tCena A4: " + getCenaDisketa() +
+                "\n\tCena A4: " + getCenaDVD() +
+                "\n\tCena A4: " + getCenaAudioKaseta() +
+                "\n\tCena A4: " + getCenaVideoKaseta() +
+                "\n\tCena A4: " + getCenaEDokument() + "\n";
+    }
+
 }

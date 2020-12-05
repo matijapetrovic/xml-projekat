@@ -143,4 +143,13 @@ public class CTPodnosiocZahteva {
         this.adresa = value;
     }
 
+
+    @Override
+    public String toString() {
+        return "Podaci o podnosiocu zahteva: \n" +
+                "\tIme: " + getIme() +
+                "\n\tPrezime: " + getPrezime() +
+                "\n\tNaziv: " + getNaziv() +
+                "\n\t" + getAdresa() + "\n";
+    }
 }
