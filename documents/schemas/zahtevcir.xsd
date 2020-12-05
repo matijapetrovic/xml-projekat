@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	targetNamespace="http://zahtevcir" xmlns:za="http://zahtevcir">
+	
+	<xs:element name="zahtevcir">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="primalac">
+					<xs:complexType>
+						<xs:attribute 
+							name="naziv">
+						</xs:attribute>
+						<xs:attribute name="adresa">
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="naslov" type="xs:string"/>
+				<xs:element name="sadrzaj" type="za:CTSadrzaj"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="CTSadrzaj">
+		<xs:sequence>
+			<xs:element name="paragraf1" type="za:CTParagraf1"/>
+			<xs:element name="zahtevi" type="za:CTZahtevi"/>
+			<xs:element name="ostaliPodaci" type="za:CTOstaliPodaci"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTParagraf1">
+		<xs:sequence>
+			<xs:element name="clan" fixed="15" type="xs:positiveInteger"></xs:element>
+			<xs:element name="stav" fixed="1" type="xs:positiveInteger"></xs:element>
+			<xs:element name="zakon" fixed="Zakon o slobodnom pristupu informacijama od javnog značaja" type="xs:string"></xs:element>
+			<xs:element name="sluzbeniGlasnik">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="naziv" fixed="Sluzbeni glasnik Republike Srbije" type="xs:string"></xs:element>
+						<xs:element name="brojevi">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element maxOccurs="unbounded" name="broj">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:pattern value="[1-9][0-9]*\/[0-9]{2}/"></xs:pattern>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTZahtevi">
+		<xs:sequence>
+		  <xs:element minOccurs="0" name="Obavestenje"/>
+		  <xs:element minOccurs="0" name="Uvid"/>
+		  <xs:element minOccurs="0" name="Kopija"/>
+		  <xs:element minOccurs="0" name="DostavljanjeKopije">
+		  	<xs:complexType>
+		  		<xs:sequence>
+		  			<xs:element ref="za:CTNacinDostave"/>
+		  		</xs:sequence>
+		  	</xs:complexType>
+		  </xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="CTNacinDostave">
+		<xs:complexType>
+			<xs:choice>
+			  <xs:element name="posta" />
+			  <xs:element name="elektronskaPosta"/>
+			  <xs:element name="faks"/>
+			  <xs:element name="drugo">
+				  <xs:complexType>
+				  	<xs:sequence>
+				  		<xs:element name="opis">
+				  			<xs:simpleType>
+				  				<xs:restriction base="xs:string">
+				  					<xs:minLength value="1"/>
+				  				</xs:restriction>
+				  			</xs:simpleType>
+				  		</xs:element>
+				  	</xs:sequence>
+				  </xs:complexType>
+			  </xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="CTOstaliPodaci">
+		<xs:sequence>
+			<xs:element name="mesto">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="([A-Z][a-z]+)(\s[A-Z][a-z]+)*"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="datum" type="xs:date"/>
+			<xs:element name="trazilacInformacija" type="za:CTTrazilacInformacija"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTTrazilacInformacija">
+		<xs:sequence>
+			<xs:element name="ime">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[A-Z][a-z]+"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="prezime">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[A-Z][a-z]+"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="adresa" type="xs:string"/>
+			<xs:element name="kontakt" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
