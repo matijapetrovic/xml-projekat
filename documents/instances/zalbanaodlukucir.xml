@@ -5,8 +5,8 @@
     xsi:schemaLocation="zalbaO file:/C:/Users/Matija/Desktop/xml-projekat/documents/schemas/zalbanaodlukucir.xsd">
     <zod:primalac>
         <zod:adresaPrimaoca>
-            <zod:mesto>Novi Sad</zod:mesto>
-            <zod:ulica>Bulevar Oslobodjena</zod:ulica>
+            <zod:mesto>Mesto1</zod:mesto>
+            <zod:ulica>Ulica1</zod:ulica>
             <zod:broj>65</zod:broj>
         </zod:adresaPrimaoca>
     </zod:primalac>
