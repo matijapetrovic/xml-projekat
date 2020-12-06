@@ -1,6 +1,5 @@
 
-package model;
-
+package rs.uns.ftn.xml.tim11.poc.zahtev.model;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for CTParagraf1 complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="CTParagraf1"&gt;
  *   &lt;complexContent&gt;
@@ -57,36 +56,36 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTParagraf1", namespace = "http://zahtevcir", propOrder = {
-    "clan",
-    "stav",
-    "zakon",
-    "sluzbeniGlasnik"
+@XmlType(name = "CTParagraf1", namespace = "zahtev", propOrder = {
+        "clan",
+        "stav",
+        "zakon",
+        "sluzbeniGlasnik"
 })
 public class CTParagraf1 {
 
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger clan;
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger stav;
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected String zakon;
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected CTParagraf1 .SluzbeniGlasnik sluzbeniGlasnik;
 
     /**
      * Gets the value of the clan property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BigInteger }
-     *     
+     *
      */
     public BigInteger getClan() {
         return clan;
@@ -94,11 +93,11 @@ public class CTParagraf1 {
 
     /**
      * Sets the value of the clan property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BigInteger }
-     *     
+     *
      */
     public void setClan(BigInteger value) {
         this.clan = value;
@@ -106,11 +105,11 @@ public class CTParagraf1 {
 
     /**
      * Gets the value of the stav property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link BigInteger }
-     *     
+     *
      */
     public BigInteger getStav() {
         return stav;
@@ -118,11 +117,11 @@ public class CTParagraf1 {
 
     /**
      * Sets the value of the stav property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link BigInteger }
-     *     
+     *
      */
     public void setStav(BigInteger value) {
         this.stav = value;
@@ -130,11 +129,11 @@ public class CTParagraf1 {
 
     /**
      * Gets the value of the zakon property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getZakon() {
         return zakon;
@@ -142,11 +141,11 @@ public class CTParagraf1 {
 
     /**
      * Sets the value of the zakon property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setZakon(String value) {
         this.zakon = value;
@@ -154,11 +153,11 @@ public class CTParagraf1 {
 
     /**
      * Gets the value of the sluzbeniGlasnik property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CTParagraf1 .SluzbeniGlasnik }
-     *     
+     *
      */
     public CTParagraf1 .SluzbeniGlasnik getSluzbeniGlasnik() {
         return sluzbeniGlasnik;
@@ -166,11 +165,11 @@ public class CTParagraf1 {
 
     /**
      * Sets the value of the sluzbeniGlasnik property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CTParagraf1 .SluzbeniGlasnik }
-     *     
+     *
      */
     public void setSluzbeniGlasnik(CTParagraf1 .SluzbeniGlasnik value) {
         this.sluzbeniGlasnik = value;
@@ -179,9 +178,9 @@ public class CTParagraf1 {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -210,28 +209,28 @@ public class CTParagraf1 {
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "naziv",
-        "brojevi"
+            "naziv",
+            "brojevi"
     })
     public static class SluzbeniGlasnik {
 
-        @XmlElement(namespace = "http://zahtevcir", required = true)
+        @XmlElement(namespace = "zahtev", required = true)
         protected String naziv;
-        @XmlElement(namespace = "http://zahtevcir", required = true)
+        @XmlElement(namespace = "zahtev", required = true)
         protected CTParagraf1 .SluzbeniGlasnik.Brojevi brojevi;
 
         /**
          * Gets the value of the naziv property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getNaziv() {
             return naziv;
@@ -239,11 +238,11 @@ public class CTParagraf1 {
 
         /**
          * Sets the value of the naziv property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setNaziv(String value) {
             this.naziv = value;
@@ -251,11 +250,11 @@ public class CTParagraf1 {
 
         /**
          * Gets the value of the brojevi property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link CTParagraf1 .SluzbeniGlasnik.Brojevi }
-         *     
+         *
          */
         public CTParagraf1 .SluzbeniGlasnik.Brojevi getBrojevi() {
             return brojevi;
@@ -263,11 +262,11 @@ public class CTParagraf1 {
 
         /**
          * Sets the value of the brojevi property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link CTParagraf1 .SluzbeniGlasnik.Brojevi }
-         *     
+         *
          */
         public void setBrojevi(CTParagraf1 .SluzbeniGlasnik.Brojevi value) {
             this.brojevi = value;
@@ -276,9 +275,9 @@ public class CTParagraf1 {
 
         /**
          * <p>Java class for anonymous complex type.
-         * 
+         *
          * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
+         *
          * <pre>
          * &lt;complexType&gt;
          *   &lt;complexContent&gt;
@@ -296,39 +295,39 @@ public class CTParagraf1 {
          *   &lt;/complexContent&gt;
          * &lt;/complexType&gt;
          * </pre>
-         * 
-         * 
+         *
+         *
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "broj"
+                "broj"
         })
         public static class Brojevi {
 
-            @XmlElement(namespace = "http://zahtevcir", required = true)
+            @XmlElement(namespace = "zahtev", required = true)
             protected List<String> broj;
 
             /**
              * Gets the value of the broj property.
-             * 
+             *
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the broj property.
-             * 
+             *
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getBroj().add(newItem);
              * </pre>
-             * 
-             * 
+             *
+             *
              * <p>
              * Objects of the following type(s) are allowed in the list
              * {@link String }
-             * 
-             * 
+             *
+             *
              */
             public List<String> getBroj() {
                 if (broj == null) {

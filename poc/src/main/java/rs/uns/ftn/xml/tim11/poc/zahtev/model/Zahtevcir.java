@@ -1,5 +1,5 @@
 
-package model;
+package rs.uns.ftn.xml.tim11.poc.zahtev.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,13 +8,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import java.util.List;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -31,38 +32,38 @@ import javax.xml.bind.annotation.XmlType;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
  *         &lt;element name="naslov" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="sadrzaj" type="{http://zahtevcir}CTSadrzaj"/&gt;
+ *         &lt;element name="sadrzaj" type="{zahtev}CTSadrzaj"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "primalac",
-    "naslov",
-    "sadrzaj"
+        "primalac",
+        "naslov",
+        "sadrzaj"
 })
-@XmlRootElement(name = "zahtevcir", namespace = "http://zahtevcir")
+@XmlRootElement(name = "Zahtevcir", namespace = "zahtev")
 public class Zahtevcir {
 
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected Zahtevcir.Primalac primalac;
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected String naslov;
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected CTSadrzaj sadrzaj;
 
     /**
      * Gets the value of the primalac property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link Zahtevcir.Primalac }
-     *     
+     *
      */
     public Zahtevcir.Primalac getPrimalac() {
         return primalac;
@@ -70,11 +71,11 @@ public class Zahtevcir {
 
     /**
      * Sets the value of the primalac property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link Zahtevcir.Primalac }
-     *     
+     *
      */
     public void setPrimalac(Zahtevcir.Primalac value) {
         this.primalac = value;
@@ -82,11 +83,11 @@ public class Zahtevcir {
 
     /**
      * Gets the value of the naslov property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getNaslov() {
         return naslov;
@@ -94,11 +95,11 @@ public class Zahtevcir {
 
     /**
      * Sets the value of the naslov property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setNaslov(String value) {
         this.naslov = value;
@@ -106,11 +107,11 @@ public class Zahtevcir {
 
     /**
      * Gets the value of the sadrzaj property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link CTSadrzaj }
-     *     
+     *
      */
     public CTSadrzaj getSadrzaj() {
         return sadrzaj;
@@ -118,11 +119,11 @@ public class Zahtevcir {
 
     /**
      * Sets the value of the sadrzaj property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link CTSadrzaj }
-     *     
+     *
      */
     public void setSadrzaj(CTSadrzaj value) {
         this.sadrzaj = value;
@@ -131,9 +132,9 @@ public class Zahtevcir {
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -144,8 +145,8 @@ public class Zahtevcir {
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
+     *
+     *
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
@@ -160,11 +161,11 @@ public class Zahtevcir {
 
         /**
          * Gets the value of the naziv property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getNaziv() {
             return naziv;
@@ -172,11 +173,11 @@ public class Zahtevcir {
 
         /**
          * Sets the value of the naziv property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setNaziv(String value) {
             this.naziv = value;
@@ -184,11 +185,11 @@ public class Zahtevcir {
 
         /**
          * Gets the value of the adresa property.
-         * 
+         *
          * @return
          *     possible object is
          *     {@link String }
-         *     
+         *
          */
         public String getAdresa() {
             return adresa;
@@ -196,16 +197,33 @@ public class Zahtevcir {
 
         /**
          * Sets the value of the adresa property.
-         * 
+         *
          * @param value
          *     allowed object is
          *     {@link String }
-         *     
+         *
          */
         public void setAdresa(String value) {
             this.adresa = value;
         }
-
     }
-
+    @Override
+    public String toString(){
+        return "Podaci o zahtevu: \n" +
+                "\t" + getNaslov() + "\n" +
+                "\tNa osnovu clana " + getSadrzaj().paragraf1.clan + " stav " +
+                getSadrzaj().getParagraf1().stav + "\n\t" + getSadrzaj().paragraf1.zakon + "\n\t(" +
+                getSadrzaj().paragraf1.sluzbeniGlasnik.naziv + ", br. " + this.brojeviToString() + ")";
+    }
+    public String brojeviToString(){
+        List<String> brojevi = getSadrzaj().getParagraf1()
+                    .getSluzbeniGlasnik()
+                    .getBrojevi()
+                    .getBroj();
+        String retVal = "";
+        for (String broj: brojevi) {
+            retVal += broj + ", ";
+        }
+        return retVal;
+    }
 }

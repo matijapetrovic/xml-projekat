@@ -1,5 +1,6 @@
 
-package model;
+package rs.uns.ftn.xml.tim11.poc.zahtev.model;
+
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,9 +10,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for CTTrazilacInformacija complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="CTTrazilacInformacija"&gt;
  *   &lt;complexContent&gt;
@@ -38,34 +39,34 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTTrazilacInformacija", namespace = "http://zahtevcir", propOrder = {
-    "ime",
-    "prezime",
-    "adresa",
-    "kontakt"
+@XmlType(name = "CTTrazilacInformacija", namespace = "zahtev", propOrder = {
+        "ime",
+        "prezime",
+        "adresa",
+        "kontakt"
 })
 public class CTTrazilacInformacija {
 
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected String ime;
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected String prezime;
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected String adresa;
-    @XmlElement(namespace = "http://zahtevcir", required = true)
+    @XmlElement(namespace = "zahtev", required = true)
     protected String kontakt;
 
     /**
      * Gets the value of the ime property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getIme() {
         return ime;
@@ -73,11 +74,11 @@ public class CTTrazilacInformacija {
 
     /**
      * Sets the value of the ime property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setIme(String value) {
         this.ime = value;
@@ -85,11 +86,11 @@ public class CTTrazilacInformacija {
 
     /**
      * Gets the value of the prezime property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getPrezime() {
         return prezime;
@@ -97,11 +98,11 @@ public class CTTrazilacInformacija {
 
     /**
      * Sets the value of the prezime property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setPrezime(String value) {
         this.prezime = value;
@@ -109,11 +110,11 @@ public class CTTrazilacInformacija {
 
     /**
      * Gets the value of the adresa property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getAdresa() {
         return adresa;
@@ -121,11 +122,11 @@ public class CTTrazilacInformacija {
 
     /**
      * Sets the value of the adresa property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setAdresa(String value) {
         this.adresa = value;
@@ -133,11 +134,11 @@ public class CTTrazilacInformacija {
 
     /**
      * Gets the value of the kontakt property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getKontakt() {
         return kontakt;
@@ -145,11 +146,11 @@ public class CTTrazilacInformacija {
 
     /**
      * Sets the value of the kontakt property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setKontakt(String value) {
         this.kontakt = value;

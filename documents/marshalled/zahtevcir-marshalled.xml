@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Zahtevcir xmlns="zahtev">
+    <primalac naziv="FTN" adresa="Novi Sad"/>
+    <naslov>ZAHTEV za pristup informacijama od javnog znacaja</naslov>
+    <sadrzaj>
+        <paragraf1>
+            <clan>15</clan>
+            <stav>1</stav>
+            <zakon>Zakon o slobodnom pristupu informacijama od javnog značaja</zakon>
+            <sluzbeniGlasnik>
+                <naziv>Sluzbeni glasnik Republike Srbije</naziv>
+                <brojevi>
+                    <broj>120/04</broj>
+                    <broj>54/07</broj>
+                    <broj>104/09</broj>
+                    <broj>36/10</broj>
+                </brojevi>
+            </sluzbeniGlasnik>
+        </paragraf1>
+        <zahtevi>
+            <Uvid xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:za="zahtev"/>
+            <DostavljanjeKopije>
+                <CTNacinDostave>
+                    <posta xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:za="zahtev">
+					</posta>
+                </CTNacinDostave>
+            </DostavljanjeKopije>
+            <informacije>Zahtevane informacije</informacije>
+        </zahtevi>
+        <ostaliPodaci>
+            <mesto>Novi Sad</mesto>
+            <datum>2006-05-04</datum>
+            <trazilacInformacija>
+                <ime>Trazilac</ime>
+                <prezime>Trazilac</prezime>
+                <adresa>Alekse Santica 11, Novi Sad</adresa>
+                <kontakt>789456487</kontakt>
+            </trazilacInformacija>
+        </ostaliPodaci>
+    </sadrzaj>
+</Zahtevcir>

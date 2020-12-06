@@ -2,6 +2,7 @@ package rs.uns.ftn.xml.tim11.poc;
 
 import org.xml.sax.SAXException;
 import rs.uns.ftn.xml.tim11.poc.obavestenje.model.Obavestenje;
+import rs.uns.ftn.xml.tim11.poc.zahtev.model.Zahtevcir;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
@@ -38,5 +39,10 @@ public class JAXBMarshaller<T> {
         marshaller.marshal(obavestenje, new FileOutputStream(outputFile));
     }
 
+    public void marshall(Zahtevcir zahtev, File outputFile) throws JAXBException, FileNotFoundException {
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.marshal(zahtev, new FileOutputStream(outputFile));
+    }
 
 }
