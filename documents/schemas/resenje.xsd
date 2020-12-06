@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+    targetNamespace="resenje" xmlns:re="resenje"
+    vc:minVersion="1.1">
+    <xs:element name="resenje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="BrojResenja">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d{3}-\d{2}-\d{4}/\d{4}-\d{2}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="DatumResenja" type="xs:date"/>
+                <xs:element name="Uvod" type="re:CTUvod"/>
+                <xs:element name="Sadrzaj" type="re:CTSadrzaj"/>
+                <xs:element name="Obrazlozenje" type="re:CTObrazlozenje"/>
+                <xs:element name="Poverenik" type="re:CTPoverenik"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="CTUvod" mixed="true">
+        <xs:choice>
+            <xs:element name="DatumZalbe" type="xs:date"/>
+            <xs:element name="OrganVlasti" type="xs:string"/>
+            <xs:element  minOccurs = "0" maxOccurs="unbounded" name="PozivNaZakon" type="re:CTPozivNaZakon"/>
+        </xs:choice>
+    </xs:complexType>
+    
+    <xs:complexType name="CTPozivNaZakon">
+        <xs:sequence>
+            <xs:element minOccurs = "1" maxOccurs="unbounded" name="Clan" type="xs:positiveInteger"/>
+            <xs:element minOccurs = "0" maxOccurs="1" name="Stav" type="xs:positiveInteger"/>
+            <xs:element minOccurs = "0" maxOccurs="1" name="Tacka" type="xs:positiveInteger"/>
+            <xs:element name="NazivZakona" type="xs:string"/>
+            <xs:element name="BrojeviSluzbenogGlasnika">
+              <xs:complexType>
+                  <xs:sequence>
+                      <xs:element maxOccurs="unbounded" name="Broj">
+                          <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                  <xs:pattern value="[1-9][0-9]*/[0-9]{2}"></xs:pattern>
+                              </xs:restriction>
+                          </xs:simpleType>
+                      </xs:element>
+                  </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTSadrzaj">
+        <xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+    <xs:complexType name="CTObrazlozenje">
+        <xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTPoverenik">
+        <xs:sequence>
+            <xs:element name="Ime" type="xs:string"/>
+            <xs:element name="Prezime" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>
