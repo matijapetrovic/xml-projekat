@@ -209,11 +209,20 @@ public class Zahtevcir {
     }
     @Override
     public String toString(){
-        return "Podaci o zahtevu: \n" +
-                "\t" + getNaslov() + "\n" +
-                "\tNa osnovu clana " + getSadrzaj().paragraf1.clan + " stav " +
+        return "Podaci o zahtevu: \n\t"
+                + getNaslov()
+                + "\n\tNa osnovu clana " + getSadrzaj().paragraf1.clan + " stav " +
                 getSadrzaj().getParagraf1().stav + "\n\t" + getSadrzaj().paragraf1.zakon + "\n\t(" +
-                getSadrzaj().paragraf1.sluzbeniGlasnik.naziv + ", br. " + this.brojeviToString() + ")";
+                getSadrzaj().paragraf1.sluzbeniGlasnik.naziv + ", br. " + this.brojeviToString() + ")" +
+                "\n\tod gore navedenog zahtevam:\n" +
+                this.ispisZahteva() +
+                this.ispisDostave() +
+                "\t\tOvaj zahtev se odnosi na sledece informacije: \n\t\t\t-" +
+                getSadrzaj().getZahtevi().getInformacije() +
+                "\n\tOstali podaci: \n\tU " + getSadrzaj().getOstaliPodaci().mesto +
+                "\n\tdana " + getSadrzaj().getOstaliPodaci().datum +
+                this.ispisTrazioca();
+
     }
     public String brojeviToString(){
         List<String> brojevi = getSadrzaj().getParagraf1()
@@ -225,5 +234,40 @@ public class Zahtevcir {
             retVal += broj + ", ";
         }
         return retVal;
+    }
+
+    public String ispisZahteva(){
+        String retVal = "";
+        if(getSadrzaj().getZahtevi().obavestenje != null)
+            retVal += "\t\tObavestenje da li poseduje trazenu informaciju\n";
+        if(getSadrzaj().getZahtevi().getUvid() != null)
+            retVal += "\t\tUvid u dokument koji sadrzi trazenu informaciju\n";
+        if(getSadrzaj().getZahtevi().getKopija() != null)
+            retVal += "\t\tKopiju dokumenata koji sadrzi trazenu informaciju\n";
+        if(getSadrzaj().getZahtevi().getDostavljanjeKopije() != null)
+            retVal += "\t\tDostavljanje kopije dokumenta koji sadrzi trazenu infomaciju:\n";
+        return retVal;
+    }
+
+    public String ispisDostave(){
+        String retVal = "";
+        if(getSadrzaj().getZahtevi().getDostavljanjeKopije().getCTNacinDostave().posta != null)
+            retVal += "\t\t\t-postom\n";
+        if(getSadrzaj().getZahtevi().getDostavljanjeKopije().getCTNacinDostave().elektronskaPosta != null)
+            retVal += "\t\t\t-elektronskom postom\n";
+        if(getSadrzaj().getZahtevi().getDostavljanjeKopije().getCTNacinDostave().faks != null)
+            retVal += "\t\t\t-faksom\n";
+        if(getSadrzaj().getZahtevi().getDostavljanjeKopije().getCTNacinDostave().drugo != null) {
+            retVal += "\t\t\t-na drugi nacin: " +
+                    getSadrzaj().getZahtevi().getDostavljanjeKopije().getCTNacinDostave().drugo.opis;
+        }
+        return retVal;
+    }
+    public String ispisTrazioca(){
+        return "\n\t\tTrazilac informacija: "
+                + getSadrzaj().getOstaliPodaci().getTrazilacInformacija().getIme() + " "
+                + getSadrzaj().getOstaliPodaci().getTrazilacInformacija().getPrezime()
+                + ", " + getSadrzaj().getOstaliPodaci().getTrazilacInformacija().getAdresa()
+                + ", kontakt: " + getSadrzaj().getOstaliPodaci().getTrazilacInformacija().getKontakt();
     }
 }
