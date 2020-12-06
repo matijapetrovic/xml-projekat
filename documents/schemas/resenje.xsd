@@ -23,11 +23,11 @@
     </xs:element>
     
     <xs:complexType name="CTUvod" mixed="true">
-        <xs:choice>
+        <xs:sequence>
             <xs:element name="DatumZalbe" type="xs:date"/>
             <xs:element name="OrganVlasti" type="xs:string"/>
             <xs:element  minOccurs = "0" maxOccurs="unbounded" name="PozivNaZakon" type="re:CTPozivNaZakon"/>
-        </xs:choice>
+        </xs:sequence>
     </xs:complexType>
     
     <xs:complexType name="CTPozivNaZakon">
@@ -54,12 +54,23 @@
     
     <xs:complexType name="CTSadrzaj">
         <xs:sequence>
+            <xs:element name="OrganVlasti" type="xs:string"/>
+            <xs:element name="Ishod" type="xs:string"></xs:element>
         </xs:sequence>
     </xs:complexType>
     
     
     <xs:complexType name="CTObrazlozenje">
         <xs:sequence>
+            <xs:element name="Paragraf1" type="re:CTParagraf1"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTParagraf1">
+        <xs:sequence>
+            <xs:element name="DatumIzjave" type="xs:date"></xs:element>
+            <xs:element name="OrganVlasti" type="xs:string"></xs:element>
+            <xs:element name="DatumPotrazivanjaInformacija" type="xs:date"></xs:element>
         </xs:sequence>
     </xs:complexType>
     
