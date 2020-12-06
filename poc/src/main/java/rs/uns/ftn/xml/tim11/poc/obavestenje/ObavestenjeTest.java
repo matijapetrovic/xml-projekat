@@ -29,8 +29,12 @@ public class ObavestenjeTest {
     private void tryTest() throws JAXBException, SAXException, FileNotFoundException {
         JAXBContext context = JAXBContext.newInstance("rs.uns.ftn.xml.tim11.poc.obavestenje.model");
         JAXBMarshaller<Obavestenje> marshaller = new JAXBMarshaller<>(context);
+        System.out.printf("READING...\nSCHEMA: %s\nXML FILE: %s\n", schemaFile, xmlFile);
         Obavestenje obavestenje = marshaller.unmarshall(new File(schemaFile), new File(xmlFile));
+        System.out.println("PRINTING...");
         System.out.println(obavestenje);
+
+        System.out.printf("WRITING... \nOUTPUT FILE: %s", outputFile);
         marshaller.marshall(obavestenje, new File(outputFile));
     }
 }

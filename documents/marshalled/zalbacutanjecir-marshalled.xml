@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<zalba xmlns="zalbacutanje"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="zalbacutanje file:/C:/Users/nikol/Desktop/XML%20project/xml-projekat/documents/schemas/zalbacutanjecir.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zalba xmlns="zalbacutanje">
     <primalac>
         <Adresa>
             <Ulica>Ulica0</Ulica>

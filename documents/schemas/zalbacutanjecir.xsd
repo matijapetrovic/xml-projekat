@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    attributeFormDefault="unqualified" targetNamespace="http:/www.google.com/zalbacutanjecir"
-    xmlns:zlb="http:/www.google.com/zalbacutanjecir">
+    attributeFormDefault="unqualified" targetNamespace="zalbacutanje" xmlns:zlb="zalbacutanje">
 
     <xs:element name="zalba">
         <xs:complexType>
@@ -9,46 +8,17 @@
                 <xs:element name="primalac">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="adresaPrimaoca">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="mesto">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                  <xs:minLength value="2"/>
-                                                  <xs:maxLength value="200"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
-                                        <xs:element name="ulica">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                  <xs:minLength value="5"/>
-                                                  <xs:maxLength value="500"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
-                                        <xs:element name="broj">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:int">
-                                                  <xs:minInclusive value="1"/>
-                                                  <xs:maxInclusive value="2000"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
+                            <xs:element name="Adresa" type="zlb:CTAdresa"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="sadrzaj">
+                <xs:element name="Sadrzaj">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="paragraf1">
+                            <xs:element name="ZaglavljeZalbe">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="clan">
+                                        <xs:element name="Clan">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:int">
                                                   <xs:minInclusive value="0"/>
@@ -56,7 +26,7 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="zakon">
+                                        <xs:element name="Zakon">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                   <xs:minLength value="10"/>
@@ -64,7 +34,7 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="predmetSlanja">
+                                        <xs:element name="PredmetSlanja">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                   <xs:minLength value="5"/>
@@ -72,7 +42,7 @@
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                        <xs:element name="nazivOrgana">
+                                        <xs:element name="NazivOrgana">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
                                                   <xs:minLength value="3"/>
@@ -83,57 +53,46 @@
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="paragraf2">
+                            <xs:element name="RazlogSlanja">
+                                <xs:complexType>
+                                    <xs:choice>
+                                        <xs:element name="NijePostupio" type="xs:string"/>
+                                        <xs:element name="NijePostupioUCelosti" type="xs:string"/>
+                                        <xs:element name="UZakonsomRoku" type="xs:string"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="PodaciOZahtevu">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="razlogSlanja">
+                                        <xs:element name="Godina">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:int">
+                                                  <xs:minInclusive value="1900"/>
+                                                  <xs:maxInclusive value="2020"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="PodaciOZahtevuIInformacijama"
+                                            type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Zakljucak">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Predlog">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:string">
-                                                  <xs:minLength value="10"/>
+                                                  <xs:minLength value="0"/>
                                                   <xs:maxLength value="200"/>
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:element>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="paragraf3">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="godina"/>
-                                        <xs:element name="podaciOZahtevuIInformacijama"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="paragraf4">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="zakljucak">
+                                        <xs:element name="Dokaz">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                  <xs:element name="predlog">
-                                                  <xs:simpleType>
-                                                  <xs:restriction base="xs:string">
-                                                  <xs:minLength value="0"/>
-                                                  <xs:maxLength value="200"/>
-                                                  </xs:restriction>
-                                                  </xs:simpleType>
-                                                  </xs:element>
-                                                  <xs:element name="dokaz">
-                                                  <xs:complexType>
-                                                  <xs:sequence>
-                                                  <xs:element name="opis">
-                                                  <xs:simpleType>
-                                                  <xs:restriction base="xs:string">
-                                                  <xs:minLength value="0"/>
-                                                  <xs:maxLength value="200"/>
-                                                  </xs:restriction>
-                                                  </xs:simpleType>
-                                                  </xs:element>
-                                                  </xs:sequence>
-                                                  </xs:complexType>
-                                                  </xs:element>
-                                                  <xs:element name="napomena">
+                                                  <xs:element name="Opis">
                                                   <xs:simpleType>
                                                   <xs:restriction base="xs:string">
                                                   <xs:minLength value="0"/>
@@ -144,45 +103,31 @@
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
+                                        <xs:element name="Napomena">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                  <xs:minLength value="0"/>
+                                                  <xs:maxLength value="200"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="podnosilacZalbe">
+                <xs:element name="PodnosilacZalbe">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="naziv">
+                            <xs:element name="Naziv">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="ime">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                  <xs:minLength value="3"/>
-                                                  <xs:maxLength value="20"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
-                                        <xs:element name="prezime">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:string">
-                                                  <xs:minLength value="3"/>
-                                                  <xs:maxLength value="50"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
+                                        <xs:element name="ImePosiljaoca" type="zlb:CTAutor"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="adresa">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:string">
-                                        <xs:minLength value="2"/>
-                                        <xs:maxLength value="100"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
+                            <xs:element name="Adresa" type="zlb:CTAdresa"/>
                             <xs:element name="drugiPodaci">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
@@ -191,7 +136,7 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="potpis">
+                            <xs:element name="Potpis">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:minLength value="1"/>
@@ -205,7 +150,7 @@
                 <xs:element name="podaciOPodnosenjuZahteva">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="mesto">
+                            <xs:element name="Mesto">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:string">
                                         <xs:minLength value="2"/>
@@ -213,7 +158,7 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="dan">
+                            <xs:element name="Dan">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:int">
                                         <xs:minInclusive value="1"/>
@@ -221,7 +166,7 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="godina">
+                            <xs:element name="Godina">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:int">
                                         <xs:minInclusive value="1900"/>
@@ -235,4 +180,33 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:complexType name="CTAutor">
+        <xs:sequence>
+            <xs:element name="Ime">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="3"/>
+                        <xs:maxLength value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Prezime">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="3"/>
+                        <xs:maxLength value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CTAdresa">
+        <xs:sequence>
+            <xs:element name="Ulica" type="xs:string"/>
+            <xs:element name="Broj" type="xs:string"/>
+            <xs:element name="Grad" type="xs:string"/>
+            <xs:element name="Drzava" type="xs:string"/>
+            <xs:element name="PostanskiBroj" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>

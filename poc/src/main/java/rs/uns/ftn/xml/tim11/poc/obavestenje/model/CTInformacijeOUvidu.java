@@ -207,4 +207,14 @@ public class CTInformacijeOUvidu {
         this.brojKancelarije = value;
     }
 
+    @Override
+    public String toString() {
+        return "Podaci o uvidu: \n" +
+                "\tDatum: " + getDatum() +
+                "\n\tSatnica: " + getSatnica() +
+                "\n\tSatnica Od: " + getSatnicaOd() +
+                "\n\tSatnica Do: " +getSatnicaDo() +
+                "\n\t" + getAdresa() +
+                "\tBroj kancelarije: " + getBrojKancelarije() + "\n";
+    }
 }

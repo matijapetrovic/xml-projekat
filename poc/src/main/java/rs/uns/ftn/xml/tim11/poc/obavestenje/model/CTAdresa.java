@@ -118,4 +118,12 @@ public class CTAdresa {
         this.broj = value;
     }
 
+
+    @Override
+    public String toString() {
+        return "Adresa: \n" +
+                "\t\tMesto: " + getMesto() +
+                "\n\t\tUlica: " + getUlica() +
+                "\n\t\tBroj: " + getBroj() + "\n";
+    }
 }

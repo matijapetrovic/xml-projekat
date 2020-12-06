@@ -3,12 +3,14 @@ package rs.uns.ftn.xml.tim11.poc;
 import org.xml.sax.SAXException;
 import rs.uns.ftn.xml.tim11.poc.obavestenje.model.Obavestenje;
 import rs.uns.ftn.xml.tim11.poc.zahtev.model.Zahtevcir;
+import rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import java.io.File;
@@ -29,7 +31,6 @@ public class JAXBMarshaller<T> {
         Schema schema = schemaFactory.newSchema(schemaFile);
 
         unmarshaller.setSchema(schema);
-
         return (T) unmarshaller.unmarshal(xmlFile);
     }
 
@@ -45,4 +46,9 @@ public class JAXBMarshaller<T> {
         marshaller.marshal(zahtev, new FileOutputStream(outputFile));
     }
 
+    public void marshall(Zalba zalba, File outputFile) throws JAXBException, FileNotFoundException {
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.marshal(zalba, new FileOutputStream(outputFile));
+    }
 }

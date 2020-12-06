@@ -298,17 +298,16 @@ public class Obavestenje {
     @Override
     public String toString() {
 
-        return "Podaci o obavestenju: \n" +
+        return "Podaci o obavestenju: \n\n" +
                 "Broj predmeta: " + getBrojPredmeta() + "\n" +
                 "Primerak dostavljen: " + getDostavljeno() + "\n" +
-                "Datum kreiranja obavestenja: " + getDatum() + "\n" +
-                "\t" + getOrgan() + "\n" +
-                "\t" + getPodnosiocZahteva() + "\n" +
-                "\t" + getTrazenaInformacija() + "\n" +
-                "\t" + getInformacijeOUvidu() + "\n" +
-                "\t" + getTroskovi() + "\n" +
-                "\t" + getInformacijeOUplati() + "\n" +
-                "\t" + getDostavljeno() + "\n";
+                "Datum kreiranja obavestenja: " + getDatum() + "\n\n" +
+                getOrgan() + "\n" +
+                getPodnosiocZahteva() + "\n" +
+                getTrazenaInformacija() + "\n" +
+                getInformacijeOUvidu() + "\n" +
+                getTroskovi() + "\n" +
+                getInformacijeOUplati() + "\n";
     }
 
 }
