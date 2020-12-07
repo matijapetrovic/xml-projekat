@@ -272,6 +272,11 @@ public class CTParagraf1 {
             this.brojevi = value;
         }
 
+        @Override
+        public String toString() {
+            return  "\n\t\t\tNaziv: " + naziv
+                    +"\n\t\t\tBrojevi: " + brojevi;
+        }
 
         /**
          * <p>Java class for anonymous complex type.
@@ -336,8 +341,24 @@ public class CTParagraf1 {
                 return this.broj;
             }
 
+            @Override
+            public String toString() {
+                String retVal = "";
+                for (String broj: broj) {
+                    retVal += broj + ", ";
+                }
+                return retVal;
+            }
         }
 
     }
 
+    @Override
+    public String toString() {
+        return
+                "\n\t\tClan: " + clan +
+                "\n\t\tStav: " + stav +
+                "\n\t\tZakon: " + zakon +
+                "\n\t\tSluzbeni glasnik:" +sluzbeniGlasnik;
+    }
 }

@@ -221,4 +221,20 @@ public class CTNacinDostave {
 
     }
 
+    @Override
+    public String toString() {
+
+        String retVal = "";
+        if(getPosta() != null)
+            retVal += "\n\t\t\t\t\t-postom\n";
+        if(getElektronskaPosta() != null)
+            retVal += "\n\t\t\t\t\t-elektronskom postom\n";
+        if(getFaks() != null)
+            retVal += "\n\t\t\t\t\t-faksom\n";
+        if(getDrugo() != null) {
+            retVal += "\n\t\t\t\t\t-na drugi nacin: " + getDrugo().getOpis();
+        }
+        return retVal;
+
+    }
 }

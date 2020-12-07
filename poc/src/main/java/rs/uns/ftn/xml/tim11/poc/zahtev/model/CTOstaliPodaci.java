@@ -123,4 +123,11 @@ public class CTOstaliPodaci {
         this.trazilacInformacija = value;
     }
 
+    @Override
+    public String toString() {
+        return "\n\t\tOstali podaci" +
+                "\n\t\t\tMesto " + mesto +
+                "\n\t\t\tDatum " + datum +
+                "\n\t\t\tTrazilacInformacija:" + trazilacInformacija;
+    }
 }

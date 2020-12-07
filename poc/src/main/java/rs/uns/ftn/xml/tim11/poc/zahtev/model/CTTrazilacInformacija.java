@@ -156,4 +156,11 @@ public class CTTrazilacInformacija {
         this.kontakt = value;
     }
 
+    @Override
+    public String toString() {
+        return  "\n\t\t\t\tIme: " + ime + " " +
+                "\n\t\t\t\tPrezime: "+ prezime +
+                "\n\t\t\t\tAdresa: "+ adresa +
+                "\n\t\t\t\tKontakt: " + kontakt;
+    }
 }

@@ -233,6 +233,25 @@ public class CTZahtevi {
             this.ctNacinDostave = value;
         }
 
+        @Override
+        public String toString() {
+            return "\n\t\t\t\tNacin dostave: " + ctNacinDostave;
+        }
     }
 
+    @Override
+    public String toString() {
+        String retVal = "\n\t\tZahtevi:";
+        if(getObavestenje() != null)
+            retVal += "\n\t\t\tObavestenje da li poseduje trazenu informaciju";
+        if(getUvid() != null)
+            retVal += "\n\t\t\tUvid u dokument koji sadrzi trazenu informaciju";
+        if(getKopija() != null)
+            retVal += "\n\t\t\tKopiju dokumenata koji sadrzi trazenu informaciju";
+        if(getDostavljanjeKopije() != null) {
+            retVal += "\n\t\t\tDostavljanje kopije dokumenta koji sadrzi trazenu infomaciju:"
+                    + getDostavljanjeKopije();
+        }
+        return retVal;
+    }
 }
