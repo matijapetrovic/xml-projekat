@@ -2,6 +2,7 @@ package rs.uns.ftn.xml.tim11.poc;
 
 import org.xml.sax.SAXException;
 import rs.uns.ftn.xml.tim11.poc.obavestenje.model.Obavestenje;
+import rs.uns.ftn.xml.tim11.poc.resenje.model.Resenje;
 import rs.uns.ftn.xml.tim11.poc.zahtev.model.Zahtevcir;
 import rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba;
 
@@ -34,21 +35,9 @@ public class JAXBMarshaller<T> {
         return (T) unmarshaller.unmarshal(xmlFile);
     }
 
-    public void marshall(Obavestenje obavestenje, File outputFile) throws JAXBException, FileNotFoundException {
+    public void marshall(T t, File outputFile) throws JAXBException, FileNotFoundException {
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        marshaller.marshal(obavestenje, new FileOutputStream(outputFile));
-    }
-
-    public void marshall(Zahtevcir zahtev, File outputFile) throws JAXBException, FileNotFoundException {
-        Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        marshaller.marshal(zahtev, new FileOutputStream(outputFile));
-    }
-
-    public void marshall(Zalba zalba, File outputFile) throws JAXBException, FileNotFoundException {
-        Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        marshaller.marshal(zalba, new FileOutputStream(outputFile));
+        marshaller.marshal(t, new FileOutputStream(outputFile));
     }
 }

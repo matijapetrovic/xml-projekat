@@ -15,7 +15,7 @@
                 </xs:element>
                 <xs:element name="DatumResenja" type="xs:date"/>
                 <xs:element name="Uvod" type="re:CTUvod"/>
-                <xs:element name="Sadrzaj" type="re:CTSadrzaj"/>
+                <xs:element name="Sadrzaj" type="re:CTResenje"/>
                 <xs:element name="Obrazlozenje" type="re:CTObrazlozenje"/>
                 <xs:element name="Poverenik" type="re:CTPoverenik"/>
             </xs:sequence>
@@ -32,10 +32,7 @@
     
     <xs:complexType name="CTPozivNaZakon">
         <xs:sequence>
-            <xs:element minOccurs = "1" maxOccurs="unbounded" name="Clan" type="xs:positiveInteger"/>
-            <xs:element minOccurs = "0" maxOccurs="1" name="Stav" type="xs:positiveInteger"/>
-            <xs:element minOccurs = "0" maxOccurs="1" name="Tacka" type="xs:positiveInteger"/>
-            <xs:element name="NazivZakona" type="xs:string"/>
+            <xs:element name="Zakon" type="re:CTZakon"></xs:element>
             <xs:element name="BrojeviSluzbenogGlasnika">
               <xs:complexType>
                   <xs:sequence>
@@ -52,25 +49,53 @@
         </xs:sequence>
     </xs:complexType>
     
-    <xs:complexType name="CTSadrzaj">
+    <xs:complexType name="CTZakon">
+        <xs:sequence>
+            <xs:element minOccurs = "1" maxOccurs="unbounded" name="Clan" type="xs:positiveInteger"/>
+            <xs:element minOccurs = "0" maxOccurs="1" name="Stav" type="xs:positiveInteger"/>
+            <xs:element minOccurs = "0" maxOccurs="1" name="Tacka" type="xs:positiveInteger"/>
+            <xs:element name="NazivZakona" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTResenje">
         <xs:sequence>
             <xs:element name="OrganVlasti" type="xs:string"/>
+            <xs:element ref="re:CTUstanova"></xs:element>
             <xs:element name="Ishod" type="xs:string"></xs:element>
         </xs:sequence>
     </xs:complexType>
-    
-    
+   
     <xs:complexType name="CTObrazlozenje">
         <xs:sequence>
-            <xs:element name="Paragraf1" type="re:CTParagraf1"></xs:element>
+            <xs:element name="PredmetZalbe" type="re:CTPredmetZalbe"></xs:element>
+            <xs:element name="Postupak" type="re:CTPostupak"></xs:element>
+            <xs:element name="Odluka" type="re:CTOdluka"></xs:element>
         </xs:sequence>
     </xs:complexType>
     
-    <xs:complexType name="CTParagraf1">
+    <xs:complexType name="CTPredmetZalbe">
         <xs:sequence>
             <xs:element name="DatumIzjave" type="xs:date"></xs:element>
             <xs:element name="OrganVlasti" type="xs:string"></xs:element>
             <xs:element name="DatumPotrazivanjaInformacija" type="xs:date"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTPostupak">
+        <xs:sequence>
+            <xs:element name="DatumPostupka" type="xs:date"></xs:element>
+            <xs:element ref="re:CTUstanova"></xs:element>
+            <xs:element name="Zakon" type="re:CTZakon"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTOdluka">
+        <xs:sequence>
+            <xs:element name="Zakon" type="re:CTZakon"></xs:element>
+            <xs:element name="Lice" type="xs:string"></xs:element>
+            <xs:element name="Mesto" type="xs:string"></xs:element>
+            <xs:element name="Iznos" type="xs:positiveInteger"></xs:element>
         </xs:sequence>
     </xs:complexType>
     
@@ -81,4 +106,12 @@
         </xs:sequence>
     </xs:complexType>
     
+    <xs:element name="CTUstanova">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naziv" type="xs:string"></xs:element>
+                <xs:element name="Adresa" type="xs:string"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
