@@ -19,7 +19,7 @@ public class ZalbaCutanjeXmlRepository extends XmlRepository<Zalba>{
 
     @Override
     protected String contextPath() {
-        return "rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalba";
+        return "rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba";
     }
 
     @Override

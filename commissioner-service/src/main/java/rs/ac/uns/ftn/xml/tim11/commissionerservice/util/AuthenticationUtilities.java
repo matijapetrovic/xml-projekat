@@ -16,15 +16,22 @@ public class AuthenticationUtilities {
      */
     static public class ConnectionProperties {
 
+        public String endpoint;
+        public String dataset;
+
         public String host;
         public int port = -1;
         public String user;
         public String password;
         public String driver;
         public String uri;
+        public String updateEndpoint;
+        public String dataEndpoint;
 
         public ConnectionProperties(Properties props) {
             super();
+            dataset = props.getProperty("conn.dataset").trim();
+            endpoint = props.getProperty("conn.endpoint").trim();
 
             user = props.getProperty("conn.user").trim();
             password = props.getProperty("conn.password").trim();
@@ -35,6 +42,10 @@ public class AuthenticationUtilities {
             uri = String.format(connectionUri, host, port);
 
             driver = props.getProperty("conn.driver").trim();
+
+            updateEndpoint = String.join("/", endpoint, dataset, props.getProperty("conn.update").trim());
+            dataEndpoint = String.join("/", endpoint, dataset, props.getProperty("conn.data").trim());
+
         }
     }
 
@@ -44,7 +55,7 @@ public class AuthenticationUtilities {
      * @return the configuration object
      */
     public static ConnectionProperties loadProperties() throws IOException {
-        String propsName = "exist.properties";
+        String propsName = "application.properties";
 
         InputStream propsStream = openStream(propsName);
         if (propsStream == null)

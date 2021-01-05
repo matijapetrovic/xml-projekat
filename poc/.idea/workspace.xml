@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f8c55d4a-ef8a-4b95-ba28-ff4343c06071" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1lHHqLnQfeBJbzRLVUEK6Exv9VS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nikol\Desktop\XML project\xml-projekat\poc\src\main\java\rs\uns\ftn\xml\tim11\poc\zalbacutanje\model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nikol\Desktop\XML project\xml-projekat\poc\src\main\java\rs\uns\ftn\xml\tim11\poc\resenje" />
+      <recent name="C:\Users\nikol\Desktop\XML project\xml-projekat\poc\src\main\java\rs\uns\ftn\xml\tim11\poc\zalbacutanje" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ObavestenjeTest">
+    <configuration name="ObavestenjeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rs.uns.ftn.xml.tim11.poc.obavestenje.ObavestenjeTest" />
+      <module name="poc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rs.uns.ftn.xml.tim11.poc.obavestenje.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResenjeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rs.uns.ftn.xml.tim11.poc.resenje.ResenjeTest" />
+      <module name="poc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rs.uns.ftn.xml.tim11.poc.resenje.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZahtevTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rs.uns.ftn.xml.tim11.poc.zahtev.ZahtevTest" />
+      <module name="poc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rs.uns.ftn.xml.tim11.poc.zahtev.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZalbaCutanjeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rs.uns.ftn.xml.tim11.poc.zalbacutanje.ZalbaCutanjeTest" />
+      <module name="poc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rs.uns.ftn.xml.tim11.poc.zalbacutanje.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ObavestenjeTest" />
+        <item itemvalue="Application.ZahtevTest" />
+        <item itemvalue="Application.ZalbaCutanjeTest" />
+        <item itemvalue="Application.ResenjeTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8c55d4a-ef8a-4b95-ba28-ff4343c06071" name="Default Changelist" comment="" />
+      <created>1607247285383</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607247285383</updated>
+      <workItem from="1607247292898" duration="9501000" />
+      <workItem from="1607257476831" duration="950000" />
+      <workItem from="1607363581183" duration="2196000" />
+      <workItem from="1607368755101" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1472" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1607364517788">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1472" y="148" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607364517788" />
+    <state x="358" y="117" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1607248277514" />
+    <state x="530" y="307" width="477" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607256919312">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="530" y="307" width="477" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1607256919312" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1607280019924">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607280019924" />
+    <state width="1877" height="321" key="GridCell.Tab.0.bottom" timestamp="1607365787237">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="321" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607365787237" />
+    <state width="1493" height="309" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607280021416" />
+    <state width="1877" height="321" key="GridCell.Tab.0.center" timestamp="1607365787237">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="321" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607365787237" />
+    <state width="1493" height="309" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607280021416" />
+    <state width="1877" height="321" key="GridCell.Tab.0.left" timestamp="1607365787236">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="321" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607365787236" />
+    <state width="1493" height="309" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607280021416" />
+    <state width="1877" height="321" key="GridCell.Tab.0.right" timestamp="1607365787237">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="321" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607365787237" />
+    <state width="1493" height="309" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607280021416" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1607257432508">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607257432508" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1607257432507">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607257432507" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1607257432507">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607257432507" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1607257432507">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607257432507" />
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog" timestamp="1607250382922">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="299" y="67" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1607250382922" />
+    <state x="-1321" y="186" width="723" height="669" key="find.popup" timestamp="1607364975195">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1321" y="186" width="723" height="669" key="find.popup/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607364975195" />
+    <state x="479" y="147" width="578" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1607250019721" />
+    <state x="251" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607248096004">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="251" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607248096004" />
+  </component>
+</project>

@@ -33,48 +33,48 @@ public class ObjectFactory {
      * Create an instance of {@link Zalba }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba createZalba() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba createZalba() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba();
     }
 
     /**
      * Create an instance of {@link Zalba.PodnosilacZalbe }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodnosilacZalbe createZalbaPodnosilacZalbe() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodnosilacZalbe();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.PodnosilacZalbe createZalbaPodnosilacZalbe() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.PodnosilacZalbe();
     }
 
     /**
      * Create an instance of {@link Zalba.Sadrzaj }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj createZalbaSadrzaj() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj createZalbaSadrzaj() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj();
     }
 
     /**
      * Create an instance of {@link Zalba.Sadrzaj.Zakljucak }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.Zakljucak createZalbaSadrzajZakljucak() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.Zakljucak();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.Zakljucak createZalbaSadrzajZakljucak() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.Zakljucak();
     }
 
     /**
      * Create an instance of {@link Zalba.Primalac }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Primalac createZalbaPrimalac() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Primalac();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Primalac createZalbaPrimalac() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Primalac();
     }
 
     /**
      * Create an instance of {@link Zalba.PodaciOPodnosenjuZahteva }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodaciOPodnosenjuZahteva createZalbaPodaciOPodnosenjuZahteva() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodaciOPodnosenjuZahteva();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.PodaciOPodnosenjuZahteva createZalbaPodaciOPodnosenjuZahteva() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.PodaciOPodnosenjuZahteva();
     }
 
     /**
@@ -97,40 +97,40 @@ public class ObjectFactory {
      * Create an instance of {@link Zalba.PodnosilacZalbe.Naziv }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodnosilacZalbe.Naziv createZalbaPodnosilacZalbeNaziv() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodnosilacZalbe.Naziv();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.PodnosilacZalbe.Naziv createZalbaPodnosilacZalbeNaziv() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.PodnosilacZalbe.Naziv();
     }
 
     /**
      * Create an instance of {@link Zalba.Sadrzaj.ZaglavljeZalbe }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.ZaglavljeZalbe createZalbaSadrzajZaglavljeZalbe() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.ZaglavljeZalbe();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.ZaglavljeZalbe createZalbaSadrzajZaglavljeZalbe() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.ZaglavljeZalbe();
     }
 
     /**
      * Create an instance of {@link Zalba.Sadrzaj.RazlogSlanja }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.RazlogSlanja createZalbaSadrzajRazlogSlanja() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.RazlogSlanja();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.RazlogSlanja createZalbaSadrzajRazlogSlanja() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.RazlogSlanja();
     }
 
     /**
      * Create an instance of {@link Zalba.Sadrzaj.PodaciOZahtevu }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.PodaciOZahtevu createZalbaSadrzajPodaciOZahtevu() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.PodaciOZahtevu();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.PodaciOZahtevu createZalbaSadrzajPodaciOZahtevu() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.PodaciOZahtevu();
     }
 
     /**
      * Create an instance of {@link Zalba.Sadrzaj.Zakljucak.Dokaz }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.Zakljucak.Dokaz createZalbaSadrzajZakljucakDokaz() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.Zakljucak.Dokaz();
+    public rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.Zakljucak.Dokaz createZalbaSadrzajZakljucakDokaz() {
+        return new rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.Zalba.Sadrzaj.Zakljucak.Dokaz();
     }
 
 }

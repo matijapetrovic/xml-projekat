@@ -9,7 +9,7 @@ import org.xmldb.api.modules.CollectionManagementService;
 import java.io.IOException;
 
 public class DbConnection {
-    AuthenticationUtilities.ConnectionProperties connectionProperties;
+    public AuthenticationUtilities.ConnectionProperties connectionProperties;
 
     public DbConnection() throws
             IOException,
