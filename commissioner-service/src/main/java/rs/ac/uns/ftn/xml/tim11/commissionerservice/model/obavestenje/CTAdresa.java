@@ -31,18 +31,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTAdresa", namespace = "obavestenje", propOrder = {
+@XmlType(name = "CTAdresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", propOrder = {
     "mesto",
     "ulica",
     "broj"
 })
 public class CTAdresa {
 
-    @XmlElement(name = "Mesto", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Mesto", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String mesto;
-    @XmlElement(name = "Ulica", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Ulica", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String ulica;
-    @XmlElement(name = "Broj", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Broj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger broj;
 
@@ -118,12 +118,4 @@ public class CTAdresa {
         this.broj = value;
     }
 
-
-    @Override
-    public String toString() {
-        return "Adresa: \n" +
-                "\t\tMesto: " + getMesto() +
-                "\n\t\tUlica: " + getUlica() +
-                "\n\t\tBroj: " + getBroj() + "\n";
-    }
 }

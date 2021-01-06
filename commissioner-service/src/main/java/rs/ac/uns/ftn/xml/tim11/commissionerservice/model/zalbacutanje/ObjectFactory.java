@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the model32 package. 
+ * generated in the rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -23,58 +23,58 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: model32
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link Zalba }
+     * Create an instance of {@link ZalbaCutanje }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba createZalba() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba();
+    public ZalbaCutanje createZalbaCutanje() {
+        return new ZalbaCutanje();
     }
 
     /**
-     * Create an instance of {@link Zalba.PodnosilacZalbe }
+     * Create an instance of {@link ZalbaCutanje.PodnosilacZalbe }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodnosilacZalbe createZalbaPodnosilacZalbe() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodnosilacZalbe();
+    public ZalbaCutanje.PodnosilacZalbe createZalbaCutanjePodnosilacZalbe() {
+        return new ZalbaCutanje.PodnosilacZalbe();
     }
 
     /**
-     * Create an instance of {@link Zalba.Sadrzaj }
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj createZalbaSadrzaj() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj();
+    public ZalbaCutanje.Sadrzaj createZalbaCutanjeSadrzaj() {
+        return new ZalbaCutanje.Sadrzaj();
     }
 
     /**
-     * Create an instance of {@link Zalba.Sadrzaj.Zakljucak }
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.Zakljucak }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.Zakljucak createZalbaSadrzajZakljucak() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.Zakljucak();
+    public ZalbaCutanje.Sadrzaj.Zakljucak createZalbaCutanjeSadrzajZakljucak() {
+        return new ZalbaCutanje.Sadrzaj.Zakljucak();
     }
 
     /**
-     * Create an instance of {@link Zalba.Primalac }
+     * Create an instance of {@link ZalbaCutanje.Primalac }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Primalac createZalbaPrimalac() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Primalac();
+    public ZalbaCutanje.Primalac createZalbaCutanjePrimalac() {
+        return new ZalbaCutanje.Primalac();
     }
 
     /**
-     * Create an instance of {@link Zalba.PodaciOPodnosenjuZahteva }
+     * Create an instance of {@link ZalbaCutanje.PodaciOPodnosenjuZahteva }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodaciOPodnosenjuZahteva createZalbaPodaciOPodnosenjuZahteva() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodaciOPodnosenjuZahteva();
+    public ZalbaCutanje.PodaciOPodnosenjuZahteva createZalbaCutanjePodaciOPodnosenjuZahteva() {
+        return new ZalbaCutanje.PodaciOPodnosenjuZahteva();
     }
 
     /**
@@ -94,43 +94,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Zalba.PodnosilacZalbe.Naziv }
+     * Create an instance of {@link ZalbaCutanje.PodnosilacZalbe.Naziv }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodnosilacZalbe.Naziv createZalbaPodnosilacZalbeNaziv() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.PodnosilacZalbe.Naziv();
+    public ZalbaCutanje.PodnosilacZalbe.Naziv createZalbaCutanjePodnosilacZalbeNaziv() {
+        return new ZalbaCutanje.PodnosilacZalbe.Naziv();
     }
 
     /**
-     * Create an instance of {@link Zalba.Sadrzaj.ZaglavljeZalbe }
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.ZaglavljeZalbe createZalbaSadrzajZaglavljeZalbe() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.ZaglavljeZalbe();
+    public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe createZalbaCutanjeSadrzajZaglavljeZalbe() {
+        return new ZalbaCutanje.Sadrzaj.ZaglavljeZalbe();
     }
 
     /**
-     * Create an instance of {@link Zalba.Sadrzaj.RazlogSlanja }
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.RazlogSlanja }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.RazlogSlanja createZalbaSadrzajRazlogSlanja() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.RazlogSlanja();
+    public ZalbaCutanje.Sadrzaj.RazlogSlanja createZalbaCutanjeSadrzajRazlogSlanja() {
+        return new ZalbaCutanje.Sadrzaj.RazlogSlanja();
     }
 
     /**
-     * Create an instance of {@link Zalba.Sadrzaj.PodaciOZahtevu }
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.PodaciOZahtevu }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.PodaciOZahtevu createZalbaSadrzajPodaciOZahtevu() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.PodaciOZahtevu();
+    public ZalbaCutanje.Sadrzaj.PodaciOZahtevu createZalbaCutanjeSadrzajPodaciOZahtevu() {
+        return new ZalbaCutanje.Sadrzaj.PodaciOZahtevu();
     }
 
     /**
-     * Create an instance of {@link Zalba.Sadrzaj.Zakljucak.Dokaz }
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz }
      * 
      */
-    public rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.Zakljucak.Dokaz createZalbaSadrzajZakljucakDokaz() {
-        return new rs.uns.ftn.xml.tim11.poc.zalbacutanje.model.Zalba.Sadrzaj.Zakljucak.Dokaz();
+    public ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz createZalbaCutanjeSadrzajZakljucakDokaz() {
+        return new ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz();
     }
 
 }

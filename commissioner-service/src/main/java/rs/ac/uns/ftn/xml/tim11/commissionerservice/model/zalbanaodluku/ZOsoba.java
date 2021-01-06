@@ -1,5 +1,5 @@
 
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodlukucir;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -42,15 +42,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ZOsoba", namespace = "zalbaO", propOrder = {
+@XmlType(name = "ZOsoba", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", propOrder = {
     "ime",
     "prezime"
 })
 public class ZOsoba {
 
-    @XmlElement(namespace = "zalbaO", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
     protected String ime;
-    @XmlElement(namespace = "zalbaO", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
     protected String prezime;
 
     /**
@@ -99,12 +99,6 @@ public class ZOsoba {
      */
     public void setPrezime(String value) {
         this.prezime = value;
-    }
-    
-    @Override
-    public String toString() {
-        return "\t\tIme: " + getIme() +
-                "\n\t\t\tPrezime: " + getPrezime();
     }
 
 }

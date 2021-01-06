@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    attributeFormDefault="unqualified" targetNamespace="zalbacutanje" xmlns:zlb="zalbacutanje">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified" 
+    targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje" 
+    xmlns:zlb="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje">
 
-    <xs:element name="zalba">
+    <xs:element name="ZalbaCutanje">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="primalac">
+                <xs:element name="Primalac">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="Adresa" type="zlb:CTAdresa"/>

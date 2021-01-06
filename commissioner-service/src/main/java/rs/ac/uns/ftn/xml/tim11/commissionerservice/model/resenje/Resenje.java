@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,10 +28,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;/simpleType&gt;
  *         &lt;/element&gt;
  *         &lt;element name="DatumResenja" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element name="Uvod" type="{resenje}CTUvod"/&gt;
- *         &lt;element name="Sadrzaj" type="{resenje}CTResenje"/&gt;
- *         &lt;element name="Obrazlozenje" type="{resenje}CTObrazlozenje"/&gt;
- *         &lt;element name="Poverenik" type="{resenje}CTPoverenik"/&gt;
+ *         &lt;element name="Uvod" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUvod"/&gt;
+ *         &lt;element name="Sadrzaj" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTResenje"/&gt;
+ *         &lt;element name="Obrazlozenje" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTObrazlozenje"/&gt;
+ *         &lt;element name="Poverenik" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTPoverenik"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -49,21 +49,21 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "obrazlozenje",
     "poverenik"
 })
-@XmlRootElement(name = "resenje", namespace = "resenje")
+@XmlRootElement(name = "Resenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje")
 public class Resenje {
 
-    @XmlElement(name = "BrojResenja", namespace = "resenje", required = true)
+    @XmlElement(name = "BrojResenja", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String brojResenja;
-    @XmlElement(name = "DatumResenja", namespace = "resenje", required = true)
+    @XmlElement(name = "DatumResenja", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datumResenja;
-    @XmlElement(name = "Uvod", namespace = "resenje", required = true)
+    @XmlElement(name = "Uvod", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTUvod uvod;
-    @XmlElement(name = "Sadrzaj", namespace = "resenje", required = true)
+    @XmlElement(name = "Sadrzaj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTResenje sadrzaj;
-    @XmlElement(name = "Obrazlozenje", namespace = "resenje", required = true)
+    @XmlElement(name = "Obrazlozenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTObrazlozenje obrazlozenje;
-    @XmlElement(name = "Poverenik", namespace = "resenje", required = true)
+    @XmlElement(name = "Poverenik", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTPoverenik poverenik;
 
     /**
@@ -210,14 +210,4 @@ public class Resenje {
         this.poverenik = value;
     }
 
-    @Override
-    public String toString() {
-        return "Resenje: \n" +
-                "\tBroj resenja: " + getBrojResenja() + "\n" +
-                "\tDatum resenja: " + getDatumResenja() + "\n" +
-                "\tUvod: \n" + getUvod() + "\n" +
-                "\tSadrzaj: \n" + getSadrzaj() + "\n" +
-                "\tObrazlozenje: \n" + getObrazlozenje() + "\n" +
-                "\tPoverenik: \n" + getPoverenik();
-    }
 }

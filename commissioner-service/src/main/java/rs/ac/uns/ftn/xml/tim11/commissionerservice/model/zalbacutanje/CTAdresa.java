@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTAdresa", namespace = "zalbacutanje", propOrder = {
+@XmlType(name = "CTAdresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", propOrder = {
     "ulica",
     "broj",
     "grad",
@@ -40,15 +40,15 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CTAdresa {
 
-    @XmlElement(name = "Ulica", namespace = "zalbacutanje", required = true)
+    @XmlElement(name = "Ulica", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected String ulica;
-    @XmlElement(name = "Broj", namespace = "zalbacutanje", required = true)
+    @XmlElement(name = "Broj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected String broj;
-    @XmlElement(name = "Grad", namespace = "zalbacutanje", required = true)
+    @XmlElement(name = "Grad", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected String grad;
-    @XmlElement(name = "Drzava", namespace = "zalbacutanje", required = true)
+    @XmlElement(name = "Drzava", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected String drzava;
-    @XmlElement(name = "PostanskiBroj", namespace = "zalbacutanje", required = true)
+    @XmlElement(name = "PostanskiBroj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected String postanskiBroj;
 
     /**
@@ -171,12 +171,4 @@ public class CTAdresa {
         this.postanskiBroj = value;
     }
 
-    @Override
-    public String toString() {
-        return  "\t\tUlica: " + getUlica() + "\n" +
-                "\t\tBroj: " + getBroj() + "\n" +
-                "\t\tGrad: " + getGrad() + "\n" +
-                "\t\tDrzava: " + getDrzava() + "\n" +
-                "\t\tPostanski broj: " + getPostanskiBroj();
-    }
 }

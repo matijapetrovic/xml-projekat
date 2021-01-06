@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTTroskovi", namespace = "obavestenje", propOrder = {
+@XmlType(name = "CTTroskovi", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", propOrder = {
     "cenaA4",
     "cenaA3",
     "cenaCD",
@@ -47,21 +47,21 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CTTroskovi {
 
-    @XmlElement(name = "CenaA4", namespace = "obavestenje", required = true)
+    @XmlElement(name = "CenaA4", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal cenaA4;
-    @XmlElement(name = "CenaA3", namespace = "obavestenje", required = true)
+    @XmlElement(name = "CenaA3", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal cenaA3;
-    @XmlElement(name = "CenaCD", namespace = "obavestenje", required = true)
+    @XmlElement(name = "CenaCD", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal cenaCD;
-    @XmlElement(name = "CenaDisketa", namespace = "obavestenje", required = true)
+    @XmlElement(name = "CenaDisketa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal cenaDisketa;
-    @XmlElement(name = "CenaDVD", namespace = "obavestenje", required = true)
+    @XmlElement(name = "CenaDVD", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal cenaDVD;
-    @XmlElement(name = "CenaAudioKaseta", namespace = "obavestenje", required = true)
+    @XmlElement(name = "CenaAudioKaseta", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal cenaAudioKaseta;
-    @XmlElement(name = "CenaVideoKaseta", namespace = "obavestenje", required = true)
+    @XmlElement(name = "CenaVideoKaseta", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal cenaVideoKaseta;
-    @XmlElement(name = "CenaEDokument", namespace = "obavestenje", required = true)
+    @XmlElement(name = "CenaEDokument", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal cenaEDokument;
 
     /**
@@ -254,19 +254,6 @@ public class CTTroskovi {
      */
     public void setCenaEDokument(BigDecimal value) {
         this.cenaEDokument = value;
-    }
-
-    @Override
-    public String toString() {
-        return "Podaci o troskovima:" +
-                "\n\tCena A4: " + getCenaA4() +
-                "\n\tCena A4: " + getCenaA3() +
-                "\n\tCena A4: " + getCenaCD() +
-                "\n\tCena A4: " + getCenaDisketa() +
-                "\n\tCena A4: " + getCenaDVD() +
-                "\n\tCena A4: " + getCenaAudioKaseta() +
-                "\n\tCena A4: " + getCenaVideoKaseta() +
-                "\n\tCena A4: " + getCenaEDokument() + "\n";
     }
 
 }

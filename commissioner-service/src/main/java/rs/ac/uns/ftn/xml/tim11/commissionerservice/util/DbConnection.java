@@ -1,5 +1,6 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.util;
 
+import org.springframework.stereotype.Component;
 import org.xmldb.api.DatabaseManager;
 import org.xmldb.api.base.Collection;
 import org.xmldb.api.base.Database;
@@ -8,6 +9,7 @@ import org.xmldb.api.modules.CollectionManagementService;
 
 import java.io.IOException;
 
+@Component
 public class DbConnection {
     AuthenticationUtilities.ConnectionProperties connectionProperties;
 
@@ -36,7 +38,7 @@ public class DbConnection {
     }
 
     public Collection getCollection(String collectionId) throws XMLDBException {
-        return getOrCreateCollection(this.formatCollectionUri(collectionId));
+        return getOrCreateCollection(collectionId);
     }
 
     private Collection getOrCreateCollection(String collectionUri) throws XMLDBException {
@@ -44,7 +46,7 @@ public class DbConnection {
     }
 
     private Collection getOrCreateCollection(String collectionUri, int pathSegmentOffset) throws XMLDBException {
-        Collection col = DatabaseManager.getCollection(collectionUri, connectionProperties.user, connectionProperties.password);
+        Collection col = DatabaseManager.getCollection(formatCollectionUri(collectionUri), connectionProperties.user, connectionProperties.password);
 
         // create the collection if it does not exist
         if (col == null) {
@@ -69,7 +71,7 @@ public class DbConnection {
                     // child collection does not exist
 
                     String parentPath = path.substring(0, path.lastIndexOf("/"));
-                    Collection parentCol = DatabaseManager.getCollection(this.formatCollectionUri(path.toString()), connectionProperties.user, connectionProperties.password);
+                    Collection parentCol = DatabaseManager.getCollection(this.formatCollectionUri(parentPath), connectionProperties.user, connectionProperties.password);
 
                     CollectionManagementService mgt = (CollectionManagementService) parentCol.getService("CollectionManagementService", "1.0");
 
@@ -89,7 +91,7 @@ public class DbConnection {
         }
     }
 
-    private String formatCollectionUri(String collectionId) {
-        return connectionProperties.uri + collectionId;
+    private String formatCollectionUri(String collectionUri) {
+        return connectionProperties.uri + collectionUri;
     }
 }

@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="Ime" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Prezime" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Naziv" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Adresa" type="{obavestenje}CTAdresa"/&gt;
+ *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTAdresa"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTPodnosiocZahteva", namespace = "obavestenje", propOrder = {
+@XmlType(name = "CTPodnosiocZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", propOrder = {
     "ime",
     "prezime",
     "naziv",
@@ -38,13 +38,13 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CTPodnosiocZahteva {
 
-    @XmlElement(name = "Ime", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Ime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String ime;
-    @XmlElement(name = "Prezime", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Prezime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String prezime;
-    @XmlElement(name = "Naziv", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String naziv;
-    @XmlElement(name = "Adresa", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTAdresa adresa;
 
     /**
@@ -143,13 +143,4 @@ public class CTPodnosiocZahteva {
         this.adresa = value;
     }
 
-
-    @Override
-    public String toString() {
-        return "Podaci o podnosiocu zahteva: \n" +
-                "\tIme: " + getIme() +
-                "\n\tPrezime: " + getPrezime() +
-                "\n\tNaziv: " + getNaziv() +
-                "\n\t" + getAdresa() + "\n";
-    }
 }

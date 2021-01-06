@@ -1,8 +1,6 @@
 
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje;
 
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.CTAutor;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -20,12 +18,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="primalac"&gt;
+ *         &lt;element name="Primalac"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="Adresa" type="{zalbacutanje}CTAdresa"/&gt;
+ *                   &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje}CTAdresa"/&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
@@ -169,13 +167,13 @@ import javax.xml.bind.annotation.XmlType;
  *                       &lt;complexContent&gt;
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                           &lt;sequence&gt;
- *                             &lt;element name="ImePosiljaoca" type="{zalbacutanje}CTAutor"/&gt;
+ *                             &lt;element name="ImePosiljaoca" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje}CTAutor"/&gt;
  *                           &lt;/sequence&gt;
  *                         &lt;/restriction&gt;
  *                       &lt;/complexContent&gt;
  *                     &lt;/complexType&gt;
  *                   &lt;/element&gt;
- *                   &lt;element name="Adresa" type="{zalbacutanje}CTAdresa"/&gt;
+ *                   &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje}CTAdresa"/&gt;
  *                   &lt;element name="drugiPodaci"&gt;
  *                     &lt;simpleType&gt;
  *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
@@ -246,27 +244,27 @@ import javax.xml.bind.annotation.XmlType;
     "podnosilacZalbe",
     "podaciOPodnosenjuZahteva"
 })
-@XmlRootElement(name = "zalba", namespace = "zalbacutanje")
-public class Zalba {
+@XmlRootElement(name = "ZalbaCutanje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
+public class ZalbaCutanje {
 
-    @XmlElement(namespace = "zalbacutanje", required = true)
-    protected Zalba.Primalac primalac;
-    @XmlElement(name = "Sadrzaj", namespace = "zalbacutanje", required = true)
-    protected Zalba.Sadrzaj sadrzaj;
-    @XmlElement(name = "PodnosilacZalbe", namespace = "zalbacutanje", required = true)
-    protected Zalba.PodnosilacZalbe podnosilacZalbe;
-    @XmlElement(namespace = "zalbacutanje", required = true)
-    protected Zalba.PodaciOPodnosenjuZahteva podaciOPodnosenjuZahteva;
+    @XmlElement(name = "Primalac", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+    protected ZalbaCutanje.Primalac primalac;
+    @XmlElement(name = "Sadrzaj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+    protected ZalbaCutanje.Sadrzaj sadrzaj;
+    @XmlElement(name = "PodnosilacZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+    protected ZalbaCutanje.PodnosilacZalbe podnosilacZalbe;
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+    protected ZalbaCutanje.PodaciOPodnosenjuZahteva podaciOPodnosenjuZahteva;
 
     /**
      * Gets the value of the primalac property.
      * 
      * @return
      *     possible object is
-     *     {@link Zalba.Primalac }
+     *     {@link ZalbaCutanje.Primalac }
      *     
      */
-    public Zalba.Primalac getPrimalac() {
+    public ZalbaCutanje.Primalac getPrimalac() {
         return primalac;
     }
 
@@ -275,10 +273,10 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link Zalba.Primalac }
+     *     {@link ZalbaCutanje.Primalac }
      *     
      */
-    public void setPrimalac(Zalba.Primalac value) {
+    public void setPrimalac(ZalbaCutanje.Primalac value) {
         this.primalac = value;
     }
 
@@ -287,10 +285,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link Zalba.Sadrzaj }
+     *     {@link ZalbaCutanje.Sadrzaj }
      *     
      */
-    public Zalba.Sadrzaj getSadrzaj() {
+    public ZalbaCutanje.Sadrzaj getSadrzaj() {
         return sadrzaj;
     }
 
@@ -299,10 +297,10 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link Zalba.Sadrzaj }
+     *     {@link ZalbaCutanje.Sadrzaj }
      *     
      */
-    public void setSadrzaj(Zalba.Sadrzaj value) {
+    public void setSadrzaj(ZalbaCutanje.Sadrzaj value) {
         this.sadrzaj = value;
     }
 
@@ -311,10 +309,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link Zalba.PodnosilacZalbe }
+     *     {@link ZalbaCutanje.PodnosilacZalbe }
      *     
      */
-    public Zalba.PodnosilacZalbe getPodnosilacZalbe() {
+    public ZalbaCutanje.PodnosilacZalbe getPodnosilacZalbe() {
         return podnosilacZalbe;
     }
 
@@ -323,10 +321,10 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link Zalba.PodnosilacZalbe }
+     *     {@link ZalbaCutanje.PodnosilacZalbe }
      *     
      */
-    public void setPodnosilacZalbe(Zalba.PodnosilacZalbe value) {
+    public void setPodnosilacZalbe(ZalbaCutanje.PodnosilacZalbe value) {
         this.podnosilacZalbe = value;
     }
 
@@ -335,10 +333,10 @@ public class Zalba {
      * 
      * @return
      *     possible object is
-     *     {@link Zalba.PodaciOPodnosenjuZahteva }
+     *     {@link ZalbaCutanje.PodaciOPodnosenjuZahteva }
      *     
      */
-    public Zalba.PodaciOPodnosenjuZahteva getPodaciOPodnosenjuZahteva() {
+    public ZalbaCutanje.PodaciOPodnosenjuZahteva getPodaciOPodnosenjuZahteva() {
         return podaciOPodnosenjuZahteva;
     }
 
@@ -347,10 +345,10 @@ public class Zalba {
      * 
      * @param value
      *     allowed object is
-     *     {@link Zalba.PodaciOPodnosenjuZahteva }
+     *     {@link ZalbaCutanje.PodaciOPodnosenjuZahteva }
      *     
      */
-    public void setPodaciOPodnosenjuZahteva(Zalba.PodaciOPodnosenjuZahteva value) {
+    public void setPodaciOPodnosenjuZahteva(ZalbaCutanje.PodaciOPodnosenjuZahteva value) {
         this.podaciOPodnosenjuZahteva = value;
     }
 
@@ -405,11 +403,11 @@ public class Zalba {
     })
     public static class PodaciOPodnosenjuZahteva {
 
-        @XmlElement(name = "Mesto", namespace = "zalbacutanje", required = true)
+        @XmlElement(name = "Mesto", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
         protected String mesto;
-        @XmlElement(name = "Dan", namespace = "zalbacutanje")
+        @XmlElement(name = "Dan", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
         protected int dan;
-        @XmlElement(name = "Godina", namespace = "zalbacutanje")
+        @XmlElement(name = "Godina", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
         protected int godina;
 
         /**
@@ -486,13 +484,13 @@ public class Zalba {
      *             &lt;complexContent&gt;
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *                 &lt;sequence&gt;
-     *                   &lt;element name="ImePosiljaoca" type="{zalbacutanje}CTAutor"/&gt;
+     *                   &lt;element name="ImePosiljaoca" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje}CTAutor"/&gt;
      *                 &lt;/sequence&gt;
      *               &lt;/restriction&gt;
      *             &lt;/complexContent&gt;
      *           &lt;/complexType&gt;
      *         &lt;/element&gt;
-     *         &lt;element name="Adresa" type="{zalbacutanje}CTAdresa"/&gt;
+     *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje}CTAdresa"/&gt;
      *         &lt;element name="drugiPodaci"&gt;
      *           &lt;simpleType&gt;
      *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
@@ -526,13 +524,13 @@ public class Zalba {
     })
     public static class PodnosilacZalbe {
 
-        @XmlElement(name = "Naziv", namespace = "zalbacutanje", required = true)
-        protected Zalba.PodnosilacZalbe.Naziv naziv;
-        @XmlElement(name = "Adresa", namespace = "zalbacutanje", required = true)
+        @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+        protected ZalbaCutanje.PodnosilacZalbe.Naziv naziv;
+        @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
         protected CTAdresa adresa;
-        @XmlElement(namespace = "zalbacutanje", required = true)
+        @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
         protected String drugiPodaci;
-        @XmlElement(name = "Potpis", namespace = "zalbacutanje", required = true)
+        @XmlElement(name = "Potpis", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
         protected String potpis;
 
         /**
@@ -540,10 +538,10 @@ public class Zalba {
          * 
          * @return
          *     possible object is
-         *     {@link Zalba.PodnosilacZalbe.Naziv }
+         *     {@link ZalbaCutanje.PodnosilacZalbe.Naziv }
          *     
          */
-        public Zalba.PodnosilacZalbe.Naziv getNaziv() {
+        public ZalbaCutanje.PodnosilacZalbe.Naziv getNaziv() {
             return naziv;
         }
 
@@ -552,10 +550,10 @@ public class Zalba {
          * 
          * @param value
          *     allowed object is
-         *     {@link Zalba.PodnosilacZalbe.Naziv }
+         *     {@link ZalbaCutanje.PodnosilacZalbe.Naziv }
          *     
          */
-        public void setNaziv(Zalba.PodnosilacZalbe.Naziv value) {
+        public void setNaziv(ZalbaCutanje.PodnosilacZalbe.Naziv value) {
             this.naziv = value;
         }
 
@@ -642,7 +640,7 @@ public class Zalba {
          *   &lt;complexContent&gt;
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *       &lt;sequence&gt;
-         *         &lt;element name="ImePosiljaoca" type="{zalbacutanje}CTAutor"/&gt;
+         *         &lt;element name="ImePosiljaoca" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje}CTAutor"/&gt;
          *       &lt;/sequence&gt;
          *     &lt;/restriction&gt;
          *   &lt;/complexContent&gt;
@@ -657,7 +655,7 @@ public class Zalba {
         })
         public static class Naziv {
 
-            @XmlElement(name = "ImePosiljaoca", namespace = "zalbacutanje", required = true)
+            @XmlElement(name = "ImePosiljaoca", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
             protected CTAutor imePosiljaoca;
 
             /**
@@ -699,7 +697,7 @@ public class Zalba {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="Adresa" type="{zalbacutanje}CTAdresa"/&gt;
+     *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje}CTAdresa"/&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
@@ -714,7 +712,7 @@ public class Zalba {
     })
     public static class Primalac {
 
-        @XmlElement(name = "Adresa", namespace = "zalbacutanje", required = true)
+        @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
         protected CTAdresa adresa;
 
         /**
@@ -889,24 +887,24 @@ public class Zalba {
     })
     public static class Sadrzaj {
 
-        @XmlElement(name = "ZaglavljeZalbe", namespace = "zalbacutanje", required = true)
-        protected Zalba.Sadrzaj.ZaglavljeZalbe zaglavljeZalbe;
-        @XmlElement(name = "RazlogSlanja", namespace = "zalbacutanje", required = true)
-        protected Zalba.Sadrzaj.RazlogSlanja razlogSlanja;
-        @XmlElement(name = "PodaciOZahtevu", namespace = "zalbacutanje", required = true)
-        protected Zalba.Sadrzaj.PodaciOZahtevu podaciOZahtevu;
-        @XmlElement(name = "Zakljucak", namespace = "zalbacutanje", required = true)
-        protected Zalba.Sadrzaj.Zakljucak zakljucak;
+        @XmlElement(name = "ZaglavljeZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+        protected ZalbaCutanje.Sadrzaj.ZaglavljeZalbe zaglavljeZalbe;
+        @XmlElement(name = "RazlogSlanja", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+        protected ZalbaCutanje.Sadrzaj.RazlogSlanja razlogSlanja;
+        @XmlElement(name = "PodaciOZahtevu", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+        protected ZalbaCutanje.Sadrzaj.PodaciOZahtevu podaciOZahtevu;
+        @XmlElement(name = "Zakljucak", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+        protected ZalbaCutanje.Sadrzaj.Zakljucak zakljucak;
 
         /**
          * Gets the value of the zaglavljeZalbe property.
          * 
          * @return
          *     possible object is
-         *     {@link Zalba.Sadrzaj.ZaglavljeZalbe }
+         *     {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe }
          *     
          */
-        public Zalba.Sadrzaj.ZaglavljeZalbe getZaglavljeZalbe() {
+        public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe getZaglavljeZalbe() {
             return zaglavljeZalbe;
         }
 
@@ -915,10 +913,10 @@ public class Zalba {
          * 
          * @param value
          *     allowed object is
-         *     {@link Zalba.Sadrzaj.ZaglavljeZalbe }
+         *     {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe }
          *     
          */
-        public void setZaglavljeZalbe(Zalba.Sadrzaj.ZaglavljeZalbe value) {
+        public void setZaglavljeZalbe(ZalbaCutanje.Sadrzaj.ZaglavljeZalbe value) {
             this.zaglavljeZalbe = value;
         }
 
@@ -927,10 +925,10 @@ public class Zalba {
          * 
          * @return
          *     possible object is
-         *     {@link Zalba.Sadrzaj.RazlogSlanja }
+         *     {@link ZalbaCutanje.Sadrzaj.RazlogSlanja }
          *     
          */
-        public Zalba.Sadrzaj.RazlogSlanja getRazlogSlanja() {
+        public ZalbaCutanje.Sadrzaj.RazlogSlanja getRazlogSlanja() {
             return razlogSlanja;
         }
 
@@ -939,10 +937,10 @@ public class Zalba {
          * 
          * @param value
          *     allowed object is
-         *     {@link Zalba.Sadrzaj.RazlogSlanja }
+         *     {@link ZalbaCutanje.Sadrzaj.RazlogSlanja }
          *     
          */
-        public void setRazlogSlanja(Zalba.Sadrzaj.RazlogSlanja value) {
+        public void setRazlogSlanja(ZalbaCutanje.Sadrzaj.RazlogSlanja value) {
             this.razlogSlanja = value;
         }
 
@@ -951,10 +949,10 @@ public class Zalba {
          * 
          * @return
          *     possible object is
-         *     {@link Zalba.Sadrzaj.PodaciOZahtevu }
+         *     {@link ZalbaCutanje.Sadrzaj.PodaciOZahtevu }
          *     
          */
-        public Zalba.Sadrzaj.PodaciOZahtevu getPodaciOZahtevu() {
+        public ZalbaCutanje.Sadrzaj.PodaciOZahtevu getPodaciOZahtevu() {
             return podaciOZahtevu;
         }
 
@@ -963,10 +961,10 @@ public class Zalba {
          * 
          * @param value
          *     allowed object is
-         *     {@link Zalba.Sadrzaj.PodaciOZahtevu }
+         *     {@link ZalbaCutanje.Sadrzaj.PodaciOZahtevu }
          *     
          */
-        public void setPodaciOZahtevu(Zalba.Sadrzaj.PodaciOZahtevu value) {
+        public void setPodaciOZahtevu(ZalbaCutanje.Sadrzaj.PodaciOZahtevu value) {
             this.podaciOZahtevu = value;
         }
 
@@ -975,10 +973,10 @@ public class Zalba {
          * 
          * @return
          *     possible object is
-         *     {@link Zalba.Sadrzaj.Zakljucak }
+         *     {@link ZalbaCutanje.Sadrzaj.Zakljucak }
          *     
          */
-        public Zalba.Sadrzaj.Zakljucak getZakljucak() {
+        public ZalbaCutanje.Sadrzaj.Zakljucak getZakljucak() {
             return zakljucak;
         }
 
@@ -987,10 +985,10 @@ public class Zalba {
          * 
          * @param value
          *     allowed object is
-         *     {@link Zalba.Sadrzaj.Zakljucak }
+         *     {@link ZalbaCutanje.Sadrzaj.Zakljucak }
          *     
          */
-        public void setZakljucak(Zalba.Sadrzaj.Zakljucak value) {
+        public void setZakljucak(ZalbaCutanje.Sadrzaj.Zakljucak value) {
             this.zakljucak = value;
         }
 
@@ -1029,9 +1027,9 @@ public class Zalba {
         })
         public static class PodaciOZahtevu {
 
-            @XmlElement(name = "Godina", namespace = "zalbacutanje")
+            @XmlElement(name = "Godina", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
             protected int godina;
-            @XmlElement(name = "PodaciOZahtevuIInformacijama", namespace = "zalbacutanje", required = true)
+            @XmlElement(name = "PodaciOZahtevuIInformacijama", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
             protected String podaciOZahtevuIInformacijama;
 
             /**
@@ -1106,11 +1104,11 @@ public class Zalba {
         })
         public static class RazlogSlanja {
 
-            @XmlElement(name = "NijePostupio", namespace = "zalbacutanje")
+            @XmlElement(name = "NijePostupio", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
             protected String nijePostupio;
-            @XmlElement(name = "NijePostupioUCelosti", namespace = "zalbacutanje")
+            @XmlElement(name = "NijePostupioUCelosti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
             protected String nijePostupioUCelosti;
-            @XmlElement(name = "UZakonsomRoku", namespace = "zalbacutanje")
+            @XmlElement(name = "UZakonsomRoku", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
             protected String uZakonsomRoku;
 
             /**
@@ -1247,13 +1245,13 @@ public class Zalba {
         })
         public static class ZaglavljeZalbe {
 
-            @XmlElement(name = "Clan", namespace = "zalbacutanje")
+            @XmlElement(name = "Clan", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
             protected int clan;
-            @XmlElement(name = "Zakon", namespace = "zalbacutanje", required = true)
+            @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
             protected String zakon;
-            @XmlElement(name = "PredmetSlanja", namespace = "zalbacutanje", required = true)
+            @XmlElement(name = "PredmetSlanja", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
             protected String predmetSlanja;
-            @XmlElement(name = "NazivOrgana", namespace = "zalbacutanje", required = true)
+            @XmlElement(name = "NazivOrgana", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
             protected String nazivOrgana;
 
             /**
@@ -1407,11 +1405,11 @@ public class Zalba {
         })
         public static class Zakljucak {
 
-            @XmlElement(name = "Predlog", namespace = "zalbacutanje", required = true)
+            @XmlElement(name = "Predlog", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
             protected String predlog;
-            @XmlElement(name = "Dokaz", namespace = "zalbacutanje", required = true)
-            protected Zalba.Sadrzaj.Zakljucak.Dokaz dokaz;
-            @XmlElement(name = "Napomena", namespace = "zalbacutanje", required = true)
+            @XmlElement(name = "Dokaz", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+            protected ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz dokaz;
+            @XmlElement(name = "Napomena", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
             protected String napomena;
 
             /**
@@ -1443,10 +1441,10 @@ public class Zalba {
              * 
              * @return
              *     possible object is
-             *     {@link Zalba.Sadrzaj.Zakljucak.Dokaz }
+             *     {@link ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz }
              *     
              */
-            public Zalba.Sadrzaj.Zakljucak.Dokaz getDokaz() {
+            public ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz getDokaz() {
                 return dokaz;
             }
 
@@ -1455,10 +1453,10 @@ public class Zalba {
              * 
              * @param value
              *     allowed object is
-             *     {@link Zalba.Sadrzaj.Zakljucak.Dokaz }
+             *     {@link ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz }
              *     
              */
-            public void setDokaz(Zalba.Sadrzaj.Zakljucak.Dokaz value) {
+            public void setDokaz(ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz value) {
                 this.dokaz = value;
             }
 
@@ -1519,7 +1517,7 @@ public class Zalba {
             })
             public static class Dokaz {
 
-                @XmlElement(name = "Opis", namespace = "zalbacutanje", required = true)
+                @XmlElement(name = "Opis", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
                 protected String opis;
 
                 /**
@@ -1550,57 +1548,6 @@ public class Zalba {
 
         }
 
-    }
-
-    private String printPodnosilacZalbe() {
-        return  getPodnosilacZalbe().getNaziv().getImePosiljaoca() + "\n" +
-                "\n" + getPodnosilacZalbe().getAdresa() + "\n" +
-                "\t\tDrugi podaci: " +  getPodnosilacZalbe().getDrugiPodaci() + "\n" +
-                "\t\tPotpis: " + getPodnosilacZalbe().getPotpis();
-    }
-
-    private String printPodaciOPodnosenjuZahteva() {
-        return  "\t\tMesto: " + getPodaciOPodnosenjuZahteva().getMesto() + "\n" +
-                "\t\tDan: " + getPodaciOPodnosenjuZahteva().getDan() + "\n" +
-                "\t\tGodina: " + getPodaciOPodnosenjuZahteva().getGodina();
-    }
-
-    private String printZaglavljeZalbe() {
-        return "\t\tClan: " + getSadrzaj().getZaglavljeZalbe().getClan() + "\n" +
-                "\t\t\tZakon: " + getSadrzaj().getZaglavljeZalbe().getZakon() + "\n" +
-                "\t\t\tPredmet slanja: " + getSadrzaj().getZaglavljeZalbe().getPredmetSlanja() + "\n" +
-                "\t\t\tNaziv organa: " + getSadrzaj().getZaglavljeZalbe().getNazivOrgana();
-    }
-
-    private String printRazlogSlanja() {
-        return "\t\tNije postupio: " + getSadrzaj().getRazlogSlanja().getNijePostupio();
-    }
-
-    private String printpodaciOZahtevu() {
-        return "\t\tGodina: " + getSadrzaj().getPodaciOZahtevu().getGodina() + "\n" +
-                "\t\t\tPodaci o zahtevu i informacijama: " + getSadrzaj().getPodaciOZahtevu().getPodaciOZahtevuIInformacijama();
-    }
-
-    private String printZakljucak() {
-        return "\t\tPredlog: " + getSadrzaj().getZakljucak().getPredlog() + "\n" +
-                "\t\t\tDokaz: " + getSadrzaj().getZakljucak().getDokaz().getOpis() + "\n" +
-                "\t\t\tNapomena: " + getSadrzaj().getZakljucak().getNapomena();
-    }
-
-    private String printSadrzaj() {
-        return "\t\tZaglavlje zalbe:\n\t" + printZaglavljeZalbe() + "\n" +
-                "\t\tRazlog slanja:\n\t" + printRazlogSlanja() + "\n" +
-                "\t\tPodaci o zahtevu:\n\t" + printpodaciOZahtevu() + "\n" +
-                "\t\tZakljucak:\n\t" + printZakljucak() + "\n";
-    }
-
-    @Override
-    public String toString() {
-        return "Podaci o zalbi: \n" +
-                "\tPrimalac:\n\t" + getPrimalac().getAdresa() + "\n" +
-                "\tSadrzaj: " + "\n" + printSadrzaj() + "\n" +
-                "\tPodnosilac zalbe: " + "\n" + printPodnosilacZalbe() + "\n" +
-                "\tPodaci o podnosenju zahteva: \n" + printPodaciOPodnosenjuZahteva();
     }
 
 }

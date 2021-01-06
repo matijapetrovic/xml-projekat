@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
-    targetNamespace="resenje" xmlns:re="resenje"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
+    elementFormDefault="qualified"
+    targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/resenje" 
+    xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
     vc:minVersion="1.1">
-    <xs:element name="resenje">
+    <xs:element name="Resenje">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="BrojResenja">

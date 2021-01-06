@@ -22,12 +22,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence&gt;
  *         &lt;element name="BrojPredmeta" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Datum" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element name="Organ" type="{obavestenje}CTOrgan"/&gt;
- *         &lt;element name="PodnosiocZahteva" type="{obavestenje}CTPodnosiocZahteva"/&gt;
- *         &lt;element name="TrazenaInformacija" type="{obavestenje}CTTrazenaInformacija"/&gt;
- *         &lt;element name="InformacijeOUvidu" type="{obavestenje}CTInformacijeOUvidu"/&gt;
- *         &lt;element name="Troskovi" type="{obavestenje}CTTroskovi"/&gt;
- *         &lt;element name="InformacijeOUplati" type="{obavestenje}CTInformacijeOUplati"/&gt;
+ *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTOrgan"/&gt;
+ *         &lt;element name="PodnosiocZahteva" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTPodnosiocZahteva"/&gt;
+ *         &lt;element name="TrazenaInformacija" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTTrazenaInformacija"/&gt;
+ *         &lt;element name="InformacijeOUvidu" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTInformacijeOUvidu"/&gt;
+ *         &lt;element name="Troskovi" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTTroskovi"/&gt;
+ *         &lt;element name="InformacijeOUplati" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTInformacijeOUplati"/&gt;
  *         &lt;element name="Dostavljeno"&gt;
  *           &lt;simpleType&gt;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
@@ -56,27 +56,27 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "informacijeOUplati",
     "dostavljeno"
 })
-@XmlRootElement(name = "Obavestenje", namespace = "obavestenje")
+@XmlRootElement(name = "Obavestenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje")
 public class Obavestenje {
 
-    @XmlElement(name = "BrojPredmeta", namespace = "obavestenje", required = true)
+    @XmlElement(name = "BrojPredmeta", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String brojPredmeta;
-    @XmlElement(name = "Datum", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Datum", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datum;
-    @XmlElement(name = "Organ", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Organ", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTOrgan organ;
-    @XmlElement(name = "PodnosiocZahteva", namespace = "obavestenje", required = true)
+    @XmlElement(name = "PodnosiocZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTPodnosiocZahteva podnosiocZahteva;
-    @XmlElement(name = "TrazenaInformacija", namespace = "obavestenje", required = true)
+    @XmlElement(name = "TrazenaInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTTrazenaInformacija trazenaInformacija;
-    @XmlElement(name = "InformacijeOUvidu", namespace = "obavestenje", required = true)
+    @XmlElement(name = "InformacijeOUvidu", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTInformacijeOUvidu informacijeOUvidu;
-    @XmlElement(name = "Troskovi", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Troskovi", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTTroskovi troskovi;
-    @XmlElement(name = "InformacijeOUplati", namespace = "obavestenje", required = true)
+    @XmlElement(name = "InformacijeOUplati", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTInformacijeOUplati informacijeOUplati;
-    @XmlElement(name = "Dostavljeno", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Dostavljeno", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String dostavljeno;
 
     /**
@@ -293,21 +293,6 @@ public class Obavestenje {
      */
     public void setDostavljeno(String value) {
         this.dostavljeno = value;
-    }
-
-    @Override
-    public String toString() {
-
-        return "Podaci o obavestenju: \n\n" +
-                "Broj predmeta: " + getBrojPredmeta() + "\n" +
-                "Primerak dostavljen: " + getDostavljeno() + "\n" +
-                "Datum kreiranja obavestenja: " + getDatum() + "\n\n" +
-                getOrgan() + "\n" +
-                getPodnosiocZahteva() + "\n" +
-                getTrazenaInformacija() + "\n" +
-                getInformacijeOUvidu() + "\n" +
-                getTroskovi() + "\n" +
-                getInformacijeOUplati() + "\n";
     }
 
 }

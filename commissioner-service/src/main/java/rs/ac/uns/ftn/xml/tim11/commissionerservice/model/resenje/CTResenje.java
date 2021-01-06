@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="OrganVlasti" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element ref="{resenje}CTUstanova"/&gt;
+ *         &lt;element ref="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
  *         &lt;element name="Ishod" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -29,18 +29,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTResenje", namespace = "resenje", propOrder = {
+@XmlType(name = "CTResenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "organVlasti",
     "ctUstanova",
     "ishod"
 })
 public class CTResenje {
 
-    @XmlElement(name = "OrganVlasti", namespace = "resenje", required = true)
+    @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String organVlasti;
-    @XmlElement(name = "CTUstanova", namespace = "resenje", required = true)
+    @XmlElement(name = "CTUstanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTUstanova ctUstanova;
-    @XmlElement(name = "Ishod", namespace = "resenje", required = true)
+    @XmlElement(name = "Ishod", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String ishod;
 
     /**
@@ -115,10 +115,4 @@ public class CTResenje {
         this.ishod = value;
     }
 
-    @Override
-    public String toString() {
-        return "\t\tOrgan vlasti: " + getOrganVlasti() + "\n" +
-                "\t\tUstanova: \n" + getCTUstanova() + "\n" +
-                "\t\tIshod: " + getIshod();
-    }
 }

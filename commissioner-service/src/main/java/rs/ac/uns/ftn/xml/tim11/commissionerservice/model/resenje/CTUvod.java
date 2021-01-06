@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence&gt;
  *         &lt;element name="DatumZalbe" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="OrganVlasti" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="PozivNaZakon" type="{resenje}CTPozivNaZakon" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="PozivNaZakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTPozivNaZakon" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,15 +36,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTUvod", namespace = "resenje", propOrder = {
+@XmlType(name = "CTUvod", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "content"
 })
 public class CTUvod {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "DatumZalbe", namespace = "resenje", type = JAXBElement.class),
-        @XmlElementRef(name = "OrganVlasti", namespace = "resenje", type = JAXBElement.class),
-        @XmlElementRef(name = "PozivNaZakon", namespace = "resenje", type = JAXBElement.class)
+        @XmlElementRef(name = "DatumZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "PozivNaZakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class)
     })
     @XmlMixed
     protected List<Serializable> content;
@@ -81,9 +81,4 @@ public class CTUvod {
         return this.content;
     }
 
-
-    @Override
-    public String toString() {
-        return "\t\tContent: " + getContent();
-    }
 }

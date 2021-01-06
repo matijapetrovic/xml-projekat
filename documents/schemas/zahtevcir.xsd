@@ -2,9 +2,10 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
 	elementFormDefault="qualified"
-	targetNamespace="zahtev" xmlns:za="zahtev">
+	targetNamespace="zahtev" 
+	xmlns:za="zahtev">
 	
-	<xs:element name="Zahtevcir">
+	<xs:element name="Zahtev">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="primalac">

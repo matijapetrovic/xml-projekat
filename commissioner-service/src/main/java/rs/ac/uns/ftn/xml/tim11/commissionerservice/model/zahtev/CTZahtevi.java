@@ -1,5 +1,6 @@
 
-package rs.uns.ftn.xml.tim11.poc.zahtev.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zahtev;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for CTZahtevi complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="CTZahtevi"&gt;
  *   &lt;complexContent&gt;
@@ -36,16 +37,16 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTZahtevi", namespace = "zahtev", propOrder = {
-        "obavestenje",
-        "uvid",
-        "kopija",
-        "dostavljanjeKopije",
-        "informacije"
+    "obavestenje",
+    "uvid",
+    "kopija",
+    "dostavljanjeKopije",
+    "informacije"
 })
 public class CTZahtevi {
 
@@ -62,11 +63,11 @@ public class CTZahtevi {
 
     /**
      * Gets the value of the obavestenje property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Object }
-     *
+     *     
      */
     public Object getObavestenje() {
         return obavestenje;
@@ -74,11 +75,11 @@ public class CTZahtevi {
 
     /**
      * Sets the value of the obavestenje property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Object }
-     *
+     *     
      */
     public void setObavestenje(Object value) {
         this.obavestenje = value;
@@ -86,11 +87,11 @@ public class CTZahtevi {
 
     /**
      * Gets the value of the uvid property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Object }
-     *
+     *     
      */
     public Object getUvid() {
         return uvid;
@@ -98,11 +99,11 @@ public class CTZahtevi {
 
     /**
      * Sets the value of the uvid property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Object }
-     *
+     *     
      */
     public void setUvid(Object value) {
         this.uvid = value;
@@ -110,11 +111,11 @@ public class CTZahtevi {
 
     /**
      * Gets the value of the kopija property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link Object }
-     *
+     *     
      */
     public Object getKopija() {
         return kopija;
@@ -122,11 +123,11 @@ public class CTZahtevi {
 
     /**
      * Sets the value of the kopija property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link Object }
-     *
+     *     
      */
     public void setKopija(Object value) {
         this.kopija = value;
@@ -134,11 +135,11 @@ public class CTZahtevi {
 
     /**
      * Gets the value of the dostavljanjeKopije property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link CTZahtevi.DostavljanjeKopije }
-     *
+     *     
      */
     public CTZahtevi.DostavljanjeKopije getDostavljanjeKopije() {
         return dostavljanjeKopije;
@@ -146,11 +147,11 @@ public class CTZahtevi {
 
     /**
      * Sets the value of the dostavljanjeKopije property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link CTZahtevi.DostavljanjeKopije }
-     *
+     *     
      */
     public void setDostavljanjeKopije(CTZahtevi.DostavljanjeKopije value) {
         this.dostavljanjeKopije = value;
@@ -158,11 +159,11 @@ public class CTZahtevi {
 
     /**
      * Gets the value of the informacije property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getInformacije() {
         return informacije;
@@ -170,11 +171,11 @@ public class CTZahtevi {
 
     /**
      * Sets the value of the informacije property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setInformacije(String value) {
         this.informacije = value;
@@ -183,9 +184,9 @@ public class CTZahtevi {
 
     /**
      * <p>Java class for anonymous complex type.
-     *
+     * 
      * <p>The following schema fragment specifies the expected content contained within this class.
-     *
+     * 
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -197,12 +198,12 @@ public class CTZahtevi {
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "ctNacinDostave"
+        "ctNacinDostave"
     })
     public static class DostavljanjeKopije {
 
@@ -211,11 +212,11 @@ public class CTZahtevi {
 
         /**
          * Gets the value of the ctNacinDostave property.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link CTNacinDostave }
-         *
+         *     
          */
         public CTNacinDostave getCTNacinDostave() {
             return ctNacinDostave;
@@ -223,35 +224,16 @@ public class CTZahtevi {
 
         /**
          * Sets the value of the ctNacinDostave property.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link CTNacinDostave }
-         *
+         *     
          */
         public void setCTNacinDostave(CTNacinDostave value) {
             this.ctNacinDostave = value;
         }
 
-        @Override
-        public String toString() {
-            return "\n\t\t\t\tNacin dostave: " + ctNacinDostave;
-        }
     }
 
-    @Override
-    public String toString() {
-        String retVal = "\n\t\tZahtevi:";
-        if(getObavestenje() != null)
-            retVal += "\n\t\t\tObavestenje da li poseduje trazenu informaciju";
-        if(getUvid() != null)
-            retVal += "\n\t\t\tUvid u dokument koji sadrzi trazenu informaciju";
-        if(getKopija() != null)
-            retVal += "\n\t\t\tKopiju dokumenata koji sadrzi trazenu informaciju";
-        if(getDostavljanjeKopije() != null) {
-            retVal += "\n\t\t\tDostavljanje kopije dokumenta koji sadrzi trazenu infomaciju:"
-                    + getDostavljanjeKopije();
-        }
-        return retVal;
-    }
 }

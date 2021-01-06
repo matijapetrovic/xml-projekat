@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTZakon", namespace = "resenje", propOrder = {
+@XmlType(name = "CTZakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "clan",
     "stav",
     "tacka",
@@ -42,16 +42,16 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CTZakon {
 
-    @XmlElement(name = "Clan", namespace = "resenje", required = true)
+    @XmlElement(name = "Clan", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected List<BigInteger> clan;
-    @XmlElement(name = "Stav", namespace = "resenje")
+    @XmlElement(name = "Stav", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje")
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger stav;
-    @XmlElement(name = "Tacka", namespace = "resenje")
+    @XmlElement(name = "Tacka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje")
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger tacka;
-    @XmlElement(name = "NazivZakona", namespace = "resenje", required = true)
+    @XmlElement(name = "NazivZakona", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String nazivZakona;
 
     /**
@@ -155,11 +155,4 @@ public class CTZakon {
         this.nazivZakona = value;
     }
 
-    @Override
-    public String toString() {
-        return "\t\t\t\tClan: " + getClan() + "\n" +
-                "\t\t\t\tStav: " + getStav() + "\n" +
-                "\t\t\t\tTacka: " + getTacka() + "\n" +
-                "\t\t\t\tNaziv zakona: " + getNazivZakona();
-    }
 }

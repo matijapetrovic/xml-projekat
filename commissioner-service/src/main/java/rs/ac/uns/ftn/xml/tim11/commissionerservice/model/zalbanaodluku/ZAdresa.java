@@ -1,5 +1,5 @@
 
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodlukucir;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -50,18 +50,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ZAdresa", namespace = "zalbaO", propOrder = {
+@XmlType(name = "ZAdresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", propOrder = {
     "mesto",
     "ulica",
     "broj"
 })
 public class ZAdresa {
 
-    @XmlElement(namespace = "zalbaO", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
     protected String mesto;
-    @XmlElement(namespace = "zalbaO", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
     protected String ulica;
-    @XmlElement(namespace = "zalbaO")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku")
     protected int broj;
 
     /**
@@ -127,11 +127,5 @@ public class ZAdresa {
     public void setBroj(int value) {
         this.broj = value;
     }
-    
-    @Override
-    public String toString() {
-        return  "\t\tMesto: " + getMesto() +
-                "\n\t\t\tUlica: " + getUlica() +
-                "\n\t\t\tBroj: " + getBroj();
-    }
+
 }

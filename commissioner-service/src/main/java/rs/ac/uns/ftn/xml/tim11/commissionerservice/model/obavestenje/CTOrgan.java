@@ -28,15 +28,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTOrgan", namespace = "obavestenje", propOrder = {
+@XmlType(name = "CTOrgan", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", propOrder = {
     "naziv",
     "sediste"
 })
 public class CTOrgan {
 
-    @XmlElement(name = "Naziv", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String naziv;
-    @XmlElement(name = "Sediste", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Sediste", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String sediste;
 
     /**
@@ -87,11 +87,4 @@ public class CTOrgan {
         this.sediste = value;
     }
 
-
-    @Override
-    public String toString() {
-        return "Podaci o organu vlasti: \n" +
-                "\tNaziv: " + getNaziv() + "\n" +
-                "\tSediste: " + getSediste() + "\n";
-    }
 }

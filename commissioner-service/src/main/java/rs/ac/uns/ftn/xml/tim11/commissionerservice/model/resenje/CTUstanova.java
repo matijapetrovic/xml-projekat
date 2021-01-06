@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -33,12 +33,12 @@ import javax.xml.bind.annotation.XmlType;
     "naziv",
     "adresa"
 })
-@XmlRootElement(name = "CTUstanova", namespace = "resenje")
+@XmlRootElement(name = "CTUstanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje")
 public class CTUstanova {
 
-    @XmlElement(name = "Naziv", namespace = "resenje", required = true)
+    @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String naziv;
-    @XmlElement(name = "Adresa", namespace = "resenje", required = true)
+    @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String adresa;
 
     /**
@@ -89,9 +89,4 @@ public class CTUstanova {
         this.adresa = value;
     }
 
-    @Override
-    public String toString() {
-        return "\t\t\t\tNaziv: " + getNaziv() + "\n" +
-                "\t\t\t\tAdresa: " + getAdresa() ;
-    }
 }

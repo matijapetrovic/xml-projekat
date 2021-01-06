@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Zakon" type="{resenje}CTZakon"/&gt;
+ *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
  *         &lt;element name="BrojeviSluzbenogGlasnika"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
@@ -46,15 +46,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTPozivNaZakon", namespace = "resenje", propOrder = {
+@XmlType(name = "CTPozivNaZakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "zakon",
     "brojeviSluzbenogGlasnika"
 })
 public class CTPozivNaZakon {
 
-    @XmlElement(name = "Zakon", namespace = "resenje", required = true)
+    @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTZakon zakon;
-    @XmlElement(name = "BrojeviSluzbenogGlasnika", namespace = "resenje", required = true)
+    @XmlElement(name = "BrojeviSluzbenogGlasnika", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTPozivNaZakon.BrojeviSluzbenogGlasnika brojeviSluzbenogGlasnika;
 
     /**
@@ -137,7 +137,7 @@ public class CTPozivNaZakon {
     })
     public static class BrojeviSluzbenogGlasnika {
 
-        @XmlElement(name = "Broj", namespace = "resenje", required = true)
+        @XmlElement(name = "Broj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
         protected List<String> broj;
 
         /**
@@ -171,9 +171,4 @@ public class CTPozivNaZakon {
 
     }
 
-    @Override
-    public String toString() {
-        return "\t\tZakon: " + getZakon() + "\n" +
-                "\t\tBrojevi sluzbenog glasnika: " + getBrojeviSluzbenogGlasnika();
-    }
 }

@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Zakon" type="{resenje}CTZakon"/&gt;
+ *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
  *         &lt;element name="Lice" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Mesto" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Iznos" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTOdluka", namespace = "resenje", propOrder = {
+@XmlType(name = "CTOdluka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "zakon",
     "lice",
     "mesto",
@@ -40,13 +40,13 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CTOdluka {
 
-    @XmlElement(name = "Zakon", namespace = "resenje", required = true)
+    @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTZakon zakon;
-    @XmlElement(name = "Lice", namespace = "resenje", required = true)
+    @XmlElement(name = "Lice", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String lice;
-    @XmlElement(name = "Mesto", namespace = "resenje", required = true)
+    @XmlElement(name = "Mesto", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String mesto;
-    @XmlElement(name = "Iznos", namespace = "resenje", required = true)
+    @XmlElement(name = "Iznos", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger iznos;
 
@@ -146,11 +146,4 @@ public class CTOdluka {
         this.iznos = value;
     }
 
-    @Override
-    public String toString() {
-        return "\t\t\tZakon: \n" + getZakon() + "\n" +
-                "\t\tLice: " + getLice() + "\n" +
-                "\t\tMesto: " + getMesto() + "\n" +
-                "\t\tIznos: " + getIznos();
-    }
 }

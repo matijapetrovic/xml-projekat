@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="PredmetZalbe" type="{resenje}CTPredmetZalbe"/&gt;
- *         &lt;element name="Postupak" type="{resenje}CTPostupak"/&gt;
- *         &lt;element name="Odluka" type="{resenje}CTOdluka"/&gt;
+ *         &lt;element name="PredmetZalbe" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTPredmetZalbe"/&gt;
+ *         &lt;element name="Postupak" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTPostupak"/&gt;
+ *         &lt;element name="Odluka" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTOdluka"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,18 +29,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTObrazlozenje", namespace = "resenje", propOrder = {
+@XmlType(name = "CTObrazlozenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "predmetZalbe",
     "postupak",
     "odluka"
 })
 public class CTObrazlozenje {
 
-    @XmlElement(name = "PredmetZalbe", namespace = "resenje", required = true)
+    @XmlElement(name = "PredmetZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTPredmetZalbe predmetZalbe;
-    @XmlElement(name = "Postupak", namespace = "resenje", required = true)
+    @XmlElement(name = "Postupak", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTPostupak postupak;
-    @XmlElement(name = "Odluka", namespace = "resenje", required = true)
+    @XmlElement(name = "Odluka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTOdluka odluka;
 
     /**
@@ -115,10 +115,4 @@ public class CTObrazlozenje {
         this.odluka = value;
     }
 
-    @Override
-    public String toString() {
-        return "\t\tPredmet zalbe: \n" + getPredmetZalbe() + "\n" +
-                "\t\tPostupak: \n" + getPostupak() + "\n" +
-                "\t\tOdluka: \n" + getOdluka();
-    }
 }

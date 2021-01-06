@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.zahtev.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zahtev;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,14 +8,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import java.util.List;
 
 
 /**
  * <p>Java class for anonymous complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -38,20 +37,20 @@ import java.util.List;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "primalac",
-        "naslov",
-        "sadrzaj"
+    "primalac",
+    "naslov",
+    "sadrzaj"
 })
-@XmlRootElement(name = "Zahtevcir", namespace = "zahtev")
-public class Zahtevcir {
+@XmlRootElement(name = "Zahtev", namespace = "zahtev")
+public class Zahtev {
 
     @XmlElement(namespace = "zahtev", required = true)
-    protected Zahtevcir.Primalac primalac;
+    protected Zahtev.Primalac primalac;
     @XmlElement(namespace = "zahtev", required = true)
     protected String naslov;
     @XmlElement(namespace = "zahtev", required = true)
@@ -59,35 +58,35 @@ public class Zahtevcir {
 
     /**
      * Gets the value of the primalac property.
-     *
+     * 
      * @return
      *     possible object is
-     *     {@link Zahtevcir.Primalac }
-     *
+     *     {@link Zahtev.Primalac }
+     *     
      */
-    public Zahtevcir.Primalac getPrimalac() {
+    public Zahtev.Primalac getPrimalac() {
         return primalac;
     }
 
     /**
      * Sets the value of the primalac property.
-     *
+     * 
      * @param value
      *     allowed object is
-     *     {@link Zahtevcir.Primalac }
-     *
+     *     {@link Zahtev.Primalac }
+     *     
      */
-    public void setPrimalac(Zahtevcir.Primalac value) {
+    public void setPrimalac(Zahtev.Primalac value) {
         this.primalac = value;
     }
 
     /**
      * Gets the value of the naslov property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getNaslov() {
         return naslov;
@@ -95,11 +94,11 @@ public class Zahtevcir {
 
     /**
      * Sets the value of the naslov property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setNaslov(String value) {
         this.naslov = value;
@@ -107,11 +106,11 @@ public class Zahtevcir {
 
     /**
      * Gets the value of the sadrzaj property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link CTSadrzaj }
-     *
+     *     
      */
     public CTSadrzaj getSadrzaj() {
         return sadrzaj;
@@ -119,11 +118,11 @@ public class Zahtevcir {
 
     /**
      * Sets the value of the sadrzaj property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link CTSadrzaj }
-     *
+     *     
      */
     public void setSadrzaj(CTSadrzaj value) {
         this.sadrzaj = value;
@@ -132,9 +131,9 @@ public class Zahtevcir {
 
     /**
      * <p>Java class for anonymous complex type.
-     *
+     * 
      * <p>The following schema fragment specifies the expected content contained within this class.
-     *
+     * 
      * <pre>
      * &lt;complexType&gt;
      *   &lt;complexContent&gt;
@@ -145,8 +144,8 @@ public class Zahtevcir {
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
@@ -161,11 +160,11 @@ public class Zahtevcir {
 
         /**
          * Gets the value of the naziv property.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getNaziv() {
             return naziv;
@@ -173,11 +172,11 @@ public class Zahtevcir {
 
         /**
          * Sets the value of the naziv property.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setNaziv(String value) {
             this.naziv = value;
@@ -185,11 +184,11 @@ public class Zahtevcir {
 
         /**
          * Gets the value of the adresa property.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getAdresa() {
             return adresa;
@@ -197,25 +196,16 @@ public class Zahtevcir {
 
         /**
          * Sets the value of the adresa property.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setAdresa(String value) {
             this.adresa = value;
         }
-    }
-    @Override
-    public String toString(){
-        return "Podaci o zahtevu: \n\t"
-                + getNaslov()
-                + "" + getSadrzaj().getParagraf1()
-                + getSadrzaj().getZahtevi() +
-                "\t\tOvaj zahtev se odnosi na sledece informacije: \n\t\t\t-" +
-                getSadrzaj().getZahtevi().getInformacije() +
-                getSadrzaj().getOstaliPodaci();
+
     }
 
 }

@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,8 +20,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="DatumPostupka" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element ref="{resenje}CTUstanova"/&gt;
- *         &lt;element name="Zakon" type="{resenje}CTZakon"/&gt;
+ *         &lt;element ref="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
+ *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -31,19 +31,19 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTPostupak", namespace = "resenje", propOrder = {
+@XmlType(name = "CTPostupak", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "datumPostupka",
     "ctUstanova",
     "zakon"
 })
 public class CTPostupak {
 
-    @XmlElement(name = "DatumPostupka", namespace = "resenje", required = true)
+    @XmlElement(name = "DatumPostupka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datumPostupka;
-    @XmlElement(name = "CTUstanova", namespace = "resenje", required = true)
+    @XmlElement(name = "CTUstanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTUstanova ctUstanova;
-    @XmlElement(name = "Zakon", namespace = "resenje", required = true)
+    @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTZakon zakon;
 
     /**
@@ -118,10 +118,4 @@ public class CTPostupak {
         this.zakon = value;
     }
 
-    @Override
-    public String toString() {
-        return "\t\t\tDatum postupka: " + getDatumPostupka() + "\n" +
-                "\t\t\tUstanova: \n" + getCTUstanova() + "\n" +
-                "\t\t\tZakon: \n" + getZakon();
-    }
 }

@@ -42,15 +42,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTAutor", namespace = "zalbacutanje", propOrder = {
+@XmlType(name = "CTAutor", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", propOrder = {
     "ime",
     "prezime"
 })
 public class CTAutor {
 
-    @XmlElement(name = "Ime", namespace = "zalbacutanje", required = true)
+    @XmlElement(name = "Ime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected String ime;
-    @XmlElement(name = "Prezime", namespace = "zalbacutanje", required = true)
+    @XmlElement(name = "Prezime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected String prezime;
 
     /**
@@ -101,9 +101,4 @@ public class CTAutor {
         this.prezime = value;
     }
 
-    @Override
-    public String toString() {
-        return  "\t\tIme: " + getIme() + "\n" +
-                "\t\tPrezime: " + getPrezime();
-    }
 }

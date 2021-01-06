@@ -1,5 +1,6 @@
 
-package rs.uns.ftn.xml.tim11.poc.zahtev.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zahtev;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,9 +11,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>Java class for CTOstaliPodaci complex type.
- *
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
  * &lt;complexType name="CTOstaliPodaci"&gt;
  *   &lt;complexContent&gt;
@@ -32,14 +33,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTOstaliPodaci", namespace = "zahtev", propOrder = {
-        "mesto",
-        "datum",
-        "trazilacInformacija"
+    "mesto",
+    "datum",
+    "trazilacInformacija"
 })
 public class CTOstaliPodaci {
 
@@ -53,11 +54,11 @@ public class CTOstaliPodaci {
 
     /**
      * Gets the value of the mesto property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getMesto() {
         return mesto;
@@ -65,11 +66,11 @@ public class CTOstaliPodaci {
 
     /**
      * Sets the value of the mesto property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setMesto(String value) {
         this.mesto = value;
@@ -77,11 +78,11 @@ public class CTOstaliPodaci {
 
     /**
      * Gets the value of the datum property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link XMLGregorianCalendar }
-     *
+     *     
      */
     public XMLGregorianCalendar getDatum() {
         return datum;
@@ -89,11 +90,11 @@ public class CTOstaliPodaci {
 
     /**
      * Sets the value of the datum property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }
-     *
+     *     
      */
     public void setDatum(XMLGregorianCalendar value) {
         this.datum = value;
@@ -101,11 +102,11 @@ public class CTOstaliPodaci {
 
     /**
      * Gets the value of the trazilacInformacija property.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link CTTrazilacInformacija }
-     *
+     *     
      */
     public CTTrazilacInformacija getTrazilacInformacija() {
         return trazilacInformacija;
@@ -113,21 +114,14 @@ public class CTOstaliPodaci {
 
     /**
      * Sets the value of the trazilacInformacija property.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link CTTrazilacInformacija }
-     *
+     *     
      */
     public void setTrazilacInformacija(CTTrazilacInformacija value) {
         this.trazilacInformacija = value;
     }
 
-    @Override
-    public String toString() {
-        return "\n\t\tOstali podaci" +
-                "\n\t\t\tMesto " + mesto +
-                "\n\t\t\tDatum " + datum +
-                "\n\t\t\tTrazilacInformacija:" + trazilacInformacija;
-    }
 }

@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,15 +28,15 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTPoverenik", namespace = "resenje", propOrder = {
+@XmlType(name = "CTPoverenik", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "ime",
     "prezime"
 })
 public class CTPoverenik {
 
-    @XmlElement(name = "Ime", namespace = "resenje", required = true)
+    @XmlElement(name = "Ime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String ime;
-    @XmlElement(name = "Prezime", namespace = "resenje", required = true)
+    @XmlElement(name = "Prezime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String prezime;
 
     /**
@@ -87,9 +87,4 @@ public class CTPoverenik {
         this.prezime = value;
     }
 
-    @Override
-    public String toString() {
-        return "\t\tIme: " + getIme() + "\n" +
-                "\t\tPrezime: " + getPrezime() + "\n";
-    }
 }

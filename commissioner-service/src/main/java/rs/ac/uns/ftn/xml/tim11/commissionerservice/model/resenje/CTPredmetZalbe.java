@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -31,19 +31,19 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTPredmetZalbe", namespace = "resenje", propOrder = {
+@XmlType(name = "CTPredmetZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "datumIzjave",
     "organVlasti",
     "datumPotrazivanjaInformacija"
 })
 public class CTPredmetZalbe {
 
-    @XmlElement(name = "DatumIzjave", namespace = "resenje", required = true)
+    @XmlElement(name = "DatumIzjave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datumIzjave;
-    @XmlElement(name = "OrganVlasti", namespace = "resenje", required = true)
+    @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String organVlasti;
-    @XmlElement(name = "DatumPotrazivanjaInformacija", namespace = "resenje", required = true)
+    @XmlElement(name = "DatumPotrazivanjaInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datumPotrazivanjaInformacija;
 
@@ -119,10 +119,4 @@ public class CTPredmetZalbe {
         this.datumPotrazivanjaInformacija = value;
     }
 
-    @Override
-    public String toString() {
-        return "\t\t\tDatum izjave: " + getDatumIzjave() + "\n" +
-                "\t\t\tOrgan vlasti: " + getOrganVlasti() + "\n" +
-                "\t\t\tDatum potrazivanja informacija: " + getDatumPotrazivanjaInformacija();
-    }
 }

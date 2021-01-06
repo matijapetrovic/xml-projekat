@@ -30,16 +30,16 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTTrazenaInformacija", namespace = "obavestenje", propOrder = {
+@XmlType(name = "CTTrazenaInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", propOrder = {
     "datumZahteva",
     "opisInformacije"
 })
 public class CTTrazenaInformacija {
 
-    @XmlElement(name = "DatumZahteva", namespace = "obavestenje", required = true)
+    @XmlElement(name = "DatumZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datumZahteva;
-    @XmlElement(name = "OpisInformacije", namespace = "obavestenje", required = true)
+    @XmlElement(name = "OpisInformacije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String opisInformacije;
 
     /**
@@ -90,10 +90,4 @@ public class CTTrazenaInformacija {
         this.opisInformacije = value;
     }
 
-    @Override
-    public String toString() {
-        return "Podaci o trazenoj informaciji: \n" +
-                "\tDatum zahteva: " + getDatumZahteva() +
-                "\n\tOpis informacije: " + getOpisInformacije() + "\n";
-    }
 }

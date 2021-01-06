@@ -1,5 +1,5 @@
 
-package rs.uns.ftn.xml.tim11.poc.resenje.model;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -11,7 +11,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the model package. 
+ * generated in the rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -25,12 +25,12 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CTUvodDatumZalbe_QNAME = new QName("resenje", "DatumZalbe");
-    private final static QName _CTUvodOrganVlasti_QNAME = new QName("resenje", "OrganVlasti");
-    private final static QName _CTUvodPozivNaZakon_QNAME = new QName("resenje", "PozivNaZakon");
+    private final static QName _CTUvodDatumZalbe_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "DatumZalbe");
+    private final static QName _CTUvodOrganVlasti_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "OrganVlasti");
+    private final static QName _CTUvodPozivNaZakon_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "PozivNaZakon");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: model
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje
      * 
      */
     public ObjectFactory() {
@@ -140,7 +140,7 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
      */
-    @XmlElementDecl(namespace = "resenje", name = "DatumZalbe", scope = CTUvod.class)
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "DatumZalbe", scope = CTUvod.class)
     public JAXBElement<XMLGregorianCalendar> createCTUvodDatumZalbe(XMLGregorianCalendar value) {
         return new JAXBElement<XMLGregorianCalendar>(_CTUvodDatumZalbe_QNAME, XMLGregorianCalendar.class, CTUvod.class, value);
     }
@@ -153,7 +153,7 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
-    @XmlElementDecl(namespace = "resenje", name = "OrganVlasti", scope = CTUvod.class)
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "OrganVlasti", scope = CTUvod.class)
     public JAXBElement<String> createCTUvodOrganVlasti(String value) {
         return new JAXBElement<String>(_CTUvodOrganVlasti_QNAME, String.class, CTUvod.class, value);
     }
@@ -166,7 +166,7 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link CTPozivNaZakon }{@code >}
      */
-    @XmlElementDecl(namespace = "resenje", name = "PozivNaZakon", scope = CTUvod.class)
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "PozivNaZakon", scope = CTUvod.class)
     public JAXBElement<CTPozivNaZakon> createCTUvodPozivNaZakon(CTPozivNaZakon value) {
         return new JAXBElement<CTPozivNaZakon>(_CTUvodPozivNaZakon_QNAME, CTPozivNaZakon.class, CTUvod.class, value);
     }

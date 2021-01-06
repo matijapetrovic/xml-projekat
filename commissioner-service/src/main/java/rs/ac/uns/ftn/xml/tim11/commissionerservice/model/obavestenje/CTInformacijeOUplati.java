@@ -42,18 +42,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTInformacijeOUplati", namespace = "obavestenje", propOrder = {
+@XmlType(name = "CTInformacijeOUplati", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", propOrder = {
     "ukupniTroskovi",
     "ziroRacun",
     "brojModela"
 })
 public class CTInformacijeOUplati {
 
-    @XmlElement(name = "UkupniTroskovi", namespace = "obavestenje", required = true)
+    @XmlElement(name = "UkupniTroskovi", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected BigDecimal ukupniTroskovi;
-    @XmlElement(name = "ZiroRacun", namespace = "obavestenje", required = true)
+    @XmlElement(name = "ZiroRacun", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String ziroRacun;
-    @XmlElement(name = "BrojModela", namespace = "obavestenje", required = true)
+    @XmlElement(name = "BrojModela", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String brojModela;
 
     /**
@@ -128,12 +128,4 @@ public class CTInformacijeOUplati {
         this.brojModela = value;
     }
 
-
-    @Override
-    public String toString() {
-        return "Podaci o uplati: \n" +
-                "\tUkupni troskovi: " + getUkupniTroskovi() +
-                "\n\tZiro racun: " + getZiroRacun() +
-                "\n\tBroj modela: " + getBrojModela() + "\n";
-    }
 }

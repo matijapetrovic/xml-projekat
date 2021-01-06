@@ -24,7 +24,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Satnica" type="{http://www.w3.org/2001/XMLSchema}time"/&gt;
  *         &lt;element name="SatnicaOd" type="{http://www.w3.org/2001/XMLSchema}time"/&gt;
  *         &lt;element name="SatnicaDo" type="{http://www.w3.org/2001/XMLSchema}time"/&gt;
- *         &lt;element name="Adresa" type="{obavestenje}CTAdresa"/&gt;
+ *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTAdresa"/&gt;
  *         &lt;element name="BrojKancelarije" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -35,7 +35,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTInformacijeOUvidu", namespace = "obavestenje", propOrder = {
+@XmlType(name = "CTInformacijeOUvidu", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", propOrder = {
     "datum",
     "satnica",
     "satnicaOd",
@@ -45,21 +45,21 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class CTInformacijeOUvidu {
 
-    @XmlElement(name = "Datum", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Datum", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datum;
-    @XmlElement(name = "Satnica", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Satnica", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     @XmlSchemaType(name = "time")
     protected XMLGregorianCalendar satnica;
-    @XmlElement(name = "SatnicaOd", namespace = "obavestenje", required = true)
+    @XmlElement(name = "SatnicaOd", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     @XmlSchemaType(name = "time")
     protected XMLGregorianCalendar satnicaOd;
-    @XmlElement(name = "SatnicaDo", namespace = "obavestenje", required = true)
+    @XmlElement(name = "SatnicaDo", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     @XmlSchemaType(name = "time")
     protected XMLGregorianCalendar satnicaDo;
-    @XmlElement(name = "Adresa", namespace = "obavestenje", required = true)
+    @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTAdresa adresa;
-    @XmlElement(name = "BrojKancelarije", namespace = "obavestenje", required = true)
+    @XmlElement(name = "BrojKancelarije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger brojKancelarije;
 
@@ -207,14 +207,4 @@ public class CTInformacijeOUvidu {
         this.brojKancelarije = value;
     }
 
-    @Override
-    public String toString() {
-        return "Podaci o uvidu: \n" +
-                "\tDatum: " + getDatum() +
-                "\n\tSatnica: " + getSatnica() +
-                "\n\tSatnica Od: " + getSatnicaOd() +
-                "\n\tSatnica Do: " +getSatnicaDo() +
-                "\n\t" + getAdresa() +
-                "\tBroj kancelarije: " + getBrojKancelarije() + "\n";
-    }
 }
