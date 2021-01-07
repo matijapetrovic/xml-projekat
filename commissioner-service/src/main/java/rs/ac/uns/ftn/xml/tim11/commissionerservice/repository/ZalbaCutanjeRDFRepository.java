@@ -1,7 +1,7 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.FusekiReader;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.FusekiWriter;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.MetadataExtractor;
 
@@ -18,9 +18,10 @@ public class ZalbaCutanjeRDFRepository extends RDFRepository {
 
     public ZalbaCutanjeRDFRepository(
             MetadataExtractor extractor,
-            FusekiWriter writer
+            FusekiWriter writer,
+            FusekiReader reader
     ) {
-        super(extractor, writer);
+        super(extractor, writer, reader);
     }
 
     @Override

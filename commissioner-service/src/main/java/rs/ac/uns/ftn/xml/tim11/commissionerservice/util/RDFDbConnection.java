@@ -41,4 +41,6 @@ public class RDFDbConnection {
     public String getDataEndpoint() {
         return connectionProperties.dataEndpoint;
     }
+
+    public String getQueryEndpoint() { return connectionProperties.queryEndpoint; }
 }

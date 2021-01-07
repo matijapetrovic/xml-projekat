@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 
 @Component
 public class FusekiWriter {
-    public RDFDbConnection conn;
+    private RDFDbConnection conn;
 
     public FusekiWriter( RDFDbConnection conn ) {
         this.conn = conn;

@@ -11,16 +11,23 @@ abstract class RDFRepository {
 
     private MetadataExtractor extractor;
     private FusekiWriter writer;
+    private FusekiReader reader;
 
     public RDFRepository(
             MetadataExtractor extractor,
-            FusekiWriter writer) {
+            FusekiWriter writer,
+            FusekiReader reader) {
         this.extractor = extractor;
         this.writer = writer;
+        this.reader = reader;
     }
 
     public void create() throws IOException, TransformerException {
         extractor.extractToRDF(xmlFilePath(), rdfFilePath());
         writer.save(rdfFilePath(), namedGraph());
+    }
+
+    public void read() {
+        reader.read(namedGraph());
     }
 }
