@@ -1,19 +1,28 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.ResenjeXmlRepository;
+import org.xml.sax.SAXException;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.ZalbaCutanjeRDFRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.FusekiWriter;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.MetadataExtractor;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDFDbConnection;
 
-import java.util.List;
-import java.util.Optional;
+import javax.xml.transform.TransformerException;
+import java.io.IOException;
 
 @SpringBootApplication
 public class CommissionerServiceApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, SAXException, TransformerException {
 		SpringApplication.run(CommissionerServiceApplication.class, args);
+
+		MetadataExtractor metadataExtractor = new MetadataExtractor();
+		RDFDbConnection rdfDbConnection = new RDFDbConnection();
+		FusekiWriter writer = new FusekiWriter(rdfDbConnection);
+
+		ZalbaCutanjeRDFRepository repository = new ZalbaCutanjeRDFRepository(metadataExtractor, writer);
+
+		repository.create();
 	}
 }

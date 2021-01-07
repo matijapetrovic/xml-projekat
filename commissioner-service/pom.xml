@@ -46,7 +46,17 @@
 			<version>5.0.0</version>
 			<scope>runtime</scope>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>com.sun.org.apache</groupId>
+			<artifactId>jaxp-ri</artifactId>
+			<version>1.4</version>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-arq</artifactId>
+            <version>3.17.0</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
