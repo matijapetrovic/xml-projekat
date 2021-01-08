@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.util;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF;
 
 import com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;
 import org.springframework.stereotype.Component;

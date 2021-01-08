@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.util;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF;
 
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.RDFNode;

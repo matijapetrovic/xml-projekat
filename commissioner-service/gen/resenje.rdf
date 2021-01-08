@@ -1,0 +1,26 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="">
+    <pred:authority xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">OrganVlasti1</pred:authority>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:institutionName xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Naziv0</pred:institutionName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/obrazlozenje/Obrazlozenje_resenja">
+    <pred:dateOfRequest xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2006-05-04</pred:dateOfRequest>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/obrazlozenje/Obrazlozenje_resenja">
+    <pred:institutionName xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Naziv1</pred:institutionName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/obrazlozenje/Obrazlozenje_resenja">
+    <pred:lowName xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">NazivZakona0</pred:lowName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/obrazlozenje/Obrazlozenje_resenja">
+    <pred:city xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Mesto0</pred:city>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:commissionerName xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Ime0</pred:commissionerName>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:commissionerSurname xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Prezime0</pred:commissionerSurname>
+  </rdf:Description>
+</rdf:RDF>

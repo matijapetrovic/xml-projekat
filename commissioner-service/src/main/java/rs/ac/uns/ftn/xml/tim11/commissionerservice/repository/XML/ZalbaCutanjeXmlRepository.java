@@ -1,15 +1,15 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.XML;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.ZalbaCutanje;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.DbConnection;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XQueryExpressions;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML.DbConnection;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML.XQueryExpressions;
 
 import javax.xml.bind.JAXBException;
 
 @Repository
-public class ZalbaCutanjeXmlRepository extends XmlRepository<ZalbaCutanje>{
+public class ZalbaCutanjeXmlRepository extends XmlRepository<ZalbaCutanje> {
 
     @Value("${xml.collectionId.zalba-cutanje}")
     private String collectionId;

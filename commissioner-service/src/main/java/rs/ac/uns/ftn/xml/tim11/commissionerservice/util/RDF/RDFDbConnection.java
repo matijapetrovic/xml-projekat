@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.util;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF;
 
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -11,6 +11,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.jena.sparql.modify.UpdateProcessRemote;
 import org.apache.jena.update.UpdateProcessor;
 import org.springframework.stereotype.Component;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF.FusekiAuthenticationUtilities;
 
 import java.io.IOException;
 

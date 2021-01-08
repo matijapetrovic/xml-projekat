@@ -1,9 +1,9 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.RDF;
 
 import org.springframework.stereotype.Repository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.FusekiReader;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.FusekiWriter;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.MetadataExtractor;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF.FusekiReader;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF.FusekiWriter;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF.MetadataExtractor;
 
 @Repository
 public class ZalbaCutanjeRDFRepository extends RDFRepository {

@@ -4,10 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.exception.EntityNotFoundException;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.ResenjeRDFRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.ResenjeXmlRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.RDF.ResenjeRDFRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.XML.ResenjeXmlRepository;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.transform.TransformerException;
@@ -21,13 +20,13 @@ public class ResenjeService {
     private final ResenjeXmlRepository xmlRepository;
 
     public Long create(Resenje resenje) throws JAXBException, XMLDBException, IOException, TransformerException {
-        Long createdId = xmlRepository.create(resenje);
+        //Long createdId = xmlRepository.create(resenje);
         rdfRepository.create();
-        return createdId;
+        return 1L;
     }
 
     public Resenje findXmlById(Long id ) throws XMLDBException, JAXBException, EntityNotFoundException {
-        Resenje found = xmlRepository.findById(id).orElseThrow( () -> new EntityNotFoundException(String.format("Entity with %d not found",id)));
+        Resenje found = xmlRepository.findById(id).orElseThrow( () -> new EntityNotFoundException(String.format("Entity with %d not found", id)));
         return found;
     }
 

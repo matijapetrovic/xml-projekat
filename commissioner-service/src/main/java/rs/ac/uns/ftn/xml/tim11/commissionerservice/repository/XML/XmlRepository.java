@@ -1,12 +1,12 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.XML;
 
 import org.xmldb.api.base.*;
 import org.xmldb.api.base.Collection;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.exception.EntityNotFoundException;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.DbConnection;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XQueryExpressions;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML.DbConnection;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML.XQueryExpressions;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

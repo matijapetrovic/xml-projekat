@@ -1,4 +1,6 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.util;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF;
+
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML.AuthenticationUtilities;
 
 import java.io.IOException;
 import java.io.InputStream;

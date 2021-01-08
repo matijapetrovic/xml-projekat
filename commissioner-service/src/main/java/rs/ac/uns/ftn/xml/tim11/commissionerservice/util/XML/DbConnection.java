@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.util;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML;
 
 import org.springframework.stereotype.Component;
 import org.xmldb.api.DatabaseManager;
@@ -6,6 +6,7 @@ import org.xmldb.api.base.Collection;
 import org.xmldb.api.base.Database;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.CollectionManagementService;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML.AuthenticationUtilities;
 
 import java.io.IOException;
 

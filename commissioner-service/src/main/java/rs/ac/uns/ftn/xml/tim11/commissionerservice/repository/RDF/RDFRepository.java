@@ -1,6 +1,9 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.RDF;
 
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.*;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF.FusekiReader;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF.FusekiWriter;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.RDF.MetadataExtractor;
+
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
 

@@ -3,11 +3,8 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.service;
 import lombok.RequiredArgsConstructor;
 import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.exception.EntityNotFoundException;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.obavestenje.Obavestenje;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.ObavestenjeRDFRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.ObavestenjeXmlRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.RDFRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.XmlRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.RDF.RDFRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.XML.XmlRepository;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.transform.TransformerException;

@@ -1,22 +1,22 @@
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.XML;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku.ZalbaNaOdluku;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.DbConnection;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XQueryExpressions;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML.DbConnection;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.XML.XQueryExpressions;
 
 import javax.xml.bind.JAXBException;
 
 @Repository
-public class ZalbaNaOdlukuRepository extends XmlRepository<ZalbaNaOdluku> {
+public class ZalbaNaOdlukuXmlRepository extends XmlRepository<ZalbaNaOdluku> {
     @Value("${xml.collectionId.zalba-na-odluku}")
     private String collectionId;
 
     @Value("${xml.namespace.zalba-na-odluku}")
     private String namespace;
 
-    public ZalbaNaOdlukuRepository(DbConnection conn) throws JAXBException {
+    public ZalbaNaOdlukuXmlRepository(DbConnection conn) throws JAXBException {
         super(conn);
     }
 
