@@ -4,7 +4,7 @@ import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.*;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
 
-abstract class RDFRepository {
+public abstract class RDFRepository {
     protected abstract String xmlFilePath();
     protected abstract String rdfFilePath();
     protected abstract String namedGraph();
@@ -30,4 +30,6 @@ abstract class RDFRepository {
     public void read() {
         reader.read(namedGraph());
     }
+
+
 }

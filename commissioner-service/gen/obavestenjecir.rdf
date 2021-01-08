@@ -1,0 +1,17 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:h="http://www.w3.org/1999/xhtml">
+  <rdf:Description rdf:about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/podnosiocZahteva/Ime0_Prezime0">
+    <pred:senderName xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Ime0</pred:senderName>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/podnosiocZahteva/Ime0_Prezime0">
+    <pred:senderSurname xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Prezime0</pred:senderSurname>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/podnosiocZahteva/Ime0_Prezime0">
+    <pred:livesIn xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">Mesto0</pred:livesIn>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:dateOfRequest xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2006-05-04</pred:dateOfRequest>
+  </rdf:Description>
+  <rdf:Description rdf:about="">
+    <pred:dateOfInsight xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/" rdf:datatype="http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral">2006-05-04</pred:dateOfInsight>
+  </rdf:Description>
+</rdf:RDF>

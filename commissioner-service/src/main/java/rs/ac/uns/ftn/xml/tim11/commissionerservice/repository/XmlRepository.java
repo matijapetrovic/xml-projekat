@@ -17,7 +17,7 @@ import java.io.OutputStream;
 import java.io.StringWriter;
 import java.util.*;
 
-abstract class XmlRepository<T> {
+public abstract class XmlRepository<T> {
     protected abstract String collectionId();
     protected abstract String contextPath();
     protected abstract XQueryExpressions expressions();

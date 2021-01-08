@@ -3,7 +3,7 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.xml.sax.SAXException;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.ZalbaCutanjeRDFRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.ObavestenjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.FusekiReader;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.FusekiWriter;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.MetadataExtractor;
@@ -23,7 +23,7 @@ public class CommissionerServiceApplication {
 		FusekiWriter writer = new FusekiWriter(rdfDbConnection);
 		FusekiReader reader = new FusekiReader(rdfDbConnection);
 
-		ZalbaCutanjeRDFRepository repository = new ZalbaCutanjeRDFRepository(metadataExtractor, writer, reader);
+		ObavestenjeRDFRepository repository = new ObavestenjeRDFRepository(metadataExtractor, writer, reader);
 
 		repository.create();
 		repository.read();

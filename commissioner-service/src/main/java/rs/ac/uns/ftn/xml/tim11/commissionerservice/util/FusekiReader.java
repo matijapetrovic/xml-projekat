@@ -24,7 +24,7 @@ public class FusekiReader {
         // Query the SPARQL endpoint, iterate over the result set...
         ResultSet results = query.execSelect();
 
-        readWithIteration(results);
+//        readWithIteration(results);
         readSPARQLOverHTTP(NAMED_GRAPH, sparqlQuery, results, query);
 
         query.close() ;
