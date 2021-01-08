@@ -2,6 +2,7 @@
 <ob:Obavestenje xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
  xmlns:ob="obavestenje"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/"
  xsi:schemaLocation="obavestenje file:/C:/Users/matth/Documents/OxygenXMLEditor/projects/obavestenjecir.xsd">
     <ob:BrojPredmeta>BrojPredmeta0</ob:BrojPredmeta>
     <ob:Datum>2006-05-04</ob:Datum>
@@ -9,22 +10,23 @@
         <ob:Naziv>Naziv0</ob:Naziv>
         <ob:Sediste>Sediste0</ob:Sediste>
     </ob:Organ>
-    <ob:PodnosiocZahteva>
-        <ob:Ime>Ime0</ob:Ime>
-        <ob:Prezime>Prezime0</ob:Prezime>
+    <ob:PodnosiocZahteva vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/"
+                         about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/podnosiocZahteva/Ime0_Prezime0">
+        <ob:Ime property="pred:senderName">Ime0</ob:Ime>
+        <ob:Prezime property="pred:senderSurname">Prezime0</ob:Prezime>
         <ob:Naziv>Naziv1</ob:Naziv>
         <ob:Adresa>
-            <ob:Mesto>Mesto0</ob:Mesto>
+            <ob:Mesto property="pred:livesIn">Mesto0</ob:Mesto>
             <ob:Ulica>Ulica0</ob:Ulica>
             <ob:Broj>50</ob:Broj>
         </ob:Adresa>
     </ob:PodnosiocZahteva>
     <ob:TrazenaInformacija>
-        <ob:DatumZahteva>2006-05-04</ob:DatumZahteva>
+        <ob:DatumZahteva property="pred:dateOfRequest">2006-05-04</ob:DatumZahteva>
         <ob:OpisInformacije>OpisInformacije0</ob:OpisInformacije>
     </ob:TrazenaInformacija>
     <ob:InformacijeOUvidu>
-        <ob:Datum>2006-05-04</ob:Datum>
+        <ob:Datum property="pred:dateOfInsight">2006-05-04</ob:Datum>
         <ob:Satnica>01:01:01.001</ob:Satnica>
         <ob:SatnicaOd>01:01:01.001</ob:SatnicaOd>
         <ob:SatnicaDo>01:01:01.001</ob:SatnicaDo>

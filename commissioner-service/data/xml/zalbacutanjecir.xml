@@ -12,7 +12,9 @@
             <PostanskiBroj>PostanskiBroj0</PostanskiBroj>
         </Adresa>
     </primalac>
-    <Sadrzaj>
+    <Sadrzaj
+            vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbacutanjecir.xml/predicate/"
+            about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbacutanjecir.xml/PredmetSlanja/Predmet_slanja_1">>
         <ZaglavljeZalbe>
             <Clan>500</Clan>
             <Zakon property="pred:authority">Zakon11111</Zakon>

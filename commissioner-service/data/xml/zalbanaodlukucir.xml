@@ -2,6 +2,7 @@
 <zod:zalbaO xmlns="zalbaO"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:zod="zalbaO"
+    xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbanaodlukucir.xml/predicate/"
     xsi:schemaLocation="zalbaO file:/C:/Users/Matija/Desktop/xml-projekat/documents/schemas/zalbanaodlukucir.xsd">
     <zod:primalac>
         <zod:adresaPrimaoca>
@@ -10,23 +11,24 @@
             <zod:broj>65</zod:broj>
         </zod:adresaPrimaoca>
     </zod:primalac>
-    <zod:sadrzaj>
+    <zod:sadrzaj vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbanaodlukucir.xml/predicate/"
+                 about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbanaodlukucir.xml/predmetSlanja/Predmet1">>
         <zod:paragraf1>
-            <zod:predmetSlanja>Predmet1</zod:predmetSlanja>
+            <zod:predmetSlanja property="pred:sendingSubject">Predmet1</zod:predmetSlanja>
             <zod:osoba>
-                <zod:ime>Ime1</zod:ime>
-                <zod:prezime>Prezime1</zod:prezime>
+                <zod:ime property="pred:senderName">Ime1</zod:ime>
+                <zod:prezime property="pred:senderSurname">Prezime1</zod:prezime>
             </zod:osoba>
             <zod:naziv>Naziv1</zod:naziv>
             <zod:adresa>
-                <zod:mesto>Mesto1</zod:mesto>
+                <zod:mesto property="pred:livesIn">Mesto1</zod:mesto>
                 <zod:ulica>Ulica1</zod:ulica>
                 <zod:broj>123</zod:broj>
             </zod:adresa>
             <sediste>15</sediste>
         </zod:paragraf1>
         <zod:paragraf2>
-            <zod:nazivOrgana>Naziv2</zod:nazivOrgana>
+            <zod:nazivOrgana property="pred:authority">Naziv2</zod:nazivOrgana>
             <zod:broj>17</zod:broj>
             <zod:godina>2020</zod:godina>
         </zod:paragraf2>
@@ -38,17 +40,17 @@
         <zod:paragraf4>
             <zod:zakljucak>
                 <zod:razlog>Razlog2</zod:razlog>
-                <zod:zakonPodnosenjaZalbe>ZakonNeki</zod:zakonPodnosenjaZalbe>
+                <zod:zakonPodnosenjaZalbe  property="pred:law">ZakonNeki</zod:zakonPodnosenjaZalbe>
             </zod:zakljucak>
         </zod:paragraf4>
     </zod:sadrzaj>
     <zod:podnosilacZalbe>
         <zod:osoba>
-            <zod:ime>Ime2</zod:ime>
-            <zod:prezime>Prezime2</zod:prezime>
+            <zod:ime property="pred:senderName">Ime2</zod:ime>
+            <zod:prezime property="pred:senderSurname">Prezime2</zod:prezime>
         </zod:osoba>
         <zod:adresa>
-            <zod:mesto>Mesto2</zod:mesto>
+            <zod:mesto property="pred:livesIn">Mesto2</zod:mesto>
             <zod:ulica>Ulica2</zod:ulica>
             <zod:broj>12</zod:broj>
         </zod:adresa>

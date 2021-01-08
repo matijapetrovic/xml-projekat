@@ -2,16 +2,18 @@
 <za:Zahtevcir xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
  xmlns:za="zahtev"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zahtevcir.xml/predicate/"
  xsi:schemaLocation="zahtev file:/C:/FAKS/7%20semestar/XML%20veb%20serivisi/xml-projekat/documents/schemas/zahtevcir.xsd">
-    <za:primalac naziv="FTN" adresa="Novi Sad"/>
+    <za:primalac property="pred:recipient" naziv="FTN" adresa="Novi Sad"/>
     <za:naslov>ZAHTEV za pristup informacijama od javnog znacaja</za:naslov>
-    <za:sadrzaj>
+    <za:sadrzaj vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zahtevcir.xml/predicate/"
+                about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zahtevcir.xml/zakon/ZakonOPristupu">
         <za:paragraf1>
             <za:clan>15</za:clan>
             <za:stav>1</za:stav>
             <za:zakon>Zakon o slobodnom pristupu informacijama od javnog značaja</za:zakon>
             <za:sluzbeniGlasnik>
-                <za:naziv>Sluzbeni glasnik Republike Srbije</za:naziv>
+                <za:naziv property="pred:officialGazette">Sluzbeni glasnik Republike Srbije</za:naziv>
                 <za:brojevi>
                     <za:broj>120/04</za:broj>
                     <za:broj>54/07</za:broj>
@@ -31,11 +33,11 @@
 			<za:informacije>Zahtevane informacije</za:informacije>
         </za:zahtevi>
         <za:ostaliPodaci>
-            <za:mesto>Novi Sad</za:mesto>
+            <za:mesto property="pred:city">Novi Sad</za:mesto>
             <za:datum>2006-05-04</za:datum>
             <za:trazilacInformacija>
-                <za:ime>Trazilac</za:ime>
-                <za:prezime>Trazilac</za:prezime>
+                <za:ime property="pred:senderName">Trazilac</za:ime>
+                <za:prezime property="pred:senderSurname">Trazilac</za:prezime>
                 <za:adresa>Alekse Santica 11, Novi Sad</za:adresa>
                 <za:kontakt>789456487</za:kontakt>
             </za:trazilacInformacija>

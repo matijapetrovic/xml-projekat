@@ -18,7 +18,8 @@
         </re:CTUstanova>
         <re:Ishod>Ishod0</re:Ishod>
     </re:Sadrzaj>
-    <re:Obrazlozenje>
+    <re:Obrazlozenje vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/"
+                     about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/obrazlozenje/Obrazlozenje_resenja">>
         <re:PredmetZalbe>
             <re:DatumIzjave>2006-05-04</re:DatumIzjave>
             <re:OrganVlasti>OrganVlasti2</re:OrganVlasti>
