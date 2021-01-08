@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../xsl/grddl.xsl"?>
 <zalba xmlns="zalbacutanje"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="zalbacutanje file:/C:/Users/nikol/Desktop/XML%20project/xml-projekat/documents/schemas/zalbacutanjecir.xsd">
+ xsi:schemaLocation="zalbacutanje file:/C:/Users/nikol/Desktop/XML%20project/xml-projekat/documents/schemas/zalbacutanjecir.xsd"
+       xmlns:pred="http://www.ftn.uns.ac.rs/rdf/examples/predicate/">
     <primalac>
         <Adresa>
             <Ulica>Ulica0</Ulica>
@@ -22,7 +24,7 @@
             <NijePostupioUCelosti>NijePostupioUCelosti0</NijePostupioUCelosti>
         </RazlogSlanja>
         <PodaciOZahtevu>
-            <Godina>1960</Godina>
+            <Godina property="pred:god">1960</Godina>
             <PodaciOZahtevuIInformacijama>PodaciOZahtevuIInformacijama0</PodaciOZahtevuIInformacijama>
         </PodaciOZahtevu>
         <Zakljucak>

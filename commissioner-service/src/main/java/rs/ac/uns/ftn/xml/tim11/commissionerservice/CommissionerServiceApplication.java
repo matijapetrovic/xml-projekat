@@ -27,6 +27,7 @@ public class CommissionerServiceApplication {
 		String XSLT_FILE = "/example/sparql/metadata";
 
 		extractor.extract(xml, rdf, XSLT_FILE);
+		repository.create(xml, rdf, XSLT_FILE);
 	}
 
 }
