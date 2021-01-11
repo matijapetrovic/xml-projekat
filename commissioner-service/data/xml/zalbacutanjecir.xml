@@ -1,61 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zalba xmlns="zalbacutanje"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbacutanjecir.xml/predicate/"
-       xsi:schemaLocation="zalbacutanje file:/C:/Users/nikol/Desktop/XML%20project/xml-projekat/documents/schemas/zalbacutanjecir.xsd">
-    <primalac>
-        <Adresa>
-            <Ulica>Ulica0</Ulica>
-            <Broj>Broj0</Broj>
-            <Grad property="pred:livesIn">Grad0</Grad>
-            <Drzava property="pred:country">Drzava0</Drzava>
-            <PostanskiBroj>PostanskiBroj0</PostanskiBroj>
-        </Adresa>
-    </primalac>
-    <Sadrzaj
-            vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbacutanjecir.xml/predicate/"
-            about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbacutanjecir.xml/PredmetSlanja/Predmet_slanja_1">>
-        <ZaglavljeZalbe>
-            <Clan>500</Clan>
-            <Zakon property="pred:authority">Zakon11111</Zakon>
-            <PredmetSlanja>PredmetSlanja0</PredmetSlanja>
-            <NazivOrgana property="pred:authority">NazivOrgana0</NazivOrgana>
-        </ZaglavljeZalbe>
-        <RazlogSlanja>
-            <NijePostupioUCelosti>NijePostupioUCelosti0</NijePostupioUCelosti>
-        </RazlogSlanja>
-        <PodaciOZahtevu>
-            <Godina>1960</Godina>
-            <PodaciOZahtevuIInformacijama>PodaciOZahtevuIInformacijama0</PodaciOZahtevuIInformacijama>
-        </PodaciOZahtevu>
-        <Zakljucak>
-            <Predlog>Predlog0</Predlog>
-            <Dokaz>
-                <Opis>Opis0</Opis>
-            </Dokaz>
-            <Napomena>Napomena0</Napomena>
-        </Zakljucak>
-    </Sadrzaj>
-    <PodnosilacZalbe>
-        <Naziv>
-            <ImePosiljaoca>
-                <Ime property="pred:senderName">Ime0</Ime>
-                <Prezime property="pred:senderSurname">Prezime0</Prezime>
-            </ImePosiljaoca>
-        </Naziv>
-        <Adresa>
-            <Ulica>Ulica1</Ulica>
-            <Broj>Broj1</Broj>
-            <Grad property="pred:livesIn">Grad1</Grad>
-            <Drzava property="pred:country">Drzava1</Drzava>
-            <PostanskiBroj>PostanskiBroj1</PostanskiBroj>
-        </Adresa>
-        <drugiPodaci>drugiPodaci0</drugiPodaci>
-        <Potpis>Potpis0</Potpis>
-    </PodnosilacZalbe>
-    <podaciOPodnosenjuZahteva>
-        <Mesto>Mesto0</Mesto>
-        <Dan>16</Dan>
-        <Godina>1960</Godina>
-    </podaciOPodnosenjuZahteva>
-</zalba>
+<zlb:zalba 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje ../../../documents/schemas/zalbacutanjecir.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+    xmlns:zlb="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
+    xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
+    xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbacutanje/predicate/"
+    xmlns:vc="http://www.w3.org/2001/XMLSchema-versioning">
+    <zlb:primalac>
+        <zlb:Adresa>
+            <zlb:Ulica>Ulica0</zlb:Ulica>
+            <zlb:Broj>Broj0</zlb:Broj>
+            <zlb:Grad property="pred:livesIn" type="">Grad0</zlb:Grad>
+            <zlb:Drzava property="pred:country" type="">Drzava0</zlb:Drzava>
+            <zlb:PostanskiBroj>PostanskiBroj0</zlb:PostanskiBroj>
+        </zlb:Adresa>
+    </zlb:primalac>
+    <zlb:Sadrzaj>
+        <zlb:ZaglavljeZalbe>
+            <zlb:Clan>500</zlb:Clan>
+            <zlb:Zakon type="" property="pred:authority">Zakon11111</zlb:Zakon>
+            <zlb:PredmetSlanja>PredmetSlanja0</zlb:PredmetSlanja>
+            <zlb:NazivOrgana type="" property="pred:authority">NazivOrgana0</zlb:NazivOrgana>
+        </zlb:ZaglavljeZalbe>
+        <zlb:RazlogSlanja>
+            <zlb:NijePostupioUCelosti>NijePostupioUCelosti0</zlb:NijePostupioUCelosti>
+        </zlb:RazlogSlanja>
+        <zlb:PodaciOZahtevu>
+            <zlb:Godina>1960</zlb:Godina>
+            <zlb:PodaciOZahtevuIInformacijama>PodaciOZahtevuIInformacijama0</zlb:PodaciOZahtevuIInformacijama>
+        </zlb:PodaciOZahtevu>
+        <zlb:Zakljucak>
+            <zlb:Predlog>Predlog0</zlb:Predlog>
+            <zlb:Dokaz>
+                <zlb:Opis>Opis0</zlb:Opis>
+            </zlb:Dokaz>
+            <zlb:Napomena>Napomena0</zlb:Napomena>
+        </zlb:Zakljucak>
+    </zlb:Sadrzaj>
+    <zlb:PodnosilacZalbe>
+        <zlb:Naziv>
+            <zlb:ImePosiljaoca>
+                <zlb:Ime property="pred:senderName">Ime0</zlb:Ime>
+                <zlb:Prezime property="pred:senderSurname">Prezime0</zlb:Prezime>
+            </zlb:ImePosiljaoca>
+        </zlb:Naziv>
+        <zlb:Adresa>
+            <zlb:Ulica>Ulica1</zlb:Ulica>
+            <zlb:Broj>Broj1</zlb:Broj>
+            <zlb:Grad property="pred:livesIn" type="">Grad1</zlb:Grad>
+            <zlb:Drzava property="pred:country" type="">Drzava1</zlb:Drzava>
+            <zlb:PostanskiBroj>PostanskiBroj1</zlb:PostanskiBroj>
+        </zlb:Adresa>
+        <zlb:drugiPodaci>drugiPodaci0</zlb:drugiPodaci>
+        <zlb:Potpis>Potpis0</zlb:Potpis>
+    </zlb:PodnosilacZalbe>
+    <zlb:podaciOPodnosenjuZahteva>
+        <zlb:Mesto>Mesto0</zlb:Mesto>
+        <zlb:Dan>16</zlb:Dan>
+        <zlb:Godina>1960</zlb:Godina>
+    </zlb:podaciOPodnosenjuZahteva>
+</zlb:zalba>

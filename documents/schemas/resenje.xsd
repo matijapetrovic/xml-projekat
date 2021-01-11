@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema 
+	xmlns="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
 	elementFormDefault="qualified"
 	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
 	xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
 	vc:minVersion="1.1">
-	<xs:element name="Resenje">
+	<xs:element name="resenje">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="BrojResenja">
@@ -58,14 +59,14 @@
 			<xs:element minOccurs = "0" maxOccurs="1" name="Stav" type="xs:positiveInteger"/>
 			<xs:element minOccurs = "0" maxOccurs="1" name="Tacka" type="xs:positiveInteger"/>
 			<xs:element name="NazivZakona">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="type" use="required"/>
-              <xs:attribute name="property" use="required"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
+		        <xs:complexType>
+		          <xs:simpleContent>
+		            <xs:extension base="xs:string">
+		              <xs:attribute name="type" use="required"/>
+		              <xs:attribute name="property" use="required"/>
+		            </xs:extension>
+		          </xs:simpleContent>
+		        </xs:complexType>
       </xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -169,15 +170,15 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="Naziv">
-          <xs:complexType>
-            <xs:simpleContent>
-              <xs:extension base="xs:string">
-                <xs:attribute name="type" use="required"/>
-                <xs:attribute name="property" use="required"/>
-              </xs:extension>
-            </xs:simpleContent>
-          </xs:complexType>
-        </xs:element>
+			      <xs:complexType>
+			        <xs:simpleContent>
+			          <xs:extension base="xs:string">
+			            <xs:attribute name="type" use="required"/>
+			            <xs:attribute name="property" use="required"/>
+			          </xs:extension>
+			        </xs:simpleContent>
+			      </xs:complexType>
+       		 </xs:element>
 				<xs:element name="Adresa" type="xs:string"></xs:element>
 			</xs:sequence>
 		</xs:complexType>

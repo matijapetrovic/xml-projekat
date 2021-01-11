@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ob:Obavestenje xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
- xmlns:ob="obavestenje"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/"
- xsi:schemaLocation="obavestenje file:/C:/Users/nikol/Desktop/XML/xml-projekat/documents/schemas/obavestenjecir.xsd">
+<ob:Obavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje ../../../documents/schemas/obavestenjecir.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+    xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
+    xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+    xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenje/predicate/"
+    xmlns:vc="http://www.w3.org/2001/XMLSchema-versioning">
     <ob:BrojPredmeta>BrojPredmeta0</ob:BrojPredmeta>
     <ob:Datum>2006-05-04</ob:Datum>
     <ob:Organ>
         <ob:Naziv>Naziv0</ob:Naziv>
         <ob:Sediste>Sediste0</ob:Sediste>
     </ob:Organ>
-    <ob:PodnosiocZahteva vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/"
-                         about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/podnosiocZahteva/Ime0_Prezime0">
+    <ob:PodnosiocZahteva>
         <ob:Ime property="pred:senderName">Ime0</ob:Ime>
         <ob:Prezime property="pred:senderSurname">Prezime0</ob:Prezime>
         <ob:Naziv>Naziv1</ob:Naziv>
@@ -31,7 +32,7 @@
         <ob:SatnicaOd>01:01:01.001</ob:SatnicaOd>
         <ob:SatnicaDo>01:01:01.001</ob:SatnicaDo>
         <ob:Adresa>
-            <ob:Mesto>Mesto1</ob:Mesto>
+            <ob:Mesto property="pred:livesIn">Mesto1</ob:Mesto>
             <ob:Ulica>Ulica1</ob:Ulica>
             <ob:Broj>50</ob:Broj>
         </ob:Adresa>

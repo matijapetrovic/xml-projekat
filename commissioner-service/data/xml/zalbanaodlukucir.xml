@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zod:zalbaO xmlns="zalbaO"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:zod="zalbaO"
-    xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbanaodlukucir.xml/predicate/"
-    xsi:schemaLocation="zalbaO file:/C:/Users/Matija/Desktop/xml-projekat/documents/schemas/zalbanaodlukucir.xsd">
+<zod:zalbaO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku ../../../documents/schemas/zalbanaodlukucir.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+    xmlns:zod="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"
+    xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"
+    xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbanaodluku/predicate/"
+    xmlns:vc="http://www.w3.org/2001/XMLSchema-versioning">
     <zod:primalac>
         <zod:adresaPrimaoca>
-            <zod:mesto>Mesto1</zod:mesto>
+            <zod:mesto property="pred:livesIn">Mesto1</zod:mesto>
             <zod:ulica>Ulica1</zod:ulica>
             <zod:broj>65</zod:broj>
         </zod:adresaPrimaoca>
     </zod:primalac>
-    <zod:sadrzaj vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbanaodlukucir.xml/predicate/"
-                 about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/zalbanaodlukucir.xml/predmetSlanja/Predmet1">>
+    <zod:sadrzaj>
         <zod:paragraf1>
             <zod:predmetSlanja property="pred:sendingSubject">Predmet1</zod:predmetSlanja>
             <zod:osoba>

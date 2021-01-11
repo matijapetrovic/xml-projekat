@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+<xs:schema xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
 	elementFormDefault="qualified"
-	targetNamespace="zahtev" 
-	xmlns:za="zahtev">
+	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+	xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+	vc:minVersion="1.1">
 	
-	<xs:element name="Zahtev">
+	<xs:element name="zahtev">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="primalac">
@@ -15,6 +17,8 @@
 						</xs:attribute>
 						<xs:attribute name="adresa">
 						</xs:attribute>
+						<xs:attribute name="property" use="required"/>
+						<xs:attribute name="type" use="required"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="naslov" type="xs:string"/>
@@ -39,7 +43,16 @@
 			<xs:element name="sluzbeniGlasnik">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="naziv" fixed="Sluzbeni glasnik Republike Srbije" type="xs:string"></xs:element>
+						<xs:element name="naziv" fixed="Sluzbeni glasnik Republike Srbije">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:string">
+										<xs:attribute name="type" use="required"/>
+										<xs:attribute name="property" use="required"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
 						<xs:element name="brojevi">
 							<xs:complexType>
 								<xs:sequence>
@@ -101,11 +114,14 @@
 	<xs:complexType name="CTOstaliPodaci">
 		<xs:sequence>
 			<xs:element name="mesto">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:pattern value="([A-Z][a-z]+)(\s[A-Z][a-z]+)*"/>
-					</xs:restriction>
-				</xs:simpleType>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="datum" type="xs:date"/>
 			<xs:element name="trazilacInformacija" type="za:CTTrazilacInformacija"/>
@@ -115,18 +131,24 @@
 	<xs:complexType name="CTTrazilacInformacija">
 		<xs:sequence>
 			<xs:element name="ime">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:pattern value="[A-Z][a-z]+"/>
-					</xs:restriction>
-				</xs:simpleType>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="prezime">
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:pattern value="[A-Z][a-z]+"/>
-					</xs:restriction>
-				</xs:simpleType>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 			<xs:element name="adresa" type="xs:string"/>
 			<xs:element name="kontakt" type="xs:string"/>

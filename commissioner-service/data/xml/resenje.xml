@@ -6,7 +6,7 @@
  xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
  xmlns="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
  xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje/predicate/"
- xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
+ xmlns:vc="http://www.w3.org/2001/XMLSchema-versioning">
     <re:BrojResenja>000-00-0000/0000-00</re:BrojResenja>
     <re:DatumResenja>2006-05-04</re:DatumResenja>
     <re:Uvod>
@@ -14,7 +14,7 @@
         <re:OrganVlasti>OrganVlasti0</re:OrganVlasti>
     </re:Uvod>
     <re:Sadrzaj>
-        <re:OrganVlasti property="pred:authority">OrganVlasti1</re:OrganVlasti>
+        <re:OrganVlasti property="pred:authority" type="">OrganVlasti1</re:OrganVlasti>
         <re:CTUstanova>
             <re:Naziv type="text" property="pred:institutionName">Naziv0</re:Naziv>
             <re:Adresa>Adresa0</re:Adresa>
@@ -22,11 +22,11 @@
         <re:Ishod>Ishod0</re:Ishod>
     </re:Sadrzaj>
     <re:Obrazlozenje vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje/predicate/"
-                     about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje/obrazlozenje/Obrazlozenje_resenja">>
+                     about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje/obrazlozenje/Obrazlozenje_resenja">
         <re:PredmetZalbe>
             <re:DatumIzjave>2006-05-04</re:DatumIzjave>
             <re:OrganVlasti>OrganVlasti2</re:OrganVlasti>
-            <re:DatumPotrazivanjaInformacija property="pred:dateOfRequest">2006-05-04</re:DatumPotrazivanjaInformacija>
+            <re:DatumPotrazivanjaInformacija property="pred:dateOfRequest" type="">2006-05-04</re:DatumPotrazivanjaInformacija>
         </re:PredmetZalbe>
         <re:Postupak>
             <re:DatumPostupka>2006-05-04</re:DatumPostupka>
@@ -37,22 +37,22 @@
             <re:Zakon>
                 <re:Clan>50</re:Clan>
                 <re:Clan>50</re:Clan>
-                <re:NazivZakona property="pred:lowName">NazivZakona0</re:NazivZakona>
+                <re:NazivZakona property="pred:lowName" type="">NazivZakona0</re:NazivZakona>
             </re:Zakon>
         </re:Postupak>
         <re:Odluka>
             <re:Zakon>
                 <re:Clan>50</re:Clan>
                 <re:Clan>50</re:Clan>
-                <re:NazivZakona>NazivZakona1</re:NazivZakona>
+                <re:NazivZakona property="" type="">NazivZakona1</re:NazivZakona>
             </re:Zakon>
             <re:Lice>Lice0</re:Lice>
-            <re:Mesto property="pred:city">Mesto0</re:Mesto>
+            <re:Mesto property="pred:city" type="">Mesto0</re:Mesto>
             <re:Iznos>50</re:Iznos>
         </re:Odluka>
     </re:Obrazlozenje>
     <re:Poverenik>
-        <re:Ime property="pred:commissionerName">Ime0</re:Ime>
-        <re:Prezime property="pred:commissionerSurname">Prezime0</re:Prezime>
+        <re:Ime property="pred:commissionerName" type="">Ime0</re:Ime>
+        <re:Prezime property="pred:commissionerSurname" type="">Prezime0</re:Prezime>
     </re:Poverenik>
 </re:resenje>
