@@ -20,9 +20,9 @@ public class ResenjeService {
     private final ResenjeXmlRepository xmlRepository;
 
     public Long create(Resenje resenje) throws JAXBException, XMLDBException, IOException, TransformerException {
-        //Long createdId = xmlRepository.create(resenje);
+        Long createdId = xmlRepository.create(resenje);
         rdfRepository.create();
-        return 1L;
+        return createdId;
     }
 
     public Resenje findXmlById(Long id ) throws XMLDBException, JAXBException, EntityNotFoundException {

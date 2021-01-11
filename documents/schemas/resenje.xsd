@@ -1,119 +1,185 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
-    elementFormDefault="qualified"
-    targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/resenje" 
-    xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
-    vc:minVersion="1.1">
-    <xs:element name="Resenje">
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
+	elementFormDefault="qualified"
+	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+	xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+	vc:minVersion="1.1">
+	<xs:element name="Resenje">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BrojResenja">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="\d{3}-\d{2}-\d{4}/\d{4}-\d{2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="DatumResenja" type="xs:date"/>
+				<xs:element name="Uvod" type="re:CTUvod"/>
+				<xs:element name="Sadrzaj" type="re:CTResenje"/>
+				<xs:element name="Obrazlozenje" type="re:CTObrazlozenje"/>
+				<xs:element name="Poverenik" type="re:CTPoverenik"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="CTUvod" mixed="true">
+		<xs:sequence>
+			<xs:element name="DatumZalbe" type="xs:date"/>
+			<xs:element name="OrganVlasti" type="xs:string"/>
+			<xs:element  minOccurs = "0" maxOccurs="unbounded" name="PozivNaZakon" type="re:CTPozivNaZakon"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTPozivNaZakon">
+		<xs:sequence>
+			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
+			<xs:element name="BrojeviSluzbenogGlasnika">
+			  <xs:complexType>
+				  <xs:sequence>
+					  <xs:element maxOccurs="unbounded" name="Broj">
+						  <xs:simpleType>
+							  <xs:restriction base="xs:string">
+								  <xs:pattern value="[1-9][0-9]*/[0-9]{2}"></xs:pattern>
+							  </xs:restriction>
+						  </xs:simpleType>
+					  </xs:element>
+				  </xs:sequence>
+			  </xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTZakon">
+		<xs:sequence>
+			<xs:element minOccurs = "1" maxOccurs="unbounded" name="Clan" type="xs:positiveInteger"/>
+			<xs:element minOccurs = "0" maxOccurs="1" name="Stav" type="xs:positiveInteger"/>
+			<xs:element minOccurs = "0" maxOccurs="1" name="Tacka" type="xs:positiveInteger"/>
+			<xs:element name="NazivZakona">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element name="BrojResenja">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:pattern value="\d{3}-\d{2}-\d{4}/\d{4}-\d{2}"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
-                <xs:element name="DatumResenja" type="xs:date"/>
-                <xs:element name="Uvod" type="re:CTUvod"/>
-                <xs:element name="Sadrzaj" type="re:CTResenje"/>
-                <xs:element name="Obrazlozenje" type="re:CTObrazlozenje"/>
-                <xs:element name="Poverenik" type="re:CTPoverenik"/>
-            </xs:sequence>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" use="required"/>
+              <xs:attribute name="property" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
         </xs:complexType>
-    </xs:element>
-    
-    <xs:complexType name="CTUvod" mixed="true">
-        <xs:sequence>
-            <xs:element name="DatumZalbe" type="xs:date"/>
-            <xs:element name="OrganVlasti" type="xs:string"/>
-            <xs:element  minOccurs = "0" maxOccurs="unbounded" name="PozivNaZakon" type="re:CTPozivNaZakon"/>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="CTPozivNaZakon">
-        <xs:sequence>
-            <xs:element name="Zakon" type="re:CTZakon"></xs:element>
-            <xs:element name="BrojeviSluzbenogGlasnika">
-              <xs:complexType>
-                  <xs:sequence>
-                      <xs:element maxOccurs="unbounded" name="Broj">
-                          <xs:simpleType>
-                              <xs:restriction base="xs:string">
-                                  <xs:pattern value="[1-9][0-9]*/[0-9]{2}"></xs:pattern>
-                              </xs:restriction>
-                          </xs:simpleType>
-                      </xs:element>
-                  </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="CTZakon">
-        <xs:sequence>
-            <xs:element minOccurs = "1" maxOccurs="unbounded" name="Clan" type="xs:positiveInteger"/>
-            <xs:element minOccurs = "0" maxOccurs="1" name="Stav" type="xs:positiveInteger"/>
-            <xs:element minOccurs = "0" maxOccurs="1" name="Tacka" type="xs:positiveInteger"/>
-            <xs:element name="NazivZakona" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="CTResenje">
-        <xs:sequence>
-            <xs:element name="OrganVlasti" type="xs:string"/>
-            <xs:element ref="re:CTUstanova"></xs:element>
-            <xs:element name="Ishod" type="xs:string"></xs:element>
-        </xs:sequence>
-    </xs:complexType>
+      </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTResenje">
+		<xs:sequence>
+			<xs:element name="OrganVlasti">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" use="required"/>
+              <xs:attribute name="property" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+			<xs:element ref="re:CTUstanova"></xs:element>
+			<xs:element name="Ishod" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
    
-    <xs:complexType name="CTObrazlozenje">
-        <xs:sequence>
-            <xs:element name="PredmetZalbe" type="re:CTPredmetZalbe"></xs:element>
-            <xs:element name="Postupak" type="re:CTPostupak"></xs:element>
-            <xs:element name="Odluka" type="re:CTOdluka"></xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="CTPredmetZalbe">
-        <xs:sequence>
-            <xs:element name="DatumIzjave" type="xs:date"></xs:element>
-            <xs:element name="OrganVlasti" type="xs:string"></xs:element>
-            <xs:element name="DatumPotrazivanjaInformacija" type="xs:date"></xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="CTPostupak">
-        <xs:sequence>
-            <xs:element name="DatumPostupka" type="xs:date"></xs:element>
-            <xs:element ref="re:CTUstanova"></xs:element>
-            <xs:element name="Zakon" type="re:CTZakon"></xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="CTOdluka">
-        <xs:sequence>
-            <xs:element name="Zakon" type="re:CTZakon"></xs:element>
-            <xs:element name="Lice" type="xs:string"></xs:element>
-            <xs:element name="Mesto" type="xs:string"></xs:element>
-            <xs:element name="Iznos" type="xs:positiveInteger"></xs:element>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="CTPoverenik">
-        <xs:sequence>
-            <xs:element name="Ime" type="xs:string"/>
-            <xs:element name="Prezime" type="xs:string"/>
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:element name="CTUstanova">
+	<xs:complexType name="CTObrazlozenje">
+		<xs:sequence>
+			<xs:element name="PredmetZalbe" type="re:CTPredmetZalbe"></xs:element>
+			<xs:element name="Postupak" type="re:CTPostupak"></xs:element>
+			<xs:element name="Odluka" type="re:CTOdluka"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="about" use="required" type="xs:anyURI"/>
+		<xs:attribute name="vocab" use="required" type="xs:anyURI"/>
+	</xs:complexType>
+	
+	<xs:complexType name="CTPredmetZalbe">
+		<xs:sequence>
+			<xs:element name="DatumIzjave" type="xs:date"></xs:element>
+			<xs:element name="OrganVlasti" type="xs:string"></xs:element>
+			<xs:element name="DatumPotrazivanjaInformacija">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element name="Naziv" type="xs:string"></xs:element>
-                <xs:element name="Adresa" type="xs:string"></xs:element>
-            </xs:sequence>
+          <xs:simpleContent>
+            <xs:extension base="xs:date">
+              <xs:attribute name="type" use="required"/>
+              <xs:attribute name="property" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
         </xs:complexType>
-    </xs:element>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTPostupak">
+		<xs:sequence>
+			<xs:element name="DatumPostupka" type="xs:date"></xs:element>
+			<xs:element ref="re:CTUstanova"></xs:element>
+			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTOdluka">
+		<xs:sequence>
+			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
+			<xs:element name="Lice" type="xs:string"></xs:element>
+			<xs:element name="Mesto">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" use="required"/>
+              <xs:attribute name="property" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+			<xs:element name="Iznos" type="xs:positiveInteger"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="CTPoverenik">
+		<xs:sequence>
+			<xs:element name="Ime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" use="required"/>
+              <xs:attribute name="property" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+			<xs:element name="Prezime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" use="required"/>
+              <xs:attribute name="property" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="CTUstanova">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Naziv">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute name="type" use="required"/>
+                <xs:attribute name="property" use="required"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+				<xs:element name="Adresa" type="xs:string"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
 </xs:schema>

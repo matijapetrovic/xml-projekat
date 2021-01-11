@@ -60,8 +60,8 @@ public class CommissionerController {
     }
 
     @PostMapping("/xml/resenje")
-    public ResponseEntity<Void> addXMLResenje() throws XMLDBException, IOException, TransformerException, JAXBException {
-        resenjeService.create(new Resenje());
+    public ResponseEntity<Void> addXMLResenje(Resenje entity) throws XMLDBException, IOException, TransformerException, JAXBException {
+        resenjeService.create(entity);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

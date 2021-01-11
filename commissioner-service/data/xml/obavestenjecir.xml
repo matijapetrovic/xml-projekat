@@ -3,7 +3,7 @@
  xmlns:ob="obavestenje"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/obavestenjecir.xml/predicate/"
- xsi:schemaLocation="obavestenje file:/C:/Users/matth/Documents/OxygenXMLEditor/projects/obavestenjecir.xsd">
+ xsi:schemaLocation="obavestenje file:/C:/Users/nikol/Desktop/XML/xml-projekat/documents/schemas/obavestenjecir.xsd">
     <ob:BrojPredmeta>BrojPredmeta0</ob:BrojPredmeta>
     <ob:Datum>2006-05-04</ob:Datum>
     <ob:Organ>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<re:resenje xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
- xmlns:re="resenje"
+<re:resenje 
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/"
- xsi:schemaLocation="resenje file:/C:/Users/nikol/Desktop/XML%20project/xml-projekat/documents/schemas/resenje.xsd">
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/resenje ../../../documents/schemas/resenje.xsd"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema#"
+ xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+ xmlns="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+ xmlns:pred="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje/predicate/"
+ xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
     <re:BrojResenja>000-00-0000/0000-00</re:BrojResenja>
     <re:DatumResenja>2006-05-04</re:DatumResenja>
     <re:Uvod>
@@ -13,13 +16,13 @@
     <re:Sadrzaj>
         <re:OrganVlasti property="pred:authority">OrganVlasti1</re:OrganVlasti>
         <re:CTUstanova>
-            <re:Naziv property="pred:institutionName">Naziv0</re:Naziv>
+            <re:Naziv type="text" property="pred:institutionName">Naziv0</re:Naziv>
             <re:Adresa>Adresa0</re:Adresa>
         </re:CTUstanova>
         <re:Ishod>Ishod0</re:Ishod>
     </re:Sadrzaj>
-    <re:Obrazlozenje vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/predicate/"
-                     about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje.xml/obrazlozenje/Obrazlozenje_resenja">>
+    <re:Obrazlozenje vocab="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje/predicate/"
+                     about="http://rs.ac.uns.ftn.xml.tim11.commissionerservice/data/rdf/resenje/obrazlozenje/Obrazlozenje_resenja">>
         <re:PredmetZalbe>
             <re:DatumIzjave>2006-05-04</re:DatumIzjave>
             <re:OrganVlasti>OrganVlasti2</re:OrganVlasti>
@@ -28,7 +31,7 @@
         <re:Postupak>
             <re:DatumPostupka>2006-05-04</re:DatumPostupka>
             <re:CTUstanova>
-                <re:Naziv property="pred:institutionName">Naziv1</re:Naziv>
+                <re:Naziv type="text" property="pred:institutionName">Naziv1</re:Naziv>
                 <re:Adresa>Adresa1</re:Adresa>
             </re:CTUstanova>
             <re:Zakon>
