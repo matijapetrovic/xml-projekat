@@ -3,10 +3,10 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.service.resenje;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.xmldb.api.base.XMLDBException;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.exception.EntityNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.RDF.ResenjeRDFRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.XML.ResenjeXmlRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ResenjeRDFRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ResenjeXmlRepository;
+import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.transform.TransformerException;
@@ -25,20 +25,19 @@ public class ResenjeService {
         return createdId;
     }
 
-    public Resenje findXmlById(Long id ) throws XMLDBException, JAXBException, EntityNotFoundException {
-        Resenje found = xmlRepository.findById(id).orElseThrow( () -> new EntityNotFoundException(String.format("Entity with %d not found", id)));
-        return found;
+    public Resenje findXmlById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
+        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
     }
 
     public void findRdf(){
         rdfRepository.read();
     }
 
-    public void update(Long id, Resenje entity) throws XMLDBException, EntityNotFoundException, JAXBException {
+    public void update(Long id, Resenje entity) throws XMLDBException, XmlResourceNotFoundException, JAXBException {
         xmlRepository.update(id, entity);
     }
 
-    public void delete(Long id) throws XMLDBException, EntityNotFoundException {
+    public void delete(Long id) throws XMLDBException, XmlResourceNotFoundException {
         xmlRepository.deleteById(id);
     }
 }
