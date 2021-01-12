@@ -3,9 +3,12 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -40,12 +43,13 @@ import javax.xml.bind.annotation.XmlType;
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                           &lt;sequence&gt;
  *                             &lt;element name="predmetSlanja"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                   &lt;maxLength value="300"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;simpleContent&gt;
+ *                                   &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                                     &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                                   &lt;/extension&gt;
+ *                                 &lt;/simpleContent&gt;
+ *                               &lt;/complexType&gt;
  *                             &lt;/element&gt;
  *                             &lt;element name="osoba" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku}ZOsoba"/&gt;
  *                             &lt;element name="naziv"&gt;
@@ -76,12 +80,13 @@ import javax.xml.bind.annotation.XmlType;
  *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                           &lt;sequence&gt;
  *                             &lt;element name="nazivOrgana"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                   &lt;maxLength value="300"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
+ *                               &lt;complexType&gt;
+ *                                 &lt;simpleContent&gt;
+ *                                   &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                                     &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                                   &lt;/extension&gt;
+ *                                 &lt;/simpleContent&gt;
+ *                               &lt;/complexType&gt;
  *                             &lt;/element&gt;
  *                             &lt;element name="broj"&gt;
  *                               &lt;simpleType&gt;
@@ -155,12 +160,13 @@ import javax.xml.bind.annotation.XmlType;
  *                                         &lt;/simpleType&gt;
  *                                       &lt;/element&gt;
  *                                       &lt;element name="zakonPodnosenjaZalbe"&gt;
- *                                         &lt;simpleType&gt;
- *                                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                             &lt;minLength value="1"/&gt;
- *                                             &lt;maxLength value="500"/&gt;
- *                                           &lt;/restriction&gt;
- *                                         &lt;/simpleType&gt;
+ *                                         &lt;complexType&gt;
+ *                                           &lt;simpleContent&gt;
+ *                                             &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                                               &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                                             &lt;/extension&gt;
+ *                                           &lt;/simpleContent&gt;
+ *                                         &lt;/complexType&gt;
  *                                       &lt;/element&gt;
  *                                     &lt;/sequence&gt;
  *                                   &lt;/restriction&gt;
@@ -943,12 +949,13 @@ public class ZalbaNaOdluku {
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *                 &lt;sequence&gt;
      *                   &lt;element name="predmetSlanja"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                         &lt;maxLength value="300"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;simpleContent&gt;
+     *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                           &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *                         &lt;/extension&gt;
+     *                       &lt;/simpleContent&gt;
+     *                     &lt;/complexType&gt;
      *                   &lt;/element&gt;
      *                   &lt;element name="osoba" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku}ZOsoba"/&gt;
      *                   &lt;element name="naziv"&gt;
@@ -979,12 +986,13 @@ public class ZalbaNaOdluku {
      *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *                 &lt;sequence&gt;
      *                   &lt;element name="nazivOrgana"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                         &lt;maxLength value="300"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
+     *                     &lt;complexType&gt;
+     *                       &lt;simpleContent&gt;
+     *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                           &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *                         &lt;/extension&gt;
+     *                       &lt;/simpleContent&gt;
+     *                     &lt;/complexType&gt;
      *                   &lt;/element&gt;
      *                   &lt;element name="broj"&gt;
      *                     &lt;simpleType&gt;
@@ -1058,12 +1066,13 @@ public class ZalbaNaOdluku {
      *                               &lt;/simpleType&gt;
      *                             &lt;/element&gt;
      *                             &lt;element name="zakonPodnosenjaZalbe"&gt;
-     *                               &lt;simpleType&gt;
-     *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                   &lt;minLength value="1"/&gt;
-     *                                   &lt;maxLength value="500"/&gt;
-     *                                 &lt;/restriction&gt;
-     *                               &lt;/simpleType&gt;
+     *                               &lt;complexType&gt;
+     *                                 &lt;simpleContent&gt;
+     *                                   &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                                     &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *                                   &lt;/extension&gt;
+     *                                 &lt;/simpleContent&gt;
+     *                               &lt;/complexType&gt;
      *                             &lt;/element&gt;
      *                           &lt;/sequence&gt;
      *                         &lt;/restriction&gt;
@@ -1209,12 +1218,13 @@ public class ZalbaNaOdluku {
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *       &lt;sequence&gt;
          *         &lt;element name="predmetSlanja"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;minLength value="2"/&gt;
-         *               &lt;maxLength value="300"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
+         *           &lt;complexType&gt;
+         *             &lt;simpleContent&gt;
+         *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+         *               &lt;/extension&gt;
+         *             &lt;/simpleContent&gt;
+         *           &lt;/complexType&gt;
          *         &lt;/element&gt;
          *         &lt;element name="osoba" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku}ZOsoba"/&gt;
          *         &lt;element name="naziv"&gt;
@@ -1253,7 +1263,7 @@ public class ZalbaNaOdluku {
         public static class Paragraf1 {
 
             @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
-            protected String predmetSlanja;
+            protected ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja predmetSlanja;
             @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
             protected ZOsoba osoba;
             @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
@@ -1268,10 +1278,10 @@ public class ZalbaNaOdluku {
              * 
              * @return
              *     possible object is
-             *     {@link String }
+             *     {@link ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja }
              *     
              */
-            public String getPredmetSlanja() {
+            public ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja getPredmetSlanja() {
                 return predmetSlanja;
             }
 
@@ -1280,10 +1290,10 @@ public class ZalbaNaOdluku {
              * 
              * @param value
              *     allowed object is
-             *     {@link String }
+             *     {@link ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja }
              *     
              */
-            public void setPredmetSlanja(String value) {
+            public void setPredmetSlanja(ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja value) {
                 this.predmetSlanja = value;
             }
 
@@ -1375,6 +1385,86 @@ public class ZalbaNaOdluku {
                 this.sediste = value;
             }
 
+
+            /**
+             * <p>Java class for anonymous complex type.
+             * 
+             * <p>The following schema fragment specifies the expected content contained within this class.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;simpleContent&gt;
+             *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+             *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+             *     &lt;/extension&gt;
+             *   &lt;/simpleContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "value"
+            })
+            public static class PredmetSlanja {
+
+                @XmlValue
+                protected String value;
+                @XmlAttribute(name = "property", required = true)
+                @XmlSchemaType(name = "anySimpleType")
+                protected String property;
+
+                /**
+                 * Gets the value of the value property.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
+                 */
+                public String getValue() {
+                    return value;
+                }
+
+                /**
+                 * Sets the value of the value property.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
+                 */
+                public void setValue(String value) {
+                    this.value = value;
+                }
+
+                /**
+                 * Gets the value of the property property.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
+                 */
+                public String getProperty() {
+                    return property;
+                }
+
+                /**
+                 * Sets the value of the property property.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
+                 */
+                public void setProperty(String value) {
+                    this.property = value;
+                }
+
+            }
+
         }
 
 
@@ -1389,12 +1479,13 @@ public class ZalbaNaOdluku {
          *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
          *       &lt;sequence&gt;
          *         &lt;element name="nazivOrgana"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;minLength value="1"/&gt;
-         *               &lt;maxLength value="300"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
+         *           &lt;complexType&gt;
+         *             &lt;simpleContent&gt;
+         *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+         *               &lt;/extension&gt;
+         *             &lt;/simpleContent&gt;
+         *           &lt;/complexType&gt;
          *         &lt;/element&gt;
          *         &lt;element name="broj"&gt;
          *           &lt;simpleType&gt;
@@ -1428,7 +1519,7 @@ public class ZalbaNaOdluku {
         public static class Paragraf2 {
 
             @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
-            protected String nazivOrgana;
+            protected ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana nazivOrgana;
             @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku")
             protected int broj;
             @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku")
@@ -1439,10 +1530,10 @@ public class ZalbaNaOdluku {
              * 
              * @return
              *     possible object is
-             *     {@link String }
+             *     {@link ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana }
              *     
              */
-            public String getNazivOrgana() {
+            public ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana getNazivOrgana() {
                 return nazivOrgana;
             }
 
@@ -1451,10 +1542,10 @@ public class ZalbaNaOdluku {
              * 
              * @param value
              *     allowed object is
-             *     {@link String }
+             *     {@link ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana }
              *     
              */
-            public void setNazivOrgana(String value) {
+            public void setNazivOrgana(ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana value) {
                 this.nazivOrgana = value;
             }
 
@@ -1488,6 +1579,86 @@ public class ZalbaNaOdluku {
              */
             public void setGodina(int value) {
                 this.godina = value;
+            }
+
+
+            /**
+             * <p>Java class for anonymous complex type.
+             * 
+             * <p>The following schema fragment specifies the expected content contained within this class.
+             * 
+             * <pre>
+             * &lt;complexType&gt;
+             *   &lt;simpleContent&gt;
+             *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+             *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+             *     &lt;/extension&gt;
+             *   &lt;/simpleContent&gt;
+             * &lt;/complexType&gt;
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "value"
+            })
+            public static class NazivOrgana {
+
+                @XmlValue
+                protected String value;
+                @XmlAttribute(name = "property", required = true)
+                @XmlSchemaType(name = "anySimpleType")
+                protected String property;
+
+                /**
+                 * Gets the value of the value property.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
+                 */
+                public String getValue() {
+                    return value;
+                }
+
+                /**
+                 * Sets the value of the value property.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
+                 */
+                public void setValue(String value) {
+                    this.value = value;
+                }
+
+                /**
+                 * Gets the value of the property property.
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
+                 */
+                public String getProperty() {
+                    return property;
+                }
+
+                /**
+                 * Sets the value of the property property.
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
+                 */
+                public void setProperty(String value) {
+                    this.property = value;
+                }
+
             }
 
         }
@@ -1632,12 +1803,13 @@ public class ZalbaNaOdluku {
          *                     &lt;/simpleType&gt;
          *                   &lt;/element&gt;
          *                   &lt;element name="zakonPodnosenjaZalbe"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="500"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
+         *                     &lt;complexType&gt;
+         *                       &lt;simpleContent&gt;
+         *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *                           &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+         *                         &lt;/extension&gt;
+         *                       &lt;/simpleContent&gt;
+         *                     &lt;/complexType&gt;
          *                   &lt;/element&gt;
          *                 &lt;/sequence&gt;
          *               &lt;/restriction&gt;
@@ -1705,12 +1877,13 @@ public class ZalbaNaOdluku {
              *           &lt;/simpleType&gt;
              *         &lt;/element&gt;
              *         &lt;element name="zakonPodnosenjaZalbe"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="500"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
+             *           &lt;complexType&gt;
+             *             &lt;simpleContent&gt;
+             *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+             *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+             *               &lt;/extension&gt;
+             *             &lt;/simpleContent&gt;
+             *           &lt;/complexType&gt;
              *         &lt;/element&gt;
              *       &lt;/sequence&gt;
              *     &lt;/restriction&gt;
@@ -1730,7 +1903,7 @@ public class ZalbaNaOdluku {
                 @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
                 protected String razlog;
                 @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku", required = true)
-                protected String zakonPodnosenjaZalbe;
+                protected ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe zakonPodnosenjaZalbe;
 
                 /**
                  * Gets the value of the razlog property.
@@ -1761,10 +1934,10 @@ public class ZalbaNaOdluku {
                  * 
                  * @return
                  *     possible object is
-                 *     {@link String }
+                 *     {@link ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe }
                  *     
                  */
-                public String getZakonPodnosenjaZalbe() {
+                public ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe getZakonPodnosenjaZalbe() {
                     return zakonPodnosenjaZalbe;
                 }
 
@@ -1773,11 +1946,91 @@ public class ZalbaNaOdluku {
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link String }
+                 *     {@link ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe }
                  *     
                  */
-                public void setZakonPodnosenjaZalbe(String value) {
+                public void setZakonPodnosenjaZalbe(ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe value) {
                     this.zakonPodnosenjaZalbe = value;
+                }
+
+
+                /**
+                 * <p>Java class for anonymous complex type.
+                 * 
+                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * 
+                 * <pre>
+                 * &lt;complexType&gt;
+                 *   &lt;simpleContent&gt;
+                 *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+                 *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+                 *     &lt;/extension&gt;
+                 *   &lt;/simpleContent&gt;
+                 * &lt;/complexType&gt;
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "value"
+                })
+                public static class ZakonPodnosenjaZalbe {
+
+                    @XmlValue
+                    protected String value;
+                    @XmlAttribute(name = "property", required = true)
+                    @XmlSchemaType(name = "anySimpleType")
+                    protected String property;
+
+                    /**
+                     * Gets the value of the value property.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getValue() {
+                        return value;
+                    }
+
+                    /**
+                     * Sets the value of the value property.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setValue(String value) {
+                        this.value = value;
+                    }
+
+                    /**
+                     * Gets the value of the property property.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getProperty() {
+                        return property;
+                    }
+
+                    /**
+                     * Sets the value of the property property.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setProperty(String value) {
+                        this.property = value;
+                    }
+
                 }
 
             }

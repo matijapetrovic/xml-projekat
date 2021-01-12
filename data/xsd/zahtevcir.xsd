@@ -7,7 +7,7 @@
 	xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
 	vc:minVersion="1.1">
 	
-	<xs:element name="zahtev">
+	<xs:element name="Zahtev">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="primalac">

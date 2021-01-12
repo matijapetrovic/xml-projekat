@@ -38,6 +38,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTAdresa }
+     * 
+     */
+    public CTAdresa createCTAdresa() {
+        return new CTAdresa();
+    }
+
+    /**
+     * Create an instance of {@link CTAutor }
+     * 
+     */
+    public CTAutor createCTAutor() {
+        return new CTAutor();
+    }
+
+    /**
      * Create an instance of {@link ZalbaCutanje.PodnosilacZalbe }
      * 
      */
@@ -62,6 +78,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe createZalbaCutanjeSadrzajZaglavljeZalbe() {
+        return new ZalbaCutanje.Sadrzaj.ZaglavljeZalbe();
+    }
+
+    /**
      * Create an instance of {@link ZalbaCutanje.Primalac }
      * 
      */
@@ -78,19 +102,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTAutor }
+     * Create an instance of {@link CTAdresa.Grad }
      * 
      */
-    public CTAutor createCTAutor() {
-        return new CTAutor();
+    public CTAdresa.Grad createCTAdresaGrad() {
+        return new CTAdresa.Grad();
     }
 
     /**
-     * Create an instance of {@link CTAdresa }
+     * Create an instance of {@link CTAdresa.Drzava }
      * 
      */
-    public CTAdresa createCTAdresa() {
-        return new CTAdresa();
+    public CTAdresa.Drzava createCTAdresaDrzava() {
+        return new CTAdresa.Drzava();
+    }
+
+    /**
+     * Create an instance of {@link CTAutor.Ime }
+     * 
+     */
+    public CTAutor.Ime createCTAutorIme() {
+        return new CTAutor.Ime();
+    }
+
+    /**
+     * Create an instance of {@link CTAutor.Prezime }
+     * 
+     */
+    public CTAutor.Prezime createCTAutorPrezime() {
+        return new CTAutor.Prezime();
     }
 
     /**
@@ -99,14 +139,6 @@ public class ObjectFactory {
      */
     public ZalbaCutanje.PodnosilacZalbe.Naziv createZalbaCutanjePodnosilacZalbeNaziv() {
         return new ZalbaCutanje.PodnosilacZalbe.Naziv();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe }
-     * 
-     */
-    public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe createZalbaCutanjeSadrzajZaglavljeZalbe() {
-        return new ZalbaCutanje.Sadrzaj.ZaglavljeZalbe();
     }
 
     /**
@@ -131,6 +163,22 @@ public class ObjectFactory {
      */
     public ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz createZalbaCutanjeSadrzajZakljucakDokaz() {
         return new ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.Zakon }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.Zakon createZalbaCutanjeSadrzajZaglavljeZalbeZakon() {
+        return new ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.Zakon();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.NazivOrgana }
+     * 
+     */
+    public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.NazivOrgana createZalbaCutanjeSadrzajZaglavljeZalbeNazivOrgana() {
+        return new ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.NazivOrgana();
     }
 
 }

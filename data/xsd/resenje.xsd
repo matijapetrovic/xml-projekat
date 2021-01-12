@@ -7,7 +7,7 @@
 	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
 	xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
 	vc:minVersion="1.1">
-	<xs:element name="resenje">
+	<xs:element name="Resenje">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="BrojResenja">

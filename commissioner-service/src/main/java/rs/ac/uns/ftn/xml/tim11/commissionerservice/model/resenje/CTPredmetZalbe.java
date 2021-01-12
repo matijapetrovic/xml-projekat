@@ -3,9 +3,11 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
@@ -21,7 +23,16 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence&gt;
  *         &lt;element name="DatumIzjave" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="OrganVlasti" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="DatumPotrazivanjaInformacija" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
+ *         &lt;element name="DatumPotrazivanjaInformacija"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+ *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -44,8 +55,7 @@ public class CTPredmetZalbe {
     @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String organVlasti;
     @XmlElement(name = "DatumPotrazivanjaInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar datumPotrazivanjaInformacija;
+    protected CTPredmetZalbe.DatumPotrazivanjaInformacija datumPotrazivanjaInformacija;
 
     /**
      * Gets the value of the datumIzjave property.
@@ -100,10 +110,10 @@ public class CTPredmetZalbe {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link CTPredmetZalbe.DatumPotrazivanjaInformacija }
      *     
      */
-    public XMLGregorianCalendar getDatumPotrazivanjaInformacija() {
+    public CTPredmetZalbe.DatumPotrazivanjaInformacija getDatumPotrazivanjaInformacija() {
         return datumPotrazivanjaInformacija;
     }
 
@@ -112,11 +122,120 @@ public class CTPredmetZalbe {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link CTPredmetZalbe.DatumPotrazivanjaInformacija }
      *     
      */
-    public void setDatumPotrazivanjaInformacija(XMLGregorianCalendar value) {
+    public void setDatumPotrazivanjaInformacija(CTPredmetZalbe.DatumPotrazivanjaInformacija value) {
         this.datumPotrazivanjaInformacija = value;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class DatumPotrazivanjaInformacija {
+
+        @XmlValue
+        @XmlSchemaType(name = "date")
+        protected XMLGregorianCalendar value;
+        @XmlAttribute(name = "type", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String type;
+        @XmlAttribute(name = "property", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String property;
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public XMLGregorianCalendar getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public void setValue(XMLGregorianCalendar value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets the value of the type property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getType() {
+            return type;
+        }
+
+        /**
+         * Sets the value of the type property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setType(String value) {
+            this.type = value;
+        }
+
+        /**
+         * Gets the value of the property property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getProperty() {
+            return property;
+        }
+
+        /**
+         * Sets the value of the property property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setProperty(String value) {
+            this.property = value;
+        }
+
     }
 
 }

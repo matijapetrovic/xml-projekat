@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev package.
+ * generated in the rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -43,6 +43,22 @@ public class ObjectFactory {
      */
     public CTNacinDostave createCTNacinDostave() {
         return new CTNacinDostave();
+    }
+
+    /**
+     * Create an instance of {@link CTTrazilacInformacija }
+     * 
+     */
+    public CTTrazilacInformacija createCTTrazilacInformacija() {
+        return new CTTrazilacInformacija();
+    }
+
+    /**
+     * Create an instance of {@link CTOstaliPodaci }
+     * 
+     */
+    public CTOstaliPodaci createCTOstaliPodaci() {
+        return new CTOstaliPodaci();
     }
 
     /**
@@ -94,19 +110,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTOstaliPodaci }
+     * Create an instance of {@link CTTrazilacInformacija.Ime }
      * 
      */
-    public CTOstaliPodaci createCTOstaliPodaci() {
-        return new CTOstaliPodaci();
+    public CTTrazilacInformacija.Ime createCTTrazilacInformacijaIme() {
+        return new CTTrazilacInformacija.Ime();
     }
 
     /**
-     * Create an instance of {@link CTTrazilacInformacija }
+     * Create an instance of {@link CTTrazilacInformacija.Prezime }
      * 
      */
-    public CTTrazilacInformacija createCTTrazilacInformacija() {
-        return new CTTrazilacInformacija();
+    public CTTrazilacInformacija.Prezime createCTTrazilacInformacijaPrezime() {
+        return new CTTrazilacInformacija.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link CTOstaliPodaci.Mesto }
+     * 
+     */
+    public CTOstaliPodaci.Mesto createCTOstaliPodaciMesto() {
+        return new CTOstaliPodaci.Mesto();
     }
 
     /**
@@ -115,6 +139,14 @@ public class ObjectFactory {
      */
     public CTZahtevi.DostavljanjeKopije createCTZahteviDostavljanjeKopije() {
         return new CTZahtevi.DostavljanjeKopije();
+    }
+
+    /**
+     * Create an instance of {@link CTParagraf1 .SluzbeniGlasnik.Naziv }
+     * 
+     */
+    public CTParagraf1 .SluzbeniGlasnik.Naziv createCTParagraf1SluzbeniGlasnikNaziv() {
+        return new CTParagraf1 .SluzbeniGlasnik.Naziv();
     }
 
     /**

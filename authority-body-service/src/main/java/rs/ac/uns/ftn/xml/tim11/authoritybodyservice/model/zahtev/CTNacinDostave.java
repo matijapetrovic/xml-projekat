@@ -53,16 +53,16 @@ import javax.xml.bind.annotation.XmlType;
     "faks",
     "drugo"
 })
-@XmlRootElement(name = "CTNacinDostave", namespace = "zahtev")
+@XmlRootElement(name = "CTNacinDostave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
 public class CTNacinDostave {
 
-    @XmlElement(namespace = "zahtev")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object posta;
-    @XmlElement(namespace = "zahtev")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object elektronskaPosta;
-    @XmlElement(namespace = "zahtev")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object faks;
-    @XmlElement(namespace = "zahtev")
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected CTNacinDostave.Drugo drugo;
 
     /**
@@ -193,7 +193,7 @@ public class CTNacinDostave {
     })
     public static class Drugo {
 
-        @XmlElement(namespace = "zahtev", required = true)
+        @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
         protected String opis;
 
         /**

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <re:resenje 
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/resenje ../../../documents/schemas/resenje.xsd"
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/resenje ../../documents/schemas/resenje.xsd"
  xmlns:xs="http://www.w3.org/2001/XMLSchema#"
  xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
  xmlns="http://www.ftn.uns.ac.rs/xml/tim11/resenje"

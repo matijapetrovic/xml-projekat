@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element ref="{zahtev}CTNacinDostave"/&gt;
+ *                   &lt;element ref="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTNacinDostave"/&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
@@ -41,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTZahtevi", namespace = "zahtev", propOrder = {
+@XmlType(name = "CTZahtevi", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", propOrder = {
     "obavestenje",
     "uvid",
     "kopija",
@@ -50,15 +50,15 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CTZahtevi {
 
-    @XmlElement(name = "Obavestenje", namespace = "zahtev")
+    @XmlElement(name = "Obavestenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object obavestenje;
-    @XmlElement(name = "Uvid", namespace = "zahtev")
+    @XmlElement(name = "Uvid", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object uvid;
-    @XmlElement(name = "Kopija", namespace = "zahtev")
+    @XmlElement(name = "Kopija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object kopija;
-    @XmlElement(name = "DostavljanjeKopije", namespace = "zahtev")
+    @XmlElement(name = "DostavljanjeKopije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected CTZahtevi.DostavljanjeKopije dostavljanjeKopije;
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected String informacije;
 
     /**
@@ -192,7 +192,7 @@ public class CTZahtevi {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element ref="{zahtev}CTNacinDostave"/&gt;
+     *         &lt;element ref="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTNacinDostave"/&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
@@ -207,7 +207,7 @@ public class CTZahtevi {
     })
     public static class DostavljanjeKopije {
 
-        @XmlElement(name = "CTNacinDostave", namespace = "zahtev", required = true)
+        @XmlElement(name = "CTNacinDostave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
         protected CTNacinDostave ctNacinDostave;
 
         /**

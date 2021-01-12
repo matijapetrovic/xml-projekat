@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <za:zahtev xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev ../../../documents/schemas/zahtevcir.xsd"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev ../../documents/schemas/zahtevcir.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema#"
     xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
     xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"

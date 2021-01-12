@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zlb:zalba 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje ../../../documents/schemas/zalbacutanjecir.xsd"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje ../../documents/schemas/zalbacutanjecir.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema#"
     xmlns:zlb="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
     xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"

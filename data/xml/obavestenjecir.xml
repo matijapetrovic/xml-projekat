@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ob:Obavestenje xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje ../../../documents/schemas/obavestenjecir.xsd"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje ../../documents/schemas/obavestenjecir.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema#"
     xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
     xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"

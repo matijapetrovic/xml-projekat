@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="paragraf1" type="{zahtev}CTParagraf1"/&gt;
- *         &lt;element name="zahtevi" type="{zahtev}CTZahtevi"/&gt;
- *         &lt;element name="ostaliPodaci" type="{zahtev}CTOstaliPodaci"/&gt;
+ *         &lt;element name="paragraf1" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTParagraf1"/&gt;
+ *         &lt;element name="zahtevi" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTZahtevi"/&gt;
+ *         &lt;element name="ostaliPodaci" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTOstaliPodaci"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,18 +29,18 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTSadrzaj", namespace = "zahtev", propOrder = {
+@XmlType(name = "CTSadrzaj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", propOrder = {
     "paragraf1",
     "zahtevi",
     "ostaliPodaci"
 })
 public class CTSadrzaj {
 
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTParagraf1 paragraf1;
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTZahtevi zahtevi;
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTOstaliPodaci ostaliPodaci;
 
     /**

@@ -21,7 +21,7 @@ public class ResenjeService {
 
     public Long create(Resenje resenje) throws JAXBException, XMLDBException, IOException, TransformerException {
         Long createdId = xmlRepository.create(resenje);
-        rdfRepository.create();
+        rdfRepository.saveMetadata(resenje);
         return createdId;
     }
 

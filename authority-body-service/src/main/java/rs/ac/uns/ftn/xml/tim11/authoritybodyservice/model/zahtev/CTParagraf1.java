@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -29,7 +31,16 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="naziv" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *                   &lt;element name="naziv"&gt;
+ *                     &lt;complexType&gt;
+ *                       &lt;simpleContent&gt;
+ *                         &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                           &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                           &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                         &lt;/extension&gt;
+ *                       &lt;/simpleContent&gt;
+ *                     &lt;/complexType&gt;
+ *                   &lt;/element&gt;
  *                   &lt;element name="brojevi"&gt;
  *                     &lt;complexType&gt;
  *                       &lt;complexContent&gt;
@@ -61,7 +72,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTParagraf1", namespace = "zahtev", propOrder = {
+@XmlType(name = "CTParagraf1", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", propOrder = {
     "clan",
     "stav",
     "zakon",
@@ -69,15 +80,15 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CTParagraf1 {
 
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger clan;
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     @XmlSchemaType(name = "positiveInteger")
     protected BigInteger stav;
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected String zakon;
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTParagraf1 .SluzbeniGlasnik sluzbeniGlasnik;
 
     /**
@@ -187,7 +198,16 @@ public class CTParagraf1 {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="naziv" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+     *         &lt;element name="naziv"&gt;
+     *           &lt;complexType&gt;
+     *             &lt;simpleContent&gt;
+     *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *               &lt;/extension&gt;
+     *             &lt;/simpleContent&gt;
+     *           &lt;/complexType&gt;
+     *         &lt;/element&gt;
      *         &lt;element name="brojevi"&gt;
      *           &lt;complexType&gt;
      *             &lt;complexContent&gt;
@@ -220,9 +240,9 @@ public class CTParagraf1 {
     })
     public static class SluzbeniGlasnik {
 
-        @XmlElement(namespace = "zahtev", required = true)
-        protected String naziv;
-        @XmlElement(namespace = "zahtev", required = true)
+        @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+        protected CTParagraf1 .SluzbeniGlasnik.Naziv naziv;
+        @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
         protected CTParagraf1 .SluzbeniGlasnik.Brojevi brojevi;
 
         /**
@@ -230,10 +250,10 @@ public class CTParagraf1 {
          * 
          * @return
          *     possible object is
-         *     {@link String }
+         *     {@link CTParagraf1 .SluzbeniGlasnik.Naziv }
          *     
          */
-        public String getNaziv() {
+        public CTParagraf1 .SluzbeniGlasnik.Naziv getNaziv() {
             return naziv;
         }
 
@@ -242,10 +262,10 @@ public class CTParagraf1 {
          * 
          * @param value
          *     allowed object is
-         *     {@link String }
+         *     {@link CTParagraf1 .SluzbeniGlasnik.Naziv }
          *     
          */
-        public void setNaziv(String value) {
+        public void setNaziv(CTParagraf1 .SluzbeniGlasnik.Naziv value) {
             this.naziv = value;
         }
 
@@ -305,7 +325,7 @@ public class CTParagraf1 {
         })
         public static class Brojevi {
 
-            @XmlElement(namespace = "zahtev", required = true)
+            @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
             protected List<String> broj;
 
             /**
@@ -335,6 +355,114 @@ public class CTParagraf1 {
                     broj = new ArrayList<String>();
                 }
                 return this.broj;
+            }
+
+        }
+
+
+        /**
+         * <p>Java class for anonymous complex type.
+         * 
+         * <p>The following schema fragment specifies the expected content contained within this class.
+         * 
+         * <pre>
+         * &lt;complexType&gt;
+         *   &lt;simpleContent&gt;
+         *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+         *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+         *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+         *     &lt;/extension&gt;
+         *   &lt;/simpleContent&gt;
+         * &lt;/complexType&gt;
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "value"
+        })
+        public static class Naziv {
+
+            @XmlValue
+            protected String value;
+            @XmlAttribute(name = "type", required = true)
+            @XmlSchemaType(name = "anySimpleType")
+            protected String type;
+            @XmlAttribute(name = "property", required = true)
+            @XmlSchemaType(name = "anySimpleType")
+            protected String property;
+
+            /**
+             * Gets the value of the value property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getValue() {
+                return value;
+            }
+
+            /**
+             * Sets the value of the value property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setValue(String value) {
+                this.value = value;
+            }
+
+            /**
+             * Gets the value of the type property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getType() {
+                return type;
+            }
+
+            /**
+             * Sets the value of the type property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setType(String value) {
+                this.type = value;
+            }
+
+            /**
+             * Gets the value of the property property.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getProperty() {
+                return property;
+            }
+
+            /**
+             * Sets the value of the property property.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setProperty(String value) {
+                this.property = value;
             }
 
         }

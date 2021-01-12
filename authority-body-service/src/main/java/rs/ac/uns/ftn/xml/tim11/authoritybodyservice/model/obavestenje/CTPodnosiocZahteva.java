@@ -3,8 +3,11 @@ package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -17,8 +20,24 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Ime" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Prezime" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Ime"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Prezime"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
  *         &lt;element name="Naziv" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTAdresa"/&gt;
  *       &lt;/sequence&gt;
@@ -39,9 +58,9 @@ import javax.xml.bind.annotation.XmlType;
 public class CTPodnosiocZahteva {
 
     @XmlElement(name = "Ime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected String ime;
+    protected CTPodnosiocZahteva.Ime ime;
     @XmlElement(name = "Prezime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected String prezime;
+    protected CTPodnosiocZahteva.Prezime prezime;
     @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String naziv;
     @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
@@ -52,10 +71,10 @@ public class CTPodnosiocZahteva {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link CTPodnosiocZahteva.Ime }
      *     
      */
-    public String getIme() {
+    public CTPodnosiocZahteva.Ime getIme() {
         return ime;
     }
 
@@ -64,10 +83,10 @@ public class CTPodnosiocZahteva {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link CTPodnosiocZahteva.Ime }
      *     
      */
-    public void setIme(String value) {
+    public void setIme(CTPodnosiocZahteva.Ime value) {
         this.ime = value;
     }
 
@@ -76,10 +95,10 @@ public class CTPodnosiocZahteva {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link CTPodnosiocZahteva.Prezime }
      *     
      */
-    public String getPrezime() {
+    public CTPodnosiocZahteva.Prezime getPrezime() {
         return prezime;
     }
 
@@ -88,10 +107,10 @@ public class CTPodnosiocZahteva {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link CTPodnosiocZahteva.Prezime }
      *     
      */
-    public void setPrezime(String value) {
+    public void setPrezime(CTPodnosiocZahteva.Prezime value) {
         this.prezime = value;
     }
 
@@ -141,6 +160,166 @@ public class CTPodnosiocZahteva {
      */
     public void setAdresa(CTAdresa value) {
         this.adresa = value;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Ime {
+
+        @XmlValue
+        protected String value;
+        @XmlAttribute(name = "property", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String property;
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets the value of the property property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getProperty() {
+            return property;
+        }
+
+        /**
+         * Sets the value of the property property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setProperty(String value) {
+            this.property = value;
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Prezime {
+
+        @XmlValue
+        protected String value;
+        @XmlAttribute(name = "property", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String property;
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets the value of the property property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getProperty() {
+            return property;
+        }
+
+        /**
+         * Sets the value of the property property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setProperty(String value) {
+            this.property = value;
+        }
+
     }
 
 }

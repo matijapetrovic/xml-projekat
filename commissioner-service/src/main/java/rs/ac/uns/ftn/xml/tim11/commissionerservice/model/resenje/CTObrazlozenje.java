@@ -3,7 +3,9 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -21,6 +23,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="Postupak" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTPostupak"/&gt;
  *         &lt;element name="Odluka" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTOdluka"/&gt;
  *       &lt;/sequence&gt;
+ *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" /&gt;
+ *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -42,6 +46,12 @@ public class CTObrazlozenje {
     protected CTPostupak postupak;
     @XmlElement(name = "Odluka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTOdluka odluka;
+    @XmlAttribute(name = "about", required = true)
+    @XmlSchemaType(name = "anyURI")
+    protected String about;
+    @XmlAttribute(name = "vocab", required = true)
+    @XmlSchemaType(name = "anyURI")
+    protected String vocab;
 
     /**
      * Gets the value of the predmetZalbe property.
@@ -113,6 +123,54 @@ public class CTObrazlozenje {
      */
     public void setOdluka(CTOdluka value) {
         this.odluka = value;
+    }
+
+    /**
+     * Gets the value of the about property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAbout() {
+        return about;
+    }
+
+    /**
+     * Sets the value of the about property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAbout(String value) {
+        this.about = value;
+    }
+
+    /**
+     * Gets the value of the vocab property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getVocab() {
+        return vocab;
+    }
+
+    /**
+     * Sets the value of the vocab property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setVocab(String value) {
+        this.vocab = value;
     }
 
 }

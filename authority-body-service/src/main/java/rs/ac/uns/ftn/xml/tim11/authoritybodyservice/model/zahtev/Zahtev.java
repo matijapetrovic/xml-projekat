@@ -26,12 +26,14 @@ import javax.xml.bind.annotation.XmlType;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;attribute name="naziv" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *                 &lt;attribute name="adresa" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
  *         &lt;element name="naslov" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="sadrzaj" type="{zahtev}CTSadrzaj"/&gt;
+ *         &lt;element name="sadrzaj" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTSadrzaj"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -46,14 +48,14 @@ import javax.xml.bind.annotation.XmlType;
     "naslov",
     "sadrzaj"
 })
-@XmlRootElement(name = "Zahtev", namespace = "zahtev")
+@XmlRootElement(name = "Zahtev", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
 public class Zahtev {
 
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected Zahtev.Primalac primalac;
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected String naslov;
-    @XmlElement(namespace = "zahtev", required = true)
+    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTSadrzaj sadrzaj;
 
     /**
@@ -140,6 +142,8 @@ public class Zahtev {
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;attribute name="naziv" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
      *       &lt;attribute name="adresa" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
@@ -157,6 +161,12 @@ public class Zahtev {
         @XmlAttribute(name = "adresa")
         @XmlSchemaType(name = "anySimpleType")
         protected String adresa;
+        @XmlAttribute(name = "property", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String property;
+        @XmlAttribute(name = "type", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String type;
 
         /**
          * Gets the value of the naziv property.
@@ -204,6 +214,54 @@ public class Zahtev {
          */
         public void setAdresa(String value) {
             this.adresa = value;
+        }
+
+        /**
+         * Gets the value of the property property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getProperty() {
+            return property;
+        }
+
+        /**
+         * Sets the value of the property property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setProperty(String value) {
+            this.property = value;
+        }
+
+        /**
+         * Gets the value of the type property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getType() {
+            return type;
+        }
+
+        /**
+         * Sets the value of the type property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setType(String value) {
+            this.type = value;
         }
 
     }

@@ -1,11 +1,14 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf;
 
 import org.springframework.stereotype.Repository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku.ZalbaNaOdluku;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.RDFRepository;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.util.RDFDbConnection;
 
+import javax.xml.bind.JAXBException;
+
 @Repository
-public class ZalbaNaOdlukuRDFRepository extends RDFRepository {
+public class ZalbaNaOdlukuRDFRepository extends RDFRepository<ZalbaNaOdluku> {
 
     //@Value("${xml.zalba-cutanje}")
     private String xmlFilePath = "data/xml/zalbanaodlukucir.xml";
@@ -17,7 +20,7 @@ public class ZalbaNaOdlukuRDFRepository extends RDFRepository {
 
     public ZalbaNaOdlukuRDFRepository(
             RDFDbConnection connection
-    ) {
+    ) throws JAXBException {
         super(connection);
     }
 
@@ -35,4 +38,10 @@ public class ZalbaNaOdlukuRDFRepository extends RDFRepository {
     protected String namedGraph() {
         return NAMED_GRAPH;
     }
+
+    @Override
+    protected String contextPath() {
+        return ZalbaNaOdluku.class.getPackage().getName();
+    }
+
 }

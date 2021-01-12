@@ -20,7 +20,7 @@ public class ZahtevService {
 
     public Long create(Zahtev entity) throws JAXBException, XMLDBException, IOException, TransformerException {
         Long createdId = xmlRepository.create(entity);
-        rdfRepository.create();
+        rdfRepository.saveMetadata(entity);
         return createdId;
     }
 

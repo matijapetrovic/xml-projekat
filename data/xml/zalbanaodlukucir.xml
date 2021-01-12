@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zod:zalbaO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku ../../../documents/schemas/zalbanaodlukucir.xsd"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku ../../documents/schemas/zalbanaodlukucir.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema#"
     xmlns:zod="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"
     xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"

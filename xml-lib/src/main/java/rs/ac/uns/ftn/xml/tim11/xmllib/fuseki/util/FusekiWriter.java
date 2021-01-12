@@ -8,6 +8,9 @@ import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class FusekiWriter {
     private RDFDbConnection conn;
@@ -16,16 +19,22 @@ public class FusekiWriter {
         this.conn = conn;
     }
 
-    public void save(String rdfFilePath, String NAMED_GRAPH) {
+    public void save(InputStream rdfInputStream, String NAMED_GRAPH) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        createModel(rdfFilePath, out);
+        createModel(rdfInputStream, out);
         sendRequest(NAMED_GRAPH, out);
     }
 
-    private void createModel(String rdfFilePath, ByteArrayOutputStream out) {
+    public void save(String rdfFilePath, String NAMED_GRAPH) throws FileNotFoundException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        createModel(new FileInputStream(rdfFilePath), out);
+        sendRequest(NAMED_GRAPH, out);
+    }
+
+    private void createModel(InputStream in, ByteArrayOutputStream out) {
         // Creates a default model
         Model model = ModelFactory.createDefaultModel();
-        model.read(rdfFilePath);
+        model.read(in, null, SparqlUtil.RDF_XML);
 
         // out stream nam treba da bismo videli ispis na konzoli
         model.write(out, SparqlUtil.NTRIPLES);

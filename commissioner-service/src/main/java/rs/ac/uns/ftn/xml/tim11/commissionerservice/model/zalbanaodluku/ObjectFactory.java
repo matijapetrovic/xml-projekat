@@ -38,6 +38,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ZOsoba }
+     * 
+     */
+    public ZOsoba createZOsoba() {
+        return new ZOsoba();
+    }
+
+    /**
+     * Create an instance of {@link ZAdresa }
+     * 
+     */
+    public ZAdresa createZAdresa() {
+        return new ZAdresa();
+    }
+
+    /**
      * Create an instance of {@link ZalbaNaOdluku.Napomena }
      * 
      */
@@ -59,6 +75,30 @@ public class ObjectFactory {
      */
     public ZalbaNaOdluku.Sadrzaj.Paragraf4 createZalbaNaOdlukuSadrzajParagraf4() {
         return new ZalbaNaOdluku.Sadrzaj.Paragraf4();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak }
+     * 
+     */
+    public ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak createZalbaNaOdlukuSadrzajParagraf4Zakljucak() {
+        return new ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf2 }
+     * 
+     */
+    public ZalbaNaOdluku.Sadrzaj.Paragraf2 createZalbaNaOdlukuSadrzajParagraf2() {
+        return new ZalbaNaOdluku.Sadrzaj.Paragraf2();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf1 }
+     * 
+     */
+    public ZalbaNaOdluku.Sadrzaj.Paragraf1 createZalbaNaOdlukuSadrzajParagraf1() {
+        return new ZalbaNaOdluku.Sadrzaj.Paragraf1();
     }
 
     /**
@@ -86,19 +126,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ZAdresa }
+     * Create an instance of {@link ZOsoba.Ime }
      * 
      */
-    public ZAdresa createZAdresa() {
-        return new ZAdresa();
+    public ZOsoba.Ime createZOsobaIme() {
+        return new ZOsoba.Ime();
     }
 
     /**
-     * Create an instance of {@link ZOsoba }
+     * Create an instance of {@link ZOsoba.Prezime }
      * 
      */
-    public ZOsoba createZOsoba() {
-        return new ZOsoba();
+    public ZOsoba.Prezime createZOsobaPrezime() {
+        return new ZOsoba.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link ZAdresa.Mesto }
+     * 
+     */
+    public ZAdresa.Mesto createZAdresaMesto() {
+        return new ZAdresa.Mesto();
     }
 
     /**
@@ -110,22 +158,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf1 }
-     * 
-     */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf1 createZalbaNaOdlukuSadrzajParagraf1() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf1();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf2 }
-     * 
-     */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf2 createZalbaNaOdlukuSadrzajParagraf2() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf2();
-    }
-
-    /**
      * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf3 }
      * 
      */
@@ -134,11 +166,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak }
+     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe }
      * 
      */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak createZalbaNaOdlukuSadrzajParagraf4Zakljucak() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak();
+    public ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe createZalbaNaOdlukuSadrzajParagraf4ZakljucakZakonPodnosenjaZalbe() {
+        return new ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana }
+     * 
+     */
+    public ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana createZalbaNaOdlukuSadrzajParagraf2NazivOrgana() {
+        return new ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja }
+     * 
+     */
+    public ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja createZalbaNaOdlukuSadrzajParagraf1PredmetSlanja() {
+        return new ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja();
     }
 
 }

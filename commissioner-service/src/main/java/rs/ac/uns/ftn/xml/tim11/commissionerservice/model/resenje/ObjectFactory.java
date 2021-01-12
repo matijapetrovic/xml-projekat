@@ -37,11 +37,59 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTUstanova }
+     * 
+     */
+    public CTUstanova createCTUstanova() {
+        return new CTUstanova();
+    }
+
+    /**
+     * Create an instance of {@link CTOdluka }
+     * 
+     */
+    public CTOdluka createCTOdluka() {
+        return new CTOdluka();
+    }
+
+    /**
+     * Create an instance of {@link CTPredmetZalbe }
+     * 
+     */
+    public CTPredmetZalbe createCTPredmetZalbe() {
+        return new CTPredmetZalbe();
+    }
+
+    /**
+     * Create an instance of {@link CTZakon }
+     * 
+     */
+    public CTZakon createCTZakon() {
+        return new CTZakon();
+    }
+
+    /**
      * Create an instance of {@link CTPozivNaZakon }
      * 
      */
     public CTPozivNaZakon createCTPozivNaZakon() {
         return new CTPozivNaZakon();
+    }
+
+    /**
+     * Create an instance of {@link CTPoverenik }
+     * 
+     */
+    public CTPoverenik createCTPoverenik() {
+        return new CTPoverenik();
+    }
+
+    /**
+     * Create an instance of {@link CTResenje }
+     * 
+     */
+    public CTResenje createCTResenje() {
+        return new CTResenje();
     }
 
     /**
@@ -61,14 +109,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTResenje }
-     * 
-     */
-    public CTResenje createCTResenje() {
-        return new CTResenje();
-    }
-
-    /**
      * Create an instance of {@link CTObrazlozenje }
      * 
      */
@@ -77,35 +117,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTPoverenik }
+     * Create an instance of {@link CTUstanova.Naziv }
      * 
      */
-    public CTPoverenik createCTPoverenik() {
-        return new CTPoverenik();
-    }
-
-    /**
-     * Create an instance of {@link CTUstanova }
-     * 
-     */
-    public CTUstanova createCTUstanova() {
-        return new CTUstanova();
-    }
-
-    /**
-     * Create an instance of {@link CTZakon }
-     * 
-     */
-    public CTZakon createCTZakon() {
-        return new CTZakon();
-    }
-
-    /**
-     * Create an instance of {@link CTPredmetZalbe }
-     * 
-     */
-    public CTPredmetZalbe createCTPredmetZalbe() {
-        return new CTPredmetZalbe();
+    public CTUstanova.Naziv createCTUstanovaNaziv() {
+        return new CTUstanova.Naziv();
     }
 
     /**
@@ -117,11 +133,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTOdluka }
+     * Create an instance of {@link CTOdluka.Mesto }
      * 
      */
-    public CTOdluka createCTOdluka() {
-        return new CTOdluka();
+    public CTOdluka.Mesto createCTOdlukaMesto() {
+        return new CTOdluka.Mesto();
+    }
+
+    /**
+     * Create an instance of {@link CTPredmetZalbe.DatumPotrazivanjaInformacija }
+     * 
+     */
+    public CTPredmetZalbe.DatumPotrazivanjaInformacija createCTPredmetZalbeDatumPotrazivanjaInformacija() {
+        return new CTPredmetZalbe.DatumPotrazivanjaInformacija();
+    }
+
+    /**
+     * Create an instance of {@link CTZakon.NazivZakona }
+     * 
+     */
+    public CTZakon.NazivZakona createCTZakonNazivZakona() {
+        return new CTZakon.NazivZakona();
     }
 
     /**
@@ -130,6 +162,30 @@ public class ObjectFactory {
      */
     public CTPozivNaZakon.BrojeviSluzbenogGlasnika createCTPozivNaZakonBrojeviSluzbenogGlasnika() {
         return new CTPozivNaZakon.BrojeviSluzbenogGlasnika();
+    }
+
+    /**
+     * Create an instance of {@link CTPoverenik.Ime }
+     * 
+     */
+    public CTPoverenik.Ime createCTPoverenikIme() {
+        return new CTPoverenik.Ime();
+    }
+
+    /**
+     * Create an instance of {@link CTPoverenik.Prezime }
+     * 
+     */
+    public CTPoverenik.Prezime createCTPoverenikPrezime() {
+        return new CTPoverenik.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link CTResenje.OrganVlasti }
+     * 
+     */
+    public CTResenje.OrganVlasti createCTResenjeOrganVlasti() {
+        return new CTResenje.OrganVlasti();
     }
 
     /**

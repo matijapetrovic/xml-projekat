@@ -21,7 +21,7 @@ public class ObavestenjeService {
 
     public Long create(Obavestenje obavestenje) throws JAXBException, XMLDBException, IOException, TransformerException {
         Long createdId = xmlRepository.create(obavestenje);
-        rdfRepository.create();
+        rdfRepository.saveMetadata(obavestenje);
         return createdId;
     }
 

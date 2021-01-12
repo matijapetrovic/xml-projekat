@@ -1,11 +1,14 @@
 package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf;
 
 import org.springframework.stereotype.Repository;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.RDFRepository;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.util.RDFDbConnection;
 
+import javax.xml.bind.JAXBException;
+
 @Repository
-public class ZahtevRDFRepository extends RDFRepository {
+public class ZahtevRDFRepository extends RDFRepository<Zahtev> {
 
     //@Value("${xml.zalba-cutanje}")
     private String xmlFilePath = "data/xml/zahtevcir.xml";
@@ -17,7 +20,7 @@ public class ZahtevRDFRepository extends RDFRepository {
 
     public ZahtevRDFRepository(
             RDFDbConnection connection
-    ) {
+    ) throws JAXBException {
         super(connection);
     }
 
@@ -35,4 +38,10 @@ public class ZahtevRDFRepository extends RDFRepository {
     protected String namedGraph() {
         return NAMED_GRAPH;
     }
+
+    @Override
+    protected String contextPath() {
+        return Zahtev.class.getPackage().getName();
+    }
+
 }

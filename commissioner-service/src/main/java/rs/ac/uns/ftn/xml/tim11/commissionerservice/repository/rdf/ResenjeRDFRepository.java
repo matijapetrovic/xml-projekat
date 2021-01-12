@@ -1,11 +1,14 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf;
 
 import org.springframework.stereotype.Repository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.RDFRepository;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.util.RDFDbConnection;
 
+import javax.xml.bind.JAXBException;
+
 @Repository
-public class ResenjeRDFRepository extends RDFRepository {
+public class ResenjeRDFRepository extends RDFRepository<Resenje> {
 
     private String xmlFilePath = "data/xml/resenje.xml";
 
@@ -16,7 +19,7 @@ public class ResenjeRDFRepository extends RDFRepository {
 
     public ResenjeRDFRepository(
             RDFDbConnection connection
-    ) {
+    ) throws JAXBException {
         super(connection);
     }
 
@@ -34,4 +37,10 @@ public class ResenjeRDFRepository extends RDFRepository {
     protected String namedGraph() {
         return NAMED_GRAPH;
     }
+
+    @Override
+    protected String contextPath() {
+        return Resenje.class.getPackage().getName();
+    }
+
 }
