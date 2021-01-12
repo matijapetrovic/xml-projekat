@@ -1,21 +1,41 @@
 version: "3"
 services:
-  existdb:
+  commissioner_exist_db:
     image: existdb/existdb:latest
     ports:
-      - "8080:8080"
+      - "8090:8080"
       - "8443:8443"
     networks:
       - xml-projekat
  
-  fusekidb:
-    image: stain/jena-fuseki
+  authority_body_exist_db:
+    image: existdb/existdb:latest
     ports:
-      - "3030:3030"
-    environment:
-      - ADMIN_PASSWORD=admin
+      - "8091:8080"
+      - "8444:8443"
     networks:
       - xml-projekat
+
+  commissioner_fuseki_db:
+    image: fuseki
+    ports:
+      - "8092:3030"
+    environment:
+      - ADMIN_PASSWORD=admin
+      - FUSEKI_DATASET_1=CommissionerDataset
+    networks:
+      - xml-projekat
+
+  authority_body_fuseki_db:
+    image: fuseki
+    ports:
+      - "8093:3030"
+    environment:
+      - ADMIN_PASSWORD=admin
+      - FUSEKI_DATASET_1=AuthorityBodyDataset
+    networks:
+      - xml-projekat
+
 
 networks:
   xml-projekat: 
