@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlValue;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element ref="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
+ *         &lt;element name="Ustanova" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
  *         &lt;element name="Ishod" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -43,15 +43,15 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTResenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "organVlasti",
-    "ctUstanova",
+    "ustanova",
     "ishod"
 })
 public class CTResenje {
 
     @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTResenje.OrganVlasti organVlasti;
-    @XmlElement(name = "CTUstanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTUstanova ctUstanova;
+    @XmlElement(name = "Ustanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected CTUstanova ustanova;
     @XmlElement(name = "Ishod", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected String ishod;
 
@@ -80,27 +80,27 @@ public class CTResenje {
     }
 
     /**
-     * Gets the value of the ctUstanova property.
+     * Gets the value of the ustanova property.
      * 
      * @return
      *     possible object is
      *     {@link CTUstanova }
      *     
      */
-    public CTUstanova getCTUstanova() {
-        return ctUstanova;
+    public CTUstanova getUstanova() {
+        return ustanova;
     }
 
     /**
-     * Sets the value of the ctUstanova property.
+     * Sets the value of the ustanova property.
      * 
      * @param value
      *     allowed object is
      *     {@link CTUstanova }
      *     
      */
-    public void setCTUstanova(CTUstanova value) {
-        this.ctUstanova = value;
+    public void setUstanova(CTUstanova value) {
+        this.ustanova = value;
     }
 
     /**

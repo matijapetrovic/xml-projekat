@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema 
-	xmlns="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+<xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
 	elementFormDefault="qualified"
 	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
-	xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
-	vc:minVersion="1.1">
+	xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje">
+	
 	<xs:element name="Resenje">
 		<xs:complexType>
 			<xs:sequence>
@@ -38,17 +36,17 @@
 		<xs:sequence>
 			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
 			<xs:element name="BrojeviSluzbenogGlasnika">
-			  <xs:complexType>
-				  <xs:sequence>
-					  <xs:element maxOccurs="unbounded" name="Broj">
-						  <xs:simpleType>
-							  <xs:restriction base="xs:string">
-								  <xs:pattern value="[1-9][0-9]*/[0-9]{2}"></xs:pattern>
-							  </xs:restriction>
-						  </xs:simpleType>
-					  </xs:element>
-				  </xs:sequence>
-			  </xs:complexType>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="unbounded" name="Broj">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="[1-9][0-9]*/[0-9]{2}"></xs:pattern>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -59,35 +57,35 @@
 			<xs:element minOccurs = "0" maxOccurs="1" name="Stav" type="xs:positiveInteger"/>
 			<xs:element minOccurs = "0" maxOccurs="1" name="Tacka" type="xs:positiveInteger"/>
 			<xs:element name="NazivZakona">
-		        <xs:complexType>
-		          <xs:simpleContent>
-		            <xs:extension base="xs:string">
-		              <xs:attribute name="type" use="required"/>
-		              <xs:attribute name="property" use="required"/>
-		            </xs:extension>
-		          </xs:simpleContent>
-		        </xs:complexType>
-      </xs:element>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:complexType name="CTResenje">
 		<xs:sequence>
 			<xs:element name="OrganVlasti">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="type" use="required"/>
-              <xs:attribute name="property" use="required"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-			<xs:element ref="re:CTUstanova"></xs:element>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Ustanova" type="re:CTUstanova"></xs:element>
 			<xs:element name="Ishod" type="xs:string"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
-   
+	
 	<xs:complexType name="CTObrazlozenje">
 		<xs:sequence>
 			<xs:element name="PredmetZalbe" type="re:CTPredmetZalbe"></xs:element>
@@ -103,14 +101,14 @@
 			<xs:element name="DatumIzjave" type="xs:date"></xs:element>
 			<xs:element name="OrganVlasti" type="xs:string"></xs:element>
 			<xs:element name="DatumPotrazivanjaInformacija">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:date">
-              <xs:attribute name="type" use="required"/>
-              <xs:attribute name="property" use="required"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:date">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -118,7 +116,7 @@
 	<xs:complexType name="CTPostupak">
 		<xs:sequence>
 			<xs:element name="DatumPostupka" type="xs:date"></xs:element>
-			<xs:element ref="re:CTUstanova"></xs:element>
+			<xs:element name="Ustanova" type="re:CTUstanova"></xs:element>
 			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -128,15 +126,15 @@
 			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
 			<xs:element name="Lice" type="xs:string"></xs:element>
 			<xs:element name="Mesto">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="type" use="required"/>
-              <xs:attribute name="property" use="required"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Iznos" type="xs:positiveInteger"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -144,43 +142,41 @@
 	<xs:complexType name="CTPoverenik">
 		<xs:sequence>
 			<xs:element name="Ime">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="type" use="required"/>
-              <xs:attribute name="property" use="required"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="Prezime">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute name="type" use="required"/>
-              <xs:attribute name="property" use="required"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:element name="CTUstanova">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Naziv">
-			      <xs:complexType>
-			        <xs:simpleContent>
-			          <xs:extension base="xs:string">
-			            <xs:attribute name="type" use="required"/>
-			            <xs:attribute name="property" use="required"/>
-			          </xs:extension>
-			        </xs:simpleContent>
-			      </xs:complexType>
-       		 </xs:element>
-				<xs:element name="Adresa" type="xs:string"></xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+	<xs:complexType name="CTUstanova">
+		<xs:sequence>
+			<xs:element name="Naziv">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="type" use="required"/>
+							<xs:attribute name="property" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Adresa" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

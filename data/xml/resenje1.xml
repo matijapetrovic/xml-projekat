@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resenje xmlns="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/resenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/resenje.xsd">
+    <BrojResenja>000-00-0000/0000-00</BrojResenja>
+    <DatumResenja>2006-05-04</DatumResenja>
+    <Uvod>
+        <DatumZalbe>2006-05-04</DatumZalbe>
+        <OrganVlasti>OrganVlasti0</OrganVlasti>
+    </Uvod>
+    <Sadrzaj>
+        <OrganVlasti type="type1" property="property1">OrganVlasti1</OrganVlasti>
+        <Ustanova>
+            <Naziv type="type3" property="property3">Naziv0</Naziv>
+            <Adresa>Adresa0</Adresa>
+        </Ustanova>
+        <Ishod>Ishod0</Ishod>
+    </Sadrzaj>
+    <Obrazlozenje about="http://www.oxygenxml.com/" vocab="http://www.oxygenxml.com/">
+        <PredmetZalbe>
+            <DatumIzjave>2006-05-04</DatumIzjave>
+            <OrganVlasti>OrganVlasti2</OrganVlasti>
+            <DatumPotrazivanjaInformacija type="type5" property="property5">2006-05-04</DatumPotrazivanjaInformacija>
+        </PredmetZalbe>
+        <Postupak>
+            <DatumPostupka>2006-05-04</DatumPostupka>
+            <Ustanova>
+                <Naziv type="type7" property="property7">Naziv1</Naziv>
+                <Adresa>Adresa1</Adresa>
+            </Ustanova>
+            <Zakon>
+                <Clan>50</Clan>
+                <Clan>50</Clan>
+                <NazivZakona type="type9" property="property9">NazivZakona0</NazivZakona>
+            </Zakon>
+        </Postupak>
+        <Odluka>
+            <Zakon>
+                <Clan>50</Clan>
+                <Clan>50</Clan>
+                <NazivZakona type="type11" property="property11">NazivZakona1</NazivZakona>
+            </Zakon>
+            <Lice>Lice0</Lice>
+            <Mesto type="type13" property="property13">Mesto0</Mesto>
+            <Iznos>50</Iznos>
+        </Odluka>
+    </Obrazlozenje>
+    <Poverenik>
+        <Ime type="type15" property="property15">Ime0</Ime>
+        <Prezime type="type17" property="property17">Prezime0</Prezime>
+    </Poverenik>
+</Resenje>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ZalbaNaOdluku xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zalbanaodlukucir.xsd">
+    <primalac>
+        <adresaPrimaoca>
+            <mesto property="property1">mesto0</mesto>
+            <ulica>ulica0</ulica>
+            <broj>100</broj>
+        </adresaPrimaoca>
+    </primalac>
+    <sadrzaj>
+        <paragraf1>
+            <predmetSlanja property="property3">predmetSlanja0</predmetSlanja>
+            <osoba>
+                <ime property="property5">ime0</ime>
+                <prezime property="property7">prezime0</prezime>
+            </osoba>
+            <naziv>naziv0</naziv>
+            <adresa>
+                <mesto property="property9">mesto1</mesto>
+                <ulica>ulica1</ulica>
+                <broj>100</broj>
+            </adresa>
+            <sediste>26</sediste>
+        </paragraf1>
+        <paragraf2>
+            <nazivOrgana property="property11">nazivOrgana0</nazivOrgana>
+            <broj>150</broj>
+            <godina>2050</godina>
+        </paragraf2>
+        <paragraf3>
+            <dan>16</dan>
+            <godina>2050</godina>
+            <razlog>razlog0</razlog>
+        </paragraf3>
+        <paragraf4>
+            <zakljucak>
+                <razlog>razlog1</razlog>
+                <zakonPodnosenjaZalbe property="property13">zakonPodnosenjaZalbe0</zakonPodnosenjaZalbe>
+            </zakljucak>
+        </paragraf4>
+    </sadrzaj>
+    <podnosilacZalbe>
+        <osoba>
+            <ime property="property15">ime1</ime>
+            <prezime property="property17">prezime1</prezime>
+        </osoba>
+        <adresa>
+            <mesto property="property19">mesto2</mesto>
+            <ulica>ulica2</ulica>
+            <broj>100</broj>
+        </adresa>
+        <potpis>potpis0</potpis>
+    </podnosilacZalbe>
+    <podaciPodnosenjaZalbe>
+        <mesto>mesto3</mesto>
+        <dan>16</dan>
+        <godina>2050</godina>
+    </podaciPodnosenjaZalbe>
+    <napomena>
+        <lista>
+            <stavka1>stavka10</stavka1>
+            <stavka2>stavka20</stavka2>
+        </lista>
+    </napomena>
+</ZalbaNaOdluku>

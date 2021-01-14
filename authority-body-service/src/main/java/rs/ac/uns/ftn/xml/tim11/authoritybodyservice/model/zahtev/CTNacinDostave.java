@@ -4,17 +4,16 @@ package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for CTNacinDostave complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="CTNacinDostave"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;choice&gt;
@@ -47,13 +46,12 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "CTNacinDostave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", propOrder = {
     "posta",
     "elektronskaPosta",
     "faks",
     "drugo"
 })
-@XmlRootElement(name = "CTNacinDostave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
 public class CTNacinDostave {
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Zahtev xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd">
+    <primalac property="property1" type="type1"/>
+    <naslov>naslov0</naslov>
+    <sadrzaj>
+        <paragraf1>
+            <clan>15</clan>
+            <stav>1</stav>
+            <zakon>Zakon o slobodnom pristupu informacijama od javnog značaja</zakon>
+            <sluzbeniGlasnik>
+                <naziv type="type3" property="property3">Sluzbeni glasnik Republike Srbije</naziv>
+                <brojevi>
+                    <broj>1/00</broj>
+                    <broj>1/00</broj>
+                </brojevi>
+            </sluzbeniGlasnik>
+        </paragraf1>
+        <zahtevi>
+            <informacije>informacije0</informacije>
+        </zahtevi>
+        <ostaliPodaci>
+            <mesto type="type5" property="property5">mesto0</mesto>
+            <datum>2006-05-04</datum>
+            <trazilacInformacija>
+                <ime type="type7" property="property7">ime0</ime>
+                <prezime type="type9" property="property9">prezime0</prezime>
+                <adresa>adresa0</adresa>
+                <kontakt>kontakt0</kontakt>
+            </trazilacInformacija>
+        </ostaliPodaci>
+    </sadrzaj>
+</Zahtev>

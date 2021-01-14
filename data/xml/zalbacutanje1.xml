@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zalba xmlns="zalbacutanje"
+<ZalbaCutanje xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="zalbacutanje file:/C:/Users/nikol/Desktop/XML%20project/xml-projekat/documents/schemas/zalbacutanjecir.xsd">
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zalbacutanjecir.xsd">
     <primalac>
         <Adresa>
             <Ulica>Ulica0</Ulica>
             <Broj>Broj0</Broj>
-            <Grad>Grad0</Grad>
-            <Drzava>Drzava0</Drzava>
+            <Grad type="type1" property="property1">Grad0</Grad>
+            <Drzava type="type3" property="property3">Drzava0</Drzava>
             <PostanskiBroj>PostanskiBroj0</PostanskiBroj>
         </Adresa>
     </primalac>
     <Sadrzaj>
         <ZaglavljeZalbe>
             <Clan>500</Clan>
-            <Zakon>Zakon11111</Zakon>
+            <Zakon type="type5" property="property5">Zakon0</Zakon>
             <PredmetSlanja>PredmetSlanja0</PredmetSlanja>
-            <NazivOrgana>NazivOrgana0</NazivOrgana>
+            <NazivOrgana type="type7" property="property7">NazivOrgana0</NazivOrgana>
         </ZaglavljeZalbe>
         <RazlogSlanja>
-            <NijePostupioUCelosti>NijePostupioUCelosti0</NijePostupioUCelosti>
+            <UZakonsomRoku>UZakonsomRoku0</UZakonsomRoku>
         </RazlogSlanja>
         <PodaciOZahtevu>
             <Godina>1960</Godina>
@@ -36,15 +36,15 @@
     <PodnosilacZalbe>
         <Naziv>
             <ImePosiljaoca>
-                <Ime>Ime0</Ime>
-                <Prezime>Prezime0</Prezime>
+                <Ime property="property9">Ime0</Ime>
+                <Prezime property="property11">Prezime0</Prezime>
             </ImePosiljaoca>
         </Naziv>
         <Adresa>
             <Ulica>Ulica1</Ulica>
             <Broj>Broj1</Broj>
-            <Grad>Grad1</Grad>
-            <Drzava>Drzava1</Drzava>
+            <Grad type="type9" property="property13">Grad1</Grad>
+            <Drzava type="type11" property="property15">Drzava1</Drzava>
             <PostanskiBroj>PostanskiBroj1</PostanskiBroj>
         </Adresa>
         <drugiPodaci>drugiPodaci0</drugiPodaci>
@@ -55,4 +55,4 @@
         <Dan>16</Dan>
         <Godina>1960</Godina>
     </podaciOPodnosenjuZahteva>
-</zalba>
+</ZalbaCutanje>

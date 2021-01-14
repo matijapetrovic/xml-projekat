@@ -38,14 +38,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTNacinDostave }
-     * 
-     */
-    public CTNacinDostave createCTNacinDostave() {
-        return new CTNacinDostave();
-    }
-
-    /**
      * Create an instance of {@link CTTrazilacInformacija }
      * 
      */
@@ -59,6 +51,14 @@ public class ObjectFactory {
      */
     public CTOstaliPodaci createCTOstaliPodaci() {
         return new CTOstaliPodaci();
+    }
+
+    /**
+     * Create an instance of {@link CTNacinDostave }
+     * 
+     */
+    public CTNacinDostave createCTNacinDostave() {
+        return new CTNacinDostave();
     }
 
     /**
@@ -102,14 +102,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTNacinDostave.Drugo }
-     * 
-     */
-    public CTNacinDostave.Drugo createCTNacinDostaveDrugo() {
-        return new CTNacinDostave.Drugo();
-    }
-
-    /**
      * Create an instance of {@link CTTrazilacInformacija.Ime }
      * 
      */
@@ -131,6 +123,14 @@ public class ObjectFactory {
      */
     public CTOstaliPodaci.Mesto createCTOstaliPodaciMesto() {
         return new CTOstaliPodaci.Mesto();
+    }
+
+    /**
+     * Create an instance of {@link CTNacinDostave.Drugo }
+     * 
+     */
+    public CTNacinDostave.Drugo createCTNacinDostaveDrugo() {
+        return new CTNacinDostave.Drugo();
     }
 
     /**

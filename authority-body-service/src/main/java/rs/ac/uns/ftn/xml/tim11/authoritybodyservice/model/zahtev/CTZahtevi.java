@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element ref="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTNacinDostave"/&gt;
+ *                   &lt;element name="NacinDostave" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTNacinDostave"/&gt;
  *                 &lt;/sequence&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
@@ -192,7 +192,7 @@ public class CTZahtevi {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element ref="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTNacinDostave"/&gt;
+     *         &lt;element name="NacinDostave" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTNacinDostave"/&gt;
      *       &lt;/sequence&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
@@ -203,35 +203,35 @@ public class CTZahtevi {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "ctNacinDostave"
+        "nacinDostave"
     })
     public static class DostavljanjeKopije {
 
-        @XmlElement(name = "CTNacinDostave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-        protected CTNacinDostave ctNacinDostave;
+        @XmlElement(name = "NacinDostave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+        protected CTNacinDostave nacinDostave;
 
         /**
-         * Gets the value of the ctNacinDostave property.
+         * Gets the value of the nacinDostave property.
          * 
          * @return
          *     possible object is
          *     {@link CTNacinDostave }
          *     
          */
-        public CTNacinDostave getCTNacinDostave() {
-            return ctNacinDostave;
+        public CTNacinDostave getNacinDostave() {
+            return nacinDostave;
         }
 
         /**
-         * Sets the value of the ctNacinDostave property.
+         * Sets the value of the nacinDostave property.
          * 
          * @param value
          *     allowed object is
          *     {@link CTNacinDostave }
          *     
          */
-        public void setCTNacinDostave(CTNacinDostave value) {
-            this.ctNacinDostave = value;
+        public void setNacinDostave(CTNacinDostave value) {
+            this.nacinDostave = value;
         }
 
     }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
+<xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
     elementFormDefault="qualified"
     targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
-    xmlns:zlb="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
-    vc:minVersion="1.1">
+    xmlns:zlb="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje">
 
     <xs:element name="ZalbaCutanje">
         <xs:complexType>

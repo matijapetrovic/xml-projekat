@@ -117,19 +117,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTUstanova.Naziv }
-     * 
-     */
-    public CTUstanova.Naziv createCTUstanovaNaziv() {
-        return new CTUstanova.Naziv();
-    }
-
-    /**
      * Create an instance of {@link CTPostupak }
      * 
      */
     public CTPostupak createCTPostupak() {
         return new CTPostupak();
+    }
+
+    /**
+     * Create an instance of {@link CTUstanova.Naziv }
+     * 
+     */
+    public CTUstanova.Naziv createCTUstanovaNaziv() {
+        return new CTUstanova.Naziv();
     }
 
     /**

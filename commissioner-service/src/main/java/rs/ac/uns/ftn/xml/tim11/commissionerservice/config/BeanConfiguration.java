@@ -6,6 +6,12 @@ import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.DbConnection;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.util.RDFDbConnection;
 
+import javax.xml.XMLConstants;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.validation.SchemaFactory;
 import java.io.IOException;
 
 @Configuration

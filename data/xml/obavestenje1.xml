@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Obavestenje xmlns="obavestenje">
+<?xml version="1.0" encoding="UTF-8"?>
+<Obavestenje xmlns="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd">
     <BrojPredmeta>BrojPredmeta0</BrojPredmeta>
     <Datum>2006-05-04</Datum>
     <Organ>
@@ -7,26 +9,26 @@
         <Sediste>Sediste0</Sediste>
     </Organ>
     <PodnosiocZahteva>
-        <Ime>Ime0</Ime>
-        <Prezime>Prezime0</Prezime>
+        <Ime property="property1">Ime0</Ime>
+        <Prezime property="property3">Prezime0</Prezime>
         <Naziv>Naziv1</Naziv>
         <Adresa>
-            <Mesto>Mesto0</Mesto>
+            <Mesto property="property5">Mesto0</Mesto>
             <Ulica>Ulica0</Ulica>
             <Broj>50</Broj>
         </Adresa>
     </PodnosiocZahteva>
     <TrazenaInformacija>
-        <DatumZahteva>2006-05-04</DatumZahteva>
+        <DatumZahteva property="property7">2006-05-04</DatumZahteva>
         <OpisInformacije>OpisInformacije0</OpisInformacije>
     </TrazenaInformacija>
     <InformacijeOUvidu>
-        <Datum>2006-05-04</Datum>
+        <Datum property="property9">2006-05-04</Datum>
         <Satnica>01:01:01.001</Satnica>
         <SatnicaOd>01:01:01.001</SatnicaOd>
         <SatnicaDo>01:01:01.001</SatnicaDo>
         <Adresa>
-            <Mesto>Mesto1</Mesto>
+            <Mesto property="property11">Mesto1</Mesto>
             <Ulica>Ulica1</Ulica>
             <Broj>50</Broj>
         </Adresa>

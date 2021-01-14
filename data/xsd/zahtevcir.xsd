@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+<xs:schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" 
 	elementFormDefault="qualified"
 	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
-	xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
-	vc:minVersion="1.1">
+	xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev">
 	
 	<xs:element name="Zahtev">
 		<xs:complexType>
@@ -80,7 +78,7 @@
 		  <xs:element minOccurs="0" name="DostavljanjeKopije">
 		  	<xs:complexType>
 		  		<xs:sequence>
-		  			<xs:element ref="za:CTNacinDostave"/>
+		  			<xs:element name="NacinDostave" type="za:CTNacinDostave"/>
 		  		</xs:sequence>
 		  	</xs:complexType>
 		  </xs:element>
@@ -88,28 +86,26 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:element name="CTNacinDostave">
-		<xs:complexType>
-			<xs:choice>
-			  <xs:element name="posta" />
-			  <xs:element name="elektronskaPosta"/>
-			  <xs:element name="faks"/>
-			  <xs:element name="drugo">
-				  <xs:complexType>
-				  	<xs:sequence>
-				  		<xs:element name="opis">
-				  			<xs:simpleType>
-				  				<xs:restriction base="xs:string">
-				  					<xs:minLength value="1"/>
-				  				</xs:restriction>
-				  			</xs:simpleType>
-				  		</xs:element>
-				  	</xs:sequence>
-				  </xs:complexType>
-			  </xs:element>
-			</xs:choice>
-		</xs:complexType>
-	</xs:element>
+	<xs:complexType name="CTNacinDostave">
+		<xs:choice>
+		  <xs:element name="posta" />
+		  <xs:element name="elektronskaPosta"/>
+		  <xs:element name="faks"/>
+		  <xs:element name="drugo">
+			  <xs:complexType>
+			  	<xs:sequence>
+			  		<xs:element name="opis">
+			  			<xs:simpleType>
+			  				<xs:restriction base="xs:string">
+			  					<xs:minLength value="1"/>
+			  				</xs:restriction>
+			  			</xs:simpleType>
+			  		</xs:element>
+			  	</xs:sequence>
+			  </xs:complexType>
+		  </xs:element>
+		</xs:choice>
+	</xs:complexType>
 	
 	<xs:complexType name="CTOstaliPodaci">
 		<xs:sequence>

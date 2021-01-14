@@ -1,50 +1,44 @@
 package rs.ac.uns.ftn.xml.tim11.xmllib.exist;
 
+import org.xml.sax.SAXException;
 import org.xmldb.api.base.*;
 import org.xmldb.api.base.Collection;
 import org.xmldb.api.modules.XMLResource;
 import org.xmldb.api.modules.XQueryService;
+import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.DbConnection;
-import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.XQueryExpressions;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
+import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.StringWriter;
 import java.util.*;
 
-public abstract class XmlRepository<T> {
-    protected abstract String collectionId();
-    protected abstract String contextPath();
-    protected abstract XQueryExpressions expressions();
+public class XmlRepository<T> {
+    private final XmlResourceProperties properties;
+    private final DbConnection conn;
+    private final JaxbMarshaller<T> marshaller;
 
-    protected final DbConnection conn;
-    private final Unmarshaller unmarshaller;
-    private final Marshaller marshaller;
-
-    public XmlRepository(DbConnection conn) throws JAXBException {
+    public XmlRepository(DbConnection conn, XmlResourceProperties properties)
+            throws JAXBException, SAXException {
         this.conn = conn;
-        JAXBContext context = JAXBContext.newInstance(contextPath());
-        unmarshaller = context.createUnmarshaller();
-        marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        this.properties = properties;
+        this.marshaller = new JaxbMarshaller<>(properties);
     }
 
     @SuppressWarnings("unchecked")
     public List<T> findAll() throws XMLDBException, JAXBException {
-        Collection collection = conn.getCollection(collectionId());
-        ResourceSet resourceSet = executeXQuery(collection, expressions().findAllExpression());
+        Collection collection = conn.getCollection(properties.collectionId());
+        ResourceSet resourceSet = executeXQuery(collection, properties.xQueryExpressions().findAllExpression());
         ResourceIterator resourceIterator = resourceSet.getIterator();
 
         List<T> result = new ArrayList<>();
 
         while (resourceIterator.hasMoreResources()){
             XMLResource xmlResource = (XMLResource) resourceIterator.nextResource();
-            T entity = (T) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+            T entity = marshaller.unmarshal(xmlResource.getContentAsDOM());
             result.add(entity);
         }
 
@@ -53,18 +47,18 @@ public abstract class XmlRepository<T> {
 
     @SuppressWarnings("unchecked")
     public Optional<T> findById(Long id) throws XMLDBException, JAXBException {
-        Collection collection = conn.getCollection(collectionId());
+        Collection collection = conn.getCollection(properties.collectionId());
 
         XMLResource xmlResource = (XMLResource) collection.getResource(id + ".xml");
         if (xmlResource == null)
             return Optional.empty();
 
-        T entity = (T) unmarshaller.unmarshal(xmlResource.getContentAsDOM());
+        T entity = marshaller.unmarshal(xmlResource.getContentAsDOM());
         return Optional.of(entity);
     }
 
     public Long create(T entity) throws JAXBException, XMLDBException {
-        Collection collection = conn.getCollection(collectionId());
+        Collection collection = conn.getCollection(properties.collectionId());
 
         Long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
         XMLResource xmlResource = (XMLResource) collection.createResource(id.toString() + ".xml", XMLResource.RESOURCE_TYPE);
@@ -77,12 +71,12 @@ public abstract class XmlRepository<T> {
     }
 
     public void update(Long id, T entity) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
-        Collection collection = conn.getCollection(collectionId());
+        Collection collection = conn.getCollection(properties.collectionId());
         StringWriter sw = new StringWriter();
         marshaller.marshal(entity, sw);
 
         String xml = stripOuterTags(sw.toString());
-        ResourceSet resourceSet = executeXQuery(collection, expressions().updateByIdExpression(id + ".xml", xml));
+        ResourceSet resourceSet = executeXQuery(collection, properties.xQueryExpressions().updateByIdExpression(id + ".xml", xml));
         ResourceIterator resourceIterator = resourceSet.getIterator();
 
         if (!resourceIterator.hasMoreResources())
@@ -96,9 +90,9 @@ public abstract class XmlRepository<T> {
     }
 
     public void deleteById(Long id) throws XMLDBException, XmlResourceNotFoundException {
-        Collection collection = conn.getCollection(collectionId());
+        Collection collection = conn.getCollection(properties.collectionId());
         try {
-            executeXQuery(collection, expressions().removeByIdExpression(id + ".xml"));
+            executeXQuery(collection, properties.xQueryExpressions().removeByIdExpression(id + ".xml"));
         } catch (XMLDBException ex) {
             throw new XmlResourceNotFoundException(String.format("Entity with id %d not found", id));
         }

@@ -20,7 +20,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="DatumPostupka" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element ref="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
+ *         &lt;element name="Ustanova" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
  *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -33,7 +33,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTPostupak", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
     "datumPostupka",
-    "ctUstanova",
+    "ustanova",
     "zakon"
 })
 public class CTPostupak {
@@ -41,8 +41,8 @@ public class CTPostupak {
     @XmlElement(name = "DatumPostupka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar datumPostupka;
-    @XmlElement(name = "CTUstanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTUstanova ctUstanova;
+    @XmlElement(name = "Ustanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected CTUstanova ustanova;
     @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTZakon zakon;
 
@@ -71,27 +71,27 @@ public class CTPostupak {
     }
 
     /**
-     * Gets the value of the ctUstanova property.
+     * Gets the value of the ustanova property.
      * 
      * @return
      *     possible object is
      *     {@link CTUstanova }
      *     
      */
-    public CTUstanova getCTUstanova() {
-        return ctUstanova;
+    public CTUstanova getUstanova() {
+        return ustanova;
     }
 
     /**
-     * Sets the value of the ctUstanova property.
+     * Sets the value of the ustanova property.
      * 
      * @param value
      *     allowed object is
      *     {@link CTUstanova }
      *     
      */
-    public void setCTUstanova(CTUstanova value) {
-        this.ctUstanova = value;
+    public void setUstanova(CTUstanova value) {
+        this.ustanova = value;
     }
 
     /**
