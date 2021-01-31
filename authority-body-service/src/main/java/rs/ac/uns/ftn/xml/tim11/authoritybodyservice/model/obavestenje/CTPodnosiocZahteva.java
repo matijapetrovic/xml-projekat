@@ -24,7 +24,8 @@ import javax.xml.bind.annotation.XmlValue;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="imePodnosoica" /&gt;
+ *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
@@ -33,7 +34,8 @@ import javax.xml.bind.annotation.XmlValue;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="prezimePodnosioca" /&gt;
+ *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
@@ -172,7 +174,8 @@ public class CTPodnosiocZahteva {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="imePodnosoica" /&gt;
+     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
      * &lt;/complexType&gt;
@@ -191,6 +194,9 @@ public class CTPodnosiocZahteva {
         @XmlAttribute(name = "property", required = true)
         @XmlSchemaType(name = "anySimpleType")
         protected String property;
+        @XmlAttribute(name = "datatype", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String datatype;
 
         /**
          * Gets the value of the value property.
@@ -225,7 +231,11 @@ public class CTPodnosiocZahteva {
          *     
          */
         public String getProperty() {
-            return property;
+            if (property == null) {
+                return "imePodnosoica";
+            } else {
+                return property;
+            }
         }
 
         /**
@@ -240,6 +250,34 @@ public class CTPodnosiocZahteva {
             this.property = value;
         }
 
+        /**
+         * Gets the value of the datatype property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getDatatype() {
+            if (datatype == null) {
+                return "xs:string";
+            } else {
+                return datatype;
+            }
+        }
+
+        /**
+         * Sets the value of the datatype property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setDatatype(String value) {
+            this.datatype = value;
+        }
+
     }
 
 
@@ -252,7 +290,8 @@ public class CTPodnosiocZahteva {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="prezimePodnosioca" /&gt;
+     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
      * &lt;/complexType&gt;
@@ -271,6 +310,9 @@ public class CTPodnosiocZahteva {
         @XmlAttribute(name = "property", required = true)
         @XmlSchemaType(name = "anySimpleType")
         protected String property;
+        @XmlAttribute(name = "datatype", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String datatype;
 
         /**
          * Gets the value of the value property.
@@ -305,7 +347,11 @@ public class CTPodnosiocZahteva {
          *     
          */
         public String getProperty() {
-            return property;
+            if (property == null) {
+                return "prezimePodnosioca";
+            } else {
+                return property;
+            }
         }
 
         /**
@@ -318,6 +364,34 @@ public class CTPodnosiocZahteva {
          */
         public void setProperty(String value) {
             this.property = value;
+        }
+
+        /**
+         * Gets the value of the datatype property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getDatatype() {
+            if (datatype == null) {
+                return "xs:string";
+            } else {
+                return datatype;
+            }
+        }
+
+        /**
+         * Sets the value of the datatype property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setDatatype(String value) {
+            this.datatype = value;
         }
 
     }

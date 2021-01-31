@@ -3,10 +3,12 @@ package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlValue;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 
@@ -20,8 +22,26 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="BrojPredmeta" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Datum" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
+ *         &lt;element name="BrojPredmeta"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="brojPredmeta" /&gt;
+ *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
+ *         &lt;element name="Datum"&gt;
+ *           &lt;complexType&gt;
+ *             &lt;simpleContent&gt;
+ *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podnesenoDatuma" /&gt;
+ *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:date" /&gt;
+ *               &lt;/extension&gt;
+ *             &lt;/simpleContent&gt;
+ *           &lt;/complexType&gt;
+ *         &lt;/element&gt;
  *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTOrgan"/&gt;
  *         &lt;element name="PodnosiocZahteva" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTPodnosiocZahteva"/&gt;
  *         &lt;element name="TrazenaInformacija" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTTrazenaInformacija"/&gt;
@@ -37,6 +57,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;/simpleType&gt;
  *         &lt;/element&gt;
  *       &lt;/sequence&gt;
+ *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
+ *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -60,10 +82,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 public class Obavestenje {
 
     @XmlElement(name = "BrojPredmeta", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected String brojPredmeta;
+    protected Obavestenje.BrojPredmeta brojPredmeta;
     @XmlElement(name = "Datum", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar datum;
+    protected Obavestenje.Datum datum;
     @XmlElement(name = "Organ", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTOrgan organ;
     @XmlElement(name = "PodnosiocZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
@@ -78,16 +99,22 @@ public class Obavestenje {
     protected CTInformacijeOUplati informacijeOUplati;
     @XmlElement(name = "Dostavljeno", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String dostavljeno;
+    @XmlAttribute(name = "vocab", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String vocab;
+    @XmlAttribute(name = "about", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String about;
 
     /**
      * Gets the value of the brojPredmeta property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Obavestenje.BrojPredmeta }
      *     
      */
-    public String getBrojPredmeta() {
+    public Obavestenje.BrojPredmeta getBrojPredmeta() {
         return brojPredmeta;
     }
 
@@ -96,10 +123,10 @@ public class Obavestenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Obavestenje.BrojPredmeta }
      *     
      */
-    public void setBrojPredmeta(String value) {
+    public void setBrojPredmeta(Obavestenje.BrojPredmeta value) {
         this.brojPredmeta = value;
     }
 
@@ -108,10 +135,10 @@ public class Obavestenje {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Obavestenje.Datum }
      *     
      */
-    public XMLGregorianCalendar getDatum() {
+    public Obavestenje.Datum getDatum() {
         return datum;
     }
 
@@ -120,10 +147,10 @@ public class Obavestenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link Obavestenje.Datum }
      *     
      */
-    public void setDatum(XMLGregorianCalendar value) {
+    public void setDatum(Obavestenje.Datum value) {
         this.datum = value;
     }
 
@@ -293,6 +320,295 @@ public class Obavestenje {
      */
     public void setDostavljeno(String value) {
         this.dostavljeno = value;
+    }
+
+    /**
+     * Gets the value of the vocab property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getVocab() {
+        if (vocab == null) {
+            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate";
+        } else {
+            return vocab;
+        }
+    }
+
+    /**
+     * Sets the value of the vocab property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setVocab(String value) {
+        this.vocab = value;
+    }
+
+    /**
+     * Gets the value of the about property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAbout() {
+        if (about == null) {
+            return "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234";
+        } else {
+            return about;
+        }
+    }
+
+    /**
+     * Sets the value of the about property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAbout(String value) {
+        this.about = value;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="brojPredmeta" /&gt;
+     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class BrojPredmeta {
+
+        @XmlValue
+        protected String value;
+        @XmlAttribute(name = "property", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String property;
+        @XmlAttribute(name = "datatype", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String datatype;
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets the value of the property property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getProperty() {
+            if (property == null) {
+                return "brojPredmeta";
+            } else {
+                return property;
+            }
+        }
+
+        /**
+         * Sets the value of the property property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setProperty(String value) {
+            this.property = value;
+        }
+
+        /**
+         * Gets the value of the datatype property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getDatatype() {
+            if (datatype == null) {
+                return "xs:string";
+            } else {
+                return datatype;
+            }
+        }
+
+        /**
+         * Sets the value of the datatype property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setDatatype(String value) {
+            this.datatype = value;
+        }
+
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType&gt;
+     *   &lt;simpleContent&gt;
+     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podnesenoDatuma" /&gt;
+     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:date" /&gt;
+     *     &lt;/extension&gt;
+     *   &lt;/simpleContent&gt;
+     * &lt;/complexType&gt;
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "value"
+    })
+    public static class Datum {
+
+        @XmlValue
+        @XmlSchemaType(name = "date")
+        protected XMLGregorianCalendar value;
+        @XmlAttribute(name = "property", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String property;
+        @XmlAttribute(name = "datatype", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String datatype;
+
+        /**
+         * Gets the value of the value property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public XMLGregorianCalendar getValue() {
+            return value;
+        }
+
+        /**
+         * Sets the value of the value property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link XMLGregorianCalendar }
+         *     
+         */
+        public void setValue(XMLGregorianCalendar value) {
+            this.value = value;
+        }
+
+        /**
+         * Gets the value of the property property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getProperty() {
+            if (property == null) {
+                return "podnesenoDatuma";
+            } else {
+                return property;
+            }
+        }
+
+        /**
+         * Sets the value of the property property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setProperty(String value) {
+            this.property = value;
+        }
+
+        /**
+         * Gets the value of the datatype property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getDatatype() {
+            if (datatype == null) {
+                return "xs:date";
+            } else {
+                return datatype;
+            }
+        }
+
+        /**
+         * Sets the value of the datatype property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setDatatype(String value) {
+            this.datatype = value;
+        }
+
     }
 
 }

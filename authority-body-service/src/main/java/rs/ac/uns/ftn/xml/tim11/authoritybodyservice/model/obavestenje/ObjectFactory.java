@@ -30,27 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTAdresa }
+     * Create an instance of {@link Obavestenje }
      * 
      */
-    public CTAdresa createCTAdresa() {
-        return new CTAdresa();
-    }
-
-    /**
-     * Create an instance of {@link CTInformacijeOUvidu }
-     * 
-     */
-    public CTInformacijeOUvidu createCTInformacijeOUvidu() {
-        return new CTInformacijeOUvidu();
-    }
-
-    /**
-     * Create an instance of {@link CTTrazenaInformacija }
-     * 
-     */
-    public CTTrazenaInformacija createCTTrazenaInformacija() {
-        return new CTTrazenaInformacija();
+    public Obavestenje createObavestenje() {
+        return new Obavestenje();
     }
 
     /**
@@ -62,19 +46,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Obavestenje }
-     * 
-     */
-    public Obavestenje createObavestenje() {
-        return new Obavestenje();
-    }
-
-    /**
      * Create an instance of {@link CTOrgan }
      * 
      */
     public CTOrgan createCTOrgan() {
         return new CTOrgan();
+    }
+
+    /**
+     * Create an instance of {@link Obavestenje.BrojPredmeta }
+     * 
+     */
+    public Obavestenje.BrojPredmeta createObavestenjeBrojPredmeta() {
+        return new Obavestenje.BrojPredmeta();
+    }
+
+    /**
+     * Create an instance of {@link Obavestenje.Datum }
+     * 
+     */
+    public Obavestenje.Datum createObavestenjeDatum() {
+        return new Obavestenje.Datum();
+    }
+
+    /**
+     * Create an instance of {@link CTTrazenaInformacija }
+     * 
+     */
+    public CTTrazenaInformacija createCTTrazenaInformacija() {
+        return new CTTrazenaInformacija();
+    }
+
+    /**
+     * Create an instance of {@link CTInformacijeOUvidu }
+     * 
+     */
+    public CTInformacijeOUvidu createCTInformacijeOUvidu() {
+        return new CTInformacijeOUvidu();
     }
 
     /**
@@ -94,27 +102,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTAdresa.Mesto }
+     * Create an instance of {@link CTAdresa }
      * 
      */
-    public CTAdresa.Mesto createCTAdresaMesto() {
-        return new CTAdresa.Mesto();
-    }
-
-    /**
-     * Create an instance of {@link CTInformacijeOUvidu.Datum }
-     * 
-     */
-    public CTInformacijeOUvidu.Datum createCTInformacijeOUviduDatum() {
-        return new CTInformacijeOUvidu.Datum();
-    }
-
-    /**
-     * Create an instance of {@link CTTrazenaInformacija.DatumZahteva }
-     * 
-     */
-    public CTTrazenaInformacija.DatumZahteva createCTTrazenaInformacijaDatumZahteva() {
-        return new CTTrazenaInformacija.DatumZahteva();
+    public CTAdresa createCTAdresa() {
+        return new CTAdresa();
     }
 
     /**
@@ -131,6 +123,14 @@ public class ObjectFactory {
      */
     public CTPodnosiocZahteva.Prezime createCTPodnosiocZahtevaPrezime() {
         return new CTPodnosiocZahteva.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link CTOrgan.Naziv }
+     * 
+     */
+    public CTOrgan.Naziv createCTOrganNaziv() {
+        return new CTOrgan.Naziv();
     }
 
 }

@@ -40,15 +40,13 @@ public class AuthorityBodyServiceApplication {
 		return args -> {
 			testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
 			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
+
 		};
 	}
-
+																																	
 	public void testObavestenje(ObavestenjeXmlRepository xmlRepository, ObavestenjeRDFRepository rdfRepository, ObavestenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
 		JaxbMarshaller<Obavestenje> m = new JaxbMarshaller<>(properties);
 		Obavestenje resenje = m.unmarshal(new FileInputStream("data/xml/obavestenje1.xml"));
-
-		Long id = xmlRepository.create(resenje);
-		resenje = xmlRepository.findById(id).get();
 
 		rdfRepository.saveMetadata(resenje);
 	}
@@ -56,9 +54,6 @@ public class AuthorityBodyServiceApplication {
 	public void testZahtev(ZahtevXmlRepository xmlRepository, ZahtevRDFRepository rdfRepository, ZahtevProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
 		JaxbMarshaller<Zahtev> m = new JaxbMarshaller<>(properties);
 		Zahtev resenje = m.unmarshal(new FileInputStream("data/xml/zahtev1.xml"));
-
-		Long id = xmlRepository.create(resenje);
-		resenje = xmlRepository.findById(id).get();
 
 		rdfRepository.saveMetadata(resenje);
 	}
