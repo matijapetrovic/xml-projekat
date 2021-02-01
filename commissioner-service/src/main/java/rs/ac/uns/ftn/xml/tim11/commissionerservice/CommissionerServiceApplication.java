@@ -12,6 +12,7 @@ import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku.ZalbaNaOd
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ResenjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ZalbaCutanjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ZalbaNaOdlukuRDFRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.AuthorityXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ResenjeXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ZalbaCutanjeXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ZalbaNaOdlukuXmlRepository;
@@ -30,6 +31,14 @@ public class CommissionerServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CommissionerServiceApplication.class, args);
+	}
+
+
+	@Bean
+	public CommandLineRunner run() {
+		return args -> {
+
+		};
 	}
 
 	@Bean
@@ -79,4 +88,8 @@ public class CommissionerServiceApplication {
 
 		rdfRepository.saveMetadata(resenje);
 	}
+
+//	public void insertAuthority(AuthorityXmlRepository authorityXmlRepository, ) {
+//
+//	}
 }
