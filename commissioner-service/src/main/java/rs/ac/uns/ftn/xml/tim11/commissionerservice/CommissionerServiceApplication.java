@@ -32,23 +32,23 @@ public class CommissionerServiceApplication {
 		SpringApplication.run(CommissionerServiceApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner run(
-			ZalbaCutanjeXmlRepository zalbaCutanjeXmlRepository,
-			ZalbaNaOdlukuXmlRepository zalbaNaOdlukuXmlRepository,
-			ResenjeXmlRepository resenjeXmlRepository,
-			ZalbaCutanjeRDFRepository zalbaCutanjeRDFRepository,
-			ZalbaNaOdlukuRDFRepository zalbaNaOdlukuRDFRepository,
-			ResenjeRDFRepository resenjeRDFRepository,
-			ZalbaCutanjeProperties zalbaCutanjeProperties,
-			ZalbaNaOdlukuProperties zalbaNaOdlukuProperties,
-			ResenjeProperties resenjeProperties) {
-		return args -> {
-			testZalbaCutanje(zalbaCutanjeXmlRepository, zalbaCutanjeRDFRepository, zalbaCutanjeProperties);
-			testZalbaNaOdluku(zalbaNaOdlukuXmlRepository, zalbaNaOdlukuRDFRepository, zalbaNaOdlukuProperties);
-			testResenje(resenjeXmlRepository, resenjeRDFRepository, resenjeProperties);
-		};
-	}
+//	@Bean
+//	public CommandLineRunner run(
+//			ZalbaCutanjeXmlRepository zalbaCutanjeXmlRepository,
+//			ZalbaNaOdlukuXmlRepository zalbaNaOdlukuXmlRepository,
+//			ResenjeXmlRepository resenjeXmlRepository,
+//			ZalbaCutanjeRDFRepository zalbaCutanjeRDFRepository,
+//			ZalbaNaOdlukuRDFRepository zalbaNaOdlukuRDFRepository,
+//			ResenjeRDFRepository resenjeRDFRepository,
+//			ZalbaCutanjeProperties zalbaCutanjeProperties,
+//			ZalbaNaOdlukuProperties zalbaNaOdlukuProperties,
+//			ResenjeProperties resenjeProperties) {
+//		return args -> {
+//			testZalbaCutanje(zalbaCutanjeXmlRepository, zalbaCutanjeRDFRepository, zalbaCutanjeProperties);
+//			testZalbaNaOdluku(zalbaNaOdlukuXmlRepository, zalbaNaOdlukuRDFRepository, zalbaNaOdlukuProperties);
+//			testResenje(resenjeXmlRepository, resenjeRDFRepository, resenjeProperties);
+//		};
+//	}
 
 	public void testZalbaCutanje(ZalbaCutanjeXmlRepository xmlRepository, ZalbaCutanjeRDFRepository rdfRepository, ZalbaCutanjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
 		JaxbMarshaller<ZalbaCutanje> m = new JaxbMarshaller<>(properties);
