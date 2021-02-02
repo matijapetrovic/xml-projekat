@@ -19,6 +19,10 @@
       "xonomy": [
         "dist/xonomy/xonomy",
         "dist/xonomy"
+      ],
+      "vendors": [
+        "dist/vendors/vendors",
+        "dist/vendors"
       ]
     }
   }
