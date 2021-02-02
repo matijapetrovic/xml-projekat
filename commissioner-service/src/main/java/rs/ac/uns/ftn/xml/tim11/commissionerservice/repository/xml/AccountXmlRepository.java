@@ -1,11 +1,10 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml;
 
-import lombok.SneakyThrows;
 import org.springframework.stereotype.Repository;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.account.Account;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.ResenjeProperties;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.AccountProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.XmlRepository;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.DbConnection;
 
@@ -14,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 public class AccountXmlRepository extends XmlRepository<Account> {
-    public AccountXmlRepository(DbConnection conn, ResenjeProperties properties)
+    public AccountXmlRepository(DbConnection conn, AccountProperties properties)
             throws JAXBException, SAXException {
         super(conn, properties);
     }

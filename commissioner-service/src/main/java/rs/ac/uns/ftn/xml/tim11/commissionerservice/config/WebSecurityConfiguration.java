@@ -60,8 +60,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 // TODO: pogledaj
                 // svim korisnicima dopusti da pristupe putanji /auth/**
                 .authorizeRequests().antMatchers("api/auth/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/api/cultural-offers/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/resenje/**").permitAll()
                 // umesto anotacija iynad svake metode, moze i ovde da se proveravaju prava pristupa ya odredjeni URL
                 //.antMatchers(HttpMethod.GET, "/api/cultural-content-category").hasRole("ROLE_ADMIN")
                 // za svaki drugi zahtev korisnik mora biti autentifikovan
@@ -81,6 +80,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers(HttpMethod.POST, "/api/auth/**");
         web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html",
-                "/**/*.css", "/**/*.js", "/h2-console/**");
+                "/**/*.css", "/**/*.js");
     }
 }

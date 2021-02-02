@@ -3,7 +3,7 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.security;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.account.Account;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,7 +17,7 @@ public class CustomUserDetails implements UserDetails {
     public CustomUserDetails(Account account) {
         this.account = account;
         this.authorities = account
-                .getAuthorities()
+                .getAuthorities().getAuthority()
                 .stream()
                 .map(CustomGrantedAuthority::new)
                 .collect(Collectors.toList());

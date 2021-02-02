@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.account.Account;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.AccountXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.exceptions.AccountNotFoundException;
 

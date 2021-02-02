@@ -7,7 +7,7 @@ import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.requests.LoginRequ
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.AuthenticationService;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.LoginUseCase;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.TokenService;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.account.Account;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 
 @RequiredArgsConstructor
 @Service
@@ -21,6 +21,6 @@ public class LoginService implements LoginUseCase {
         String token = tokenService.getToken(account);
         long expiresIn = tokenService.getExpiresIn();
 
-        return LoginDTO.of(token, account.getAuthorities(), expiresIn);
+        return LoginDTO.of(token, account.getAuthorities().getAuthority(), expiresIn);
     }
 }

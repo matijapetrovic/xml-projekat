@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Authority
+    xmlns="http://www.ftn.uns.ac.rs/xml/tim11/user"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/user file:/C:/Users/nikol/Desktop/XML/xml-projekat/data/xsd/authority.xsd"
+    >
+    <name>ROLE_COMMISSIONER</name>
+</Authority>

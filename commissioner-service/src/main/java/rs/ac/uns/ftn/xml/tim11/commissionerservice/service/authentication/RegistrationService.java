@@ -6,13 +6,13 @@ import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.requests.RegisterRequest;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.PasswordEncoder;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.RegisterUseCase;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.account.Account;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.account.Authority;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.account.User;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Authority;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.User;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.UserXmlRepository;
 
 import javax.xml.bind.JAXBException;
-import java.util.Set;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -26,10 +26,10 @@ public class RegistrationService implements RegisterUseCase {
                 request.getFirstName(),
                 request.getLastName(),
                 Account.of(
-                        request.getEmail(),
+                        request.getUsername(),
                         passwordEncoder.encode(request.getPassword()),
                         // TODO: pogledaj koje ce vrste usera da postoje
-                        Set.of(Authority.withId(1L, "ROLE_USER"))));
+                        List.of(Authority.of("ROLE_USER"))));
         userXmlRepository.create(user);
     }
 }

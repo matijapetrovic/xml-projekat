@@ -30,7 +30,7 @@ public class AuthenticationController {
         return ResponseEntity.ok(loginUseCase.login(request));
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<Void> register(@RequestBody RegisterRequest request) throws XMLDBException, JAXBException {
         registerUseCase.register(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();

@@ -1,10 +1,12 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.util;
 
 import org.springframework.beans.factory.annotation.Value;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
+import org.springframework.stereotype.Component;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Authority;
 import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.XQueryExpressions;
 
+@Component
 public class AuthorityProperties implements XmlResourceProperties {
     @Value("${rdf.named-graph.authority}")
     private String namedGraph;
@@ -21,7 +23,7 @@ public class AuthorityProperties implements XmlResourceProperties {
 
     @Override
     public String contextPath() {
-        return User.class.getPackage().getName();
+        return Authority.class.getPackage().getName();
     }
 
     @Override
@@ -44,7 +46,7 @@ public class AuthorityProperties implements XmlResourceProperties {
         return new XQueryExpressions(
                 namespace,
                 collectionId,
-                User.class.getSimpleName()
+                Authority.class.getSimpleName()
         );
     }
 }

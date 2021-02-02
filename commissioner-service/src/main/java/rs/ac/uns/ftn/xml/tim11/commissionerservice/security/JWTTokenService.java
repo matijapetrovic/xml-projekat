@@ -2,8 +2,8 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.account.Account;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.TokenService;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 
 @RequiredArgsConstructor
 @Component

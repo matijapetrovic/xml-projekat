@@ -1,19 +1,25 @@
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user;
 
-package user;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Authority complex type.
- * 
+ * <p>Java class for anonymous complex type.
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
- * &lt;complexType name="Authority"&gt;
+ * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -23,13 +29,18 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
+ *
+ *
  */
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Authority", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/user", propOrder = {
-    "name"
+@XmlType(name = "", propOrder = {
+        "name"
 })
+@XmlRootElement(name = "Authority", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/user")
 public class Authority {
 
     @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/user", required = true)
@@ -37,11 +48,11 @@ public class Authority {
 
     /**
      * Gets the value of the name property.
-     * 
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
     public String getName() {
         return name;
@@ -49,14 +60,19 @@ public class Authority {
 
     /**
      * Sets the value of the name property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link String }
-     *     
+     *
      */
     public void setName(String value) {
         this.name = value;
     }
 
+    public static Authority of(String name) {
+        return new Authority(name);
+    }
 }
+
+

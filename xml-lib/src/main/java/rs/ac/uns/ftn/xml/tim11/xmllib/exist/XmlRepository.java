@@ -70,6 +70,18 @@ public class XmlRepository<T> {
         return id;
     }
 
+    public Long createWithId(T entity, Long id) throws JAXBException, XMLDBException {
+        Collection collection = conn.getCollection(properties.collectionId());
+
+        XMLResource xmlResource = (XMLResource) collection.createResource(id.toString() + ".xml", XMLResource.RESOURCE_TYPE);
+
+        OutputStream os = new ByteArrayOutputStream();
+        marshaller.marshal(entity, os);
+        xmlResource.setContent(os);
+        collection.storeResource(xmlResource);
+        return id;
+    }
+
     public void update(Long id, T entity) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
         Collection collection = conn.getCollection(properties.collectionId());
         StringWriter sw = new StringWriter();
