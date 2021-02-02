@@ -1,7 +1,10 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.resenje;
 
 
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.resenje.ResenjeService;
@@ -15,28 +18,21 @@ import javax.xml.bind.JAXBException;
         targetNamespace = "http://soap.spring.com/ws/resenje",
         // wsdlLocation = "classpath:wsdl/Resenje.wsdl",
         endpointInterface = "rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.resenje.ResenjePort")
+@NoArgsConstructor
+@Service
 public class ResenjePortImpl implements ResenjePort {
 
-    @Autowired
     private ResenjeService service;
 
     @Override
-    public Resenje findResenjeByNumber(String brojResenja) {
-        System.out.println("Inovked findResenjeByNumber method");
-        System.out.println(brojResenja);
-        Resenje resenje = new Resenje();
-        resenje.setBrojResenja("BROJRESENJA");
-//        try {
-//            //return service.findXmlById(1L);   //treba nam metoda koja trazi po broju
-//
-//        } catch (XMLDBException e) {
-//            e.printStackTrace();
-//        } catch (XmlResourceNotFoundException e) {
-//            e.printStackTrace();
-//        }catch (JAXBException e) {
-//            e.printStackTrace();
-//        }
+    public Resenje findResenjeByNumber(String brojResenja) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
+        Resenje resenje = service.findXmlByNumber(brojResenja);
         return resenje;
+    }
+
+    @Autowired
+    public void setService(ResenjeService service){
+        this.service = service;
     }
 
 }

@@ -1,12 +1,15 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.resenje;
 
+import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
+import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
 @WebService(targetNamespace = "http://soap.spring.com/ws/resenje", name = "ResenjePort")
@@ -19,6 +22,6 @@ public interface ResenjePort {
     @WebResult(name = "return", targetNamespace = "http://soap.spring.com/ws/resenje", partName = "return")
     public Resenje findResenjeByNumber(
         @WebParam(partName = "text", name = "text") String brojResenja
-    );
+    ) throws XMLDBException, JAXBException, XmlResourceNotFoundException;
 
 }

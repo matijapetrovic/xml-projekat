@@ -29,6 +29,10 @@ public class ObavestenjeService {
         return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
     }
 
+    public Obavestenje findXmlByNumber(String number) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
+        return xmlRepository.findByNumber(number).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %s not found", number)) );
+    }
+
     public void findRdf(){
         rdfRepository.read();
     }

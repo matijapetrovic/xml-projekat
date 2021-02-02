@@ -15,10 +15,12 @@ import javax.xml.ws.Endpoint;
 public class EndpointConfig {
     @Autowired
     private Bus bus;
+    @Autowired
+    private ResenjePortImpl resenjePort;
 
     @Bean
     public Endpoint resenjeEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new ResenjePortImpl());
+        EndpointImpl endpoint = new EndpointImpl(bus, resenjePort);
         endpoint.publish("/resenje");
         return endpoint;
     }
