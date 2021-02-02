@@ -25,9 +25,9 @@
     </ob:TrazenaInformacija>
     <ob:InformacijeOUvidu>
         <ob:Datum>2006-05-04</ob:Datum>
-        <ob:Satnica>01:01:01.001</ob:Satnica>
-        <ob:SatnicaOd>01:01:01.001</ob:SatnicaOd>
-        <ob:SatnicaDo>01:01:01.001</ob:SatnicaDo>
+        <ob:Satnica>01:01:00</ob:Satnica>
+        <ob:SatnicaOd>01:01:00</ob:SatnicaOd>
+        <ob:SatnicaDo>01:01:00</ob:SatnicaDo>
         <ob:Adresa>
             <ob:Mesto>Mesto1</ob:Mesto>
             <ob:Ulica>Ulica1</ob:Ulica>

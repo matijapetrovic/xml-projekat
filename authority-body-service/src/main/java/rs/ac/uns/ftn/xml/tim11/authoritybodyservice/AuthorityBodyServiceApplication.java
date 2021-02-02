@@ -38,8 +38,8 @@ public class AuthorityBodyServiceApplication {
 			ObavestenjeProperties obavestenjeProperties,
 			ZahtevProperties zahtevProperties) {
 		return args -> {
-			testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
-			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
+			//testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
+			//testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
 
 		};
 	}
