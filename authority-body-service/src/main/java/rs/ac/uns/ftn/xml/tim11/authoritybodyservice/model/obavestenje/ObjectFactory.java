@@ -38,27 +38,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTPodnosiocZahteva }
+     * Create an instance of {@link CTOstaliPodaci }
      * 
      */
-    public CTPodnosiocZahteva createCTPodnosiocZahteva() {
-        return new CTPodnosiocZahteva();
+    public CTOstaliPodaci createCTOstaliPodaci() {
+        return new CTOstaliPodaci();
     }
 
     /**
-     * Create an instance of {@link CTOrgan }
+     * Create an instance of {@link CTPodnosilac }
      * 
      */
-    public CTOrgan createCTOrgan() {
-        return new CTOrgan();
+    public CTPodnosilac createCTPodnosilac() {
+        return new CTPodnosilac();
     }
 
     /**
-     * Create an instance of {@link Obavestenje.BrojPredmeta }
+     * Create an instance of {@link CTOrganVlasti }
      * 
      */
-    public Obavestenje.BrojPredmeta createObavestenjeBrojPredmeta() {
-        return new Obavestenje.BrojPredmeta();
+    public CTOrganVlasti createCTOrganVlasti() {
+        return new CTOrganVlasti();
     }
 
     /**
@@ -70,11 +70,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTTrazenaInformacija }
+     * Create an instance of {@link CTPodnosilacZahteva }
      * 
      */
-    public CTTrazenaInformacija createCTTrazenaInformacija() {
-        return new CTTrazenaInformacija();
+    public CTPodnosilacZahteva createCTPodnosilacZahteva() {
+        return new CTPodnosilacZahteva();
+    }
+
+    /**
+     * Create an instance of {@link CTPodaciOZahtevu }
+     * 
+     */
+    public CTPodaciOZahtevu createCTPodaciOZahtevu() {
+        return new CTPodaciOZahtevu();
     }
 
     /**
@@ -110,27 +118,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTPodnosiocZahteva.Ime }
+     * Create an instance of {@link CTOstaliPodaci.Mesto }
      * 
      */
-    public CTPodnosiocZahteva.Ime createCTPodnosiocZahtevaIme() {
-        return new CTPodnosiocZahteva.Ime();
+    public CTOstaliPodaci.Mesto createCTOstaliPodaciMesto() {
+        return new CTOstaliPodaci.Mesto();
     }
 
     /**
-     * Create an instance of {@link CTPodnosiocZahteva.Prezime }
+     * Create an instance of {@link CTOstaliPodaci.Datum }
      * 
      */
-    public CTPodnosiocZahteva.Prezime createCTPodnosiocZahtevaPrezime() {
-        return new CTPodnosiocZahteva.Prezime();
+    public CTOstaliPodaci.Datum createCTOstaliPodaciDatum() {
+        return new CTOstaliPodaci.Datum();
     }
 
     /**
-     * Create an instance of {@link CTOrgan.Naziv }
+     * Create an instance of {@link CTPodnosilac.Ime }
      * 
      */
-    public CTOrgan.Naziv createCTOrganNaziv() {
-        return new CTOrgan.Naziv();
+    public CTPodnosilac.Ime createCTPodnosilacIme() {
+        return new CTPodnosilac.Ime();
+    }
+
+    /**
+     * Create an instance of {@link CTPodnosilac.Prezime }
+     * 
+     */
+    public CTPodnosilac.Prezime createCTPodnosilacPrezime() {
+        return new CTPodnosilac.Prezime();
+    }
+
+    /**
+     * Create an instance of {@link CTOrganVlasti.Naziv }
+     * 
+     */
+    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
+        return new CTOrganVlasti.Naziv();
     }
 
 }

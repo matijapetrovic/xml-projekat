@@ -38,155 +38,99 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ZOsoba }
+     * Create an instance of {@link CTOrganVlasti }
      * 
      */
-    public ZOsoba createZOsoba() {
-        return new ZOsoba();
+    public CTOrganVlasti createCTOrganVlasti() {
+        return new CTOrganVlasti();
     }
 
     /**
-     * Create an instance of {@link ZAdresa }
+     * Create an instance of {@link CTPodnosilac }
      * 
      */
-    public ZAdresa createZAdresa() {
-        return new ZAdresa();
+    public CTPodnosilac createCTPodnosilac() {
+        return new CTPodnosilac();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Napomena }
+     * Create an instance of {@link CTOstaliPodaci }
      * 
      */
-    public ZalbaNaOdluku.Napomena createZalbaNaOdlukuNapomena() {
-        return new ZalbaNaOdluku.Napomena();
+    public CTOstaliPodaci createCTOstaliPodaci() {
+        return new CTOstaliPodaci();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj }
+     * Create an instance of {@link ZalbaNaOdluku.PodaciOResenju }
      * 
      */
-    public ZalbaNaOdluku.Sadrzaj createZalbaNaOdlukuSadrzaj() {
-        return new ZalbaNaOdluku.Sadrzaj();
+    public ZalbaNaOdluku.PodaciOResenju createZalbaNaOdlukuPodaciOResenju() {
+        return new ZalbaNaOdluku.PodaciOResenju();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf4 }
+     * Create an instance of {@link CTPodaciOZahtevu }
      * 
      */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf4 createZalbaNaOdlukuSadrzajParagraf4() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf4();
+    public CTPodaciOZahtevu createCTPodaciOZahtevu() {
+        return new CTPodaciOZahtevu();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak }
+     * Create an instance of {@link CTPodnosilacZalbe }
      * 
      */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak createZalbaNaOdlukuSadrzajParagraf4Zakljucak() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak();
+    public CTPodnosilacZalbe createCTPodnosilacZalbe() {
+        return new CTPodnosilacZalbe();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf2 }
+     * Create an instance of {@link CTAdresa }
      * 
      */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf2 createZalbaNaOdlukuSadrzajParagraf2() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf2();
+    public CTAdresa createCTAdresa() {
+        return new CTAdresa();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf1 }
+     * Create an instance of {@link CTOrganVlasti.Naziv }
      * 
      */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf1 createZalbaNaOdlukuSadrzajParagraf1() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf1();
+    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
+        return new CTOrganVlasti.Naziv();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.Primalac }
+     * Create an instance of {@link CTPodnosilac.Ime }
      * 
      */
-    public ZalbaNaOdluku.Primalac createZalbaNaOdlukuPrimalac() {
-        return new ZalbaNaOdluku.Primalac();
+    public CTPodnosilac.Ime createCTPodnosilacIme() {
+        return new CTPodnosilac.Ime();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.PodnosilacZalbe }
+     * Create an instance of {@link CTPodnosilac.Prezime }
      * 
      */
-    public ZalbaNaOdluku.PodnosilacZalbe createZalbaNaOdlukuPodnosilacZalbe() {
-        return new ZalbaNaOdluku.PodnosilacZalbe();
+    public CTPodnosilac.Prezime createCTPodnosilacPrezime() {
+        return new CTPodnosilac.Prezime();
     }
 
     /**
-     * Create an instance of {@link ZalbaNaOdluku.PodaciPodnosenjaZalbe }
+     * Create an instance of {@link CTOstaliPodaci.Mesto }
      * 
      */
-    public ZalbaNaOdluku.PodaciPodnosenjaZalbe createZalbaNaOdlukuPodaciPodnosenjaZalbe() {
-        return new ZalbaNaOdluku.PodaciPodnosenjaZalbe();
+    public CTOstaliPodaci.Mesto createCTOstaliPodaciMesto() {
+        return new CTOstaliPodaci.Mesto();
     }
 
     /**
-     * Create an instance of {@link ZOsoba.Ime }
+     * Create an instance of {@link CTOstaliPodaci.Datum }
      * 
      */
-    public ZOsoba.Ime createZOsobaIme() {
-        return new ZOsoba.Ime();
-    }
-
-    /**
-     * Create an instance of {@link ZOsoba.Prezime }
-     * 
-     */
-    public ZOsoba.Prezime createZOsobaPrezime() {
-        return new ZOsoba.Prezime();
-    }
-
-    /**
-     * Create an instance of {@link ZAdresa.Mesto }
-     * 
-     */
-    public ZAdresa.Mesto createZAdresaMesto() {
-        return new ZAdresa.Mesto();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaNaOdluku.Napomena.Lista }
-     * 
-     */
-    public ZalbaNaOdluku.Napomena.Lista createZalbaNaOdlukuNapomenaLista() {
-        return new ZalbaNaOdluku.Napomena.Lista();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf3 }
-     * 
-     */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf3 createZalbaNaOdlukuSadrzajParagraf3() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf3();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe }
-     * 
-     */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe createZalbaNaOdlukuSadrzajParagraf4ZakljucakZakonPodnosenjaZalbe() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf4 .Zakljucak.ZakonPodnosenjaZalbe();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana }
-     * 
-     */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana createZalbaNaOdlukuSadrzajParagraf2NazivOrgana() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf2 .NazivOrgana();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja }
-     * 
-     */
-    public ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja createZalbaNaOdlukuSadrzajParagraf1PredmetSlanja() {
-        return new ZalbaNaOdluku.Sadrzaj.Paragraf1 .PredmetSlanja();
+    public CTOstaliPodaci.Datum createCTOstaliPodaciDatum() {
+        return new CTOstaliPodaci.Datum();
     }
 
 }

@@ -1,5 +1,5 @@
 
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

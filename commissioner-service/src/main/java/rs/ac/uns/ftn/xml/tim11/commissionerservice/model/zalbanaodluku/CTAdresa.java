@@ -1,5 +1,5 @@
 
-package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku;
 
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;

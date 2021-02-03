@@ -30,6 +30,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTPodnosilac }
+     * 
+     */
+    public CTPodnosilac createCTPodnosilac() {
+        return new CTPodnosilac();
+    }
+
+    /**
      * Create an instance of {@link CTNacinDostave }
      * 
      */
@@ -54,14 +62,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTTrazilacInformacija }
-     * 
-     */
-    public CTTrazilacInformacija createCTTrazilacInformacija() {
-        return new CTTrazilacInformacija();
-    }
-
-    /**
      * Create an instance of {@link CTOstaliPodaci }
      * 
      */
@@ -78,11 +78,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTOrgan }
+     * Create an instance of {@link CTOrganVlasti }
      * 
      */
-    public CTOrgan createCTOrgan() {
-        return new CTOrgan();
+    public CTOrganVlasti createCTOrganVlasti() {
+        return new CTOrganVlasti();
     }
 
     /**
@@ -91,6 +91,46 @@ public class ObjectFactory {
      */
     public Zahtev createZahtev() {
         return new Zahtev();
+    }
+
+    /**
+     * Create an instance of {@link CTTrazilacInformacija }
+     * 
+     */
+    public CTTrazilacInformacija createCTTrazilacInformacija() {
+        return new CTTrazilacInformacija();
+    }
+
+    /**
+     * Create an instance of {@link CTAdresa }
+     * 
+     */
+    public CTAdresa createCTAdresa() {
+        return new CTAdresa();
+    }
+
+    /**
+     * Create an instance of {@link CTPodaciOZahtevu }
+     * 
+     */
+    public CTPodaciOZahtevu createCTPodaciOZahtevu() {
+        return new CTPodaciOZahtevu();
+    }
+
+    /**
+     * Create an instance of {@link CTPodnosilac.Ime }
+     * 
+     */
+    public CTPodnosilac.Ime createCTPodnosilacIme() {
+        return new CTPodnosilac.Ime();
+    }
+
+    /**
+     * Create an instance of {@link CTPodnosilac.Prezime }
+     * 
+     */
+    public CTPodnosilac.Prezime createCTPodnosilacPrezime() {
+        return new CTPodnosilac.Prezime();
     }
 
     /**
@@ -107,22 +147,6 @@ public class ObjectFactory {
      */
     public CTParagraf1 .SluzbeniGlasnik.Brojevi createCTParagraf1SluzbeniGlasnikBrojevi() {
         return new CTParagraf1 .SluzbeniGlasnik.Brojevi();
-    }
-
-    /**
-     * Create an instance of {@link CTTrazilacInformacija.Ime }
-     * 
-     */
-    public CTTrazilacInformacija.Ime createCTTrazilacInformacijaIme() {
-        return new CTTrazilacInformacija.Ime();
-    }
-
-    /**
-     * Create an instance of {@link CTTrazilacInformacija.Prezime }
-     * 
-     */
-    public CTTrazilacInformacija.Prezime createCTTrazilacInformacijaPrezime() {
-        return new CTTrazilacInformacija.Prezime();
     }
 
     /**
@@ -150,11 +174,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTOrgan.Naziv }
+     * Create an instance of {@link CTOrganVlasti.Naziv }
      * 
      */
-    public CTOrgan.Naziv createCTOrganNaziv() {
-        return new CTOrgan.Naziv();
+    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
+        return new CTOrganVlasti.Naziv();
     }
 
 }

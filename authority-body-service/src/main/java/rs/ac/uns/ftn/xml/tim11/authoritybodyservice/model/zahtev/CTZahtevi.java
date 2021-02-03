@@ -31,7 +31,6 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/complexContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="Informacije" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -45,8 +44,7 @@ import javax.xml.bind.annotation.XmlType;
     "obavestenje",
     "uvid",
     "kopija",
-    "dostavljanjeKopije",
-    "informacije"
+    "dostavljanjeKopije"
 })
 public class CTZahtevi {
 
@@ -58,8 +56,6 @@ public class CTZahtevi {
     protected Object kopija;
     @XmlElement(name = "DostavljanjeKopije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected CTZahtevi.DostavljanjeKopije dostavljanjeKopije;
-    @XmlElement(name = "Informacije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected String informacije;
 
     /**
      * Gets the value of the obavestenje property.
@@ -155,30 +151,6 @@ public class CTZahtevi {
      */
     public void setDostavljanjeKopije(CTZahtevi.DostavljanjeKopije value) {
         this.dostavljanjeKopije = value;
-    }
-
-    /**
-     * Gets the value of the informacije property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getInformacije() {
-        return informacije;
-    }
-
-    /**
-     * Sets the value of the informacije property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setInformacije(String value) {
-        this.informacije = value;
     }
 
 

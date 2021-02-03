@@ -1,29 +1,25 @@
 
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev;
+package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for CTTrazilacInformacija complex type.
+ * <p>Java class for CTPodnosilacZahteva complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CTTrazilacInformacija"&gt;
+ * &lt;complexType name="CTPodnosilacZahteva"&gt;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTPodnosilac"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="DrugiKontaktPodaci" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *       &lt;/sequence&gt;
  *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
  *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podneoZahtev" /&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="obavestavaSe" /&gt;
  *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -33,15 +29,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTTrazilacInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", propOrder = {
-    "drugiKontaktPodaci"
-})
-public class CTTrazilacInformacija
+@XmlType(name = "CTPodnosilacZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje")
+public class CTPodnosilacZahteva
     extends CTPodnosilac
 {
 
-    @XmlElement(name = "DrugiKontaktPodaci", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected String drugiKontaktPodaci;
     @XmlAttribute(name = "vocab", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String vocab;
@@ -54,30 +46,6 @@ public class CTTrazilacInformacija
     @XmlAttribute(name = "href", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String href;
-
-    /**
-     * Gets the value of the drugiKontaktPodaci property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDrugiKontaktPodaci() {
-        return drugiKontaktPodaci;
-    }
-
-    /**
-     * Sets the value of the drugiKontaktPodaci property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDrugiKontaktPodaci(String value) {
-        this.drugiKontaktPodaci = value;
-    }
 
     /**
      * Gets the value of the vocab property.
@@ -141,7 +109,7 @@ public class CTTrazilacInformacija
      */
     public String getRel() {
         if (rel == null) {
-            return "podneoZahtev";
+            return "obavestavaSe";
         } else {
             return rel;
         }

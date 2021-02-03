@@ -20,9 +20,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTOrgan"/&gt;
+ *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOrganVlasti"/&gt;
  *         &lt;element name="Zahtevi" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTZahtevi"/&gt;
- *         &lt;element name="OstaliPodaci" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTOstaliPodaci"/&gt;
+ *         &lt;element name="OpisInformacije" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="OstaliPodaci" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOstaliPodaci"/&gt;
  *         &lt;element name="TrazilacInformacija" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTTrazilacInformacija"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
@@ -38,6 +39,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "organ",
     "zahtevi",
+    "opisInformacije",
     "ostaliPodaci",
     "trazilacInformacija"
 })
@@ -45,9 +47,11 @@ import javax.xml.bind.annotation.XmlType;
 public class Zahtev {
 
     @XmlElement(name = "Organ", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected CTOrgan organ;
+    protected CTOrganVlasti organ;
     @XmlElement(name = "Zahtevi", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTZahtevi zahtevi;
+    @XmlElement(name = "OpisInformacije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    protected String opisInformacije;
     @XmlElement(name = "OstaliPodaci", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTOstaliPodaci ostaliPodaci;
     @XmlElement(name = "TrazilacInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
@@ -64,10 +68,10 @@ public class Zahtev {
      * 
      * @return
      *     possible object is
-     *     {@link CTOrgan }
+     *     {@link CTOrganVlasti }
      *     
      */
-    public CTOrgan getOrgan() {
+    public CTOrganVlasti getOrgan() {
         return organ;
     }
 
@@ -76,10 +80,10 @@ public class Zahtev {
      * 
      * @param value
      *     allowed object is
-     *     {@link CTOrgan }
+     *     {@link CTOrganVlasti }
      *     
      */
-    public void setOrgan(CTOrgan value) {
+    public void setOrgan(CTOrganVlasti value) {
         this.organ = value;
     }
 
@@ -105,6 +109,30 @@ public class Zahtev {
      */
     public void setZahtevi(CTZahtevi value) {
         this.zahtevi = value;
+    }
+
+    /**
+     * Gets the value of the opisInformacije property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOpisInformacije() {
+        return opisInformacije;
+    }
+
+    /**
+     * Sets the value of the opisInformacije property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOpisInformacije(String value) {
+        this.opisInformacije = value;
     }
 
     /**
