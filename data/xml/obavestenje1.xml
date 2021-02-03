@@ -2,14 +2,17 @@
 <ob:Obavestenje xmlns="http://www.w3.org/ns/rdfa#"
  xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234">
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" 
+ about="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234" 
+ rel="odgovorNa" 
+ href="http://www.ftn.uns.ac.rs/xml/tim11/zahtev/1234">
     <ob:BrojPredmeta property="brojPredmeta" datatype="xs:string">BrojPredmeta0</ob:BrojPredmeta>
     <ob:Datum property="podnesenoDatuma" datatype="xs:date">2006-05-04</ob:Datum>
     <ob:Organ>
         <ob:Naziv property="izdatoOdStrane" datatype="xs:string">Naziv0</ob:Naziv>
         <ob:Sediste>Sediste0</ob:Sediste>
     </ob:Organ>
-    <ob:PodnosiocZahteva>
+    <ob:PodnosiocZahteva vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234" rel="obavestavaSe" href="http://www.ftn.uns.ac.rs/xml/tim11/gradjanin/1234">
         <ob:Ime property="imePodnosoica" datatype="xs:string">Ime0</ob:Ime>
         <ob:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</ob:Prezime>
         <ob:Naziv>Naziv1</ob:Naziv>
@@ -25,9 +28,9 @@
     </ob:TrazenaInformacija>
     <ob:InformacijeOUvidu>
         <ob:Datum>2006-05-04</ob:Datum>
-        <ob:Satnica>01:01:00</ob:Satnica>
-        <ob:SatnicaOd>01:01:00</ob:SatnicaOd>
-        <ob:SatnicaDo>01:01:00</ob:SatnicaDo>
+        <ob:Satnica>01:01:01.001</ob:Satnica>
+        <ob:SatnicaOd>01:01:01.001</ob:SatnicaOd>
+        <ob:SatnicaDo>01:01:01.001</ob:SatnicaDo>
         <ob:Adresa>
             <ob:Mesto>Mesto1</ob:Mesto>
             <ob:Ulica>Ulica1</ob:Ulica>

@@ -16,6 +16,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.*;
+import java.util.UUID;
 
 @Service
 public class ObavestenjeService {
@@ -23,6 +24,7 @@ public class ObavestenjeService {
     private final ObavestenjeRDFRepository rdfRepository;
     private final ObavestenjeXmlRepository xmlRepository;
     private final JaxbMarshaller<Obavestenje> marshaller;
+    private final ObavestenjeProperties properties;
 
     private final XSLTransformer XSLTransformer;
 
@@ -30,11 +32,14 @@ public class ObavestenjeService {
             throws JAXBException, SAXException, IOException {
         this.rdfRepository = rdfRepository;
         this.xmlRepository = xmlRepository;
+        this.properties = properties;
         this.marshaller = new JaxbMarshaller<>(properties);
         this.XSLTransformer = new XSLTransformer(properties);
     }
 
     public Long create(Obavestenje obavestenje) throws JAXBException, XMLDBException, TransformerException {
+        long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
+        obavestenje.setAbout(properties.namespace() + "/" + id);
         Long createdId = xmlRepository.create(obavestenje);
         rdfRepository.saveMetadata(obavestenje);
         return createdId;

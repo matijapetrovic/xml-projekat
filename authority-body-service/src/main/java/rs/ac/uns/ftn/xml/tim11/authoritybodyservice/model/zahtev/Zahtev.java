@@ -20,21 +20,13 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="primalac"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;attribute name="naziv" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="adresa" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="naslov" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="sadrzaj" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTSadrzaj"/&gt;
+ *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTOrgan"/&gt;
+ *         &lt;element name="Zahtevi" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTZahtevi"/&gt;
+ *         &lt;element name="OstaliPodaci" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTOstaliPodaci"/&gt;
+ *         &lt;element name="TrazilacInformacija" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTTrazilacInformacija"/&gt;
  *       &lt;/sequence&gt;
+ *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
+ *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -44,226 +36,175 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "primalac",
-    "naslov",
-    "sadrzaj"
+    "organ",
+    "zahtevi",
+    "ostaliPodaci",
+    "trazilacInformacija"
 })
 @XmlRootElement(name = "Zahtev", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
 public class Zahtev {
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected Zahtev.Primalac primalac;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected String naslov;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected CTSadrzaj sadrzaj;
+    @XmlElement(name = "Organ", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    protected CTOrgan organ;
+    @XmlElement(name = "Zahtevi", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    protected CTZahtevi zahtevi;
+    @XmlElement(name = "OstaliPodaci", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    protected CTOstaliPodaci ostaliPodaci;
+    @XmlElement(name = "TrazilacInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    protected CTTrazilacInformacija trazilacInformacija;
+    @XmlAttribute(name = "vocab", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String vocab;
+    @XmlAttribute(name = "about", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String about;
 
     /**
-     * Gets the value of the primalac property.
+     * Gets the value of the organ property.
      * 
      * @return
      *     possible object is
-     *     {@link Zahtev.Primalac }
+     *     {@link CTOrgan }
      *     
      */
-    public Zahtev.Primalac getPrimalac() {
-        return primalac;
+    public CTOrgan getOrgan() {
+        return organ;
     }
 
     /**
-     * Sets the value of the primalac property.
+     * Sets the value of the organ property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Zahtev.Primalac }
+     *     {@link CTOrgan }
      *     
      */
-    public void setPrimalac(Zahtev.Primalac value) {
-        this.primalac = value;
+    public void setOrgan(CTOrgan value) {
+        this.organ = value;
     }
 
     /**
-     * Gets the value of the naslov property.
+     * Gets the value of the zahtevi property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CTZahtevi }
+     *     
+     */
+    public CTZahtevi getZahtevi() {
+        return zahtevi;
+    }
+
+    /**
+     * Sets the value of the zahtevi property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CTZahtevi }
+     *     
+     */
+    public void setZahtevi(CTZahtevi value) {
+        this.zahtevi = value;
+    }
+
+    /**
+     * Gets the value of the ostaliPodaci property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CTOstaliPodaci }
+     *     
+     */
+    public CTOstaliPodaci getOstaliPodaci() {
+        return ostaliPodaci;
+    }
+
+    /**
+     * Sets the value of the ostaliPodaci property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CTOstaliPodaci }
+     *     
+     */
+    public void setOstaliPodaci(CTOstaliPodaci value) {
+        this.ostaliPodaci = value;
+    }
+
+    /**
+     * Gets the value of the trazilacInformacija property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link CTTrazilacInformacija }
+     *     
+     */
+    public CTTrazilacInformacija getTrazilacInformacija() {
+        return trazilacInformacija;
+    }
+
+    /**
+     * Sets the value of the trazilacInformacija property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link CTTrazilacInformacija }
+     *     
+     */
+    public void setTrazilacInformacija(CTTrazilacInformacija value) {
+        this.trazilacInformacija = value;
+    }
+
+    /**
+     * Gets the value of the vocab property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNaslov() {
-        return naslov;
+    public String getVocab() {
+        if (vocab == null) {
+            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate";
+        } else {
+            return vocab;
+        }
     }
 
     /**
-     * Sets the value of the naslov property.
+     * Sets the value of the vocab property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNaslov(String value) {
-        this.naslov = value;
+    public void setVocab(String value) {
+        this.vocab = value;
     }
 
     /**
-     * Gets the value of the sadrzaj property.
+     * Gets the value of the about property.
      * 
      * @return
      *     possible object is
-     *     {@link CTSadrzaj }
+     *     {@link String }
      *     
      */
-    public CTSadrzaj getSadrzaj() {
-        return sadrzaj;
+    public String getAbout() {
+        return about;
     }
 
     /**
-     * Sets the value of the sadrzaj property.
+     * Sets the value of the about property.
      * 
      * @param value
      *     allowed object is
-     *     {@link CTSadrzaj }
+     *     {@link String }
      *     
      */
-    public void setSadrzaj(CTSadrzaj value) {
-        this.sadrzaj = value;
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;attribute name="naziv" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="adresa" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "")
-    public static class Primalac {
-
-        @XmlAttribute(name = "naziv")
-        @XmlSchemaType(name = "anySimpleType")
-        protected String naziv;
-        @XmlAttribute(name = "adresa")
-        @XmlSchemaType(name = "anySimpleType")
-        protected String adresa;
-        @XmlAttribute(name = "property", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String property;
-        @XmlAttribute(name = "type", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String type;
-
-        /**
-         * Gets the value of the naziv property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getNaziv() {
-            return naziv;
-        }
-
-        /**
-         * Sets the value of the naziv property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setNaziv(String value) {
-            this.naziv = value;
-        }
-
-        /**
-         * Gets the value of the adresa property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getAdresa() {
-            return adresa;
-        }
-
-        /**
-         * Sets the value of the adresa property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setAdresa(String value) {
-            this.adresa = value;
-        }
-
-        /**
-         * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getProperty() {
-            return property;
-        }
-
-        /**
-         * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setProperty(String value) {
-            this.property = value;
-        }
-
-        /**
-         * Gets the value of the type property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getType() {
-            return type;
-        }
-
-        /**
-         * Sets the value of the type property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setType(String value) {
-            this.type = value;
-        }
-
+    public void setAbout(String value) {
+        this.about = value;
     }
 
 }

@@ -27,6 +27,11 @@ public class ZalbaNaOdlukuProperties implements XmlResourceProperties {
     private String xslFoPath;
 
     @Override
+    public String namespace() {
+        return namespace;
+    }
+
+    @Override
     public String contextPath() {
         return ZalbaNaOdluku.class.getPackage().getName();
     }

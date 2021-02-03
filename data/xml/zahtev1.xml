@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Zahtev xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+<za:Zahtev xmlns="http://www.w3.org/ns/rdfa#"
+ xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd">
-    <primalac property="property1" type="type1"/>
-    <naslov>naslov0</naslov>
-    <sadrzaj>
-        <paragraf1>
-            <clan>15</clan>
-            <stav>1</stav>
-            <zakon>Zakon o slobodnom pristupu informacijama od javnog značaja</zakon>
-            <sluzbeniGlasnik>
-                <naziv type="type3" property="property3">Sluzbeni glasnik Republike Srbije</naziv>
-                <brojevi>
-                    <broj>1/00</broj>
-                    <broj>1/00</broj>
-                </brojevi>
-            </sluzbeniGlasnik>
-        </paragraf1>
-        <zahtevi>
-            <informacije>informacije0</informacije>
-        </zahtevi>
-        <ostaliPodaci>
-            <mesto type="type5" property="property5">mesto0</mesto>
-            <datum>2006-05-04</datum>
-            <trazilacInformacija>
-                <ime type="type7" property="property7">ime0</ime>
-                <prezime type="type9" property="property9">prezime0</prezime>
-                <adresa>adresa0</adresa>
-                <kontakt>kontakt0</kontakt>
-            </trazilacInformacija>
-        </ostaliPodaci>
-    </sadrzaj>
-</Zahtev>
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="http://www.ftn.uns.ac.rs/xml/tim11/zahtev/1234">
+    <za:Organ>
+        <za:Naziv property="izdatoOdStrane" datatype="xs:string">Naziv0</za:Naziv>
+        <za:Sediste>Sediste0</za:Sediste>
+    </za:Organ>
+    <za:Zahtevi>
+        <za:Informacije>Informacije0</za:Informacije>
+    </za:Zahtevi>
+    <za:OstaliPodaci>
+        <za:Mesto property="podnesenU" datatype="xs:string">Mesto0</za:Mesto>
+        <za:Datum property="podnesenDatuma" datatype="xs:date">2006-05-04</za:Datum>
+    </za:OstaliPodaci>
+    <za:TrazilacInformacija vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="http://www.ftn.uns.ac.rs/xml/tim11/gradjanin/1234" rel="podneoZahtev" href="http://www.ftn.uns.ac.rs/xml/tim11/zahtev/1234">
+        <za:Ime property="imeTrazioca" datatype="xs:string">Ime0</za:Ime>
+        <za:Prezime property="prezimeTrazioca" datatype="xs:string">Prezime0</za:Prezime>
+        <za:Adresa>Adresa0</za:Adresa>
+        <za:Kontakt>Kontakt0</za:Kontakt>
+    </za:TrazilacInformacija>
+</za:Zahtev>

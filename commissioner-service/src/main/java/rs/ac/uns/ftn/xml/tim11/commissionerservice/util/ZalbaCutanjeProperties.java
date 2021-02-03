@@ -27,6 +27,11 @@ public class ZalbaCutanjeProperties implements XmlResourceProperties {
     private String xslFoPath;
 
     @Override
+    public String namespace() {
+        return namespace;
+    }
+
+    @Override
     public String contextPath() {
         return ZalbaCutanje.class.getPackage().getName();
     }

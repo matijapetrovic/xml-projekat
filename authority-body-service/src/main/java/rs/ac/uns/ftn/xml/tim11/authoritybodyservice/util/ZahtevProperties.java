@@ -28,6 +28,11 @@ public class ZahtevProperties implements XmlResourceProperties {
     private String xslPath;
 
     @Override
+    public String namespace() {
+        return namespace;
+    }
+
+    @Override
     public String contextPath() {
         return Zahtev.class.getPackage().getName();
     }

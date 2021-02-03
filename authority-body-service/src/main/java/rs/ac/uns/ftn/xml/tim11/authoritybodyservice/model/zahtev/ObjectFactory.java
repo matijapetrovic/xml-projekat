@@ -30,43 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Zahtev }
-     * 
-     */
-    public Zahtev createZahtev() {
-        return new Zahtev();
-    }
-
-    /**
-     * Create an instance of {@link CTTrazilacInformacija }
-     * 
-     */
-    public CTTrazilacInformacija createCTTrazilacInformacija() {
-        return new CTTrazilacInformacija();
-    }
-
-    /**
-     * Create an instance of {@link CTOstaliPodaci }
-     * 
-     */
-    public CTOstaliPodaci createCTOstaliPodaci() {
-        return new CTOstaliPodaci();
-    }
-
-    /**
      * Create an instance of {@link CTNacinDostave }
      * 
      */
     public CTNacinDostave createCTNacinDostave() {
         return new CTNacinDostave();
-    }
-
-    /**
-     * Create an instance of {@link CTZahtevi }
-     * 
-     */
-    public CTZahtevi createCTZahtevi() {
-        return new CTZahtevi();
     }
 
     /**
@@ -86,19 +54,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Zahtev.Primalac }
+     * Create an instance of {@link CTTrazilacInformacija }
      * 
      */
-    public Zahtev.Primalac createZahtevPrimalac() {
-        return new Zahtev.Primalac();
+    public CTTrazilacInformacija createCTTrazilacInformacija() {
+        return new CTTrazilacInformacija();
     }
 
     /**
-     * Create an instance of {@link CTSadrzaj }
+     * Create an instance of {@link CTOstaliPodaci }
      * 
      */
-    public CTSadrzaj createCTSadrzaj() {
-        return new CTSadrzaj();
+    public CTOstaliPodaci createCTOstaliPodaci() {
+        return new CTOstaliPodaci();
+    }
+
+    /**
+     * Create an instance of {@link CTZahtevi }
+     * 
+     */
+    public CTZahtevi createCTZahtevi() {
+        return new CTZahtevi();
+    }
+
+    /**
+     * Create an instance of {@link CTOrgan }
+     * 
+     */
+    public CTOrgan createCTOrgan() {
+        return new CTOrgan();
+    }
+
+    /**
+     * Create an instance of {@link Zahtev }
+     * 
+     */
+    public Zahtev createZahtev() {
+        return new Zahtev();
+    }
+
+    /**
+     * Create an instance of {@link CTNacinDostave.Drugo }
+     * 
+     */
+    public CTNacinDostave.Drugo createCTNacinDostaveDrugo() {
+        return new CTNacinDostave.Drugo();
+    }
+
+    /**
+     * Create an instance of {@link CTParagraf1 .SluzbeniGlasnik.Brojevi }
+     * 
+     */
+    public CTParagraf1 .SluzbeniGlasnik.Brojevi createCTParagraf1SluzbeniGlasnikBrojevi() {
+        return new CTParagraf1 .SluzbeniGlasnik.Brojevi();
     }
 
     /**
@@ -126,11 +134,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTNacinDostave.Drugo }
+     * Create an instance of {@link CTOstaliPodaci.Datum }
      * 
      */
-    public CTNacinDostave.Drugo createCTNacinDostaveDrugo() {
-        return new CTNacinDostave.Drugo();
+    public CTOstaliPodaci.Datum createCTOstaliPodaciDatum() {
+        return new CTOstaliPodaci.Datum();
     }
 
     /**
@@ -142,19 +150,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTParagraf1 .SluzbeniGlasnik.Naziv }
+     * Create an instance of {@link CTOrgan.Naziv }
      * 
      */
-    public CTParagraf1 .SluzbeniGlasnik.Naziv createCTParagraf1SluzbeniGlasnikNaziv() {
-        return new CTParagraf1 .SluzbeniGlasnik.Naziv();
-    }
-
-    /**
-     * Create an instance of {@link CTParagraf1 .SluzbeniGlasnik.Brojevi }
-     * 
-     */
-    public CTParagraf1 .SluzbeniGlasnik.Brojevi createCTParagraf1SluzbeniGlasnikBrojevi() {
-        return new CTParagraf1 .SluzbeniGlasnik.Brojevi();
+    public CTOrgan.Naziv createCTOrganNaziv() {
+        return new CTOrgan.Naziv();
     }
 
 }

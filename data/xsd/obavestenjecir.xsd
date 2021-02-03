@@ -45,7 +45,9 @@
 	            </xs:element>
 	        </xs:sequence>
 	        <xs:attribute name="vocab" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" use="required"/>
-	        <xs:attribute fixed="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234" name="about" use="required"/>
+	        <xs:attribute name="about" use="required" />
+	        <xs:attribute name="rel" fixed="odgovorNa" use="required"/>
+	        <xs:attribute name="href" use="required" />
 	    </xs:complexType>
 	</xs:element>
     <xs:complexType name="CTOrgan">
@@ -88,6 +90,10 @@
             <xs:element name="Naziv" type="xs:string"/>
             <xs:element name="Adresa" type="ob:CTAdresa"/>
         </xs:sequence>
+        <xs:attribute name="vocab" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" use="required"/>
+        <xs:attribute name="about" use="required" />
+        <xs:attribute name="rel" fixed="obavestavaSe" use="required"/>
+        <xs:attribute name="href" use="required" />
     </xs:complexType>
 	<xs:complexType name="CTInformacijeOUvidu">
 	    <xs:sequence>

@@ -27,6 +27,11 @@ public class ResenjeProperties implements XmlResourceProperties {
     private String xslFoPath;
 
     @Override
+    public String namespace() {
+        return namespace;
+    }
+
+    @Override
     public String contextPath() {
         return Resenje.class.getPackage().getName();
     }

@@ -33,6 +33,11 @@ public class ObavestenjeProperties implements XmlResourceProperties {
     }
 
     @Override
+    public String namespace() {
+        return namespace;
+    }
+
+    @Override
     public String schemaPath() {
         return schemaPath;
     }

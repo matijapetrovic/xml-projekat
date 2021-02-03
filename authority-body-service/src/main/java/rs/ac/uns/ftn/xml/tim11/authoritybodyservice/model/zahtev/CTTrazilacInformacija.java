@@ -20,29 +20,33 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="ime"&gt;
+ *         &lt;element name="Ime"&gt;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="imeTrazioca" /&gt;
+ *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="prezime"&gt;
+ *         &lt;element name="Prezime"&gt;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="prezimeTrazioca" /&gt;
+ *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="adresa" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Adresa" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
+ *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
+ *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podneoZahtev" /&gt;
+ *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -59,14 +63,26 @@ import javax.xml.bind.annotation.XmlValue;
 })
 public class CTTrazilacInformacija {
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    @XmlElement(name = "Ime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTTrazilacInformacija.Ime ime;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    @XmlElement(name = "Prezime", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTTrazilacInformacija.Prezime prezime;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected String adresa;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    @XmlElement(name = "Kontakt", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected String kontakt;
+    @XmlAttribute(name = "vocab", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String vocab;
+    @XmlAttribute(name = "about", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String about;
+    @XmlAttribute(name = "rel", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String rel;
+    @XmlAttribute(name = "href", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String href;
 
     /**
      * Gets the value of the ime property.
@@ -164,6 +180,110 @@ public class CTTrazilacInformacija {
         this.kontakt = value;
     }
 
+    /**
+     * Gets the value of the vocab property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getVocab() {
+        if (vocab == null) {
+            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate";
+        } else {
+            return vocab;
+        }
+    }
+
+    /**
+     * Sets the value of the vocab property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setVocab(String value) {
+        this.vocab = value;
+    }
+
+    /**
+     * Gets the value of the about property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAbout() {
+        return about;
+    }
+
+    /**
+     * Sets the value of the about property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAbout(String value) {
+        this.about = value;
+    }
+
+    /**
+     * Gets the value of the rel property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRel() {
+        if (rel == null) {
+            return "podneoZahtev";
+        } else {
+            return rel;
+        }
+    }
+
+    /**
+     * Sets the value of the rel property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRel(String value) {
+        this.rel = value;
+    }
+
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
+    }
+
 
     /**
      * <p>Java class for anonymous complex type.
@@ -174,8 +294,8 @@ public class CTTrazilacInformacija {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="imeTrazioca" /&gt;
+     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
      * &lt;/complexType&gt;
@@ -191,12 +311,12 @@ public class CTTrazilacInformacija {
 
         @XmlValue
         protected String value;
-        @XmlAttribute(name = "type", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String type;
         @XmlAttribute(name = "property", required = true)
         @XmlSchemaType(name = "anySimpleType")
         protected String property;
+        @XmlAttribute(name = "datatype", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String datatype;
 
         /**
          * Gets the value of the value property.
@@ -223,30 +343,6 @@ public class CTTrazilacInformacija {
         }
 
         /**
-         * Gets the value of the type property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getType() {
-            return type;
-        }
-
-        /**
-         * Sets the value of the type property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setType(String value) {
-            this.type = value;
-        }
-
-        /**
          * Gets the value of the property property.
          * 
          * @return
@@ -255,7 +351,11 @@ public class CTTrazilacInformacija {
          *     
          */
         public String getProperty() {
-            return property;
+            if (property == null) {
+                return "imeTrazioca";
+            } else {
+                return property;
+            }
         }
 
         /**
@@ -270,6 +370,34 @@ public class CTTrazilacInformacija {
             this.property = value;
         }
 
+        /**
+         * Gets the value of the datatype property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getDatatype() {
+            if (datatype == null) {
+                return "xs:string";
+            } else {
+                return datatype;
+            }
+        }
+
+        /**
+         * Sets the value of the datatype property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setDatatype(String value) {
+            this.datatype = value;
+        }
+
     }
 
 
@@ -282,8 +410,8 @@ public class CTTrazilacInformacija {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="prezimeTrazioca" /&gt;
+     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
      * &lt;/complexType&gt;
@@ -299,12 +427,12 @@ public class CTTrazilacInformacija {
 
         @XmlValue
         protected String value;
-        @XmlAttribute(name = "type", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String type;
         @XmlAttribute(name = "property", required = true)
         @XmlSchemaType(name = "anySimpleType")
         protected String property;
+        @XmlAttribute(name = "datatype", required = true)
+        @XmlSchemaType(name = "anySimpleType")
+        protected String datatype;
 
         /**
          * Gets the value of the value property.
@@ -331,30 +459,6 @@ public class CTTrazilacInformacija {
         }
 
         /**
-         * Gets the value of the type property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getType() {
-            return type;
-        }
-
-        /**
-         * Sets the value of the type property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setType(String value) {
-            this.type = value;
-        }
-
-        /**
          * Gets the value of the property property.
          * 
          * @return
@@ -363,7 +467,11 @@ public class CTTrazilacInformacija {
          *     
          */
         public String getProperty() {
-            return property;
+            if (property == null) {
+                return "prezimeTrazioca";
+            } else {
+                return property;
+            }
         }
 
         /**
@@ -376,6 +484,34 @@ public class CTTrazilacInformacija {
          */
         public void setProperty(String value) {
             this.property = value;
+        }
+
+        /**
+         * Gets the value of the datatype property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getDatatype() {
+            if (datatype == null) {
+                return "xs:string";
+            } else {
+                return datatype;
+            }
+        }
+
+        /**
+         * Sets the value of the datatype property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setDatatype(String value) {
+            this.datatype = value;
         }
 
     }

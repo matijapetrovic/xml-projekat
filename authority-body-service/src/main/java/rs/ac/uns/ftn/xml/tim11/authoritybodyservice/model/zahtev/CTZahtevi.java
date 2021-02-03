@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/complexContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="informacije" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Informacije" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -58,7 +58,7 @@ public class CTZahtevi {
     protected Object kopija;
     @XmlElement(name = "DostavljanjeKopije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected CTZahtevi.DostavljanjeKopije dostavljanjeKopije;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    @XmlElement(name = "Informacije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected String informacije;
 
     /**

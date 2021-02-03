@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema
+	xmlns:rdfa="http://www.w3.org/ns/rdfa#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified"
 	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
@@ -8,50 +9,42 @@
 	<xs:element name="Zahtev">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="primalac">
-					<xs:complexType>
-						<xs:attribute 
-							name="naziv">
-						</xs:attribute>
-						<xs:attribute name="adresa">
-						</xs:attribute>
-						<xs:attribute name="property" use="required"/>
-						<xs:attribute name="type" use="required"/>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="naslov" type="xs:string"/>
-				<xs:element name="sadrzaj" type="za:CTSadrzaj"/>
+				<xs:element name="Organ" type="za:CTOrgan"/>
+				<xs:element name="Zahtevi" type="za:CTZahtevi"/>
+				<xs:element name="OstaliPodaci" type="za:CTOstaliPodaci"/>
+				<xs:element name="TrazilacInformacija" type="za:CTTrazilacInformacija"/>
 			</xs:sequence>
+			<xs:attribute name="vocab" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" use="required"/>
+			<xs:attribute name="about" use="required" />
 		</xs:complexType>
 	</xs:element>
 	
-	<xs:complexType name="CTSadrzaj">
+	<xs:complexType name="CTOrgan">
 		<xs:sequence>
-			<xs:element name="paragraf1" type="za:CTParagraf1"/>
-			<xs:element name="zahtevi" type="za:CTZahtevi"/>
-			<xs:element name="ostaliPodaci" type="za:CTOstaliPodaci"/>
+			<xs:element name="Naziv">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute fixed="izdatoOdStrane" form="unqualified" name="property" use="required"/>
+							<xs:attribute fixed="xs:string" name="datatype" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Sediste" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:complexType name="CTParagraf1">
 		<xs:sequence>
-			<xs:element name="clan" fixed="15" type="xs:positiveInteger"></xs:element>
-			<xs:element name="stav" fixed="1" type="xs:positiveInteger"></xs:element>
-			<xs:element name="zakon" fixed="Zakon o slobodnom pristupu informacijama od javnog značaja" type="xs:string"></xs:element>
-			<xs:element name="sluzbeniGlasnik">
+			<xs:element name="Clan" fixed="15" type="xs:positiveInteger"></xs:element>
+			<xs:element name="Stav" fixed="1" type="xs:positiveInteger"></xs:element>
+			<xs:element name="Zakon" fixed="Zakon o slobodnom pristupu informacijama od javnog značaja" type="xs:string"></xs:element>
+			<xs:element name="SluzbeniGlasnik">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="naziv" fixed="Sluzbeni glasnik Republike Srbije">
-							<xs:complexType>
-								<xs:simpleContent>
-									<xs:extension base="xs:string">
-										<xs:attribute name="type" use="required"/>
-										<xs:attribute name="property" use="required"/>
-									</xs:extension>
-								</xs:simpleContent>
-							</xs:complexType>
-						</xs:element>
-						<xs:element name="brojevi">
+						<xs:element name="Naziv" fixed="Sluzbeni glasnik Republike Srbije" type="xs:string"/>
+						<xs:element name="Brojevi">
 							<xs:complexType>
 								<xs:sequence>
 									<xs:element maxOccurs="unbounded" name="broj">
@@ -82,19 +75,19 @@
 		  		</xs:sequence>
 		  	</xs:complexType>
 		  </xs:element>
-		  <xs:element name="informacije" type="xs:string"></xs:element>
+		  <xs:element name="Informacije" type="xs:string"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:complexType name="CTNacinDostave">
 		<xs:choice>
-		  <xs:element name="posta" />
-		  <xs:element name="elektronskaPosta"/>
-		  <xs:element name="faks"/>
-		  <xs:element name="drugo">
+		  <xs:element name="Posta" />
+		  <xs:element name="ElektronskaPosta"/>
+		  <xs:element name="Faks"/>
+		  <xs:element name="Drugo">
 			  <xs:complexType>
 			  	<xs:sequence>
-			  		<xs:element name="opis">
+			  		<xs:element name="Opis">
 			  			<xs:simpleType>
 			  				<xs:restriction base="xs:string">
 			  					<xs:minLength value="1"/>
@@ -109,45 +102,58 @@
 	
 	<xs:complexType name="CTOstaliPodaci">
 		<xs:sequence>
-			<xs:element name="mesto">
+			<xs:element name="Mesto">
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="xs:string">
-							<xs:attribute name="type" use="required"/>
-							<xs:attribute name="property" use="required"/>
+							<xs:attribute fixed="podnesenU" form="unqualified" name="property" use="required"/>
+							<xs:attribute fixed="xs:string" name="datatype" use="required"/>
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="datum" type="xs:date"/>
-			<xs:element name="trazilacInformacija" type="za:CTTrazilacInformacija"/>
+			<xs:element name="Datum">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:date">
+							<xs:attribute fixed="podnesenDatuma" form="unqualified" name="property" use="required"/>
+							<xs:attribute fixed="xs:date" name="datatype" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:complexType name="CTTrazilacInformacija">
 		<xs:sequence>
-			<xs:element name="ime">
+			<xs:element name="Ime">
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="xs:string">
-							<xs:attribute name="type" use="required"/>
-							<xs:attribute name="property" use="required"/>
+							<xs:attribute fixed="imeTrazioca" form="unqualified" name="property" use="required"/>
+							<xs:attribute fixed="xs:string" name="datatype" use="required"/>
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="prezime">
+			<xs:element name="Prezime">
 				<xs:complexType>
 					<xs:simpleContent>
 						<xs:extension base="xs:string">
-							<xs:attribute name="type" use="required"/>
-							<xs:attribute name="property" use="required"/>
+							<xs:attribute fixed="prezimeTrazioca" form="unqualified" name="property" use="required"/>
+							<xs:attribute fixed="xs:string" name="datatype" use="required"/>
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="adresa" type="xs:string"/>
-			<xs:element name="kontakt" type="xs:string"/>
+			<xs:element name="Adresa" type="xs:string"/>
+			<xs:element name="Kontakt" type="xs:string"/>
 		</xs:sequence>
+		
+		<xs:attribute name="vocab" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" use="required"/>
+		<xs:attribute name="about" use="required" />
+		<xs:attribute name="rel" fixed="podneoZahtev" use="required"/>
+		<xs:attribute name="href" use="required" />
 	</xs:complexType>
 </xs:schema>
