@@ -40,8 +40,9 @@ public class ObavestenjeService {
         return createdId;
     }
 
-    public Obavestenje findXmlById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
-        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
+    public Obavestenje findById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
+//        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
+        return marshaller.unmarshal(new FileInputStream(new File("data/xml/obavestenje1.xml")));
     }
 
     public Obavestenje getExampleDocument() throws FileNotFoundException, JAXBException {
