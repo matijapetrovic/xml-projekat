@@ -21,6 +21,12 @@ public class ZahtevProperties implements XmlResourceProperties {
     @Value("${xml.schema.zahtev}")
     private String schemaPath;
 
+    @Value("${xml.xslfo.zahtev}")
+    private String xslFoPath;
+
+    @Value("${xml.xsl.zahtev}")
+    private String xslPath;
+
     @Override
     public String contextPath() {
         return Zahtev.class.getPackage().getName();
@@ -29,6 +35,16 @@ public class ZahtevProperties implements XmlResourceProperties {
     @Override
     public String schemaPath() {
         return schemaPath;
+    }
+
+    @Override
+    public String xslFoPath() {
+        return xslFoPath;
+    }
+
+    @Override
+    public String xslPath() {
+        return xslPath;
     }
 
     @Override
