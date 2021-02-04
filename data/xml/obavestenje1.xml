@@ -2,21 +2,23 @@
 <ob:Obavestenje xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
  xmlns="http://www.w3.org/ns/rdfa#"
  xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
+ xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about1" rel="odgovorNa" href="href1">
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd" 
+ vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234" rel="pred:Nesto" href="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234">
     <ob:BrojPredmeta>BrojPredmeta0</ob:BrojPredmeta>
-    <ob:Datum property="podnesenoDatuma" datatype="xs:date">2006-05-04</ob:Datum>
+    <ob:Datum property="pred:podnesenoDatuma">2006-05-04</ob:Datum>
     <ob:Organ>
-        <co:Naziv property="nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
+        <co:Naziv property="pred:nazivOrganaVlasti">Naziv0</co:Naziv>
         <co:Sediste>
             <co:Mesto>Mesto0</co:Mesto>
             <co:Ulica>Ulica0</co:Ulica>
             <co:Broj>50</co:Broj>
         </co:Sediste>
     </ob:Organ>
-    <ob:PodnosiocZahteva vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about3" rel="obavestavaSe" href="href3">
-        <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
-        <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
+    <ob:PodnosiocZahteva vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234" rel="pred:obavestavaSe" href="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234">
+        <co:Ime property="pred:imePodnosioca">Ime0</co:Ime>
+        <co:Prezime property="pred:prezimePodnosioca">Prezime0</co:Prezime>
         <co:Adresa>
             <co:Mesto>Mesto1</co:Mesto>
             <co:Ulica>Ulica1</co:Ulica>

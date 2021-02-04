@@ -3,7 +3,7 @@ services:
   commissioner_exist_db:
     image: existdb/existdb:latest
     ports:
-      - "8090:8080"
+      - "8091:8080"
       - "8443:8443"
     networks:
       - xml-projekat
@@ -11,7 +11,7 @@ services:
   authority_body_exist_db:
     image: existdb/existdb:latest
     ports:
-      - "8091:8080"
+      - "8092:8080"
       - "8444:8443"
     networks:
       - xml-projekat
@@ -19,7 +19,7 @@ services:
   commissioner_fuseki_db:
     image: fuseki
     ports:
-      - "8092:3030"
+      - "3031:3030"
     environment:
       - ADMIN_PASSWORD=admin
       - FUSEKI_DATASET_1=CommissionerDataset
@@ -29,7 +29,7 @@ services:
   authority_body_fuseki_db:
     image: fuseki
     ports:
-      - "8093:3030"
+      - "3032:3030"
     environment:
       - ADMIN_PASSWORD=admin
       - FUSEKI_DATASET_1=AuthorityBodyDataset

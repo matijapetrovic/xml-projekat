@@ -37,12 +37,18 @@ public class ObavestenjeService {
         this.XSLTransformer = new XSLTransformer(properties);
     }
 
-    public Long create(Obavestenje obavestenje) throws JAXBException, XMLDBException, TransformerException {
+    public Long create(Obavestenje obavestenje) throws JAXBException, XMLDBException, TransformerException, IOException {
         long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
-        obavestenje.setAbout(properties.namespace() + "/" + id);
-        Long createdId = xmlRepository.create(obavestenje);
+        String self = properties.namespace() + "/" + id;
+        obavestenje.setAbout(self);
+        obavestenje.getPodnosiocZahteva().setAbout("");
+        obavestenje.getPodnosiocZahteva().setHref(self);
+        StringWriter sw = new StringWriter();
+        marshaller.marshal(obavestenje, sw);
+        System.out.println(sw.toString());
+        xmlRepository.createWithId(obavestenje, id);
         rdfRepository.saveMetadata(obavestenje);
-        return createdId;
+        return id;
     }
 
     public Obavestenje findById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {

@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="OstaliPodaci" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOstaliPodaci"/&gt;
  *         &lt;element name="TrazilacInformacija" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTTrazilacInformacija"/&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
+ *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" /&gt;
  *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -193,7 +193,7 @@ public class Zahtev {
      */
     public String getVocab() {
         if (vocab == null) {
-            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate";
+            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate/";
         } else {
             return vocab;
         }

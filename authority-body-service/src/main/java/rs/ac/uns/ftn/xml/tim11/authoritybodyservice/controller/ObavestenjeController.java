@@ -10,7 +10,9 @@ import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.obavestenje.ObavestenjeService;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.ObavestenjeProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
+import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,14 +25,16 @@ import java.io.IOException;
 @RequestMapping(value="/obavestenje", produces = MediaType.APPLICATION_XML_VALUE)
 public class ObavestenjeController {
     private final ObavestenjeService obavestenjeService;
+    private final ObavestenjeProperties properties;
 
     @GetMapping("/example")
-    public ResponseEntity<Obavestenje> getExample() throws FileNotFoundException, JAXBException {
-        return ResponseEntity.ok(obavestenjeService.getExampleDocument());
+    public ResponseEntity<String> getExample() throws FileNotFoundException, JAXBException, SAXException {
+        String res = new JaxbMarshaller<Obavestenje>(properties).marshal(obavestenjeService.getExampleDocument());
+        return ResponseEntity.ok(res);
     }
 
     @PostMapping("")
-    public ResponseEntity<Void> add(@RequestBody Obavestenje enitity) throws XMLDBException, TransformerException, JAXBException {
+    public ResponseEntity<Void> add(@RequestBody Obavestenje enitity) throws XMLDBException, TransformerException, JAXBException, IOException {
         obavestenjeService.create(enitity);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }

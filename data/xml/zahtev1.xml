@@ -3,7 +3,7 @@
  xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
  xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about1">
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1">
     <za:Organ>
         <co:Naziv property="nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
         <co:Sediste>
@@ -19,7 +19,7 @@
         <co:Mesto property="podnesenU" datatype="xs:string">Mesto1</co:Mesto>
         <co:Datum property="podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
     </za:OstaliPodaci>
-    <za:TrazilacInformacija vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about3" rel="podneoZahtev" href="href1">
+    <za:TrazilacInformacija vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about3" rel="podneoZahtev" href="href1">
         <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
         <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
         <co:Adresa>

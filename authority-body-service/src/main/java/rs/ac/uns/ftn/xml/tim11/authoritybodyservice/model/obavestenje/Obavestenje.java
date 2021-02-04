@@ -27,8 +27,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podnesenoDatuma" /&gt;
- *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:date" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}string" fixed="pred:podnesenoDatuma" /&gt;
+ *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}string" fixed="xs:date" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
@@ -48,10 +48,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;/simpleType&gt;
  *         &lt;/element&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
- *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="odgovorNa" /&gt;
- *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}string" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" /&gt;
+ *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -93,16 +93,12 @@ public class Obavestenje {
     @XmlElement(name = "Dostavljeno", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected String dostavljeno;
     @XmlAttribute(name = "vocab", required = true)
-    @XmlSchemaType(name = "anySimpleType")
     protected String vocab;
     @XmlAttribute(name = "about", required = true)
-    @XmlSchemaType(name = "anySimpleType")
     protected String about;
     @XmlAttribute(name = "rel", required = true)
-    @XmlSchemaType(name = "anySimpleType")
     protected String rel;
     @XmlAttribute(name = "href", required = true)
-    @XmlSchemaType(name = "anySimpleType")
     protected String href;
 
     /**
@@ -331,7 +327,7 @@ public class Obavestenje {
      */
     public String getVocab() {
         if (vocab == null) {
-            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate";
+            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate/";
         } else {
             return vocab;
         }
@@ -382,11 +378,7 @@ public class Obavestenje {
      *     
      */
     public String getRel() {
-        if (rel == null) {
-            return "odgovorNa";
-        } else {
-            return rel;
-        }
+        return rel;
     }
 
     /**
@@ -435,8 +427,8 @@ public class Obavestenje {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podnesenoDatuma" /&gt;
-     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:date" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}string" fixed="pred:podnesenoDatuma" /&gt;
+     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}string" fixed="xs:date" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
      * &lt;/complexType&gt;
@@ -454,10 +446,8 @@ public class Obavestenje {
         @XmlSchemaType(name = "date")
         protected XMLGregorianCalendar value;
         @XmlAttribute(name = "property", required = true)
-        @XmlSchemaType(name = "anySimpleType")
         protected String property;
         @XmlAttribute(name = "datatype", required = true)
-        @XmlSchemaType(name = "anySimpleType")
         protected String datatype;
 
         /**
@@ -494,7 +484,7 @@ public class Obavestenje {
          */
         public String getProperty() {
             if (property == null) {
-                return "podnesenoDatuma";
+                return "pred:podnesenoDatuma";
             } else {
                 return property;
             }

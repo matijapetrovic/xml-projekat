@@ -3,7 +3,7 @@
  xmlns:zod="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"
  xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zalbanaodlukucir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about1">
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zalbanaodlukucir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1">
     <zod:PodaciOResenju>
         <zod:DatumResenja>2006-05-04</zod:DatumResenja>
         <zod:OrganVlasti>
@@ -20,7 +20,7 @@
         <co:DatumZahteva>2006-05-04</co:DatumZahteva>
         <co:TrazenaInformacija>TrazenaInformacija0</co:TrazenaInformacija>
     </zod:PodaciOZahtevu>
-    <zod:PodnosilacZalbe vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about3" rel="podneoZalbu" href="href1">
+    <zod:PodnosilacZalbe vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about3" rel="podneoZalbu" href="href1">
         <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
         <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
         <co:Adresa>

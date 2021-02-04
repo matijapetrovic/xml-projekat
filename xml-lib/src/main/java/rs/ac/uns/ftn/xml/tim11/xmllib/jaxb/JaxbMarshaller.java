@@ -36,7 +36,9 @@ public class JaxbMarshaller<T> {
 
     private Marshaller createMarshaller(JAXBContext context) throws JAXBException {
         Marshaller marshaller = context.createMarshaller();
+//        marshaller.setProperty("com.sun.xml.bind.namespacePrefixMapper", new NSPrefixMapper());
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
         return marshaller;
     }
 
