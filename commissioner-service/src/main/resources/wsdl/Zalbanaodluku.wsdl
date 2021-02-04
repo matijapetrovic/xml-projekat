@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ZalbaNaOdlukuSoapService" targetNamespace="http://soap.spring.com/ws/zalbanaodluku" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.spring.com/ws/zalbanaodluku" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku" version="1.0">
+
+  <xs:element name="ZalbaNaOdluku">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="primalac">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="adresaPrimaoca" type="tns:ZAdresa"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element form="qualified" name="sadrzaj">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="paragraf1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="predmetSlanja">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element form="qualified" name="osoba" type="tns:ZOsoba"/>
+                    <xs:element form="qualified" name="naziv" type="xs:string"/>
+                    <xs:element form="qualified" name="adresa" type="tns:ZAdresa"/>
+                    <xs:element form="qualified" name="sediste" type="xs:int"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element form="qualified" name="paragraf2">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="nazivOrgana">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element form="qualified" name="broj" type="xs:int"/>
+                    <xs:element form="qualified" name="godina" type="xs:int"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element form="qualified" name="paragraf3">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="dan" type="xs:int"/>
+                    <xs:element form="qualified" name="godina" type="xs:int"/>
+                    <xs:element form="qualified" name="razlog" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element form="qualified" name="paragraf4">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="zakljucak">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element form="qualified" name="razlog" type="xs:string"/>
+                          <xs:element form="qualified" name="zakonPodnosenjaZalbe">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element form="qualified" name="podnosilacZalbe">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="osoba" type="tns:ZOsoba"/>
+              <xs:element form="qualified" name="adresa" type="tns:ZAdresa"/>
+              <xs:element form="qualified" minOccurs="0" name="drugiPodaci" type="xs:string"/>
+              <xs:element form="qualified" name="potpis" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element form="qualified" name="podaciPodnosenjaZalbe">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="mesto" type="xs:string"/>
+              <xs:element form="qualified" name="dan" type="xs:int"/>
+              <xs:element form="qualified" name="godina" type="xs:int"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element form="qualified" name="napomena">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="lista">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="stavka1" type="xs:string"/>
+                    <xs:element form="qualified" name="stavka2" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="ZOsoba">
+    <xs:sequence>
+      <xs:element form="qualified" name="ime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="prezime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ZAdresa">
+    <xs:sequence>
+      <xs:element form="qualified" name="mesto">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="ulica" type="xs:string"/>
+      <xs:element form="qualified" name="broj" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+<xs:schema xmlns:tns="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje" version="1.0">
+
+  <xs:element name="ZalbaCutanje">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="primalac">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="Adresa" type="tns:CTAdresa"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element form="qualified" name="Sadrzaj">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="ZaglavljeZalbe">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="Clan" type="xs:int"/>
+                    <xs:element form="qualified" name="Zakon">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+                            <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element form="qualified" name="PredmetSlanja" type="xs:string"/>
+                    <xs:element form="qualified" name="NazivOrgana">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+                            <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element form="qualified" name="RazlogSlanja">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" minOccurs="0" name="NijePostupio" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" name="NijePostupioUCelosti" type="xs:string"/>
+                    <xs:element form="qualified" minOccurs="0" name="UZakonsomRoku" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element form="qualified" name="PodaciOZahtevu">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="Godina" type="xs:int"/>
+                    <xs:element form="qualified" name="PodaciOZahtevuIInformacijama" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element form="qualified" name="Zakljucak">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="Predlog" type="xs:string"/>
+                    <xs:element form="qualified" name="Dokaz">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element form="qualified" name="Opis" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element form="qualified" name="Napomena" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element form="qualified" name="PodnosilacZalbe">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="Naziv">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element form="qualified" name="ImePosiljaoca" type="tns:CTAutor"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element form="qualified" name="Adresa" type="tns:CTAdresa"/>
+              <xs:element form="qualified" name="drugiPodaci" type="xs:string"/>
+              <xs:element form="qualified" name="Potpis" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element form="qualified" name="podaciOPodnosenjuZahteva">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="Mesto" type="xs:string"/>
+              <xs:element form="qualified" name="Dan" type="xs:int"/>
+              <xs:element form="qualified" name="Godina" type="xs:int"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CTAdresa">
+    <xs:sequence>
+      <xs:element form="qualified" name="Ulica" type="xs:string"/>
+      <xs:element form="qualified" name="Broj" type="xs:string"/>
+      <xs:element form="qualified" name="Grad">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Drzava">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="PostanskiBroj" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTAutor">
+    <xs:sequence>
+      <xs:element form="qualified" name="Ime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Prezime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findZalbaNaOdlukuById">
+    <wsdl:part name="text" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findZalbaNaOdlukuByIdResponse">
+    <wsdl:part name="return">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ZalbaNaOdlukuPort">
+    <wsdl:operation name="findZalbaNaOdlukuById">
+      <wsdl:input name="findZalbaNaOdlukuById" message="tns:findZalbaNaOdlukuById">
+    </wsdl:input>
+      <wsdl:output name="findZalbaNaOdlukuByIdResponse" message="tns:findZalbaNaOdlukuByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZalbaNaOdlukuSoapServiceSoapBinding" type="tns:ZalbaNaOdlukuPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findZalbaNaOdlukuById">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="findZalbaNaOdlukuById">
+        <soap:body use="literal" namespace="http://soap.spring.com/ws/zalbanaodluku"/>
+      </wsdl:input>
+      <wsdl:output name="findZalbaNaOdlukuByIdResponse">
+        <soap:body use="literal" namespace="http://soap.spring.com/ws/zalbanaodluku"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZalbaNaOdlukuSoapService">
+    <wsdl:port name="ZalbaNaOdlukuServicePort" binding="tns:ZalbaNaOdlukuSoapServiceSoapBinding">
+      <soap:address location="http://localhost:9090/ZalbaNaOdlukuServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

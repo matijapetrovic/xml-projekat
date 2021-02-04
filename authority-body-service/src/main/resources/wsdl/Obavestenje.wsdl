@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ObavestenjeSoapService" targetNamespace="http://soap.spring.com/ws/obavestenje" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.spring.com/ws/obavestenje" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje" version="1.0">
+
+  <xs:element name="Obavestenje">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="BrojPredmeta" type="xs:string"/>
+        <xs:element form="qualified" name="Datum" type="xs:date"/>
+        <xs:element form="qualified" name="Organ" type="tns:CTOrgan"/>
+        <xs:element form="qualified" name="PodnosiocZahteva" type="tns:CTPodnosiocZahteva"/>
+        <xs:element form="qualified" name="TrazenaInformacija" type="tns:CTTrazenaInformacija"/>
+        <xs:element form="qualified" name="InformacijeOUvidu" type="tns:CTInformacijeOUvidu"/>
+        <xs:element form="qualified" name="Troskovi" type="tns:CTTroskovi"/>
+        <xs:element form="qualified" name="InformacijeOUplati" type="tns:CTInformacijeOUplati"/>
+        <xs:element form="qualified" name="Dostavljeno" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CTOrgan">
+    <xs:sequence>
+      <xs:element form="qualified" name="Naziv" type="xs:string"/>
+      <xs:element form="qualified" name="Sediste" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTPodnosiocZahteva">
+    <xs:sequence>
+      <xs:element form="qualified" name="Ime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Prezime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Naziv" type="xs:string"/>
+      <xs:element form="qualified" name="Adresa" type="tns:CTAdresa"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTAdresa">
+    <xs:sequence>
+      <xs:element form="qualified" name="Mesto">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Ulica" type="xs:string"/>
+      <xs:element form="qualified" name="Broj" type="xs:positiveInteger"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTTrazenaInformacija">
+    <xs:sequence>
+      <xs:element form="qualified" name="DatumZahteva">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:anySimpleType">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="OpisInformacije" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTInformacijeOUvidu">
+    <xs:sequence>
+      <xs:element form="qualified" name="Datum">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:anySimpleType">
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Satnica" type="xs:time"/>
+      <xs:element form="qualified" name="SatnicaOd" type="xs:time"/>
+      <xs:element form="qualified" name="SatnicaDo" type="xs:time"/>
+      <xs:element form="qualified" name="Adresa" type="tns:CTAdresa"/>
+      <xs:element form="qualified" name="BrojKancelarije" type="xs:positiveInteger"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTTroskovi">
+    <xs:sequence>
+      <xs:element form="qualified" name="CenaA4" type="xs:decimal"/>
+      <xs:element form="qualified" name="CenaA3" type="xs:decimal"/>
+      <xs:element form="qualified" name="CenaCD" type="xs:decimal"/>
+      <xs:element form="qualified" name="CenaDisketa" type="xs:decimal"/>
+      <xs:element form="qualified" name="CenaDVD" type="xs:decimal"/>
+      <xs:element form="qualified" name="CenaAudioKaseta" type="xs:decimal"/>
+      <xs:element form="qualified" name="CenaVideoKaseta" type="xs:decimal"/>
+      <xs:element form="qualified" name="CenaEDokument" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTInformacijeOUplati">
+    <xs:sequence>
+      <xs:element form="qualified" name="UkupniTroskovi" type="xs:decimal"/>
+      <xs:element form="qualified" name="ZiroRacun" type="xs:string"/>
+      <xs:element form="qualified" name="BrojModela" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findObavestenjeByNumberResponse">
+    <wsdl:part name="return">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findObavestenjeByNumber">
+    <wsdl:part name="text" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ObavestenjePort">
+    <wsdl:operation name="findObavestenjeByNumber">
+      <wsdl:input name="findObavestenjeByNumber" message="tns:findObavestenjeByNumber">
+    </wsdl:input>
+      <wsdl:output name="findObavestenjeByNumberResponse" message="tns:findObavestenjeByNumberResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ObavestenjeSoapServiceSoapBinding" type="tns:ObavestenjePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findObavestenjeByNumber">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="findObavestenjeByNumber">
+        <soap:body use="literal" namespace="http://soap.spring.com/ws/obavestenje"/>
+      </wsdl:input>
+      <wsdl:output name="findObavestenjeByNumberResponse">
+        <soap:body use="literal" namespace="http://soap.spring.com/ws/obavestenje"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ObavestenjeSoapService">
+    <wsdl:port name="ObavestenjePort" binding="tns:ObavestenjeSoapServiceSoapBinding">
+      <soap:address location="http://localhost:8081/ObavestenjePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

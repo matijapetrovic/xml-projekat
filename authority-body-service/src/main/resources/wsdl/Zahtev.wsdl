@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ZahtevSoapService" targetNamespace="http://soap.spring.com/ws/zahtev" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.spring.com/ws/zahtev" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zahtev" version="1.0">
+
+  <xs:element name="Zahtev">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="primalac">
+          <xs:complexType>
+            <xs:sequence/>
+            <xs:attribute name="naziv" type="xs:anySimpleType"/>
+            <xs:attribute name="adresa" type="xs:anySimpleType"/>
+            <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element form="qualified" name="naslov" type="xs:string"/>
+        <xs:element form="qualified" name="sadrzaj" type="tns:CTSadrzaj"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="CTSadrzaj">
+    <xs:sequence>
+      <xs:element form="qualified" name="paragraf1" type="tns:CTParagraf1"/>
+      <xs:element form="qualified" name="zahtevi" type="tns:CTZahtevi"/>
+      <xs:element form="qualified" name="ostaliPodaci" type="tns:CTOstaliPodaci"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTParagraf1">
+    <xs:sequence>
+      <xs:element form="qualified" name="clan" type="xs:positiveInteger"/>
+      <xs:element form="qualified" name="stav" type="xs:positiveInteger"/>
+      <xs:element form="qualified" name="zakon" type="xs:string"/>
+      <xs:element form="qualified" name="sluzbeniGlasnik">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element form="qualified" name="naziv">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:string">
+                    <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+                    <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element form="qualified" name="brojevi">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element form="qualified" maxOccurs="unbounded" name="broj" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTZahtevi">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="Obavestenje" type="xs:anyType"/>
+      <xs:element form="qualified" minOccurs="0" name="Uvid" type="xs:anyType"/>
+      <xs:element form="qualified" minOccurs="0" name="Kopija" type="xs:anyType"/>
+      <xs:element form="qualified" minOccurs="0" name="DostavljanjeKopije">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element form="qualified" name="NacinDostave" type="tns:CTNacinDostave"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="informacije" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTNacinDostave">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="posta" type="xs:anyType"/>
+      <xs:element form="qualified" minOccurs="0" name="elektronskaPosta" type="xs:anyType"/>
+      <xs:element form="qualified" minOccurs="0" name="faks" type="xs:anyType"/>
+      <xs:element form="qualified" minOccurs="0" name="drugo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element form="qualified" name="opis" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTOstaliPodaci">
+    <xs:sequence>
+      <xs:element form="qualified" name="mesto">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="datum" type="xs:date"/>
+      <xs:element form="qualified" name="trazilacInformacija" type="tns:CTTrazilacInformacija"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTTrazilacInformacija">
+    <xs:sequence>
+      <xs:element form="qualified" name="ime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="prezime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="adresa" type="xs:string"/>
+      <xs:element form="qualified" name="kontakt" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findZahtevByIdResponse">
+    <wsdl:part name="return">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findZahtevById">
+    <wsdl:part name="text" type="xsd:long">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ZahtevPort">
+    <wsdl:operation name="findZahtevById">
+      <wsdl:input name="findZahtevById" message="tns:findZahtevById">
+    </wsdl:input>
+      <wsdl:output name="findZahtevByIdResponse" message="tns:findZahtevByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZahtevSoapServiceSoapBinding" type="tns:ZahtevPort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findZahtevById">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="findZahtevById">
+        <soap:body use="literal" namespace="http://soap.spring.com/ws/zahtev"/>
+      </wsdl:input>
+      <wsdl:output name="findZahtevByIdResponse">
+        <soap:body use="literal" namespace="http://soap.spring.com/ws/zahtev"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZahtevSoapService">
+    <wsdl:port name="ZahtevPort" binding="tns:ZahtevSoapServiceSoapBinding">
+      <soap:address location="http://localhost:9090/ZahtevPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

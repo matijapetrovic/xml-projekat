@@ -30,6 +30,20 @@ public class AuthorityBodyServiceApplication {
 		SpringApplication.run(AuthorityBodyServiceApplication.class, args);
 	}
 
+
+//	@Bean
+//	public CommandLineRunner run(
+//			ObavestenjeXmlRepository obavestenjeXmlRepository,
+//			ZahtevXmlRepository zahtevXmlRepository,
+//			ObavestenjeRDFRepository obavestenjeRDFRepository,
+//			ZahtevRDFRepository zahtevRDFRepository,
+//			ObavestenjeProperties obavestenjeProperties,
+//			ZahtevProperties zahtevProperties) {
+//		return args -> {
+//			testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
+//			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
+//		};
+//	}
 	@Bean
 	public CommandLineRunner run(
 			AuthorityXmlRepository authorityXmlRepository,

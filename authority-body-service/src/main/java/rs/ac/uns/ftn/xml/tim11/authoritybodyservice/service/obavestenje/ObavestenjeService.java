@@ -50,6 +50,9 @@ public class ObavestenjeService {
         return marshaller.unmarshal(new FileInputStream(new File("data/xml/obavestenje1.xml")));
     }
 
+    public Obavestenje findXmlByNumber(String number) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
+        return xmlRepository.findByNumber(number).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %s not found", number)) );
+    }
     public Obavestenje getExampleDocument() throws FileNotFoundException, JAXBException {
         return marshaller.unmarshal(new FileInputStream(new File("data/xml/obavestenje1.xml")));
     }
