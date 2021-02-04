@@ -1,8 +1,6 @@
 package rs.ac.uns.ftn.xml.tim11.xmllib.jaxb;
 
 
-
-
 import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
 
 import javax.xml.bind.annotation.XmlTransient;

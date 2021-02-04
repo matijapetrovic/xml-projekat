@@ -1,6 +1,6 @@
+
 package rs.ac.uns.ftn.xml.tim11.xmllib.fuseki;
 
-import org.apache.commons.io.FileUtils;
 import org.xml.sax.SAXException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.util.FusekiReader;
@@ -29,13 +29,13 @@ public class RDFRepository<T> {
         this.marshaller = new JaxbMarshaller<>(properties);
     }
 
-    public void saveMetadata(T entity) throws JAXBException, TransformerException, IOException {
+    public void saveMetadata(T entity) throws JAXBException, TransformerException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         marshaller.marshal(entity, out);
         byte[] bytes = out.toByteArray();
 
         out = new ByteArrayOutputStream();
-        extractor.extractMetadata(new ByteArrayInputStream(FileUtils.readFileToByteArray(new File("data/xml/obavestenje1.xml"))), out);
+        extractor.extractMetadata(new ByteArrayInputStream(bytes), out);
 
         writer.save(new ByteArrayInputStream(out.toByteArray()), properties.namedGraph());
     }

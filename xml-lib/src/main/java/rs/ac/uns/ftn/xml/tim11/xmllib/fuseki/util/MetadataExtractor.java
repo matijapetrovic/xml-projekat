@@ -1,6 +1,7 @@
 package rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.util;
 
-import com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl;
+
+import org.apache.xalan.processor.TransformerFactoryImpl;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
