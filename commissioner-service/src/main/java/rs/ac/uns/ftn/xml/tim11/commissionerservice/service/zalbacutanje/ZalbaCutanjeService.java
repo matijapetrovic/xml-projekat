@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.ZalbaCutanje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ZalbaCutanjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ZalbaCutanjeXmlRepository;
@@ -55,6 +56,10 @@ public class ZalbaCutanjeService {
 //        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
         return marshaller.unmarshal(new FileInputStream(new File("data/xml/zalbacutanje1.xml")));
 
+    }
+    
+    public ZalbaCutanje findXmlById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
+        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
     }
     public ZalbaCutanje getExampleDocument() throws FileNotFoundException, JAXBException {
         return marshaller.unmarshal(new FileInputStream(new File("data/xml/zalbacutanje1.xml")));
