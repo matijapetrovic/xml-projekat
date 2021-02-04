@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>rs.ac.uns.ftn.xml.tim11</groupId>
@@ -8,7 +8,7 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<groupId>rs.ac.uns.ftn.xml.tim11</groupId>
-	<artifactId>commissioner-service</artifactId>
+	<artifactId>authority-body-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>commissioner-service</name>
 	<description>Commissioner service</description>
@@ -56,11 +56,11 @@
 			<artifactId>jaxp-ri</artifactId>
 			<version>1.4</version>
 		</dependency>
-        <dependency>
-            <groupId>org.apache.jena</groupId>
-            <artifactId>jena-arq</artifactId>
-            <version>3.17.0</version>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>3.17.0</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.activation</groupId>
 			<artifactId>activation</artifactId>
@@ -81,11 +81,11 @@
 			<artifactId>jaxb-runtime</artifactId>
 			<version>2.3.0-b170127.1453</version>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>5.3.4.RELEASE</version>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.3.4.RELEASE</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
@@ -105,10 +105,10 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>5.3.4.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-		</dependency>
+		<!--		<dependency>-->
+		<!--			<groupId>com.fasterxml.jackson.dataformat</groupId>-->
+		<!--			<artifactId>jackson-dataformat-xml</artifactId>-->
+		<!--		</dependency>-->
 	</dependencies>
 
 	<build>
