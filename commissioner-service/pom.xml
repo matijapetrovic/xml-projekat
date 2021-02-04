@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>rs.ac.uns.ftn.xml.tim11</groupId>
@@ -14,6 +14,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+
+		<cxf.version>3.4.2</cxf.version>
 	</properties>
 
 
@@ -95,6 +97,67 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-java2ws-plugin</artifactId>
+				<version>${cxf.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.cxf</groupId>
+						<artifactId>cxf-rt-frontend-jaxws</artifactId>
+						<version>${cxf.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.cxf</groupId>
+						<artifactId>cxf-rt-frontend-simple</artifactId>
+						<version>${cxf.version}</version>
+					</dependency>
+				</dependencies>
+
+				<executions>
+					<execution>
+						<id>process-classes</id>
+						<phase>package</phase>
+						<configuration>
+							<className>rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.resenje.ResenjePortImpl</className>
+							<genWsdl>true</genWsdl>
+							<verbose>false</verbose>
+							<outputFile>${project.build.directory}/generated/wsdl/Resenje.wsdl</outputFile>
+						</configuration>
+						<goals>
+							<goal>java2ws</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>process-classes1</id>
+						<phase>package</phase>
+						<configuration>
+							<className>rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.zalbacutanje.ZalbaCutanjePortImpl</className>
+							<genWsdl>true</genWsdl>
+							<verbose>false</verbose>
+							<outputFile>${project.build.directory}/generated/wsdl/Zalbacutanje.wsdl</outputFile>
+						</configuration>
+						<goals>
+							<goal>java2ws</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>process-classes2</id>
+						<phase>package</phase>
+						<configuration>
+							<className>rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.zalbanaodluku.ZalbaNaOdlukuPortImpl</className>
+							<genWsdl>true</genWsdl>
+							<verbose>false</verbose>
+							<outputFile>${project.build.directory}/generated/wsdl/Zalbanaodluku.wsdl</outputFile>
+						</configuration>
+						<goals>
+							<goal>java2ws</goal>
+						</goals>
+					</execution>
+
+				</executions>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
@@ -102,6 +165,7 @@
 					<target>9</target>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 

@@ -9,7 +9,6 @@ const defaultValidate = function(jsElement) {
     );
   }
 };
-
 const positiveNumberValidate = function(jsElement) {
   if(jsElement.getText() && +jsElement.getText() < 0) {
     Xonomy.warnings.push({
@@ -20,56 +19,82 @@ const positiveNumberValidate = function(jsElement) {
   }
 };
 
-// TODO: dodati ziro racun validaciju
 
 const elements = {
-    "Zahtev": {
+    "ns2:Zahtev": {
       displayName: 'Zahtev',
-      attributes: { }
+      attributes: {
+        "vocab": { isInvisible: true },
+        "about": { isInvisible: true }
+       }
     },  
-    "Primalac": {
-      displayName: 'Primalac',
+    "ns2:Organ": {
+      displayName: 'Organ',
+      attributes: {}
+    },  
+    "Naziv": {
+      displayName: 'Naziv',
       attributes: {
         "property": { isInvisible: true },
-        "type": { isInvisible: true }
+        "datatype": { isInvisible: true }
       },
       hasText: true,
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
     },
-    "Clan": {
+    "Broj": {
       asker: Xonomy.askNumber,
       validate: function(jsElement) {
         defaultValidate(jsElement);
+        positiveNumberValidate(jsElement);
       }
     },
-    "Stav": {
-      asker: Xonomy.askNumber,
-      validate: function(jsElement) {
-        defaultValidate(jsElement);
-      }
+    "ns2:Zahtevi": {
+      displayName: 'Zahtevi',
+      attributes: {}
     },
-    "Naziv": {
-      attributes: {
-        "property": { isInvisible: true },
-        "type": { isInvisible: true }
-      },
-      validate: function(jsElement) {
-        defaultValidate(jsElement);
-      },
-      hasText: true
+    "ns2:OpisInformacije": {
+      displayName: 'OpisInformacije',
+      attributes: {}
+    },
+    "ns2:OstaliPodaci": {
+      displayName: 'OstaliPodaci',
+      attributes: {}
     },
     "Mesto": {
+      displayName: 'Mesto',
       attributes: {
         "property": { isInvisible: true },
-        "type": { isInvisible: true }
+        "datatype": { isInvisible: true }
       },
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      },
-      hasText: true
+      }
     },
+    "Datum": {
+      displayName: 'Datum',
+      asker: Xonomy.askDate,
+      attributes: {
+        "property": { isInvisible: true },
+        "datatype": { isInvisible: true }
+      },
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+
+    "ns2:TrazilacInformacija": {
+      displayName: 'TrazilacInformacija',
+      attributes: {
+        "vocab": { isInvisible: true },
+        "about": { isInvisible: true },
+        "rel": { isInvisible: true },
+        "href": { isInvisible: true }
+      },
+      hasText: true,
+    },
+
     "Ime": {
       attributes: {
         "property": { isInvisible: true },
@@ -89,6 +114,10 @@ const elements = {
         defaultValidate(jsElement);
       },
       hasText: true
+    },
+    "ns2:DrugiKontaktPodaci": {
+      displayName: 'DrugiKontaktPodaci',
+      attributes: {}
     },
   };
 

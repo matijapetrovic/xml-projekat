@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/obavestenje/obavestenje.module').then(m => m.ObavestenjeModule)
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule),
+  },
+  {
     path: 'zahtev',
     loadChildren: () => import('./modules/zahtev/zahtev.module').then(m => m.ZahtevModule)
   },
@@ -14,7 +18,8 @@ const routes: Routes = [
     path: '',
     redirectTo: 'obavestenje/add',
     pathMatch: 'full'
-  }
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
