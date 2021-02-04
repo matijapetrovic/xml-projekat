@@ -17,7 +17,7 @@ public class MailController {
     private final EmailSender emailSender;
 
     @PostMapping("")
-    public ResponseEntity<Void> login(@RequestBody EmailRequest request) {
+    public ResponseEntity<Void> sendEmail(@RequestBody EmailRequest request) {
         emailSender.sendEmail(request.getTo(), request.getSubject(), request.getText());
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
