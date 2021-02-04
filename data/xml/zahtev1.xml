@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Zahtev xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+<za:Zahtev xmlns="http://www.w3.org/ns/rdfa#"
+ xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+ xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd">
-    <primalac property="property1" type="type1"/>
-    <naslov>naslov0</naslov>
-    <sadrzaj>
-        <paragraf1>
-            <clan>15</clan>
-            <stav>1</stav>
-            <zakon>Zakon o slobodnom pristupu informacijama od javnog značaja</zakon>
-            <sluzbeniGlasnik>
-                <naziv type="type3" property="property3">Sluzbeni glasnik Republike Srbije</naziv>
-                <brojevi>
-                    <broj>1/00</broj>
-                    <broj>1/00</broj>
-                </brojevi>
-            </sluzbeniGlasnik>
-        </paragraf1>
-        <zahtevi>
-            <informacije>informacije0</informacije>
-        </zahtevi>
-        <ostaliPodaci>
-            <mesto type="type5" property="property5">mesto0</mesto>
-            <datum>2006-05-04</datum>
-            <trazilacInformacija>
-                <ime type="type7" property="property7">ime0</ime>
-                <prezime type="type9" property="property9">prezime0</prezime>
-                <adresa>adresa0</adresa>
-                <kontakt>kontakt0</kontakt>
-            </trazilacInformacija>
-        </ostaliPodaci>
-    </sadrzaj>
-</Zahtev>
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about1">
+    <za:Organ>
+        <co:Naziv property="nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
+        <co:Sediste>
+            <co:Mesto>Mesto0</co:Mesto>
+            <co:Ulica>Ulica0</co:Ulica>
+            <co:Broj>50</co:Broj>
+        </co:Sediste>
+    </za:Organ>
+    <za:Zahtevi>
+    </za:Zahtevi>
+    <za:OpisInformacije>OpisInformacije0</za:OpisInformacije>
+    <za:OstaliPodaci>
+        <co:Mesto property="podnesenU" datatype="xs:string">Mesto1</co:Mesto>
+        <co:Datum property="podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
+    </za:OstaliPodaci>
+    <za:TrazilacInformacija vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about3" rel="podneoZahtev" href="href1">
+        <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
+        <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
+        <co:Adresa>
+            <co:Mesto>Mesto2</co:Mesto>
+            <co:Ulica>Ulica1</co:Ulica>
+            <co:Broj>50</co:Broj>
+        </co:Adresa>
+        <za:DrugiKontaktPodaci>DrugiKontaktPodaci0</za:DrugiKontaktPodaci>
+    </za:TrazilacInformacija>
+</za:Zahtev>

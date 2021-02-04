@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ob:Obavestenje xmlns="http://www.w3.org/ns/rdfa#"
+<ob:Obavestenje xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+ xmlns="http://www.w3.org/ns/rdfa#"
  xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234">
-    <ob:BrojPredmeta property="brojPredmeta" datatype="xs:string">BrojPredmeta0</ob:BrojPredmeta>
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about1" rel="odgovorNa" href="href1">
+    <ob:BrojPredmeta>BrojPredmeta0</ob:BrojPredmeta>
     <ob:Datum property="podnesenoDatuma" datatype="xs:date">2006-05-04</ob:Datum>
     <ob:Organ>
-        <ob:Naziv property="izdatoOdStrane" datatype="xs:string">Naziv0</ob:Naziv>
-        <ob:Sediste>Sediste0</ob:Sediste>
+        <co:Naziv property="nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
+        <co:Sediste>
+            <co:Mesto>Mesto0</co:Mesto>
+            <co:Ulica>Ulica0</co:Ulica>
+            <co:Broj>50</co:Broj>
+        </co:Sediste>
     </ob:Organ>
-    <ob:PodnosiocZahteva>
-        <ob:Ime property="imePodnosoica" datatype="xs:string">Ime0</ob:Ime>
-        <ob:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</ob:Prezime>
-        <ob:Naziv>Naziv1</ob:Naziv>
-        <ob:Adresa>
-            <ob:Mesto>Mesto0</ob:Mesto>
-            <ob:Ulica>Ulica0</ob:Ulica>
-            <ob:Broj>50</ob:Broj>
-        </ob:Adresa>
+    <ob:PodnosiocZahteva vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about3" rel="obavestavaSe" href="href3">
+        <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
+        <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
+        <co:Adresa>
+            <co:Mesto>Mesto1</co:Mesto>
+            <co:Ulica>Ulica1</co:Ulica>
+            <co:Broj>50</co:Broj>
+        </co:Adresa>
     </ob:PodnosiocZahteva>
     <ob:TrazenaInformacija>
-        <ob:DatumZahteva>2006-05-04</ob:DatumZahteva>
-        <ob:OpisInformacije>OpisInformacije0</ob:OpisInformacije>
+        <co:DatumZahteva>2006-05-04</co:DatumZahteva>
+        <co:TrazenaInformacija>TrazenaInformacija0</co:TrazenaInformacija>
     </ob:TrazenaInformacija>
     <ob:InformacijeOUvidu>
         <ob:Datum>2006-05-04</ob:Datum>
-        <ob:Satnica>01:01:00</ob:Satnica>
-        <ob:SatnicaOd>01:01:00</ob:SatnicaOd>
-        <ob:SatnicaDo>01:01:00</ob:SatnicaDo>
+        <ob:Satnica>01:01:01.001</ob:Satnica>
+        <ob:SatnicaOd>01:01:01.001</ob:SatnicaOd>
+        <ob:SatnicaDo>01:01:01.001</ob:SatnicaDo>
         <ob:Adresa>
-            <ob:Mesto>Mesto1</ob:Mesto>
-            <ob:Ulica>Ulica1</ob:Ulica>
-            <ob:Broj>50</ob:Broj>
+            <co:Mesto>Mesto2</co:Mesto>
+            <co:Ulica>Ulica2</co:Ulica>
+            <co:Broj>50</co:Broj>
         </ob:Adresa>
         <ob:BrojKancelarije>50</ob:BrojKancelarije>
     </ob:InformacijeOUvidu>

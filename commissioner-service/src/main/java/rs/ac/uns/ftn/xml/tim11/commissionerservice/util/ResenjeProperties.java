@@ -20,6 +20,17 @@ public class ResenjeProperties implements XmlResourceProperties {
     @Value("${xml.schema.resenje}")
     private String schemaPath;
 
+    @Value("${xml.xsl.resenje}")
+    private String xslPath;
+
+    @Value("${xml.xslfo.resenje}")
+    private String xslFoPath;
+
+    @Override
+    public String namespace() {
+        return namespace;
+    }
+
     @Override
     public String contextPath() {
         return Resenje.class.getPackage().getName();
@@ -28,6 +39,16 @@ public class ResenjeProperties implements XmlResourceProperties {
     @Override
     public String schemaPath() {
         return schemaPath;
+    }
+
+    @Override
+    public String xslFoPath() {
+        return xslFoPath;
+    }
+
+    @Override
+    public String xslPath() {
+        return xslPath;
     }
 
     @Override

@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema 
-    
     xmlns:xs="http://www.w3.org/2001/XMLSchema" 
     elementFormDefault="qualified"
     targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/common"
     xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
+
+    <xs:complexType name="CTAdresa">
+        <xs:sequence>
+            <xs:element name="Mesto" type="xs:string"/>
+            <xs:element name="Ulica" type="xs:string"/>
+            <xs:element name="Broj" type="xs:positiveInteger"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTPodnosilac">
+        <xs:sequence>
+            <xs:element name="Ime">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute fixed="imePodnosioca" form="unqualified" name="property" use="required"/>
+                            <xs:attribute fixed="xs:string" name="datatype" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Prezime">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute fixed="prezimePodnosioca" form="unqualified" name="property" use="required"/>
+                            <xs:attribute fixed="xs:string" name="datatype" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Adresa" type="co:CTAdresa"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTOrganVlasti">
+        <xs:sequence>
+            <xs:element name="Naziv">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute fixed="nazivOrganaVlasti" form="unqualified" name="property" use="required"/>
+                            <xs:attribute fixed="xs:string" name="datatype" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Sediste" type="co:CTAdresa"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTPodaciOZahtevu">
+        <xs:sequence>
+            <xs:element name="DatumZahteva" type="xs:date"/>
+            <xs:element name="TrazenaInformacija" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="CTOstaliPodaci">
+        <xs:sequence>
+            <xs:element name="Mesto">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute fixed="podnesenU" form="unqualified" name="property"
+                                use="required"/>
+                            <xs:attribute fixed="xs:string" name="datatype" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Datum">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:date">
+                            <xs:attribute fixed="podnesenDatuma" form="unqualified" name="property"
+                                use="required"/>
+                            <xs:attribute fixed="xs:date" name="datatype" use="required"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
     
 </xs:schema>

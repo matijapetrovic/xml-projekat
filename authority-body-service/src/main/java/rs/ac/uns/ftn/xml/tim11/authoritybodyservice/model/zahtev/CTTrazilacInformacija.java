@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -18,32 +17,15 @@ import javax.xml.bind.annotation.XmlValue;
  * <pre>
  * &lt;complexType name="CTTrazilacInformacija"&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *     &lt;extension base="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTPodnosilac"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="ime"&gt;
- *           &lt;complexType&gt;
- *             &lt;simpleContent&gt;
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *               &lt;/extension&gt;
- *             &lt;/simpleContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="prezime"&gt;
- *           &lt;complexType&gt;
- *             &lt;simpleContent&gt;
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *               &lt;/extension&gt;
- *             &lt;/simpleContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="adresa" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="kontakt" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="DrugiKontaktPodaci" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
+ *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
+ *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podneoZahtev" /&gt;
+ *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -52,332 +34,153 @@ import javax.xml.bind.annotation.XmlValue;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTTrazilacInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", propOrder = {
-    "ime",
-    "prezime",
-    "adresa",
-    "kontakt"
+    "drugiKontaktPodaci"
 })
-public class CTTrazilacInformacija {
+public class CTTrazilacInformacija
+    extends CTPodnosilac
+{
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected CTTrazilacInformacija.Ime ime;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected CTTrazilacInformacija.Prezime prezime;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected String adresa;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected String kontakt;
-
-    /**
-     * Gets the value of the ime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CTTrazilacInformacija.Ime }
-     *     
-     */
-    public CTTrazilacInformacija.Ime getIme() {
-        return ime;
-    }
+    @XmlElement(name = "DrugiKontaktPodaci", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+    protected String drugiKontaktPodaci;
+    @XmlAttribute(name = "vocab", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String vocab;
+    @XmlAttribute(name = "about", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String about;
+    @XmlAttribute(name = "rel", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String rel;
+    @XmlAttribute(name = "href", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String href;
 
     /**
-     * Sets the value of the ime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CTTrazilacInformacija.Ime }
-     *     
-     */
-    public void setIme(CTTrazilacInformacija.Ime value) {
-        this.ime = value;
-    }
-
-    /**
-     * Gets the value of the prezime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CTTrazilacInformacija.Prezime }
-     *     
-     */
-    public CTTrazilacInformacija.Prezime getPrezime() {
-        return prezime;
-    }
-
-    /**
-     * Sets the value of the prezime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CTTrazilacInformacija.Prezime }
-     *     
-     */
-    public void setPrezime(CTTrazilacInformacija.Prezime value) {
-        this.prezime = value;
-    }
-
-    /**
-     * Gets the value of the adresa property.
+     * Gets the value of the drugiKontaktPodaci property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAdresa() {
-        return adresa;
+    public String getDrugiKontaktPodaci() {
+        return drugiKontaktPodaci;
     }
 
     /**
-     * Sets the value of the adresa property.
+     * Sets the value of the drugiKontaktPodaci property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAdresa(String value) {
-        this.adresa = value;
+    public void setDrugiKontaktPodaci(String value) {
+        this.drugiKontaktPodaci = value;
     }
 
     /**
-     * Gets the value of the kontakt property.
+     * Gets the value of the vocab property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getKontakt() {
-        return kontakt;
+    public String getVocab() {
+        if (vocab == null) {
+            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate";
+        } else {
+            return vocab;
+        }
     }
 
     /**
-     * Sets the value of the kontakt property.
+     * Sets the value of the vocab property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setKontakt(String value) {
-        this.kontakt = value;
+    public void setVocab(String value) {
+        this.vocab = value;
     }
 
-
     /**
-     * <p>Java class for anonymous complex type.
+     * Gets the value of the about property.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;simpleContent&gt;
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *     &lt;/extension&gt;
-     *   &lt;/simpleContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "value"
-    })
-    public static class Ime {
-
-        @XmlValue
-        protected String value;
-        @XmlAttribute(name = "type", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String type;
-        @XmlAttribute(name = "property", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String property;
-
-        /**
-         * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getValue() {
-            return value;
-        }
-
-        /**
-         * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setValue(String value) {
-            this.value = value;
-        }
-
-        /**
-         * Gets the value of the type property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getType() {
-            return type;
-        }
-
-        /**
-         * Sets the value of the type property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setType(String value) {
-            this.type = value;
-        }
-
-        /**
-         * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getProperty() {
-            return property;
-        }
-
-        /**
-         * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setProperty(String value) {
-            this.property = value;
-        }
-
+    public String getAbout() {
+        return about;
     }
 
+    /**
+     * Sets the value of the about property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAbout(String value) {
+        this.about = value;
+    }
 
     /**
-     * <p>Java class for anonymous complex type.
+     * Gets the value of the rel property.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;simpleContent&gt;
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *     &lt;/extension&gt;
-     *   &lt;/simpleContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "value"
-    })
-    public static class Prezime {
-
-        @XmlValue
-        protected String value;
-        @XmlAttribute(name = "type", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String type;
-        @XmlAttribute(name = "property", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String property;
-
-        /**
-         * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getValue() {
-            return value;
+    public String getRel() {
+        if (rel == null) {
+            return "podneoZahtev";
+        } else {
+            return rel;
         }
+    }
 
-        /**
-         * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setValue(String value) {
-            this.value = value;
-        }
+    /**
+     * Sets the value of the rel property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRel(String value) {
+        this.rel = value;
+    }
 
-        /**
-         * Gets the value of the type property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getType() {
-            return type;
-        }
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
 
-        /**
-         * Sets the value of the type property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setType(String value) {
-            this.type = value;
-        }
-
-        /**
-         * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getProperty() {
-            return property;
-        }
-
-        /**
-         * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setProperty(String value) {
-            this.property = value;
-        }
-
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
     }
 
 }

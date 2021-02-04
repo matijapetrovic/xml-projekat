@@ -1,67 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ZalbaNaOdluku xmlns="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"
+<zod:ZalbaNaOdluku xmlns="http://www.w3.org/ns/rdfa#"
+ xmlns:zod="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"
+ xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zalbanaodlukucir.xsd">
-    <primalac>
-        <adresaPrimaoca>
-            <mesto property="property1">mesto0</mesto>
-            <ulica>ulica0</ulica>
-            <broj>100</broj>
-        </adresaPrimaoca>
-    </primalac>
-    <sadrzaj>
-        <paragraf1>
-            <predmetSlanja property="property3">predmetSlanja0</predmetSlanja>
-            <osoba>
-                <ime property="property5">ime0</ime>
-                <prezime property="property7">prezime0</prezime>
-            </osoba>
-            <naziv>naziv0</naziv>
-            <adresa>
-                <mesto property="property9">mesto1</mesto>
-                <ulica>ulica1</ulica>
-                <broj>100</broj>
-            </adresa>
-            <sediste>26</sediste>
-        </paragraf1>
-        <paragraf2>
-            <nazivOrgana property="property11">nazivOrgana0</nazivOrgana>
-            <broj>150</broj>
-            <godina>2050</godina>
-        </paragraf2>
-        <paragraf3>
-            <dan>16</dan>
-            <godina>2050</godina>
-            <razlog>razlog0</razlog>
-        </paragraf3>
-        <paragraf4>
-            <zakljucak>
-                <razlog>razlog1</razlog>
-                <zakonPodnosenjaZalbe property="property13">zakonPodnosenjaZalbe0</zakonPodnosenjaZalbe>
-            </zakljucak>
-        </paragraf4>
-    </sadrzaj>
-    <podnosilacZalbe>
-        <osoba>
-            <ime property="property15">ime1</ime>
-            <prezime property="property17">prezime1</prezime>
-        </osoba>
-        <adresa>
-            <mesto property="property19">mesto2</mesto>
-            <ulica>ulica2</ulica>
-            <broj>100</broj>
-        </adresa>
-        <potpis>potpis0</potpis>
-    </podnosilacZalbe>
-    <podaciPodnosenjaZalbe>
-        <mesto>mesto3</mesto>
-        <dan>16</dan>
-        <godina>2050</godina>
-    </podaciPodnosenjaZalbe>
-    <napomena>
-        <lista>
-            <stavka1>stavka10</stavka1>
-            <stavka2>stavka20</stavka2>
-        </lista>
-    </napomena>
-</ZalbaNaOdluku>
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zalbanaodlukucir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about1">
+    <zod:PodaciOResenju>
+        <zod:DatumResenja>2006-05-04</zod:DatumResenja>
+        <zod:OrganVlasti>
+            <co:Naziv property="nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
+            <co:Sediste>
+                <co:Mesto>Mesto0</co:Mesto>
+                <co:Ulica>Ulica0</co:Ulica>
+                <co:Broj>50</co:Broj>
+            </co:Sediste>
+        </zod:OrganVlasti>
+        <zod:BrojResenja>BrojResenja0</zod:BrojResenja>
+    </zod:PodaciOResenju>
+    <zod:PodaciOZahtevu>
+        <co:DatumZahteva>2006-05-04</co:DatumZahteva>
+        <co:TrazenaInformacija>TrazenaInformacija0</co:TrazenaInformacija>
+    </zod:PodaciOZahtevu>
+    <zod:PodnosilacZalbe vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate" about="about3" rel="podneoZalbu" href="href1">
+        <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
+        <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
+        <co:Adresa>
+            <co:Mesto>Mesto1</co:Mesto>
+            <co:Ulica>Ulica1</co:Ulica>
+            <co:Broj>50</co:Broj>
+        </co:Adresa>
+        <zod:DrugiKontaktPodaci>DrugiKontaktPodaci0</zod:DrugiKontaktPodaci>
+    </zod:PodnosilacZalbe>
+    <zod:OstaliPodaci>
+        <co:Mesto property="podnesenU" datatype="xs:string">Mesto2</co:Mesto>
+        <co:Datum property="podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
+    </zod:OstaliPodaci>
+</zod:ZalbaNaOdluku>

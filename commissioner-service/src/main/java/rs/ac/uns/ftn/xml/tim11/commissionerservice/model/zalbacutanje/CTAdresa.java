@@ -1,13 +1,12 @@
 
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje;
 
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -20,29 +19,9 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
+ *         &lt;element name="Mesto" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Ulica" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Broj" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Grad"&gt;
- *           &lt;complexType&gt;
- *             &lt;simpleContent&gt;
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *               &lt;/extension&gt;
- *             &lt;/simpleContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="Drzava"&gt;
- *           &lt;complexType&gt;
- *             &lt;simpleContent&gt;
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *               &lt;/extension&gt;
- *             &lt;/simpleContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="PostanskiBroj" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Broj" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -52,25 +31,44 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTAdresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", propOrder = {
+@XmlType(name = "CTAdresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/common", propOrder = {
+    "mesto",
     "ulica",
-    "broj",
-    "grad",
-    "drzava",
-    "postanskiBroj"
+    "broj"
 })
 public class CTAdresa {
 
-    @XmlElement(name = "Ulica", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
+    @XmlElement(name = "Mesto", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/common", required = true)
+    protected String mesto;
+    @XmlElement(name = "Ulica", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/common", required = true)
     protected String ulica;
-    @XmlElement(name = "Broj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
-    protected String broj;
-    @XmlElement(name = "Grad", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
-    protected CTAdresa.Grad grad;
-    @XmlElement(name = "Drzava", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
-    protected CTAdresa.Drzava drzava;
-    @XmlElement(name = "PostanskiBroj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
-    protected String postanskiBroj;
+    @XmlElement(name = "Broj", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/common", required = true)
+    @XmlSchemaType(name = "positiveInteger")
+    protected BigInteger broj;
+
+    /**
+     * Gets the value of the mesto property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMesto() {
+        return mesto;
+    }
+
+    /**
+     * Sets the value of the mesto property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMesto(String value) {
+        this.mesto = value;
+    }
 
     /**
      * Gets the value of the ulica property.
@@ -101,10 +99,10 @@ public class CTAdresa {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public String getBroj() {
+    public BigInteger getBroj() {
         return broj;
     }
 
@@ -113,299 +111,11 @@ public class CTAdresa {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link BigInteger }
      *     
      */
-    public void setBroj(String value) {
+    public void setBroj(BigInteger value) {
         this.broj = value;
-    }
-
-    /**
-     * Gets the value of the grad property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CTAdresa.Grad }
-     *     
-     */
-    public CTAdresa.Grad getGrad() {
-        return grad;
-    }
-
-    /**
-     * Sets the value of the grad property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CTAdresa.Grad }
-     *     
-     */
-    public void setGrad(CTAdresa.Grad value) {
-        this.grad = value;
-    }
-
-    /**
-     * Gets the value of the drzava property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CTAdresa.Drzava }
-     *     
-     */
-    public CTAdresa.Drzava getDrzava() {
-        return drzava;
-    }
-
-    /**
-     * Sets the value of the drzava property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CTAdresa.Drzava }
-     *     
-     */
-    public void setDrzava(CTAdresa.Drzava value) {
-        this.drzava = value;
-    }
-
-    /**
-     * Gets the value of the postanskiBroj property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPostanskiBroj() {
-        return postanskiBroj;
-    }
-
-    /**
-     * Sets the value of the postanskiBroj property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPostanskiBroj(String value) {
-        this.postanskiBroj = value;
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;simpleContent&gt;
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *     &lt;/extension&gt;
-     *   &lt;/simpleContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "value"
-    })
-    public static class Drzava {
-
-        @XmlValue
-        protected String value;
-        @XmlAttribute(name = "type", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String type;
-        @XmlAttribute(name = "property", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String property;
-
-        /**
-         * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getValue() {
-            return value;
-        }
-
-        /**
-         * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setValue(String value) {
-            this.value = value;
-        }
-
-        /**
-         * Gets the value of the type property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getType() {
-            return type;
-        }
-
-        /**
-         * Sets the value of the type property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setType(String value) {
-            this.type = value;
-        }
-
-        /**
-         * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getProperty() {
-            return property;
-        }
-
-        /**
-         * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setProperty(String value) {
-            this.property = value;
-        }
-
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;simpleContent&gt;
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *     &lt;/extension&gt;
-     *   &lt;/simpleContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "value"
-    })
-    public static class Grad {
-
-        @XmlValue
-        protected String value;
-        @XmlAttribute(name = "type", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String type;
-        @XmlAttribute(name = "property", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String property;
-
-        /**
-         * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getValue() {
-            return value;
-        }
-
-        /**
-         * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setValue(String value) {
-            this.value = value;
-        }
-
-        /**
-         * Gets the value of the type property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getType() {
-            return type;
-        }
-
-        /**
-         * Sets the value of the type property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setType(String value) {
-            this.type = value;
-        }
-
-        /**
-         * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getProperty() {
-            return property;
-        }
-
-        /**
-         * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setProperty(String value) {
-            this.property = value;
-        }
-
     }
 
 }
