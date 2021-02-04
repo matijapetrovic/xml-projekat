@@ -1,4 +1,4 @@
-package rs.uns.ftn.xml.tim11.mailservice.service;
+package rs.ac.uns.ftn.xml.tim11.emailservice.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
@@ -6,7 +6,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-import rs.uns.ftn.xml.tim11.mailservice.usecase.EmailSender;
+import rs.ac.uns.ftn.xml.tim11.emailservice.usecase.EmailSender;
 
 import java.util.Objects;
 

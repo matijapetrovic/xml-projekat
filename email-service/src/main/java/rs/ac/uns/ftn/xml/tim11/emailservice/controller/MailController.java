@@ -1,4 +1,4 @@
-package rs.uns.ftn.xml.tim11.mailservice.controller;
+package rs.ac.uns.ftn.xml.tim11.emailservice.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import rs.uns.ftn.xml.tim11.mailservice.usecase.EmailSender;
+import rs.ac.uns.ftn.xml.tim11.emailservice.usecase.EmailSender;
 
 @RequiredArgsConstructor
 @RestController

@@ -1,4 +1,4 @@
-package rs.uns.ftn.xml.tim11.mailservice.controller;
+package rs.ac.uns.ftn.xml.tim11.emailservice.controller;
 
 import lombok.Getter;
 
