@@ -17,15 +17,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;choice&gt;
- *         &lt;element name="posta" type="{http://www.w3.org/2001/XMLSchema}anyType"/&gt;
- *         &lt;element name="elektronskaPosta" type="{http://www.w3.org/2001/XMLSchema}anyType"/&gt;
- *         &lt;element name="faks" type="{http://www.w3.org/2001/XMLSchema}anyType"/&gt;
- *         &lt;element name="drugo"&gt;
+ *         &lt;element name="Posta" type="{http://www.w3.org/2001/XMLSchema}anyType"/&gt;
+ *         &lt;element name="ElektronskaPosta" type="{http://www.w3.org/2001/XMLSchema}anyType"/&gt;
+ *         &lt;element name="Faks" type="{http://www.w3.org/2001/XMLSchema}anyType"/&gt;
+ *         &lt;element name="Drugo"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
- *                   &lt;element name="opis"&gt;
+ *                   &lt;element name="Opis"&gt;
  *                     &lt;simpleType&gt;
  *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
  *                         &lt;minLength value="1"/&gt;
@@ -54,13 +54,13 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class CTNacinDostave {
 
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
+    @XmlElement(name = "Posta", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object posta;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
+    @XmlElement(name = "ElektronskaPosta", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object elektronskaPosta;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
+    @XmlElement(name = "Faks", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected Object faks;
-    @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
+    @XmlElement(name = "Drugo", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
     protected CTNacinDostave.Drugo drugo;
 
     /**
@@ -170,7 +170,7 @@ public class CTNacinDostave {
      *   &lt;complexContent&gt;
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
-     *         &lt;element name="opis"&gt;
+     *         &lt;element name="Opis"&gt;
      *           &lt;simpleType&gt;
      *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
      *               &lt;minLength value="1"/&gt;
@@ -191,7 +191,7 @@ public class CTNacinDostave {
     })
     public static class Drugo {
 
-        @XmlElement(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
+        @XmlElement(name = "Opis", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
         protected String opis;
 
         /**

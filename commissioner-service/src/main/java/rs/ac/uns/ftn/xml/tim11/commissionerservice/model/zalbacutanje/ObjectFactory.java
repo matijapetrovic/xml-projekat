@@ -38,6 +38,62 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTPodnosilac }
+     * 
+     */
+    public CTPodnosilac createCTPodnosilac() {
+        return new CTPodnosilac();
+    }
+
+    /**
+     * Create an instance of {@link CTOstaliPodaci }
+     * 
+     */
+    public CTOstaliPodaci createCTOstaliPodaci() {
+        return new CTOstaliPodaci();
+    }
+
+    /**
+     * Create an instance of {@link CTOrganVlasti }
+     * 
+     */
+    public CTOrganVlasti createCTOrganVlasti() {
+        return new CTOrganVlasti();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.ZaglavljeZalbe }
+     * 
+     */
+    public ZalbaCutanje.ZaglavljeZalbe createZalbaCutanjeZaglavljeZalbe() {
+        return new ZalbaCutanje.ZaglavljeZalbe();
+    }
+
+    /**
+     * Create an instance of {@link ZalbaCutanje.RazlogSlanja }
+     * 
+     */
+    public ZalbaCutanje.RazlogSlanja createZalbaCutanjeRazlogSlanja() {
+        return new ZalbaCutanje.RazlogSlanja();
+    }
+
+    /**
+     * Create an instance of {@link CTPodaciOZahtevu }
+     * 
+     */
+    public CTPodaciOZahtevu createCTPodaciOZahtevu() {
+        return new CTPodaciOZahtevu();
+    }
+
+    /**
+     * Create an instance of {@link CTPodnosilacZalbe }
+     * 
+     */
+    public CTPodnosilacZalbe createCTPodnosilacZalbe() {
+        return new CTPodnosilacZalbe();
+    }
+
+    /**
      * Create an instance of {@link CTAdresa }
      * 
      */
@@ -46,139 +102,43 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTAutor }
+     * Create an instance of {@link CTPodnosilac.Ime }
      * 
      */
-    public CTAutor createCTAutor() {
-        return new CTAutor();
+    public CTPodnosilac.Ime createCTPodnosilacIme() {
+        return new CTPodnosilac.Ime();
     }
 
     /**
-     * Create an instance of {@link ZalbaCutanje.PodnosilacZalbe }
+     * Create an instance of {@link CTPodnosilac.Prezime }
      * 
      */
-    public ZalbaCutanje.PodnosilacZalbe createZalbaCutanjePodnosilacZalbe() {
-        return new ZalbaCutanje.PodnosilacZalbe();
+    public CTPodnosilac.Prezime createCTPodnosilacPrezime() {
+        return new CTPodnosilac.Prezime();
     }
 
     /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj }
+     * Create an instance of {@link CTOstaliPodaci.Mesto }
      * 
      */
-    public ZalbaCutanje.Sadrzaj createZalbaCutanjeSadrzaj() {
-        return new ZalbaCutanje.Sadrzaj();
+    public CTOstaliPodaci.Mesto createCTOstaliPodaciMesto() {
+        return new CTOstaliPodaci.Mesto();
     }
 
     /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj.Zakljucak }
+     * Create an instance of {@link CTOstaliPodaci.Datum }
      * 
      */
-    public ZalbaCutanje.Sadrzaj.Zakljucak createZalbaCutanjeSadrzajZakljucak() {
-        return new ZalbaCutanje.Sadrzaj.Zakljucak();
+    public CTOstaliPodaci.Datum createCTOstaliPodaciDatum() {
+        return new CTOstaliPodaci.Datum();
     }
 
     /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe }
+     * Create an instance of {@link CTOrganVlasti.Naziv }
      * 
      */
-    public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe createZalbaCutanjeSadrzajZaglavljeZalbe() {
-        return new ZalbaCutanje.Sadrzaj.ZaglavljeZalbe();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.Primalac }
-     * 
-     */
-    public ZalbaCutanje.Primalac createZalbaCutanjePrimalac() {
-        return new ZalbaCutanje.Primalac();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.PodaciOPodnosenjuZahteva }
-     * 
-     */
-    public ZalbaCutanje.PodaciOPodnosenjuZahteva createZalbaCutanjePodaciOPodnosenjuZahteva() {
-        return new ZalbaCutanje.PodaciOPodnosenjuZahteva();
-    }
-
-    /**
-     * Create an instance of {@link CTAdresa.Grad }
-     * 
-     */
-    public CTAdresa.Grad createCTAdresaGrad() {
-        return new CTAdresa.Grad();
-    }
-
-    /**
-     * Create an instance of {@link CTAdresa.Drzava }
-     * 
-     */
-    public CTAdresa.Drzava createCTAdresaDrzava() {
-        return new CTAdresa.Drzava();
-    }
-
-    /**
-     * Create an instance of {@link CTAutor.Ime }
-     * 
-     */
-    public CTAutor.Ime createCTAutorIme() {
-        return new CTAutor.Ime();
-    }
-
-    /**
-     * Create an instance of {@link CTAutor.Prezime }
-     * 
-     */
-    public CTAutor.Prezime createCTAutorPrezime() {
-        return new CTAutor.Prezime();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.PodnosilacZalbe.Naziv }
-     * 
-     */
-    public ZalbaCutanje.PodnosilacZalbe.Naziv createZalbaCutanjePodnosilacZalbeNaziv() {
-        return new ZalbaCutanje.PodnosilacZalbe.Naziv();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj.RazlogSlanja }
-     * 
-     */
-    public ZalbaCutanje.Sadrzaj.RazlogSlanja createZalbaCutanjeSadrzajRazlogSlanja() {
-        return new ZalbaCutanje.Sadrzaj.RazlogSlanja();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj.PodaciOZahtevu }
-     * 
-     */
-    public ZalbaCutanje.Sadrzaj.PodaciOZahtevu createZalbaCutanjeSadrzajPodaciOZahtevu() {
-        return new ZalbaCutanje.Sadrzaj.PodaciOZahtevu();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz }
-     * 
-     */
-    public ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz createZalbaCutanjeSadrzajZakljucakDokaz() {
-        return new ZalbaCutanje.Sadrzaj.Zakljucak.Dokaz();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.Zakon }
-     * 
-     */
-    public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.Zakon createZalbaCutanjeSadrzajZaglavljeZalbeZakon() {
-        return new ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.Zakon();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.NazivOrgana }
-     * 
-     */
-    public ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.NazivOrgana createZalbaCutanjeSadrzajZaglavljeZalbeNazivOrgana() {
-        return new ZalbaCutanje.Sadrzaj.ZaglavljeZalbe.NazivOrgana();
+    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
+        return new CTOrganVlasti.Naziv();
     }
 
 }

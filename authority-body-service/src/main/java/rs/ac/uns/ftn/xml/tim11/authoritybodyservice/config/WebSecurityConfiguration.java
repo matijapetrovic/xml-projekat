@@ -59,12 +59,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 // TODO: pogledaj
                 // svim korisnicima dopusti da pristupe putanji /auth/**
-                .authorizeRequests().antMatchers("api/auth/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/resenje/**").permitAll()
+//                .authorizeRequests().antMatchers("api/auth/**").permitAll()
+//                .antMatchers(HttpMethod.GET, "/resenje/**").permitAll()
                 // umesto anotacija iynad svake metode, moze i ovde da se proveravaju prava pristupa ya odredjeni URL
                 //.antMatchers(HttpMethod.GET, "/api/cultural-content-category").hasRole("ROLE_ADMIN")
                 // za svaki drugi zahtev korisnik mora biti autentifikovan
-                .anyRequest().authenticated().and()
+                .authorizeRequests().anyRequest().permitAll().and()
                 // za development svrhe ukljuci konfiguraciju za CORS iz WebConfig klase
                 .cors().and()
 

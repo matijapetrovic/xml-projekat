@@ -39,9 +39,9 @@ public class AuthorityBodyServiceApplication {
 			UserXmlRepository userXmlRepository,
 			UserProperties userProperties) {
 		return args -> {
-			insertAuthority(authorityXmlRepository, authorityProperties);
-			insertAccount(accountXmlRepository, accountProperties);
-			insertUser(userXmlRepository, userProperties);
+//			insertAuthority(authorityXmlRepository, authorityProperties);
+//			insertAccount(accountXmlRepository, accountProperties);
+//			insertUser(userXmlRepository, userProperties);
 		};
 	}
 

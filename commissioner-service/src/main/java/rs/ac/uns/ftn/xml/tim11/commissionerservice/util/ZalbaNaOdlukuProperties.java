@@ -20,6 +20,17 @@ public class ZalbaNaOdlukuProperties implements XmlResourceProperties {
     @Value("${xml.schema.zalba-na-odluku}")
     private String schemaPath;
 
+    @Value("${xml.xsl.zalba-na-odluku}")
+    private String xslPath;
+
+    @Value("${xml.xslfo.zalba-na-odluku}")
+    private String xslFoPath;
+
+    @Override
+    public String namespace() {
+        return namespace;
+    }
+
     @Override
     public String contextPath() {
         return ZalbaNaOdluku.class.getPackage().getName();
@@ -28,6 +39,16 @@ public class ZalbaNaOdlukuProperties implements XmlResourceProperties {
     @Override
     public String schemaPath() {
         return schemaPath;
+    }
+
+    @Override
+    public String xslFoPath() {
+        return xslFoPath;
+    }
+
+    @Override
+    public String xslPath() {
+        return xslPath;
     }
 
     @Override

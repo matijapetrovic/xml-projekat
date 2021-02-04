@@ -22,16 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="BrojPredmeta"&gt;
- *           &lt;complexType&gt;
- *             &lt;simpleContent&gt;
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="brojPredmeta" /&gt;
- *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
- *               &lt;/extension&gt;
- *             &lt;/simpleContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
+ *         &lt;element name="BrojPredmeta" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Datum"&gt;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
@@ -42,9 +33,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTOrgan"/&gt;
- *         &lt;element name="PodnosiocZahteva" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTPodnosiocZahteva"/&gt;
- *         &lt;element name="TrazenaInformacija" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTTrazenaInformacija"/&gt;
+ *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOrganVlasti"/&gt;
+ *         &lt;element name="PodnosiocZahteva" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTPodnosilacZahteva"/&gt;
+ *         &lt;element name="TrazenaInformacija" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTPodaciOZahtevu"/&gt;
  *         &lt;element name="InformacijeOUvidu" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTInformacijeOUvidu"/&gt;
  *         &lt;element name="Troskovi" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTTroskovi"/&gt;
  *         &lt;element name="InformacijeOUplati" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTInformacijeOUplati"/&gt;
@@ -58,7 +49,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;/element&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate" /&gt;
- *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234" /&gt;
+ *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="odgovorNa" /&gt;
+ *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -82,15 +75,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
 public class Obavestenje {
 
     @XmlElement(name = "BrojPredmeta", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected Obavestenje.BrojPredmeta brojPredmeta;
+    protected String brojPredmeta;
     @XmlElement(name = "Datum", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected Obavestenje.Datum datum;
     @XmlElement(name = "Organ", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected CTOrgan organ;
+    protected CTOrganVlasti organ;
     @XmlElement(name = "PodnosiocZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected CTPodnosiocZahteva podnosiocZahteva;
+    protected CTPodnosilacZahteva podnosiocZahteva;
     @XmlElement(name = "TrazenaInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected CTTrazenaInformacija trazenaInformacija;
+    protected CTPodaciOZahtevu trazenaInformacija;
     @XmlElement(name = "InformacijeOUvidu", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTInformacijeOUvidu informacijeOUvidu;
     @XmlElement(name = "Troskovi", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
@@ -105,16 +98,22 @@ public class Obavestenje {
     @XmlAttribute(name = "about", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String about;
+    @XmlAttribute(name = "rel", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String rel;
+    @XmlAttribute(name = "href", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String href;
 
     /**
      * Gets the value of the brojPredmeta property.
      * 
      * @return
      *     possible object is
-     *     {@link Obavestenje.BrojPredmeta }
+     *     {@link String }
      *     
      */
-    public Obavestenje.BrojPredmeta getBrojPredmeta() {
+    public String getBrojPredmeta() {
         return brojPredmeta;
     }
 
@@ -123,10 +122,10 @@ public class Obavestenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link Obavestenje.BrojPredmeta }
+     *     {@link String }
      *     
      */
-    public void setBrojPredmeta(Obavestenje.BrojPredmeta value) {
+    public void setBrojPredmeta(String value) {
         this.brojPredmeta = value;
     }
 
@@ -159,10 +158,10 @@ public class Obavestenje {
      * 
      * @return
      *     possible object is
-     *     {@link CTOrgan }
+     *     {@link CTOrganVlasti }
      *     
      */
-    public CTOrgan getOrgan() {
+    public CTOrganVlasti getOrgan() {
         return organ;
     }
 
@@ -171,10 +170,10 @@ public class Obavestenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link CTOrgan }
+     *     {@link CTOrganVlasti }
      *     
      */
-    public void setOrgan(CTOrgan value) {
+    public void setOrgan(CTOrganVlasti value) {
         this.organ = value;
     }
 
@@ -183,10 +182,10 @@ public class Obavestenje {
      * 
      * @return
      *     possible object is
-     *     {@link CTPodnosiocZahteva }
+     *     {@link CTPodnosilacZahteva }
      *     
      */
-    public CTPodnosiocZahteva getPodnosiocZahteva() {
+    public CTPodnosilacZahteva getPodnosiocZahteva() {
         return podnosiocZahteva;
     }
 
@@ -195,10 +194,10 @@ public class Obavestenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link CTPodnosiocZahteva }
+     *     {@link CTPodnosilacZahteva }
      *     
      */
-    public void setPodnosiocZahteva(CTPodnosiocZahteva value) {
+    public void setPodnosiocZahteva(CTPodnosilacZahteva value) {
         this.podnosiocZahteva = value;
     }
 
@@ -207,10 +206,10 @@ public class Obavestenje {
      * 
      * @return
      *     possible object is
-     *     {@link CTTrazenaInformacija }
+     *     {@link CTPodaciOZahtevu }
      *     
      */
-    public CTTrazenaInformacija getTrazenaInformacija() {
+    public CTPodaciOZahtevu getTrazenaInformacija() {
         return trazenaInformacija;
     }
 
@@ -219,10 +218,10 @@ public class Obavestenje {
      * 
      * @param value
      *     allowed object is
-     *     {@link CTTrazenaInformacija }
+     *     {@link CTPodaciOZahtevu }
      *     
      */
-    public void setTrazenaInformacija(CTTrazenaInformacija value) {
+    public void setTrazenaInformacija(CTPodaciOZahtevu value) {
         this.trazenaInformacija = value;
     }
 
@@ -359,11 +358,7 @@ public class Obavestenje {
      *     
      */
     public String getAbout() {
-        if (about == null) {
-            return "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje/1234";
-        } else {
-            return about;
-        }
+        return about;
     }
 
     /**
@@ -378,120 +373,56 @@ public class Obavestenje {
         this.about = value;
     }
 
+    /**
+     * Gets the value of the rel property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRel() {
+        if (rel == null) {
+            return "odgovorNa";
+        } else {
+            return rel;
+        }
+    }
 
     /**
-     * <p>Java class for anonymous complex type.
+     * Sets the value of the rel property.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;simpleContent&gt;
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="brojPredmeta" /&gt;
-     *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
-     *     &lt;/extension&gt;
-     *   &lt;/simpleContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "value"
-    })
-    public static class BrojPredmeta {
+    public void setRel(String value) {
+        this.rel = value;
+    }
 
-        @XmlValue
-        protected String value;
-        @XmlAttribute(name = "property", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String property;
-        @XmlAttribute(name = "datatype", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String datatype;
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
 
-        /**
-         * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getValue() {
-            return value;
-        }
-
-        /**
-         * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setValue(String value) {
-            this.value = value;
-        }
-
-        /**
-         * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getProperty() {
-            if (property == null) {
-                return "brojPredmeta";
-            } else {
-                return property;
-            }
-        }
-
-        /**
-         * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setProperty(String value) {
-            this.property = value;
-        }
-
-        /**
-         * Gets the value of the datatype property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getDatatype() {
-            if (datatype == null) {
-                return "xs:string";
-            } else {
-                return datatype;
-            }
-        }
-
-        /**
-         * Sets the value of the datatype property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setDatatype(String value) {
-            this.datatype = value;
-        }
-
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
     }
 
 

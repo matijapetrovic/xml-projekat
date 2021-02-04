@@ -27,7 +27,18 @@ const elements = {
       displayName: 'Obavestenje',
       attributes: {
         "vocab": { isInvisible: true },
-        "about": { isInvisible: true }
+        "about": { isInvisible: true },
+        "rel": { isInvisible: true },
+        "href": { isInvisible: true }
+      }
+    },
+    "PodnosiocZahteva": {
+      displayName: 'Podnosioc zahteva',
+      attributes: {
+        "vocab": { isInvisible: true },
+        "about": { isInvisible: true },
+        "rel": { isInvisible: true },
+        "href": { isInvisible: true }
       }
     },
     "BrojPredmeta": {

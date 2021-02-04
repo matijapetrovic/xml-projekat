@@ -20,6 +20,10 @@ public class AuthorityProperties implements XmlResourceProperties {
     @Value("${xml.schema.authority}")
     private String schemaPath;
 
+    @Override
+    public String namespace() {
+        return namespace;
+    }
 
     @Override
     public String contextPath() {
@@ -29,6 +33,16 @@ public class AuthorityProperties implements XmlResourceProperties {
     @Override
     public String schemaPath() {
         return schemaPath;
+    }
+
+    @Override
+    public String xslFoPath() {
+        return null;
+    }
+
+    @Override
+    public String xslPath() {
+        return null;
     }
 
     @Override

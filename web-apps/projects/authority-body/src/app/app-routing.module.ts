@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule),
   },
   {
+    path: 'zahtev',
+    loadChildren: () => import('./modules/zahtev/zahtev.module').then(m => m.ZahtevModule)
+  },
+  {
     path: '',
     redirectTo: 'obavestenje/add',
     pathMatch: 'full'

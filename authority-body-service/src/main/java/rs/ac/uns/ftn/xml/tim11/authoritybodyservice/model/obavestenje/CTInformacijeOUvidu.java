@@ -24,7 +24,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="Satnica" type="{http://www.w3.org/2001/XMLSchema}time"/&gt;
  *         &lt;element name="SatnicaOd" type="{http://www.w3.org/2001/XMLSchema}time"/&gt;
  *         &lt;element name="SatnicaDo" type="{http://www.w3.org/2001/XMLSchema}time"/&gt;
- *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTAdresa"/&gt;
+ *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTAdresa"/&gt;
  *         &lt;element name="BrojKancelarije" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;

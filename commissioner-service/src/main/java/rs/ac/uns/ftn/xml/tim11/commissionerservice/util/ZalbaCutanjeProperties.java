@@ -20,6 +20,17 @@ public class ZalbaCutanjeProperties implements XmlResourceProperties {
     @Value("${xml.schema.zalba-cutanje}")
     private String schemaPath;
 
+    @Value("${xml.xsl.zalba-cutanje}")
+    private String xslPath;
+
+    @Value("${xml.xslfo.zalba-cutanje}")
+    private String xslFoPath;
+
+    @Override
+    public String namespace() {
+        return namespace;
+    }
+
     @Override
     public String contextPath() {
         return ZalbaCutanje.class.getPackage().getName();
@@ -28,6 +39,16 @@ public class ZalbaCutanjeProperties implements XmlResourceProperties {
     @Override
     public String schemaPath() {
         return schemaPath;
+    }
+
+    @Override
+    public String xslFoPath() {
+        return xslFoPath;
+    }
+
+    @Override
+    public String xslPath() {
+        return xslPath;
     }
 
     @Override

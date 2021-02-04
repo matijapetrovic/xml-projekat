@@ -21,6 +21,11 @@ public class AccountProperties implements XmlResourceProperties {
     private String schemaPath;
 
     @Override
+    public String namespace() {
+        return namespace;
+    }
+
+    @Override
     public String contextPath() {
         return Account.class.getPackage().getName();
     }
@@ -28,6 +33,16 @@ public class AccountProperties implements XmlResourceProperties {
     @Override
     public String schemaPath() {
         return schemaPath;
+    }
+
+    @Override
+    public String xslFoPath() {
+        return null;
+    }
+
+    @Override
+    public String xslPath() {
+        return null;
     }
 
     @Override

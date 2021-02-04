@@ -21,14 +21,35 @@ public class ObavestenjeProperties implements XmlResourceProperties {
     @Value("${xml.schema.obavestenje}")
     private String schemaPath;
 
+    @Value("${xml.xslfo.obavestenje}")
+    private String xslFoPath;
+
+    @Value("${xml.xsl.obavestenje}")
+    private String xslPath;
+
     @Override
     public String contextPath() {
         return Obavestenje.class.getPackage().getName();
     }
 
     @Override
+    public String namespace() {
+        return namespace;
+    }
+
+    @Override
     public String schemaPath() {
         return schemaPath;
+    }
+
+    @Override
+    public String xslFoPath() {
+        return xslFoPath;
+    }
+
+    @Override
+    public String xslPath() {
+        return xslPath;
     }
 
     @Override

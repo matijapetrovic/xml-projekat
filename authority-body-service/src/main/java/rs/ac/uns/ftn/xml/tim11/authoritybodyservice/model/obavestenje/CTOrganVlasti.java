@@ -11,12 +11,12 @@ import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <p>Java class for CTOrgan complex type.
+ * <p>Java class for CTOrganVlasti complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CTOrgan"&gt;
+ * &lt;complexType name="CTOrganVlasti"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -24,13 +24,13 @@ import javax.xml.bind.annotation.XmlValue;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="izdatoOdStrane" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="nazivOrganaVlasti" /&gt;
  *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="Sediste" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Sediste" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTAdresa"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -40,26 +40,26 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTOrgan", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", propOrder = {
+@XmlType(name = "CTOrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/common", propOrder = {
     "naziv",
     "sediste"
 })
-public class CTOrgan {
+public class CTOrganVlasti {
 
-    @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected CTOrgan.Naziv naziv;
-    @XmlElement(name = "Sediste", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected String sediste;
+    @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/common", required = true)
+    protected CTOrganVlasti.Naziv naziv;
+    @XmlElement(name = "Sediste", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/common", required = true)
+    protected CTAdresa sediste;
 
     /**
      * Gets the value of the naziv property.
      * 
      * @return
      *     possible object is
-     *     {@link CTOrgan.Naziv }
+     *     {@link CTOrganVlasti.Naziv }
      *     
      */
-    public CTOrgan.Naziv getNaziv() {
+    public CTOrganVlasti.Naziv getNaziv() {
         return naziv;
     }
 
@@ -68,10 +68,10 @@ public class CTOrgan {
      * 
      * @param value
      *     allowed object is
-     *     {@link CTOrgan.Naziv }
+     *     {@link CTOrganVlasti.Naziv }
      *     
      */
-    public void setNaziv(CTOrgan.Naziv value) {
+    public void setNaziv(CTOrganVlasti.Naziv value) {
         this.naziv = value;
     }
 
@@ -80,10 +80,10 @@ public class CTOrgan {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link CTAdresa }
      *     
      */
-    public String getSediste() {
+    public CTAdresa getSediste() {
         return sediste;
     }
 
@@ -92,10 +92,10 @@ public class CTOrgan {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link CTAdresa }
      *     
      */
-    public void setSediste(String value) {
+    public void setSediste(CTAdresa value) {
         this.sediste = value;
     }
 
@@ -109,7 +109,7 @@ public class CTOrgan {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="izdatoOdStrane" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="nazivOrganaVlasti" /&gt;
      *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
@@ -167,7 +167,7 @@ public class CTOrgan {
          */
         public String getProperty() {
             if (property == null) {
-                return "izdatoOdStrane";
+                return "nazivOrganaVlasti";
             } else {
                 return property;
             }
