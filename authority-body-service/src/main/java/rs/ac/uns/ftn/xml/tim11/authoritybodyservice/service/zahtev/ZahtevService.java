@@ -56,10 +56,6 @@ public class ZahtevService {
     	//return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
         return marshaller.unmarshal(new FileInputStream(new File("data/xml/zahtev1.xml")));
     }
-
-    public List<Zahtev> findAll() throws XMLDBException, JAXBException {
-        return xmlRepository.findAll();
-    }
     
     public Zahtev getExampleDocument() throws FileNotFoundException, JAXBException {
         return marshaller.unmarshal(new FileInputStream(new File("data/xml/zahtev1.xml")));
