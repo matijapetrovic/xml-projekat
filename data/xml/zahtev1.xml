@@ -14,6 +14,12 @@
         </co:Sediste>
     </za:Organ>
     <za:Zahtevi>
+        <za:Obavestenje>Uvid u obavestenje</za:Obavestenje>
+        <za:DostavljanjeKopije>
+            <za:NacinDostave>
+                <za:Posta>Dostava postom</za:Posta>
+            </za:NacinDostave>
+        </za:DostavljanjeKopije>
     </za:Zahtevi>
     <za:OpisInformacije>OpisInformacije0</za:OpisInformacije>
     <za:OstaliPodaci>

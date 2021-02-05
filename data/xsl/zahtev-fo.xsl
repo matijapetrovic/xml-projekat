@@ -4,7 +4,8 @@
     xmlns:fo="http://www.w3.org/1999/XSL/Format"
     exclude-result-prefixes="xs"
     version="2.0"
-    xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev">
+    xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+    xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
     
     <xsl:variable name="space" select="'&#xA0;'"/>
     
@@ -19,7 +20,9 @@
             <fo:page-sequence master-reference="zahtev-page">
                 <fo:flow flow-name="xsl-region-body" font-family="Times New Roman">
                     <fo:block text-decoration="underline" text-align="center">
-                        <xsl:value-of select="za:Zahtev/za:Organ/za:Naziv"/>
+                        <xsl:value-of select="za:Zahtev/za:Organ/co:Naziv"/>
+                        <xsl:value-of select="$space"/>
+                        <xsl:value-of select="za:Zahtev/za:Organ/co:Sediste"/>
                     </fo:block>
                     <fo:block text-align="center" margin-bottom="50px">
                         naziv i sedište organa kojem se zahtev upućuje
@@ -145,7 +148,7 @@
                     </fo:block>
                     <fo:block text-indent="1em">
                         Ovaj zahtev se odnosi na sledece informacije: <fo:inline text-decoration="underline">
-                            <xsl:value-of select="za:Zahtev/za:Zahtevi/za:Informacije"/>
+                            <xsl:value-of select="za:Zahtev/za:OpisInformacije"/>
                         </fo:inline>
                     </fo:block>
                     <fo:block font-size="10pt" margin-bottom="20px">
@@ -158,35 +161,35 @@
                                     <fo:table-cell text-align="left" margin-top="30px">
                                         <fo:block>
                                             U <fo:inline>
-                                                <xsl:value-of select="za:Zahtev/za:OstaliPodaci/za:Mesto"/>
-                                            </fo:inline>
+                                                <xsl:value-of select="za:Zahtev/za:OstaliPodaci/co:Mesto"/>
+                                            </fo:inline>,
                                         </fo:block>
                                         <fo:block>
-                                            <xsl:variable name="dt" select="za:Zahtev/za:OstaliPodaci/za:Datum"/>
-                                            <xsl:variable name="date" select="xs:date(concat(
-                                                substring($dt,1,4),'-',
-                                                substring($dt,6,2),'-',
-                                                substring($dt,9,2)))"/>
-                                            dana <xsl:value-of select="format-date($date,'[D].[M].[Y].')"/> godine
+                                            <xsl:value-of select="za:Zahtev/za:OstaliPodaci/co:Datum"/>
+                                             <fo:inline></fo:inline> godine.
                                         </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell text-align="right" margin-top="10px">
                                         <fo:block text-decoration="underline">
-                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:Ime"/><xsl:value-of select="$space"/>
-                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:Prezime"/>
+                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Ime"/><xsl:value-of select="$space"/>
+                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Prezime"/>
                                         </fo:block>
                                        
                                         <fo:block margin-bottom="10px">
                                             Trazilac informacije/Ime i prezime
                                         </fo:block>
                                         <fo:block text-decoration="underline">
-                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:Adresa"/>
+                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Adresa/co:Ulica"/>
+                                            <xsl:value-of select="$space"/>
+                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Adresa/co:Broj"/>,
+                                            <xsl:value-of select="$space"/>
+                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Adresa/co:Mesto"/>
                                         </fo:block>
                                         <fo:block margin-bottom="10px">
                                             adresa
                                         </fo:block>
                                         <fo:block text-decoration="underline">
-                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:Kontakt"/>
+                                            <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:DrugiKontaktPodaci"/>
                                         </fo:block>
                                         <fo:block>
                                             drugi podaci za kontakt

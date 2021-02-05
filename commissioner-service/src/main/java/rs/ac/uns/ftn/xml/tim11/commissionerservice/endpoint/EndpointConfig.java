@@ -36,11 +36,11 @@ public class EndpointConfig {
         return endpoint;
     }
 
-    @Bean
-    public Endpoint zalbaNaOdlukuEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new ZalbaNaOdlukuPortImpl());
-        endpoint.publish("/zalbanaodluku");
-        return endpoint;
-    }
+//    @Bean
+//    public Endpoint zalbaNaOdlukuEndpoint() {
+//        EndpointImpl endpoint = new EndpointImpl(bus, new ZalbaNaOdlukuPortImpl());
+//        endpoint.publish("/zalbanaodluku");
+//        return endpoint;
+//    }
 
 }

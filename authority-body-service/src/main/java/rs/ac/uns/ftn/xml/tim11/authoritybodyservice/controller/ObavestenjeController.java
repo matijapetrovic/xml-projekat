@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.dto.ObavestenjeListDTO;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.dto.ZahtevListDTO;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.ObavestenjeMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.obavestenje.ObavestenjeService;
@@ -30,8 +32,10 @@ public class ObavestenjeController {
     private final ObavestenjeProperties properties;
 
     @GetMapping("/search/metadata")
-    public ResponseEntity<List<Obavestenje>> searchMetadata(@RequestBody ObavestenjeMetadataSearchRequest request) throws XMLDBException, IOException {
-        return ResponseEntity.ok(obavestenjeService.searchMetadata(request));
+    public ResponseEntity<ObavestenjeListDTO> searchMetadata(@RequestBody ObavestenjeMetadataSearchRequest request) throws XMLDBException, IOException {
+        ObavestenjeListDTO response = new ObavestenjeListDTO();
+        response.setZahtev(obavestenjeService.searchMetadata(request));
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/example")

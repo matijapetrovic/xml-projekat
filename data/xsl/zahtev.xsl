@@ -4,7 +4,8 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="xs"
     version="2.0"
-    xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev">
+    xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+    xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
     
     <xsl:variable name="space" select="'&#xA0;'"/>
     
@@ -80,8 +81,8 @@
                     <div class="sadrzaj">
                         <div class="organ">
                             <u>
-                                <xsl:value-of select="za:Zahtev/za:Organ/za:Naziv"/>
-                                <xsl:value-of select="za:Zahtev/za:Organ/za:Sediste"/>
+                                <xsl:value-of select="za:Zahtev/za:Organ/co:Naziv"/>
+                                <xsl:value-of select="za:Zahtev/za:Organ/co:Sediste"/>
                             </u>
                         </div>
                         <div class="organ_opis">naziv i sedište organa kojem se zahtev upućuje</div>
@@ -141,7 +142,7 @@
                             <div>
                                 <div class="informacije">Ovaj zahtev se odnosi na sledece informacije:
                                     <u>
-                                        <xsl:value-of select="za:Zahtev/za:Zahtevi/Informacije"/>
+                                        <xsl:value-of select="za:Zahtev/za:OpisInformacije"/>
                                     </u>
                                 </div>
                             </div>
@@ -154,10 +155,10 @@
                                         <div class="levo">
                                             <div>U 
                                                 <u>
-                                                    <xsl:value-of select="za:Zahtev/za:OstaliPodaci/za:Mesto"/>
+                                                    <xsl:value-of select="za:Zahtev/za:OstaliPodaci/co:Mesto"/>
                                                 </u>,
                                             </div>
-                                            <xsl:variable name="dt" select="za:Zahtev/za:OstaliPodaci/za:Datum"/>
+                                            <xsl:variable name="dt" select="za:Zahtev/za:OstaliPodaci/co:Datum"/>
                                             <xsl:variable name="date" select="xs:date(concat(
                                                 substring($dt,1,4),'-',
                                                 substring($dt,6,2),'-',
@@ -170,24 +171,26 @@
                                             <div>
                                                 <div>
                                                     <u>
-                                                        <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:Ime"/>
+                                                        <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Ime"/>
                                                         <xsl:value-of select="$space"/>
                                                     </u>
                                                 </div>
                                                     <u>
-                                                        <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:Prezime"/>
+                                                        <xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Prezime"/>
                                                     </u>
                                                 <div class="opis">Trazilac informacije/Ime i prezime</div>
                                             </div>
                                             <div>
                                                 <div>
-                                                    <u><xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:Adresa"/></u>
+                                                    <u><xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Adresa/co:Ulica"/></u>
+                                                    <u><xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Adresa/co:Broj"/></u>
+                                                    <u><xsl:value-of select="za:Zahtev/za:TrazilacInformacija/co:Adresa/co:Mesto"/></u>
                                                 </div>
                                                 <div class="opis">adresa</div>
                                             </div>
                                             <div>
                                                 <div>
-                                                    <u><xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:Kontakt"/></u>
+                                                    <u><xsl:value-of select="za:Zahtev/za:TrazilacInformacija/za:DrugiKontaktPodaci"/></u>
                                                 </div>
                                                 <div class="opis">drugi podaci za kontakt</div>
                                             </div>

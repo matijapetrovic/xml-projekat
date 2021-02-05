@@ -12,9 +12,7 @@ import org.xmldb.api.base.XMLDBException;
 
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku.ZalbaNaOdluku;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.zalbanaodliku.ZalbaNaOdlukuService;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.ZalbaNaOdlukuProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
-import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,15 +23,16 @@ import java.io.IOException;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value="/zalba-na-odluku", produces = MediaType.APPLICATION_XML_VALUE)
+@RequestMapping(value="/zalba-odluka", produces = MediaType.APPLICATION_XML_VALUE)
 public class ZalbaNaOdlukuController {
     private final ZalbaNaOdlukuService zalbaNaOdlukuService;
-    private final ZalbaNaOdlukuProperties properties;
 
     @GetMapping("/example")
-    public ResponseEntity<String> getExample() throws FileNotFoundException, JAXBException, SAXException {
-        String res = new JaxbMarshaller<ZalbaNaOdluku>(properties).marshal(zalbaNaOdlukuService.getExampleDocument());
-        return ResponseEntity.ok(res);
+    public ResponseEntity<ZalbaNaOdluku> getExample() throws FileNotFoundException, JAXBException {
+    	System.out.println("A");
+    	ResponseEntity<ZalbaNaOdluku> a =  ResponseEntity.ok(zalbaNaOdlukuService.getExampleDocument());
+        System.out.println("B");
+        return a;
     }
 
     @PostMapping("")

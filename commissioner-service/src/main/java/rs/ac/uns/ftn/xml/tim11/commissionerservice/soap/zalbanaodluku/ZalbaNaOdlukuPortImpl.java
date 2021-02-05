@@ -12,8 +12,8 @@ import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.zalbanaodliku.ZalbaNa
         targetNamespace = "http://soap.spring.com/ws/zalbanaodluku",
         // wsdlLocation = "classpath:wsdl/Resenje.wsdl",
         endpointInterface = "rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.zalbanaodluku.ZalbaNaOdlukuPort")
-@Service
-@NoArgsConstructor
+//@Service
+////@NoArgsConstructor
 public class ZalbaNaOdlukuPortImpl implements ZalbaNaOdlukuPort{
 
     @Autowired
