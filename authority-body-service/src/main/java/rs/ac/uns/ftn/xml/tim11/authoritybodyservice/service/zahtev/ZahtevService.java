@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.AuthenticationService;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.User;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ZahtevRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.ZahtevXmlRepository;
@@ -23,10 +26,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
 public class ZahtevService {
+    private final AuthenticationService authenticationService;
+
     private final ZahtevRDFRepository rdfRepository;
     private final ZahtevXmlRepository xmlRepository;
     private final JaxbMarshaller<Zahtev> marshaller;
@@ -34,8 +40,9 @@ public class ZahtevService {
 
     private final XSLTransformer XSLTransformer;
     
-    public ZahtevService(ZahtevRDFRepository rdfRepository, ZahtevXmlRepository xmlRepository, ZahtevProperties properties)
+    public ZahtevService(AuthenticationService authenticationService, ZahtevRDFRepository rdfRepository, ZahtevXmlRepository xmlRepository, ZahtevProperties properties)
             throws JAXBException, SAXException, IOException {
+        this.authenticationService = authenticationService;
         this.rdfRepository = rdfRepository;
         this.xmlRepository = xmlRepository;
         this.properties = properties;
@@ -43,12 +50,23 @@ public class ZahtevService {
         this.XSLTransformer = new XSLTransformer(properties);
     }
 
+    public List<Zahtev> findAll() throws XMLDBException, JAXBException {
+        Account account = authenticationService.getAuthenticated();
+        if(account.hasRole("ROLE_USER"))
+            return xmlRepository.findAllByGradjanin(account.getEmail());
+
+        return xmlRepository.findAll();
+    }
+
     public Long create(Zahtev zahtev) throws JAXBException, XMLDBException, IOException, TransformerException {
+        Account account = authenticationService.getAuthenticated();
     	long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
+
         zahtev.setAbout(properties.namespace() + "/" + id);
-        zahtev.getTrazilacInformacija().setHref("http://placholder/organ/123");
-        zahtev.getOrgan().setHref("http://placholder/organ/123");
-    	xmlRepository.createWithId(zahtev, id);
+        zahtev.getTrazilacInformacija().setHref(
+                String.format("http://www.ftn.uns.ac.rs/xml/tim11/gradjanin/%s", account.getEmail()));
+
+        xmlRepository.createWithId(zahtev, id);
         rdfRepository.saveMetadata(zahtev);
         return id;
     }
