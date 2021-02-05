@@ -12,6 +12,8 @@ import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.dto.ZahtevListDTO;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.AuthenticationService;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
@@ -22,6 +24,7 @@ import javax.xml.transform.TransformerException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController

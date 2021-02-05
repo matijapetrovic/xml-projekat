@@ -16,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'obavestenje/add',
+    // redirectTo: 'obavestenje/add',
+    redirectTo: 'auth/login',
     pathMatch: 'full'
   },
   { path: '**', redirectTo: '' }

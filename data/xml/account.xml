@@ -8,7 +8,7 @@
         <password>$2a$04$yDlTAgQU21CBYDr6sNNv8eZE5t5KNBAW1S8lc5ko97frL6uY5MSz6</password>
         <authorities>
             <Authority>
-                <name>ROLE_COMMISSIONER</name>
+                <name>ROLE_AUTHORITY_BODY</name>
             </Authority>
         </authorities>
 </Account>

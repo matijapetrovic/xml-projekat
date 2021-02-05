@@ -4,11 +4,12 @@ import { AddObavestenjeComponent } from './components/add-obavestenje/add-obaves
 import { ObavestenjeRoutingModule } from './obavestenje-routing.module';
 import { XonomyModule } from 'projects/xonomy/src/public-api';
 import { VendorsModule } from 'projects/vendors/src/projects';
+import { ObavestenjaViewComponent } from './components/obavestenja-view/obavestenja-view.component';
 
 
 
 @NgModule({
-  declarations: [AddObavestenjeComponent],
+  declarations: [AddObavestenjeComponent, ObavestenjaViewComponent],
   imports: [
     CommonModule,
     VendorsModule,

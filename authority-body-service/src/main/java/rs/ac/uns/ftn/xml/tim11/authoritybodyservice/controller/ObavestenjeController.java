@@ -55,6 +55,11 @@ public class ObavestenjeController {
         return ResponseEntity.ok(obavestenjeService.findById(id));
     }
 
+    @GetMapping("/")
+    public ResponseEntity<Obavestenje> getAll() throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
+        return ResponseEntity.ok(obavestenjeService.getExampleDocument());
+    }
+
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<byte[]> generatePdfDocument(@PathVariable Long id)
             throws XMLDBException, TransformerException, FOPException, XmlResourceNotFoundException, JAXBException, FileNotFoundException {
