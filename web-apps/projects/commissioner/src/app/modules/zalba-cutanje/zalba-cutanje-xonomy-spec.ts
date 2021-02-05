@@ -21,19 +21,21 @@ const positiveNumberValidate = function(jsElement) {
 
 
 const elements = {
-    "ZalbaCutanje": {
-      displayName: 'ZalbaCutanje',
+    "zlb:ZalbaCutanje": {
+      displayName: 'Zalba Cutanje',
       attributes: {
         "vocab": { isInvisible: true },
         "about": { isInvisible: true }
        }
     },
     
-    "organVlasti": {
-      displayName: 'OrganVlasti',
-      attributes: {}
+    "zlb:OrganVlasti": {
+      displayName: 'Organ Vlasti',
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
     }, 
-    "naziv": {
+    "co:Naziv": {
       displayName: 'Naziv',
       attributes: {
         "value" : { isInvisible: true},
@@ -44,7 +46,7 @@ const elements = {
         defaultValidate(jsElement);
       }
     },
-    "sediste": {
+    "co:Sediste": {
       displayName: 'Sediste',
       attributes: {
         "value" : { isInvisible: true},
@@ -57,17 +59,18 @@ const elements = {
         
       }
     },
-    "Broj": {
+    "co:Broj": {
+      displayName: 'Broj',
       asker: Xonomy.askNumber,
-      validate: function(jsElement) {
+      validate: function(jsElement) { 
         defaultValidate(jsElement);
         positiveNumberValidate(jsElement);
       }
     },
 
 
-    "DatumZahteva": {
-      displayName: 'DatumZahteva',
+    "co:DatumZahteva": {
+      displayName: 'Datum Zahteva',
       asker: Xonomy.askDate,
       attributes: {
         "property": { isInvisible: true },
@@ -78,7 +81,7 @@ const elements = {
       }
     },
 
-    "Mesto": {
+    "co:Mesto": {
       displayName: 'Mesto',
       attributes: {
         "property": { isInvisible: true },
@@ -89,7 +92,7 @@ const elements = {
         defaultValidate(jsElement);
       }
     },
-    "Datum": {
+    "co:Datum": {
       displayName: 'Datum',
       asker: Xonomy.askDate,
       attributes: {
@@ -101,16 +104,114 @@ const elements = {
       }
     },
 
-    "PodnosilacZalbe": {
-      displayName: 'PodnosilacZalbe',
+    "zlb:ZaglavljeZalbe": {
+      displayName: 'Zaglavlje Zalbe',
       attributes: {
         "vocab": { isInvisible: true },
+        "about": { isInvisible: true }
+       },
+       validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+
+    "zlb:Clan": {
+      displayName: 'Clan',
+    },
+    "zlb:Zakon": {
+      displayName: 'Zakon',
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+    "zlb:Adresa": {
+      displayName: 'Adresa',
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+
+    "zlb:PodnosilacZalbe": {
+      displayName: 'Podnosilac Zalbe',
+      attributes: {
         "about": { isInvisible: true },
         "rel": { isInvisible: true },
-        "href": { isInvisible: true }
-      },
-      hasText: true,
+        "href": { isInvisible: true },
+        "vocab": { isInvisible: true }
+       },
+       validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
     },
+
+    "zlb:RazlogSlanja": {
+      displayName: 'Razlog Slanja',
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+    "zlb:UZakonsomRoku": {
+      displayName: 'U Zakonskom Roku',
+    },
+    "zlb:PodaciOZahtevu": {
+      displayName: 'Podaci O Zahtevu',
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+    "zlb:DrugiKontaktPodaci": {
+      displayName: 'Drugi Kontakt Podaci',
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+    "zlb:OstaliPodaci": {
+      displayName: 'Ostali Podaci',
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+
+    "co:Ulica": {
+      displayName: 'Ulica', 
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+    "co:Ime": {
+      displayName: 'Ime', 
+      attributes: {
+        "property": { isInvisible: true },
+        "datatype": { isInvisible: true }
+      },
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+    "co:Prezime": {
+      displayName: 'Prezime', 
+      attributes: {
+        "property": { isInvisible: true },
+        "datatype": { isInvisible: true }
+      },
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+    "co:Adresa": {
+      displayName: 'Adresa', 
+    },
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    },
+
+    "co:TrazenaInformacija": {
+      displayName: 'Trazena Informacija', 
+      validate: function(jsElement) {
+        defaultValidate(jsElement);
+      }
+    },
+
   };
 
 const validate = function(jsElement) {
