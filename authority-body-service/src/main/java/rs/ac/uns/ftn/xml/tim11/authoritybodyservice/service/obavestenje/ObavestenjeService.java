@@ -45,7 +45,6 @@ public class ObavestenjeService {
         this.properties = properties;
         this.marshaller = new JaxbMarshaller<>(properties);
         this.XSLTransformer = new XSLTransformer(properties);
-        this.authenticationService = authenticationService;
     }
 
     public Long create(Obavestenje obavestenje) throws JAXBException, XMLDBException, TransformerException, IOException {

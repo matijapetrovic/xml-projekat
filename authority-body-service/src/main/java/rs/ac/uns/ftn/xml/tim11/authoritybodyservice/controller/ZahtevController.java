@@ -12,6 +12,8 @@ import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.dto.ZahtevListDTO;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.AuthenticationService;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
@@ -47,11 +49,6 @@ public class ZahtevController {
     public ResponseEntity<Void> addXMLZahtev(@RequestBody Zahtev zahtev) throws XMLDBException, IOException, TransformerException, JAXBException {
         zahtevService.create(zahtev);
         return ResponseEntity.status(HttpStatus.CREATED).build();
-    }
-
-    @GetMapping("")
-    public ResponseEntity<List<Zahtev>> findAllXMLZahtev() throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
-        return ResponseEntity.ok(zahtevService.findAll());
     }
 
     @GetMapping("/{id}")
