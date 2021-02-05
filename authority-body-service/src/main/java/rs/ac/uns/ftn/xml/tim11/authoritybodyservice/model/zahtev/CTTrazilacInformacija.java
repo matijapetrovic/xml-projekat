@@ -21,9 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="DrugiKontaktPodaci" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" /&gt;
- *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podneoZahtev" /&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:podneo" /&gt;
  *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -42,12 +40,6 @@ public class CTTrazilacInformacija
 
     @XmlElement(name = "DrugiKontaktPodaci", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected String drugiKontaktPodaci;
-    @XmlAttribute(name = "vocab", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String vocab;
-    @XmlAttribute(name = "about", required = true)
-    @XmlSchemaType(name = "anySimpleType")
-    protected String about;
     @XmlAttribute(name = "rel", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String rel;
@@ -80,58 +72,6 @@ public class CTTrazilacInformacija
     }
 
     /**
-     * Gets the value of the vocab property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getVocab() {
-        if (vocab == null) {
-            return "http://www.ftn.uns.ac.rs/xml/tim11/predicate/";
-        } else {
-            return vocab;
-        }
-    }
-
-    /**
-     * Sets the value of the vocab property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setVocab(String value) {
-        this.vocab = value;
-    }
-
-    /**
-     * Gets the value of the about property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAbout() {
-        return about;
-    }
-
-    /**
-     * Sets the value of the about property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAbout(String value) {
-        this.about = value;
-    }
-
-    /**
      * Gets the value of the rel property.
      * 
      * @return
@@ -141,7 +81,7 @@ public class CTTrazilacInformacija
      */
     public String getRel() {
         if (rel == null) {
-            return "podneoZahtev";
+            return "pred:podneo";
         } else {
             return rel;
         }

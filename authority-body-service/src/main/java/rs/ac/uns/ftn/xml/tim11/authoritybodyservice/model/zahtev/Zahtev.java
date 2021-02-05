@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOrganVlasti"/&gt;
+ *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTOrgan"/&gt;
  *         &lt;element name="Zahtevi" type="{http://www.ftn.uns.ac.rs/xml/tim11/zahtev}CTZahtevi"/&gt;
  *         &lt;element name="OpisInformacije" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="OstaliPodaci" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOstaliPodaci"/&gt;
@@ -47,7 +47,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Zahtev {
 
     @XmlElement(name = "Organ", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
-    protected CTOrganVlasti organ;
+    protected CTOrgan organ;
     @XmlElement(name = "Zahtevi", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
     protected CTZahtevi zahtevi;
     @XmlElement(name = "OpisInformacije", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev", required = true)
@@ -68,10 +68,10 @@ public class Zahtev {
      * 
      * @return
      *     possible object is
-     *     {@link CTOrganVlasti }
+     *     {@link CTOrgan }
      *     
      */
-    public CTOrganVlasti getOrgan() {
+    public CTOrgan getOrgan() {
         return organ;
     }
 
@@ -80,10 +80,10 @@ public class Zahtev {
      * 
      * @param value
      *     allowed object is
-     *     {@link CTOrganVlasti }
+     *     {@link CTOrgan }
      *     
      */
-    public void setOrgan(CTOrganVlasti value) {
+    public void setOrgan(CTOrgan value) {
         this.organ = value;
     }
 

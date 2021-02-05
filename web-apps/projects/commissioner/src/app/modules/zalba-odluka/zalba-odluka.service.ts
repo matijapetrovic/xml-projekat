@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'projects/authority-body/src/environments/environment';
+import { environment } from 'projects/commissioner/src/environments/environment';
 import { Observable } from 'rxjs';
 
 const postHeaders = new HttpHeaders({

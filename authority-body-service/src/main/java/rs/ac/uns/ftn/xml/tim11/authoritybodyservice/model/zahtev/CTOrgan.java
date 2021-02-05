@@ -1,5 +1,5 @@
 
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje;
+package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,15 +9,15 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for CTPodnosilacZahteva complex type.
+ * <p>Java class for CTOrgan complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CTPodnosilacZahteva"&gt;
+ * &lt;complexType name="CTOrgan"&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTPodnosilac"&gt;
- *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:obavestavaSe" /&gt;
+ *     &lt;extension base="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOrganVlasti"&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:zahtevaSeOd" /&gt;
  *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -27,9 +27,9 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTPodnosilacZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje")
-public class CTPodnosilacZahteva
-    extends CTPodnosilac
+@XmlType(name = "CTOrgan", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zahtev")
+public class CTOrgan
+    extends CTOrganVlasti
 {
 
     @XmlAttribute(name = "rel", required = true)
@@ -49,7 +49,7 @@ public class CTPodnosilacZahteva
      */
     public String getRel() {
         if (rel == null) {
-            return "pred:obavestavaSe";
+            return "pred:zahtevaSeOd";
         } else {
             return rel;
         }

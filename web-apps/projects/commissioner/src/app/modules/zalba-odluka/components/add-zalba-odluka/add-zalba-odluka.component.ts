@@ -23,7 +23,7 @@ export class AddZalbaOdlukaComponent implements OnInit {
   addZalbaOdluka(): void {
     const document: string = this.xonomyService.getCurrentDocument();
     this.zalbaOdlukaService.add(document).subscribe(() => {
-      console.log('ide gas dodato max');
+      console.log('dodata zalba-odluka');
     })
   }
 

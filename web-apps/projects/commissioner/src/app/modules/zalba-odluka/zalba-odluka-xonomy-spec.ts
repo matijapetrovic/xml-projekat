@@ -21,14 +21,21 @@ const positiveNumberValidate = function(jsElement) {
 
 
 const elements = {
-  "ZalbaNaOdluku": {
-    displayName: 'ZalbaNaOdluku',
+  "zod:ZalbaNaOdluku": {
+    displayName: 'Zalba Na Odluku',
     attributes: {
       "vocab": { isInvisible: true },
       "about": { isInvisible: true }
      }
   },
-  "DatumResenja": {
+  "zod:PodaciOResenju": {
+    displayName: 'Podaci O Resenju',
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    } 
+  },
+
+  "zod:DatumResenja": {
     displayName: 'DatumResenja',
     asker: Xonomy.askDate,
     attributes: {
@@ -39,7 +46,13 @@ const elements = {
       defaultValidate(jsElement);
     }
   },
-  "Naziv": {
+  "zod:OrganVlasti": {
+    displayName: 'Organ Vlasti',
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  "co:Naziv": {
     displayName: 'Naziv',
     attributes: {
       "property": { isInvisible: true },
@@ -50,14 +63,76 @@ const elements = {
       defaultValidate(jsElement);
     }
   },
-  "Broj": {
+  "co:Sediste": {
+    displayName: 'Sediste',
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+
+  "co:Mesto": {
+    displayName: 'Mesto',
+    attributes: {
+      "property": { isInvisible: true },
+      "datatype": { isInvisible: true }
+    },
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  "co:Ulica": {
+    displayName: 'Ulica',
+    attributes: {
+      "property": { isInvisible: true },
+      "datatype": { isInvisible: true }
+    },
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  "co:Broj": {
+    displayName: 'Broj',
     asker: Xonomy.askNumber,
     validate: function(jsElement) {
       defaultValidate(jsElement);
       positiveNumberValidate(jsElement);
     }
   },
-  "DatumZahteva": {
+  "zod:BrojResenja": {
+    displayName: 'Broj Resenja',
+    asker: Xonomy.askNumber,
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+      positiveNumberValidate(jsElement);
+    }
+  },
+  "zod:PodnosilacZalbe": {
+    displayName: 'PodnosilacZalbe',
+    attributes: {
+      "vocab": { isInvisible: true },
+      "about": { isInvisible: true },
+      "rel": { isInvisible: true },
+      "href": { isInvisible: true }
+    },
+    hasText: true,
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  "zod:PodaciOZahtevu": {
+    displayName: 'Podaci O Zahtevu',
+    attributes: {
+      "vocab": { isInvisible: true },
+      "about": { isInvisible: true },
+      "rel": { isInvisible: true },
+      "href": { isInvisible: true }
+    },
+    hasText: true,
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  "co:DatumZahteva": {
     displayName: 'DatumZahteva',
     asker: Xonomy.askDate,
     attributes: {
@@ -68,18 +143,14 @@ const elements = {
       defaultValidate(jsElement);
     }
   },
-  "PodnosilacZalbe": {
-    displayName: 'PodnosilacZalbe',
-    attributes: {
-      "vocab": { isInvisible: true },
-      "about": { isInvisible: true },
-      "rel": { isInvisible: true },
-      "href": { isInvisible: true }
-    },
-    hasText: true,
+  "co:TrazenaInformacija": {
+    displayName: 'Trazena Informacija',
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
   },
-  "Mesto": {
-    displayName: 'Mesto',
+  "co:Ime": {
+    displayName: 'Ime', 
     attributes: {
       "property": { isInvisible: true },
       "datatype": { isInvisible: true }
@@ -88,7 +159,36 @@ const elements = {
       defaultValidate(jsElement);
     }
   },
-  "Datum": {
+  "co:Prezime": {
+    displayName: 'Prezime', 
+    attributes: {
+      "property": { isInvisible: true },
+      "datatype": { isInvisible: true }
+    },
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  "co:Adresa": {
+    displayName: 'Adresa', 
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  "zod:DrugiKontaktPodaci": {
+    displayName: 'Drugi Kontakt Podaci',
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  "zod:OstaliPodaci": {
+    displayName: 'Ostali Podaci',
+    validate: function(jsElement) {
+      defaultValidate(jsElement);
+    }
+  },
+  
+  "co:Datum": {
     displayName: 'Datum',
     asker: Xonomy.askDate,
     attributes: {
