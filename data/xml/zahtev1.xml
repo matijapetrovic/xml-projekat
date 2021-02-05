@@ -2,10 +2,11 @@
 <za:Zahtev xmlns="http://www.w3.org/ns/rdfa#"
  xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
  xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+ xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1">
     <za:Organ>
-        <co:Naziv property="nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
+        <co:Naziv property="pred:nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
         <co:Sediste>
             <co:Mesto>Mesto0</co:Mesto>
             <co:Ulica>Ulica0</co:Ulica>
@@ -16,12 +17,12 @@
     </za:Zahtevi>
     <za:OpisInformacije>OpisInformacije0</za:OpisInformacije>
     <za:OstaliPodaci>
-        <co:Mesto property="podnesenU" datatype="xs:string">Mesto1</co:Mesto>
-        <co:Datum property="podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
+        <co:Mesto property="pred:podnesenU" datatype="xs:string">Mesto1</co:Mesto>
+        <co:Datum property="pred:podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
     </za:OstaliPodaci>
     <za:TrazilacInformacija vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about3" rel="podneoZahtev" href="href1">
-        <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
-        <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
+        <co:Ime property="pred:imePodnosioca" datatype="xs:string">Ime0</co:Ime>
+        <co:Prezime property="pred:prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
         <co:Adresa>
             <co:Mesto>Mesto2</co:Mesto>
             <co:Ulica>Ulica1</co:Ulica>

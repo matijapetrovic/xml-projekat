@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:rdfa="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	elementFormDefault="qualified" targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+<xs:schema xmlns:rdfa="http://www.w3.org/ns/rdfa#" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" 
+	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
 	xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
-	xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
+	xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+	xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/">
 
 	<xs:import namespace="http://www.ftn.uns.ac.rs/xml/tim11/common" schemaLocation="common.xsd"/>
 	<xs:element name="Zahtev">

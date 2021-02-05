@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<zlb:ZalbaCutanje xmlns="http://www.w3.org/ns/rdfa#"
+<zlb:ZalbaCutanje xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+ xmlns="http://www.w3.org/ns/rdfa#"
  xmlns:zlb="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
- xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+ xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zalbacutanjecir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1">
     <zlb:OrganVlasti>
-        <co:Naziv property="nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
+        <co:Naziv property="pred:nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
         <co:Sediste>
             <co:Mesto>Mesto0</co:Mesto>
             <co:Ulica>Ulica0</co:Ulica>
@@ -22,15 +23,15 @@
         </zlb:Adresa>
     </zlb:ZaglavljeZalbe>
     <zlb:RazlogSlanja>
-        <zlb:UZakonsomRoku>UZakonsomRoku0</zlb:UZakonsomRoku>
+        <zlb:NijePostupio>NijePostupio0</zlb:NijePostupio>
     </zlb:RazlogSlanja>
     <zlb:PodaciOZahtevu>
         <co:DatumZahteva>2006-05-04</co:DatumZahteva>
         <co:TrazenaInformacija>TrazenaInformacija0</co:TrazenaInformacija>
     </zlb:PodaciOZahtevu>
     <zlb:PodnosilacZalbe vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about3" rel="podneoZalbu" href="href1">
-        <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
-        <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
+        <co:Ime property="pred:imePodnosioca" datatype="xs:string">Ime0</co:Ime>
+        <co:Prezime property="pred:prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
         <co:Adresa>
             <co:Mesto>Mesto2</co:Mesto>
             <co:Ulica>Ulica2</co:Ulica>
@@ -39,7 +40,7 @@
         <zlb:DrugiKontaktPodaci>DrugiKontaktPodaci0</zlb:DrugiKontaktPodaci>
     </zlb:PodnosilacZalbe>
     <zlb:OstaliPodaci>
-        <co:Mesto property="podnesenU" datatype="xs:string">Mesto3</co:Mesto>
-        <co:Datum property="podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
+        <co:Mesto property="pred:podnesenU" datatype="xs:string">Mesto3</co:Mesto>
+        <co:Datum property="pred:podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
     </zlb:OstaliPodaci>
 </zlb:ZalbaCutanje>

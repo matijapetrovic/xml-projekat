@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlValue;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="nazivOrganaVlasti" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:nazivOrganaVlasti" /&gt;
  *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
@@ -109,7 +109,7 @@ public class CTOrganVlasti {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="nazivOrganaVlasti" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:nazivOrganaVlasti" /&gt;
      *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
@@ -167,7 +167,7 @@ public class CTOrganVlasti {
          */
         public String getProperty() {
             if (property == null) {
-                return "nazivOrganaVlasti";
+                return "pred:nazivOrganaVlasti";
             } else {
                 return property;
             }
