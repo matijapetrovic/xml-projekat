@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.dto.ZalbaNaOdlukuListDTO;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.requests.ZalbaNaOdlukuMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku.ZalbaNaOdluku;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.zalbanaodliku.ZalbaNaOdlukuService;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
@@ -27,12 +29,16 @@ import java.io.IOException;
 public class ZalbaNaOdlukuController {
     private final ZalbaNaOdlukuService zalbaNaOdlukuService;
 
+    @GetMapping("/search/metadata")
+    public ResponseEntity<ZalbaNaOdlukuListDTO> searchMetadata(@RequestBody ZalbaNaOdlukuMetadataSearchRequest request) throws XMLDBException, IOException {
+    	ZalbaNaOdlukuListDTO response = new ZalbaNaOdlukuListDTO();
+        response.setZalbaNaOdluku(zalbaNaOdlukuService.searchMetadata(request));
+        return ResponseEntity.ok(response);
+    }
+    
     @GetMapping("/example")
     public ResponseEntity<ZalbaNaOdluku> getExample() throws FileNotFoundException, JAXBException {
-    	System.out.println("A");
-    	ResponseEntity<ZalbaNaOdluku> a =  ResponseEntity.ok(zalbaNaOdlukuService.getExampleDocument());
-        System.out.println("B");
-        return a;
+    	return ResponseEntity.ok(zalbaNaOdlukuService.getExampleDocument());
     }
 
     @PostMapping("")

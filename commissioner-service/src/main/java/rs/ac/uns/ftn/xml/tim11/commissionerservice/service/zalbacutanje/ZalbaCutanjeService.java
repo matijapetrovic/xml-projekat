@@ -5,12 +5,16 @@ import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.requests.ZalbaNaCutanjeMetadataSearchRequest;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.requests.ZalbaNaOdlukuMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.ZalbaCutanje;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku.ZalbaNaOdluku;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ZalbaCutanjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ZalbaCutanjeXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.ZalbaCutanjeProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
+import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.queries.QueryBuilder;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 import rs.ac.uns.ftn.xml.tim11.xmllib.xslfo.XSLTransformer;
 
@@ -24,6 +28,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -81,6 +86,25 @@ public class ZalbaCutanjeService {
       ByteArrayOutputStream out = new ByteArrayOutputStream();
       this.marshaller.marshal(zalbaCutanje, out);
       return XSLTransformer.generateXHtml(new ByteArrayInputStream(out.toByteArray()));
+  }
+  
+  public List<ZalbaCutanje> searchMetadata(ZalbaNaCutanjeMetadataSearchRequest request) throws XMLDBException, IOException {
+      QueryBuilder queryBuilder = new QueryBuilder(properties.namedGraph(), "zalba-cutanje");
+      if(request.getImePodnosioca() != null)
+          queryBuilder = queryBuilder.addParam("imePodnosioca", request.getImePodnosioca());
+      if(request.getPrezimePodnosioca() != null)
+          queryBuilder = queryBuilder.addParam("prezimePodnosioca", request.getPrezimePodnosioca());
+      if(request.getNazivOrganaVlasti() != null)
+          queryBuilder = queryBuilder.addParam("nazivOrganaVlasti", request.getNazivOrganaVlasti());
+      if(request.getPodnesenDatuma() != null)
+          queryBuilder = queryBuilder.addParam("podnesenoDatuma", request.getPodnesenDatuma());
+      if(request.getPodnesenU() != null)
+          queryBuilder = queryBuilder.addParam("podnesenoU", request.getPodnesenU());
+
+      String query = queryBuilder.build();
+      System.out.println(query);
+      List<String> ids = rdfRepository.query(query);
+      return xmlRepository.findAllByIds(ids);
   }
 
     public void findRdf(){

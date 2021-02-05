@@ -34,7 +34,7 @@ public class ObavestenjeController {
     @GetMapping("/search/metadata")
     public ResponseEntity<ObavestenjeListDTO> searchMetadata(@RequestBody ObavestenjeMetadataSearchRequest request) throws XMLDBException, IOException {
         ObavestenjeListDTO response = new ObavestenjeListDTO();
-        response.setZahtev(obavestenjeService.searchMetadata(request));
+        response.setObavestenje(obavestenjeService.searchMetadata(request));
         return ResponseEntity.ok(response);
     }
 

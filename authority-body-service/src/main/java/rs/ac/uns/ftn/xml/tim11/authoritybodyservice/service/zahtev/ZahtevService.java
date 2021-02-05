@@ -5,14 +5,15 @@ import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.ZahtevMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.AuthenticationService;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.User;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ZahtevRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.ZahtevXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.ZahtevProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
+import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.queries.QueryBuilder;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 import rs.ac.uns.ftn.xml.tim11.xmllib.xslfo.XSLTransformer;
 
@@ -96,6 +97,25 @@ public class ZahtevService {
       ByteArrayOutputStream out = new ByteArrayOutputStream();
       this.marshaller.marshal(zahtev, out);
       return XSLTransformer.generateXHtml(new ByteArrayInputStream(out.toByteArray()));
+  }
+  
+  public List<Zahtev> searchMetadata(ZahtevMetadataSearchRequest request) throws XMLDBException, IOException {
+      QueryBuilder queryBuilder = new QueryBuilder(properties.namedGraph(), "zahtev");
+      if(request.getNazivOrganaVlasti() != null)
+          queryBuilder = queryBuilder.addParam("nazivOrganaVlasti", request.getNazivOrganaVlasti());
+      if(request.getPodnesenU() != null)
+          queryBuilder = queryBuilder.addParam("podnesenU", request.getPodnesenU());
+      if(request.getPodnesenDatuma() != null)
+          queryBuilder = queryBuilder.addParam("podnesenDatuma", request.getPodnesenDatuma());
+      if(request.getImePodnosioca() != null)
+          queryBuilder = queryBuilder.addParam("imePodnosioca", request.getImePodnosioca());
+      if(request.getPrezimePodnosioca() != null)
+          queryBuilder = queryBuilder.addParam("prezimePodnosioca", request.getPrezimePodnosioca());
+      
+      String query = queryBuilder.build();
+      System.out.println(query);
+      List<String> ids = rdfRepository.query(query);
+      return xmlRepository.findAllByIds(ids);
   }
 
     public void findRdf(){
