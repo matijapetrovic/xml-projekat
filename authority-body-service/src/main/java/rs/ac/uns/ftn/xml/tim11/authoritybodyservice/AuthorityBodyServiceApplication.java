@@ -33,60 +33,47 @@ public class AuthorityBodyServiceApplication {
 
 //	@Bean
 //	public CommandLineRunner run(
-//			ObavestenjeXmlRepository obavestenjeXmlRepository,
-//			ZahtevXmlRepository zahtevXmlRepository,
-//			ObavestenjeRDFRepository obavestenjeRDFRepository,
-//			ZahtevRDFRepository zahtevRDFRepository,
-//			ObavestenjeProperties obavestenjeProperties,
-//			ZahtevProperties zahtevProperties) {
+//			AuthorityXmlRepository authorityXmlRepository,
+//			AuthorityProperties authorityProperties,
+//			AccountXmlRepository accountXmlRepository,
+//			AccountProperties accountProperties,
+//			UserXmlRepository userXmlRepository,
+//			UserProperties userProperties) {
 //		return args -> {
-//			testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
-//			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
-//		};
-//	}
-	@Bean
-	public CommandLineRunner run(
-			AuthorityXmlRepository authorityXmlRepository,
-			AuthorityProperties authorityProperties,
-			AccountXmlRepository accountXmlRepository,
-			AccountProperties accountProperties,
-			UserXmlRepository userXmlRepository,
-			UserProperties userProperties) {
-		return args -> {
 //			insertAuthority(authorityXmlRepository, authorityProperties);
 //			insertAccount(accountXmlRepository, accountProperties);
 //			insertUser(userXmlRepository, userProperties);
+//		};
+//	}
+
+	@Bean
+	public CommandLineRunner run(
+			ObavestenjeXmlRepository obavestenjeXmlRepository,
+			ZahtevXmlRepository zahtevXmlRepository,
+			ObavestenjeRDFRepository obavestenjeRDFRepository,
+			ZahtevRDFRepository zahtevRDFRepository,
+			ObavestenjeProperties obavestenjeProperties,
+			ZahtevProperties zahtevProperties) {
+		return args -> {
+			//testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
+			//testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
+
 		};
 	}
 
-//	@Bean
-//	public CommandLineRunner run(
-//			ObavestenjeXmlRepository obavestenjeXmlRepository,
-//			ZahtevXmlRepository zahtevXmlRepository,
-//			ObavestenjeRDFRepository obavestenjeRDFRepository,
-//			ZahtevRDFRepository zahtevRDFRepository,
-//			ObavestenjeProperties obavestenjeProperties,
-//			ZahtevProperties zahtevProperties) {
-//		return args -> {
-//			//testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
-//			//testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
-//
-//		};
-//	}
-//
-//	public void testObavestenje(ObavestenjeXmlRepository xmlRepository, ObavestenjeRDFRepository rdfRepository, ObavestenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
-//		JaxbMarshaller<Obavestenje> m = new JaxbMarshaller<>(properties);
-//		Obavestenje resenje = m.unmarshal(new FileInputStream("data/xml/obavestenje1.xml"));
-//
-//		rdfRepository.saveMetadata(resenje);
-//	}
-//
-//	public void testZahtev(ZahtevXmlRepository xmlRepository, ZahtevRDFRepository rdfRepository, ZahtevProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
-//		JaxbMarshaller<Zahtev> m = new JaxbMarshaller<>(properties);
-//		Zahtev resenje = m.unmarshal(new FileInputStream("data/xml/zahtev1.xml"));
-//
-//		rdfRepository.saveMetadata(resenje);
-//	}
+	public void testObavestenje(ObavestenjeXmlRepository xmlRepository, ObavestenjeRDFRepository rdfRepository, ObavestenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
+		JaxbMarshaller<Obavestenje> m = new JaxbMarshaller<>(properties);
+		Obavestenje resenje = m.unmarshal(new FileInputStream("data/xml/obavestenje1.xml"));
+
+		rdfRepository.saveMetadata(resenje);
+	}
+
+	public void testZahtev(ZahtevXmlRepository xmlRepository, ZahtevRDFRepository rdfRepository, ZahtevProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
+		JaxbMarshaller<Zahtev> m = new JaxbMarshaller<>(properties);
+		Zahtev resenje = m.unmarshal(new FileInputStream("data/xml/zahtev1.xml"));
+
+		rdfRepository.saveMetadata(resenje);
+	}
 
 		public void insertAuthority(AuthorityXmlRepository xmlRepository, AuthorityProperties properties) throws JAXBException, SAXException, IOException, XMLDBException {
 		JaxbMarshaller<Authority> m = new JaxbMarshaller<>(properties);

@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -55,6 +56,10 @@ public class ZahtevService {
     public Zahtev findById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
     	//return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
         return marshaller.unmarshal(new FileInputStream(new File("data/xml/zahtev1.xml")));
+    }
+
+    public List<Zahtev> findAll() throws XMLDBException, JAXBException {
+        return xmlRepository.findAll();
     }
     
     public Zahtev getExampleDocument() throws FileNotFoundException, JAXBException {

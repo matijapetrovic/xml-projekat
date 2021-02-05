@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 import { RegisterRequest } from './register';
 import { HandleError, HttpErrorHandler } from '../../core/services/http-error-handler.service';
 import { Role } from './role';
+import * as JsonToXML from "js2xmlparser";
+import * as converter from 'xml-js';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/xml',
   })
 };
 
@@ -31,7 +33,7 @@ export class AuthenticationService {
     if (!user) {
       return null;
     }
-    user.role = user.role.map((role: string) => Role[role]);
+    user.role = Role[user.role];
     return user;
   }
 
@@ -49,15 +51,19 @@ export class AuthenticationService {
     return this.currentUserSubject.value != null;
   }
 
-  login(email: string, password: string): Observable<User> {
-    return this.http.post<User>(`${this.authenticationUrl}/login`, { email, password })
+  login(username: string, password: string): Observable<User> {
+    const reqBody = { username, password };
+    return this.http.post(`${this.authenticationUrl}/login`, JsonToXML.parse('root', reqBody), { ...httpOptions, responseType: 'text' })
       .pipe(
-        catchError(this.handleError<User>('login')),
-        tap(userInfo => {
+        catchError(this.handleError<string>('login')),
+        map(dtoXML => {
+          let jsonDTO: User = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }));
+          let userInfo = jsonDTO['LoginDTO'];
           if (userInfo && userInfo.token) {
             localStorage.setItem('currentUser', JSON.stringify(userInfo));
             this.currentUserSubject.next(this.getUserFromLocalStorage());
           }
+          return userInfo;
         }));
   }
 
@@ -67,11 +73,11 @@ export class AuthenticationService {
     this.router.navigate(['']);
   }
 
-  register(registerRequest: RegisterRequest): Observable<void> {
+  register(registerRequest: RegisterRequest): Observable<string> {
     const url = `${this.authenticationUrl}/register`;
-    return this.http.post<void>(url, registerRequest, httpOptions)
+    return this.http.post(url, JsonToXML.parse('root', registerRequest), { ...httpOptions, responseType: 'text' })
       .pipe(
-        catchError(this.handleError<void>('postRegisterRequest')
+        catchError(this.handleError<string>('postRegisterRequest')
         )
       );
   }

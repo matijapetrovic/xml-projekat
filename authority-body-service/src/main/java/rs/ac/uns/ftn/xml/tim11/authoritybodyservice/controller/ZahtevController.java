@@ -20,6 +20,7 @@ import javax.xml.transform.TransformerException;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -36,6 +37,11 @@ public class ZahtevController {
     public ResponseEntity<Void> addXMLZahtev(@RequestBody Zahtev enitity) throws XMLDBException, IOException, TransformerException, JAXBException {
         zahtevService.create(enitity);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping("")
+    public ResponseEntity<List<Zahtev>> findAllXMLZahtev() throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
+        return ResponseEntity.ok(zahtevService.findAll());
     }
 
     @GetMapping("/{id}")
