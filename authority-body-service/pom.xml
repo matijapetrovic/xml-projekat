@@ -86,10 +86,10 @@
 		</dependency>
 
 		<!-- REST Web Service needs to respond with XML media type -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.dataformat</groupId>
-			<artifactId>jackson-dataformat-xml</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.fasterxml.jackson.dataformat</groupId>-->
+<!--			<artifactId>jackson-dataformat-xml</artifactId>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>
