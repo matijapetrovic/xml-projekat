@@ -1,24 +1,31 @@
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util;
+package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties;
+
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.User;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.XQueryExpressions;
 
 @Component
-public class UserProperties implements XmlResourceProperties {
-    @Value("${rdf.named-graph.user}")
+public class ZahtevProperties implements XmlResourceProperties {
+    @Value("${rdf.named-graph.zahtev}")
     private String namedGraph;
 
-    @Value("${xml.collectionId.user}")
+    @Value("${xml.collectionId.zahtev}")
     private String collectionId;
 
-    @Value("${xml.namespace.user}")
+    @Value("${xml.namespace.zahtev}")
     private String namespace;
 
-    @Value("${xml.schema.user}")
+    @Value("${xml.schema.zahtev}")
     private String schemaPath;
+
+    @Value("${xml.xslfo.zahtev}")
+    private String xslFoPath;
+
+    @Value("${xml.xsl.zahtev}")
+    private String xslPath;
 
     @Override
     public String namespace() {
@@ -27,7 +34,7 @@ public class UserProperties implements XmlResourceProperties {
 
     @Override
     public String contextPath() {
-        return User.class.getPackage().getName();
+        return Zahtev.class.getPackage().getName();
     }
 
     @Override
@@ -37,12 +44,12 @@ public class UserProperties implements XmlResourceProperties {
 
     @Override
     public String xslFoPath() {
-        return null;
+        return xslFoPath;
     }
 
     @Override
     public String xslPath() {
-        return null;
+        return xslPath;
     }
 
     @Override
@@ -60,7 +67,8 @@ public class UserProperties implements XmlResourceProperties {
         return new XQueryExpressions(
                 namespace,
                 collectionId,
-                User.class.getSimpleName()
+                Zahtev.class.getSimpleName()
         );
     }
 }
+

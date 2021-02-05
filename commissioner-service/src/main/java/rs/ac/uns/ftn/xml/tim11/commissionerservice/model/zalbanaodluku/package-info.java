@@ -10,14 +10,14 @@
         namespace = "http://www.w3.org/ns/rdfa#",
         elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED,
         xmlns = {
-                @javax.xml.bind.annotation.XmlNs(prefix = "", namespaceURI="http://www.w3.org/ns/rdfa#"),
-                @javax.xml.bind.annotation.XmlNs(prefix = "ob", namespaceURI="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"),
+                @javax.xml.bind.annotation.XmlNs(prefix="", namespaceURI="http://www.w3.org/ns/rdfa#"),
+                @javax.xml.bind.annotation.XmlNs(prefix="zod", namespaceURI="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"),
                 @javax.xml.bind.annotation.XmlNs(prefix = "xs", namespaceURI="http://www.w3.org/2001/XMLSchema#"),
                 @javax.xml.bind.annotation.XmlNs(prefix="co", namespaceURI="http://www.ftn.uns.ac.rs/xml/tim11/common"),
                 @javax.xml.bind.annotation.XmlNs(prefix="xsi", namespaceURI="http://www.w3.org/2001/XMLSchema-instance"),
                 @javax.xml.bind.annotation.XmlNs(prefix="pred", namespaceURI="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"),
         }
 )
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje;
+package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku;
 
 import javax.xml.bind.annotation.XmlSchema;
