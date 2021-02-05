@@ -46,14 +46,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTPodnosilac }
-     * 
-     */
-    public CTPodnosilac createCTPodnosilac() {
-        return new CTPodnosilac();
-    }
-
-    /**
      * Create an instance of {@link CTOrganVlasti }
      * 
      */
@@ -62,11 +54,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTPodnosilac }
+     * 
+     */
+    public CTPodnosilac createCTPodnosilac() {
+        return new CTPodnosilac();
+    }
+
+    /**
      * Create an instance of {@link Obavestenje.Datum }
      * 
      */
     public Obavestenje.Datum createObavestenjeDatum() {
         return new Obavestenje.Datum();
+    }
+
+    /**
+     * Create an instance of {@link CTOrganIzdavac }
+     * 
+     */
+    public CTOrganIzdavac createCTOrganIzdavac() {
+        return new CTOrganIzdavac();
     }
 
     /**
@@ -134,6 +142,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTOrganVlasti.Naziv }
+     * 
+     */
+    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
+        return new CTOrganVlasti.Naziv();
+    }
+
+    /**
      * Create an instance of {@link CTPodnosilac.Ime }
      * 
      */
@@ -147,14 +163,6 @@ public class ObjectFactory {
      */
     public CTPodnosilac.Prezime createCTPodnosilacPrezime() {
         return new CTPodnosilac.Prezime();
-    }
-
-    /**
-     * Create an instance of {@link CTOrganVlasti.Naziv }
-     * 
-     */
-    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
-        return new CTOrganVlasti.Naziv();
     }
 
 }

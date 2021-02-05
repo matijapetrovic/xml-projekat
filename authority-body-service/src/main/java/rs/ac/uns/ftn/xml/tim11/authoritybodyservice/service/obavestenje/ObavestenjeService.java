@@ -30,9 +30,8 @@ public class ObavestenjeService {
     private final ObavestenjeRDFRepository rdfRepository;
     private final ObavestenjeXmlRepository xmlRepository;
     private final JaxbMarshaller<Obavestenje> marshaller;
-    private final ObavestenjeProperties properties;
-    private final AuthenticationService authenticationService;
 
+    private final ObavestenjeProperties properties;
     private final XSLTransformer XSLTransformer;
 
     public ObavestenjeService(
@@ -53,13 +52,8 @@ public class ObavestenjeService {
         long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
         String self = properties.namespace() + "/" + id;
         obavestenje.setAbout(self);
-
-        Account currentAuthenticatedAccount = authenticationService.getAuthenticated();
-        obavestenje.getPodnosilacZahteva().setAbout(currentAuthenticatedAccount.getEmail());
-        obavestenje.getPodnosilacZahteva().setHref(self);
-        StringWriter sw = new StringWriter();
-        marshaller.marshal(obavestenje, sw);
-        System.out.println(sw.toString());
+        obavestenje.getPodnosilacZahteva().setHref("http://placholder/gradjanin/123");
+        obavestenje.getOrgan().setHref("http://placholder/organ/123");
         xmlRepository.createWithId(obavestenje, id);
         rdfRepository.saveMetadata(obavestenje);
         return id;

@@ -25,7 +25,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podnesenU" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:podnesenU" /&gt;
  *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
@@ -35,7 +35,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podnesenDatuma" /&gt;
+ *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:podnesenDatuma" /&gt;
  *                 &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:date" /&gt;
  *               &lt;/extension&gt;
  *             &lt;/simpleContent&gt;
@@ -119,7 +119,7 @@ public class CTOstaliPodaci {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;date"&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podnesenDatuma" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:podnesenDatuma" /&gt;
      *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:date" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
@@ -178,7 +178,7 @@ public class CTOstaliPodaci {
          */
         public String getProperty() {
             if (property == null) {
-                return "podnesenDatuma";
+                return "pred:podnesenDatuma";
             } else {
                 return property;
             }
@@ -236,7 +236,7 @@ public class CTOstaliPodaci {
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
      *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="podnesenU" /&gt;
+     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:podnesenU" /&gt;
      *       &lt;attribute name="datatype" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="xs:string" /&gt;
      *     &lt;/extension&gt;
      *   &lt;/simpleContent&gt;
@@ -294,7 +294,7 @@ public class CTOstaliPodaci {
          */
         public String getProperty() {
             if (property == null) {
-                return "podnesenU";
+                return "pred:podnesenU";
             } else {
                 return property;
             }

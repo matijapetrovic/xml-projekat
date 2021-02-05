@@ -4,7 +4,8 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
     xmlns:zlb="http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje"
-    xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
+    xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+    xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/">
 
     <xs:import namespace="http://www.ftn.uns.ac.rs/xml/tim11/common" schemaLocation="common.xsd"/>
     <xs:element name="ZalbaCutanje">

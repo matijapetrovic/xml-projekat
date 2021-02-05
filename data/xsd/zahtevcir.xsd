@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:rdfa="http://www.w3.org/ns/rdfa#" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	elementFormDefault="qualified" targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
+<xs:schema xmlns:rdfa="http://www.w3.org/ns/rdfa#" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" 
+	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
 	xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
-	xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
+	xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+	xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/">
 
 	<xs:import namespace="http://www.ftn.uns.ac.rs/xml/tim11/common" schemaLocation="common.xsd"/>
 	<xs:element name="Zahtev">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="Organ" type="co:CTOrganVlasti"/>
+				<xs:element name="Organ" type="za:CTOrgan"/>
 				<xs:element name="Zahtevi" type="za:CTZahtevi"/>
 				<xs:element name="OpisInformacije" type="xs:string"/>
 				<xs:element name="OstaliPodaci" type="co:CTOstaliPodaci"/>
@@ -49,13 +52,22 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:complexType name="CTOrgan">
+		<xs:complexContent>
+			<xs:extension base="co:CTOrganVlasti">
+				<xs:attribute name="rel" fixed="pred:zahtevaSeOd" use="required"/>
+				<xs:attribute name="href" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 
 	<xs:complexType name="CTZahtevi">
 		<xs:sequence>
-			<xs:element minOccurs="0" name="Obavestenje"/>
-			<xs:element minOccurs="0" name="Uvid"/>
-			<xs:element minOccurs="0" name="Kopija"/>
-			<xs:element minOccurs="0" name="DostavljanjeKopije">
+			<xs:element minOccurs="0" maxOccurs="1" name="Obavestenje"/>
+			<xs:element minOccurs="0" maxOccurs="1" name="Uvid"/>
+			<xs:element minOccurs="0" maxOccurs="1" name="Kopija"/>
+			<xs:element minOccurs="0" maxOccurs="1" name="DostavljanjeKopije">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="NacinDostave" type="za:CTNacinDostave"/>
@@ -93,9 +105,7 @@
 				<xs:sequence>
 					<xs:element name="DrugiKontaktPodaci" type="xs:string" />
 				</xs:sequence>
-				<xs:attribute name="vocab" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" use="required"/>
-				<xs:attribute name="about" use="required" />
-				<xs:attribute name="rel" fixed="podneoZahtev" use="required"/>
+				<xs:attribute name="rel" fixed="pred:podneo" use="required"/>
 				<xs:attribute name="href" use="required" />
 			</xs:extension>
 		</xs:complexContent>

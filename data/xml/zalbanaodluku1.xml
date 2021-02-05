@@ -2,12 +2,13 @@
 <zod:ZalbaNaOdluku xmlns="http://www.w3.org/ns/rdfa#"
  xmlns:zod="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku"
  xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+ xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zalbanaodluku file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zalbanaodlukucir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1">
     <zod:PodaciOResenju>
         <zod:DatumResenja>2006-05-04</zod:DatumResenja>
         <zod:OrganVlasti>
-            <co:Naziv property="nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
+            <co:Naziv property="pred:nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
             <co:Sediste>
                 <co:Mesto>Mesto0</co:Mesto>
                 <co:Ulica>Ulica0</co:Ulica>
@@ -21,8 +22,8 @@
         <co:TrazenaInformacija>TrazenaInformacija0</co:TrazenaInformacija>
     </zod:PodaciOZahtevu>
     <zod:PodnosilacZalbe vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about3" rel="podneoZalbu" href="href1">
-        <co:Ime property="imePodnosioca" datatype="xs:string">Ime0</co:Ime>
-        <co:Prezime property="prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
+        <co:Ime property="pred:imePodnosioca" datatype="xs:string">Ime0</co:Ime>
+        <co:Prezime property="pred:prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
         <co:Adresa>
             <co:Mesto>Mesto1</co:Mesto>
             <co:Ulica>Ulica1</co:Ulica>
@@ -31,7 +32,7 @@
         <zod:DrugiKontaktPodaci>DrugiKontaktPodaci0</zod:DrugiKontaktPodaci>
     </zod:PodnosilacZalbe>
     <zod:OstaliPodaci>
-        <co:Mesto property="podnesenU" datatype="xs:string">Mesto2</co:Mesto>
-        <co:Datum property="podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
+        <co:Mesto property="pred:podnesenU" datatype="xs:string">Mesto2</co:Mesto>
+        <co:Datum property="pred:podnesenDatuma" datatype="xs:date">2006-05-04</co:Datum>
     </zod:OstaliPodaci>
 </zod:ZalbaNaOdluku>
