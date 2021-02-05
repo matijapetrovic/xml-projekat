@@ -4,10 +4,10 @@
  xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
  xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1" rel="rel1" href="href1">
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/obavestenjecir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1">
     <ob:BrojPredmeta>BrojPredmeta0</ob:BrojPredmeta>
     <ob:Datum property="pred:podnesenoDatuma" datatype="xs:date">2006-05-04</ob:Datum>
-    <ob:Organ>
+    <ob:Organ rel="pred:izdaje" href="href1">
         <co:Naziv property="pred:nazivOrganaVlasti" datatype="xs:string">Naziv0</co:Naziv>
         <co:Sediste>
             <co:Mesto>Mesto0</co:Mesto>
@@ -15,7 +15,7 @@
             <co:Broj>50</co:Broj>
         </co:Sediste>
     </ob:Organ>
-    <ob:PodnosilacZahteva vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about3" rel="obavestavaSe" href="href3">
+    <ob:PodnosilacZahteva rel="pred:obavestavaSe" href="href3">
         <co:Ime property="pred:imePodnosioca" datatype="xs:string">Ime0</co:Ime>
         <co:Prezime property="pred:prezimePodnosioca" datatype="xs:string">Prezime0</co:Prezime>
         <co:Adresa>

@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
@@ -43,6 +44,9 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlType(name = "CTOrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/common", propOrder = {
     "naziv",
     "sediste"
+})
+@XmlSeeAlso({
+    CTOrgan.class
 })
 public class CTOrganVlasti {
 

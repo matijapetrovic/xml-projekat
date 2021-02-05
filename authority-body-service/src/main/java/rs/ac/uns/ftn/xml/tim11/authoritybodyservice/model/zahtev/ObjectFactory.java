@@ -30,6 +30,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTOrganVlasti }
+     * 
+     */
+    public CTOrganVlasti createCTOrganVlasti() {
+        return new CTOrganVlasti();
+    }
+
+    /**
      * Create an instance of {@link CTPodnosilac }
      * 
      */
@@ -78,19 +86,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTOrganVlasti }
-     * 
-     */
-    public CTOrganVlasti createCTOrganVlasti() {
-        return new CTOrganVlasti();
-    }
-
-    /**
      * Create an instance of {@link Zahtev }
      * 
      */
     public Zahtev createZahtev() {
         return new Zahtev();
+    }
+
+    /**
+     * Create an instance of {@link CTOrgan }
+     * 
+     */
+    public CTOrgan createCTOrgan() {
+        return new CTOrgan();
     }
 
     /**
@@ -115,6 +123,14 @@ public class ObjectFactory {
      */
     public CTPodaciOZahtevu createCTPodaciOZahtevu() {
         return new CTPodaciOZahtevu();
+    }
+
+    /**
+     * Create an instance of {@link CTOrganVlasti.Naziv }
+     * 
+     */
+    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
+        return new CTOrganVlasti.Naziv();
     }
 
     /**
@@ -171,14 +187,6 @@ public class ObjectFactory {
      */
     public CTZahtevi.DostavljanjeKopije createCTZahteviDostavljanjeKopije() {
         return new CTZahtevi.DostavljanjeKopije();
-    }
-
-    /**
-     * Create an instance of {@link CTOrganVlasti.Naziv }
-     * 
-     */
-    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
-        return new CTOrganVlasti.Naziv();
     }
 
 }

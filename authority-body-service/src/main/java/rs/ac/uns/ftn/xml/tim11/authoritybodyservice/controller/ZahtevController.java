@@ -33,8 +33,8 @@ public class ZahtevController {
     }
     
     @PostMapping("")
-    public ResponseEntity<Void> addXMLZahtev(@RequestBody Zahtev enitity) throws XMLDBException, IOException, TransformerException, JAXBException {
-        zahtevService.create(enitity);
+    public ResponseEntity<Void> addXMLZahtev(@RequestBody Zahtev zahtev) throws XMLDBException, IOException, TransformerException, JAXBException {
+        zahtevService.create(zahtev);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

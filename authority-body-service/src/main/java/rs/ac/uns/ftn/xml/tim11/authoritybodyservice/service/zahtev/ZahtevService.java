@@ -43,12 +43,14 @@ public class ZahtevService {
         this.XSLTransformer = new XSLTransformer(properties);
     }
 
-    public Long create(Zahtev entity) throws JAXBException, XMLDBException, IOException, TransformerException {
+    public Long create(Zahtev zahtev) throws JAXBException, XMLDBException, IOException, TransformerException {
     	long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
-        entity.setAbout(properties.namespace() + "/" + id);
-    	Long createdId = xmlRepository.create(entity);
-        rdfRepository.saveMetadata(entity);
-        return createdId;
+        zahtev.setAbout(properties.namespace() + "/" + id);
+        zahtev.getTrazilacInformacija().setHref("http://placholder/organ/123");
+        zahtev.getOrgan().setHref("http://placholder/organ/123");
+    	xmlRepository.createWithId(zahtev, id);
+        rdfRepository.saveMetadata(zahtev);
+        return id;
     }
 
     public Zahtev findById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
