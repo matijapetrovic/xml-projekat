@@ -1,40 +1,40 @@
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util;
+package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties;
 
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.XQueryExpressions;
 
 @Component
-public class ZahtevProperties implements XmlResourceProperties {
-    @Value("${rdf.named-graph.zahtev}")
+public class ObavestenjeProperties implements XmlResourceProperties {
+    @Value("${rdf.named-graph.obavestenje}")
     private String namedGraph;
 
-    @Value("${xml.collectionId.zahtev}")
+    @Value("${xml.collectionId.obavestenje}")
     private String collectionId;
 
-    @Value("${xml.namespace.zahtev}")
+    @Value("${xml.namespace.obavestenje}")
     private String namespace;
 
-    @Value("${xml.schema.zahtev}")
+    @Value("${xml.schema.obavestenje}")
     private String schemaPath;
 
-    @Value("${xml.xslfo.zahtev}")
+    @Value("${xml.xslfo.obavestenje}")
     private String xslFoPath;
 
-    @Value("${xml.xsl.zahtev}")
+    @Value("${xml.xsl.obavestenje}")
     private String xslPath;
+
+    @Override
+    public String contextPath() {
+        return Obavestenje.class.getPackage().getName();
+    }
 
     @Override
     public String namespace() {
         return namespace;
-    }
-
-    @Override
-    public String contextPath() {
-        return Zahtev.class.getPackage().getName();
     }
 
     @Override
@@ -67,7 +67,7 @@ public class ZahtevProperties implements XmlResourceProperties {
         return new XQueryExpressions(
                 namespace,
                 collectionId,
-                Zahtev.class.getSimpleName()
+                Obavestenje.class.getSimpleName()
         );
     }
 }

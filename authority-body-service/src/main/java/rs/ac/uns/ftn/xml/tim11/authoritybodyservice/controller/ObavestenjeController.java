@@ -8,9 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.ObavestenjeMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.obavestenje.ObavestenjeService;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.ObavestenjeProperties;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.ObavestenjeProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 
@@ -19,6 +20,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -26,6 +28,11 @@ import java.io.IOException;
 public class ObavestenjeController {
     private final ObavestenjeService obavestenjeService;
     private final ObavestenjeProperties properties;
+
+    @GetMapping("/search/metadata")
+    public ResponseEntity<List<Obavestenje>> searchMetadata(@RequestBody ObavestenjeMetadataSearchRequest request) throws XMLDBException, IOException {
+        return ResponseEntity.ok(obavestenjeService.searchMetadata(request));
+    }
 
     @GetMapping("/example")
     public ResponseEntity<String> getExample() throws FileNotFoundException, JAXBException, SAXException {

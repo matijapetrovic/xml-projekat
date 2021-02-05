@@ -9,12 +9,14 @@ import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.DbConnection;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
+import rs.ac.uns.ftn.xml.tim11.xmllib.util.UncheckException;
 
 import javax.xml.bind.JAXBException;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.StringWriter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class XmlRepository<T> {
     private final XmlResourceProperties properties;
@@ -43,6 +45,15 @@ public class XmlRepository<T> {
         }
 
         return result;
+    }
+
+    public List<T> findAllByIds(List<String> ids) throws XMLDBException {
+        Collection collection = conn.getCollection(properties.collectionId());
+
+        return ids.stream()
+                .map(UncheckException.wrapper(id -> (XMLResource) collection.getResource(id + ".xml")))
+                .map(UncheckException.wrapper(resource -> marshaller.unmarshal(resource.getContentAsDOM())))
+                .collect(Collectors.toList());
     }
 
     @SuppressWarnings("unchecked")

@@ -3,9 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'auth',
-    loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule),
+    path: 'zalba-cutanje',
+    loadChildren: () => import('./modules/zalba-cutanje/zalba-cutanje.module').then(m => m.ZalbaCutanjeModule)
   },
+  {
+    path: '',
+    redirectTo: 'zalba-cutanje/add',
+    pathMatch: 'full'
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

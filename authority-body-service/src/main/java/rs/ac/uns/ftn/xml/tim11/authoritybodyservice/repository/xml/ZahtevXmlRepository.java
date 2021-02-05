@@ -6,7 +6,7 @@ import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.ZahtevProperties;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.ZahtevProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.XmlRepository;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.DbConnection;
 

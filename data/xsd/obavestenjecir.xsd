@@ -24,7 +24,7 @@
 	                </xs:complexType>
 	            </xs:element>
 	            <xs:element name="Organ" type="co:CTOrganVlasti"/>
-	            <xs:element name="PodnosiocZahteva" type="ob:CTPodnosilacZahteva"/>
+	            <xs:element name="PodnosilacZahteva" type="ob:CTPodnosilacZahteva"/>
 	            <xs:element name="TrazenaInformacija" type="co:CTPodaciOZahtevu"/> 
 	            <xs:element name="InformacijeOUvidu" type="ob:CTInformacijeOUvidu"/>
 	            <xs:element name="Troskovi" type="ob:CTTroskovi"/>

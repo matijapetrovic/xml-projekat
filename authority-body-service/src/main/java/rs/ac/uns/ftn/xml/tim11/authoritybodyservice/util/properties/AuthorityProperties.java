@@ -1,40 +1,33 @@
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util;
-
+package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Authority;
 import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.XQueryExpressions;
 
 @Component
-public class ObavestenjeProperties implements XmlResourceProperties {
-    @Value("${rdf.named-graph.obavestenje}")
+public class AuthorityProperties implements XmlResourceProperties {
+    @Value("${rdf.named-graph.authority}")
     private String namedGraph;
 
-    @Value("${xml.collectionId.obavestenje}")
+    @Value("${xml.collectionId.authority}")
     private String collectionId;
 
-    @Value("${xml.namespace.obavestenje}")
+    @Value("${xml.namespace.authority}")
     private String namespace;
 
-    @Value("${xml.schema.obavestenje}")
+    @Value("${xml.schema.authority}")
     private String schemaPath;
-
-    @Value("${xml.xslfo.obavestenje}")
-    private String xslFoPath;
-
-    @Value("${xml.xsl.obavestenje}")
-    private String xslPath;
-
-    @Override
-    public String contextPath() {
-        return Obavestenje.class.getPackage().getName();
-    }
 
     @Override
     public String namespace() {
         return namespace;
+    }
+
+    @Override
+    public String contextPath() {
+        return Authority.class.getPackage().getName();
     }
 
     @Override
@@ -44,12 +37,12 @@ public class ObavestenjeProperties implements XmlResourceProperties {
 
     @Override
     public String xslFoPath() {
-        return xslFoPath;
+        return null;
     }
 
     @Override
     public String xslPath() {
-        return xslPath;
+        return null;
     }
 
     @Override
@@ -67,8 +60,7 @@ public class ObavestenjeProperties implements XmlResourceProperties {
         return new XQueryExpressions(
                 namespace,
                 collectionId,
-                Obavestenje.class.getSimpleName()
+                Authority.class.getSimpleName()
         );
     }
 }
-

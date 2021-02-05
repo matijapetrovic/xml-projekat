@@ -19,7 +19,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:string">
-                            <xs:attribute fixed="imePodnosioca" form="unqualified" name="property" use="required"/>
+                            <xs:attribute fixed="pred:imePodnosioca" form="unqualified" name="property" use="required"/>
                             <xs:attribute fixed="xs:string" name="datatype" use="required"/>
                         </xs:extension>
                     </xs:simpleContent>
@@ -29,7 +29,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:string">
-                            <xs:attribute fixed="prezimePodnosioca" form="unqualified" name="property" use="required"/>
+                            <xs:attribute fixed="pred:prezimePodnosioca" form="unqualified" name="property" use="required"/>
                             <xs:attribute fixed="xs:string" name="datatype" use="required"/>
                         </xs:extension>
                     </xs:simpleContent>
@@ -45,7 +45,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:string">
-                            <xs:attribute fixed="nazivOrganaVlasti" form="unqualified" name="property" use="required"/>
+                            <xs:attribute fixed="pred:nazivOrganaVlasti" form="unqualified" name="property" use="required"/>
                             <xs:attribute fixed="xs:string" name="datatype" use="required"/>
                         </xs:extension>
                     </xs:simpleContent>
@@ -68,7 +68,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:string">
-                            <xs:attribute fixed="podnesenU" form="unqualified" name="property"
+                            <xs:attribute fixed="pred:podnesenU" form="unqualified" name="property"
                                 use="required"/>
                             <xs:attribute fixed="xs:string" name="datatype" use="required"/>
                         </xs:extension>
@@ -79,7 +79,7 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:date">
-                            <xs:attribute fixed="podnesenDatuma" form="unqualified" name="property"
+                            <xs:attribute fixed="pred:podnesenDatuma" form="unqualified" name="property"
                                 use="required"/>
                             <xs:attribute fixed="xs:date" name="datatype" use="required"/>
                         </xs:extension>

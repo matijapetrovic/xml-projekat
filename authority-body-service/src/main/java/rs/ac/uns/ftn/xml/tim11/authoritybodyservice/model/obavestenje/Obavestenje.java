@@ -34,7 +34,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
  *         &lt;element name="Organ" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOrganVlasti"/&gt;
- *         &lt;element name="PodnosiocZahteva" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTPodnosilacZahteva"/&gt;
+ *         &lt;element name="PodnosilacZahteva" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTPodnosilacZahteva"/&gt;
  *         &lt;element name="TrazenaInformacija" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTPodaciOZahtevu"/&gt;
  *         &lt;element name="InformacijeOUvidu" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTInformacijeOUvidu"/&gt;
  *         &lt;element name="Troskovi" type="{http://www.ftn.uns.ac.rs/xml/tim11/obavestenje}CTTroskovi"/&gt;
@@ -64,7 +64,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "brojPredmeta",
     "datum",
     "organ",
-    "podnosiocZahteva",
+    "podnosilacZahteva",
     "trazenaInformacija",
     "informacijeOUvidu",
     "troskovi",
@@ -80,8 +80,8 @@ public class Obavestenje {
     protected Obavestenje.Datum datum;
     @XmlElement(name = "Organ", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTOrganVlasti organ;
-    @XmlElement(name = "PodnosiocZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
-    protected CTPodnosilacZahteva podnosiocZahteva;
+    @XmlElement(name = "PodnosilacZahteva", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
+    protected CTPodnosilacZahteva podnosilacZahteva;
     @XmlElement(name = "TrazenaInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
     protected CTPodaciOZahtevu trazenaInformacija;
     @XmlElement(name = "InformacijeOUvidu", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/obavestenje", required = true)
@@ -174,27 +174,27 @@ public class Obavestenje {
     }
 
     /**
-     * Gets the value of the podnosiocZahteva property.
+     * Gets the value of the podnosilacZahteva property.
      * 
      * @return
      *     possible object is
      *     {@link CTPodnosilacZahteva }
      *     
      */
-    public CTPodnosilacZahteva getPodnosiocZahteva() {
-        return podnosiocZahteva;
+    public CTPodnosilacZahteva getPodnosilacZahteva() {
+        return podnosilacZahteva;
     }
 
     /**
-     * Sets the value of the podnosiocZahteva property.
+     * Sets the value of the podnosilacZahteva property.
      * 
      * @param value
      *     allowed object is
      *     {@link CTPodnosilacZahteva }
      *     
      */
-    public void setPodnosiocZahteva(CTPodnosilacZahteva value) {
-        this.podnosiocZahteva = value;
+    public void setPodnosilacZahteva(CTPodnosilacZahteva value) {
+        this.podnosilacZahteva = value;
     }
 
     /**
