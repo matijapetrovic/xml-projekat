@@ -14,6 +14,7 @@ import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ObavestenjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ZahtevRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.*;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.*;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 
@@ -31,34 +32,35 @@ public class AuthorityBodyServiceApplication {
 	}
 
 
-//	@Bean
-//	public CommandLineRunner run(
-//			AuthorityXmlRepository authorityXmlRepository,
-//			AuthorityProperties authorityProperties,
-//			AccountXmlRepository accountXmlRepository,
-//			AccountProperties accountProperties,
-//			UserXmlRepository userXmlRepository,
-//			UserProperties userProperties) {
-//		return args -> {
-//			insertAuthority(authorityXmlRepository, authorityProperties);
-//			insertAccount(accountXmlRepository, accountProperties);
-//			insertUser(userXmlRepository, userProperties);
-//		};
-//	}
-
 	@Bean
 	public CommandLineRunner run(
-			ObavestenjeXmlRepository obavestenjeXmlRepository,
-			ZahtevXmlRepository zahtevXmlRepository,
-			ObavestenjeRDFRepository obavestenjeRDFRepository,
-			ZahtevRDFRepository zahtevRDFRepository,
-			ObavestenjeProperties obavestenjeProperties,
-			ZahtevProperties zahtevProperties) {
+			AuthorityXmlRepository authorityXmlRepository,
+			AuthorityProperties authorityProperties,
+			AccountXmlRepository accountXmlRepository,
+			AccountProperties accountProperties,
+			UserXmlRepository userXmlRepository,
+			UserProperties userProperties) {
 		return args -> {
-			testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
-			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
+			insertAuthority(authorityXmlRepository, authorityProperties);
+			insertAccount(accountXmlRepository, accountProperties);
+			insertUser(userXmlRepository, userProperties);
 		};
 	}
+
+//	@Bean
+//	public CommandLineRunner run(
+//			ObavestenjeXmlRepository obavestenjeXmlRepository,
+//			ZahtevXmlRepository zahtevXmlRepository,
+//			ObavestenjeRDFRepository obavestenjeRDFRepository,
+//			ZahtevRDFRepository zahtevRDFRepository,
+//			ObavestenjeProperties obavestenjeProperties,
+//			ZahtevProperties zahtevProperties,
+//			ZahtevService zahtevService) {
+//		return args -> {
+//			testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
+//			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties, zahtevService);
+//		};
+//	}
 
 	public void testObavestenje(ObavestenjeXmlRepository xmlRepository, ObavestenjeRDFRepository rdfRepository, ObavestenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
 		JaxbMarshaller<Obavestenje> m = new JaxbMarshaller<>(properties);
@@ -67,12 +69,11 @@ public class AuthorityBodyServiceApplication {
 		rdfRepository.saveMetadata(resenje);
 	}
 
-	public void testZahtev(ZahtevXmlRepository xmlRepository, ZahtevRDFRepository rdfRepository, ZahtevProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
+	public void testZahtev(ZahtevXmlRepository xmlRepository, ZahtevRDFRepository rdfRepository, ZahtevProperties properties, ZahtevService zahtevService) throws JAXBException, SAXException, IOException, TransformerException, XMLDBException {
 		JaxbMarshaller<Zahtev> m = new JaxbMarshaller<>(properties);
 		Zahtev resenje = m.unmarshal(new FileInputStream("data/xml/zahtev1.xml"));
-		xmlRepository.create(resenje);
+		zahtevService.create(resenje);
 
-		rdfRepository.saveMetadata(resenje);
 	}
 
 		public void insertAuthority(AuthorityXmlRepository xmlRepository, AuthorityProperties properties) throws JAXBException, SAXException, IOException, XMLDBException {
@@ -80,7 +81,7 @@ public class AuthorityBodyServiceApplication {
 
 		Authority authority = m.unmarshal(new FileInputStream("data/xml/authority.xml"));
 
-		Long id = xmlRepository.createWithId(authority, 1L);
+		Long id = xmlRepository.createWithId(authority, 2L);
 		authority = xmlRepository.findById(id).get();
 	}
 
@@ -89,7 +90,7 @@ public class AuthorityBodyServiceApplication {
 
 		Account authority = m.unmarshal(new FileInputStream("data/xml/account.xml"));
 
-		Long id = xmlRepository.createWithId(authority, 1L);
+		Long id = xmlRepository.createWithId(authority, 2L);
 		authority = xmlRepository.findById(id).get();
 	}
 
@@ -98,7 +99,7 @@ public class AuthorityBodyServiceApplication {
 
 		User authority = m.unmarshal(new FileInputStream("data/xml/user.xml"));
 
-		Long id = xmlRepository.createWithId(authority, 1L);
+		Long id = xmlRepository.createWithId(authority, 2L);
 		authority = xmlRepository.findById(id).get();
 	}
 
