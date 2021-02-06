@@ -12,7 +12,7 @@ import { ZalbaCutanjeService } from '../../zalba-cutanje.service';
 export class AddZalbaCutanjeComponent implements OnInit {
   document: string;
   spec: any = zalbaCutanjeSpec;
-  zahtevId: number;
+  zahtevId: string;
 
   constructor(private xonomyService: XonomyService,
       private zalbaCutanjeService: ZalbaCutanjeService,

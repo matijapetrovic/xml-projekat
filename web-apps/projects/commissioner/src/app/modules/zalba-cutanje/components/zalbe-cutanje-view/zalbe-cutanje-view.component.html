@@ -7,7 +7,7 @@
         <div class="p-grid p-justify-center">
           <h1>
             <strong>
-              Requests
+              Zalbe na cutanje
             </strong>
           </h1>
         </div>
@@ -26,9 +26,9 @@
         >
         <ng-template pTemplate="header">
           <tr>
-            <th>Name</th>
-            <th>Actions</th>
-            <th>Show</th>
+            <th>Ime</th>
+            <th>Akcije</th>
+            <th>Prikaz</th>
           </tr>
         </ng-template>
         <ng-template 
@@ -37,52 +37,52 @@
         let-zalba
         >
           <tr>
-            <td id="zahtev-name">
+            <td id="zalba-name">
               {{zalba.name}}
             </td>
             <td>
               <div class="p-grid p-justify-center">
                 <button
-                  id="show-update-zahtev-form-button"
+                  id="show-update-zalba-form-button"
                   pButton 
-                  label="Accept request"
+                  label="Prihvati zalbu"
                   icon="pi pi-check" 
                   class="p-button-info p-button-rounded p-justify-left p-button-sm p-mr-2 p-mb-2"
-                  (click)="showAcceptForm(zahtev)"
+                  (click)="showAcceptForm(zalba)"
                 ></button>
                 <button 
-                  id="show-delete-zahtev-dialog-button"
+                  id="show-delete-zalba-dialog-button"
                   pButton
-                  label="Reject request"
+                  label="Odbij zalbu"
                   icon="pi pi-times" 
                   class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
-                  (click)="showRejectDialog(zahtev.id)"
+                  (click)="showRejectDialog(zalba.id)"
                 ></button>
               </div>
             </td>
             <td>
               <button 
-                id="show-zahtev-dialog-button" 
-                pButton label="Show XML" 
+                id="show-zalba-dialog-button" 
+                pButton label="Prikazi XML" 
                 icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
-                (click)="showZahtev(zahtev.id)"
+                (click)="showZahtev(zalba.id)"
               ></button>
               <button 
                 id="show-zahtev-dialog-button" 
                 pButton 
-                label="Show XHTML" 
+                label="Prikazi XHTML" 
                 icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
-                (click)="showXHTMLZahtev(zahtev.id)"
+                (click)="showXHTMLZahtev(zalba.id)"
               ></button>
               <button 
                 id="show-zahtev-dialog-button" 
                 pButton 
-                label="Download PDF" 
+                label="Skini PDF" 
                 icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
-                (click)="showPDFZahtev(zahtev.id)"
+                (click)="showPDFZahtev(zalba.id)"
               ></button>
             </td>
           </tr>

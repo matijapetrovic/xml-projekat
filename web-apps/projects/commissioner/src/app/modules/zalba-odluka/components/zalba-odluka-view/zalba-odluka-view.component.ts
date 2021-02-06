@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { XonomyService } from 'projects/xonomy/src/public-api';
-import zahtevSpec from '../../zahtev-xonomy-spec';
-import { ZahtevService } from '../../zahtev.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ZalbaOdlukaService } from '../../zalba-odluka.service';
+import zahtevSpec  from '../../zalba-odluka-xonomy-spec';
 
 @Component({
-  selector: 'app-zahtev-xhtml-view',
-  templateUrl: './zahtev-xhtml-view.component.html',
-  styleUrls: ['./zahtev-xhtml-view.component.scss']
+  selector: 'app-zalba-odluka-view',
+  templateUrl: './zalba-odluka-view.component.html',
+  styleUrls: ['./zalba-odluka-view.component.scss']
 })
-export class ZahtevXhtmlViewComponent implements OnInit {
+export class ZalbaOdlukaViewComponent implements OnInit {
+
   document: string;
   spec: any = zahtevSpec;
 
   constructor(
     private route: ActivatedRoute,
     private xonomyService: XonomyService,
-    private zahtevService: ZahtevService,
+    private zalbaOdlukaService: ZalbaOdlukaService,
     private router: Router
   ) { }
 
@@ -26,6 +27,6 @@ export class ZahtevXhtmlViewComponent implements OnInit {
   }
 
   getOne(id: string) {
-    this.zahtevService.getOneXHTML(id).subscribe((zahtev) => { this.document = zahtev; console.log(zahtev) });
+    this.zalbaOdlukaService.getOne(id).subscribe((zahtev) => this.document = zahtev);
   }
 }

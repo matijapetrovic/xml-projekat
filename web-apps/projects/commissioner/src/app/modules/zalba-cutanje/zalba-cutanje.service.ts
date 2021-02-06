@@ -34,7 +34,7 @@ export class ZalbaCutanjeService {
       }));
   }
 
-  add(zahtevId: number, document: string): Observable<void> {
+  add(zahtevId: string, document: string): Observable<void> {
     return this.http.post<void>(`${this.url}/?zahtevId=${zahtevId}`, document, { headers: postHeaders });
   }
 
@@ -42,7 +42,7 @@ export class ZalbaCutanjeService {
     return this.http.get(`${this.url}/example`, {responseType: 'text'});
   }
 
-  getOne(id: number): Observable<string> {
+  getOne(id: string): Observable<string> {
     const url = `${this.url}/${id}`;
     return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/xml'), responseType: 'text'})
       .pipe(
@@ -50,7 +50,7 @@ export class ZalbaCutanjeService {
     );
   }
 
-  getOneXHTML(id: number): Observable<string> {
+  getOneXHTML(id: string): Observable<string> {
     const url = `${this.url}/${id}`;
     return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/xhtml+xml'), responseType: 'text' })
       .pipe(
@@ -58,7 +58,7 @@ export class ZalbaCutanjeService {
       );
   }
 
-  getOnePDF(id: number): Observable<any> {
+  getOnePDF(id: string): Observable<any> {
     const url = `${this.url}/${id}`;
     return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/pdf'), responseType: 'arraybuffer' })
       .pipe(

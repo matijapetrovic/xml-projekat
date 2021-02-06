@@ -7,11 +7,14 @@ import { VendorsModule } from 'projects/vendors/src/projects';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'projects/authority-body/src/app/shared/shared.module';
+import { ZalbeCutanjeViewComponent } from './components/zalbe-cutanje-view/zalbe-cutanje-view.component';
+import { ZalbaCutanjeViewComponent } from './components/zalba-cutanje-view/zalba-cutanje-view.component';
+import { ZalbaCutanjeXhtmlViewComponent } from './components/zalba-cutanje-xhtml-view/zalba-cutanje-xhtml-view.component';
 
 
 
 @NgModule({
-  declarations: [AddZalbaCutanjeComponent],
+  declarations: [AddZalbaCutanjeComponent, ZalbeCutanjeViewComponent, ZalbaCutanjeViewComponent, ZalbaCutanjeXhtmlViewComponent],
   imports: [
     CommonModule,
     VendorsModule,

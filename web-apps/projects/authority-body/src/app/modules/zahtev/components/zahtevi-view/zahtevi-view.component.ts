@@ -34,12 +34,7 @@ export class ZahteviViewComponent implements OnInit {
       header: 'Delete Confirmation',
       icon: 'pi pi-info-circle',
       accept: () => {
-        this.zahtevService.deleteZahtev(id)
-          .subscribe(
-            () => {
-              this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have successfuly rejected request!' });
-              this.getAll();
-            });
+        this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have successfuly rejected request!' });
       },
       reject: () => {
       }
@@ -80,13 +75,15 @@ export class ZahteviViewComponent implements OnInit {
   }
 
   getAll() {
-    this.zahtevService.getAll().subscribe((zahtevi) => { 
-      this.zahtevi = zahtevi.map((zahtev) => { 
-        zahtev['name'] = zahtev['za:TrazilacInformacija']['co:Ime']['_text'] + ' ' + zahtev['za:TrazilacInformacija']['co:Prezime']['_text'];
-        let about: Array<string> = zahtev['_attributes']['about'].split('/');
-        zahtev['id'] = about[about.length - 1];
-        return zahtev;
-      })
+    this.zahtevService.getAll().subscribe((zahtevi) => {
+      if (zahtevi.length && zahtevi[0] !== undefined) {
+        this.zahtevi = zahtevi.map((zahtev) => {
+          zahtev['name'] = zahtev['za:TrazilacInformacija']['co:Ime']['_text'] + ' ' + zahtev['za:TrazilacInformacija']['co:Prezime']['_text'];
+          let about: Array<string> = zahtev['_attributes']['about'].split('/');
+          zahtev['id'] = about[about.length - 1];
+          return zahtev;
+        })
+      }
     });
   }
 }
