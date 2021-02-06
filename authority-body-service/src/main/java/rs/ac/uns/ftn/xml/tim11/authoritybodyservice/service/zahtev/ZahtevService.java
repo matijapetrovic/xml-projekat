@@ -1,10 +1,12 @@
 package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev;
 
 import org.apache.fop.apps.FOPException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.RejectZahtevRequest;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.ZahtevMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.AuthenticationService;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
@@ -12,6 +14,8 @@ import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ZahtevRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.ZahtevXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.ZahtevProperties;
+import rs.ac.uns.ftn.xml.tim11.xmllib.email.EmailMessage;
+import rs.ac.uns.ftn.xml.tim11.xmllib.email.EmailSender;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.queries.QueryBuilder;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
@@ -40,15 +44,43 @@ public class ZahtevService {
     private final ZahtevProperties properties;
 
     private final XSLTransformer XSLTransformer;
+
+    private final EmailSender emailSender;
+
+    @Value("${email.service}")
+    private String emailService;
     
     public ZahtevService(AuthenticationService authenticationService, ZahtevRDFRepository rdfRepository, ZahtevXmlRepository xmlRepository, ZahtevProperties properties)
             throws JAXBException, SAXException, IOException {
+        this.emailSender = new EmailSender();
         this.authenticationService = authenticationService;
         this.rdfRepository = rdfRepository;
         this.xmlRepository = xmlRepository;
         this.properties = properties;
         this.marshaller = new JaxbMarshaller<>(properties);
         this.XSLTransformer = new XSLTransformer(properties);
+    }
+
+    public void rejectZahtev(long id, RejectZahtevRequest request) throws XMLDBException, JAXBException, XmlResourceNotFoundException, IOException {
+        Zahtev zahtev = xmlRepository.findById(id)
+                .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
+        zahtev.setPrihvacen(false);
+        xmlRepository.createWithId(zahtev, id);
+
+        String mail = zahtev.getTrazilacInformacija().getHref();
+        mail = mail.substring(mail.lastIndexOf("/") + 1);
+
+        emailSender.sendEmail(emailService, buildEmail(mail, request.getPoruka()));
+    }
+
+    private EmailMessage buildEmail(String userEmail, String poruka) {
+        return new EmailMessage(
+                userEmail,
+                "Odbijen zahtev",
+                poruka,
+                null,
+                null
+        );
     }
 
     public List<Zahtev> findAll() throws XMLDBException, JAXBException {
