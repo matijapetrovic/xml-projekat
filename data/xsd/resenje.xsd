@@ -3,8 +3,10 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	elementFormDefault="qualified"
 	targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
-	xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje">
+	xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+	xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
 	
+	<xs:import namespace="http://www.ftn.uns.ac.rs/xml/tim11/common" schemaLocation="common.xsd"/>
 	<xs:element name="Resenje">
 		<xs:complexType>
 			<xs:sequence>
@@ -15,14 +17,38 @@
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
+				<xs:element name="Svrha">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="ZalbaOsnovanaNalazeSe"/>
+							<xs:enumeration value="ZalbaNeosnovanaOdbijaSe"/>
+							<xs:enumeration value="OdbijaSeZahtev"/>
+							<xs:enumeration value="PonistavaSe"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
 				<xs:element name="DatumResenja" type="xs:date"/>
+				<xs:element name="PodnosilacZalbe" type="re:CTPodnosilacZahteva"></xs:element>
 				<xs:element name="Uvod" type="re:CTUvod"/>
 				<xs:element name="Sadrzaj" type="re:CTResenje"/>
 				<xs:element name="Obrazlozenje" type="re:CTObrazlozenje"/>
 				<xs:element name="Poverenik" type="re:CTPoverenik"/>
 			</xs:sequence>
+			<xs:attribute name="vocab" type="xs:string" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" use="required"/>
+			<xs:attribute name="about" type="xs:string" use="required" />
+			<xs:attribute name="rel" fixed="pred:resava" use="required"/>
+			<xs:attribute name="href" use="required" />
 		</xs:complexType>
 	</xs:element>
+	
+	<xs:complexType name="CTPodnosilacZahteva">
+		<xs:complexContent>
+			<xs:extension base="co:CTPodnosilac">
+				<xs:attribute name="rel" fixed="pred:obavestavaSe" use="required"/>
+				<xs:attribute name="href" use="required" />
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 	
 	<xs:complexType name="CTUvod" mixed="true">
 		<xs:sequence>
@@ -34,7 +60,7 @@
 	
 	<xs:complexType name="CTPozivNaZakon">
 		<xs:sequence>
-			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
+		
 			<xs:element name="BrojeviSluzbenogGlasnika">
 				<xs:complexType>
 					<xs:sequence>
@@ -51,42 +77,16 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="CTZakon">
-		<xs:sequence>
-			<xs:element minOccurs = "1" maxOccurs="unbounded" name="Clan" type="xs:positiveInteger"/>
-			<xs:element minOccurs = "0" maxOccurs="1" name="Stav" type="xs:positiveInteger"/>
-			<xs:element minOccurs = "0" maxOccurs="1" name="Tacka" type="xs:positiveInteger"/>
-			<xs:element name="NazivZakona">
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:string">
-							<xs:attribute name="type" use="required"/>
-							<xs:attribute name="property" use="required"/>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
 	
 	<xs:complexType name="CTResenje" mixed="true">
 		<xs:sequence>
-			<xs:element name="OrganVlasti">
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:string">
-							<xs:attribute name="type" use="required"/>
-							<xs:attribute name="property" use="required"/>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
+			
 			<xs:element name="Ustanova" type="re:CTUstanova"></xs:element>
 			<xs:element name="Ishod" type="xs:string"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="CTObrazlozenje">
+	<xs:complexType name="CTObrazlozenje" mixed="true">
 		<xs:sequence>
 			<xs:element name="PredmetZalbe" type="re:CTPredmetZalbe"></xs:element>
 			<xs:element name="Postupak" type="re:CTPostupak"></xs:element>
@@ -96,7 +96,7 @@
 		<xs:attribute name="vocab" use="required" type="xs:anyURI"/>
 	</xs:complexType>
 	
-	<xs:complexType name="CTPredmetZalbe">
+	<xs:complexType name="CTPredmetZalbe" mixed="true">
 		<xs:sequence>
 			<xs:element name="DatumIzjave" type="xs:date"></xs:element>
 			<xs:element name="OrganVlasti" type="xs:string"></xs:element>
@@ -113,17 +113,16 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="CTPostupak">
+	<xs:complexType name="CTPostupak" mixed="true">
 		<xs:sequence>
 			<xs:element name="DatumPostupka" type="xs:date"></xs:element>
 			<xs:element name="Ustanova" type="re:CTUstanova"></xs:element>
-			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
+			
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="CTOdluka">
+	<xs:complexType name="CTOdluka" mixed="true">
 		<xs:sequence>
-			<xs:element name="Zakon" type="re:CTZakon"></xs:element>
 			<xs:element name="Lice" type="xs:string"></xs:element>
 			<xs:element name="Mesto">
 				<xs:complexType>

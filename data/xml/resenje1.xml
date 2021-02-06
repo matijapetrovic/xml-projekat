@@ -3,6 +3,7 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/resenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/resenje.xsd">
     <BrojResenja>000-00-0000/0000-00</BrojResenja>
+    <Svrha>ZalbaOsnovanaNalazeSe</Svrha>
     <DatumResenja>2006-05-04</DatumResenja>
     <Uvod>
         Poverenik za informacije od javnog značaja i zaštitu podataka o ličnosti, u postupku po albi
@@ -17,13 +18,11 @@
         tumačenje), donosi
     </Uvod>
     <Sadrzaj>
-        <OrganVlasti type="type1" property="property1">OrganVlasti1</OrganVlasti>
-        <Ustanova>
-            <Naziv type="type3" property="property3">Naziv0</Naziv>
-            <Adresa>Adresa0</Adresa>
+        I Nalaze se<Ustanova>
+            <Naziv type="type3" property="property3">Uciteljskom fakultetu</Naziv>
+            <Adresa>u Prizrenu</Adresa>
         </Ustanova>
-
-        I Nalaže se Učiteljskom fakultetu u Prizrenu sa privremenim sedištem u Leposaviću, da
+         sa privremenim sedištem u Leposaviću, da
         bez odlaganja, a najkasnije u roku od pet dana od dana prijema ovog rešenja, obavesti AA, da li
         poseduje tražene informacije odnosno dokument u kome su iste sadržane, i to: Ugovor o radu koji
         je kao poslednji potpisan između tog Fakulteta i BB, te da mu, ukoliko takav dokument poseduje
@@ -37,28 +36,38 @@
     </Sadrzaj>
     <Obrazlozenje about="http://www.oxygenxml.com/" vocab="http://www.oxygenxml.com/">
         <PredmetZalbe>
-            <DatumIzjave>2006-05-04</DatumIzjave>
-            <OrganVlasti>OrganVlasti2</OrganVlasti>
-            <DatumPotrazivanjaInformacija type="type5" property="property5">2006-05-04</DatumPotrazivanjaInformacija>
+            AA , kao trazilac informacija izjavio je dana
+            <DatumIzjave>2020-07-05</DatumIzjave> godine zalbu POvereniku zbog nepostupanja
+            <OrganVlasti>Uciteljskog fakulteta u prizrenu </OrganVlasti>
+            po njegovom zahtevu od
+            <DatumPotrazivanjaInformacija type="type5" property="property5">2020-04-16</DatumPotrazivanjaInformacija>
+            godine za pristup informacijama od javnog znacaja i u prilogu
+            dostavion kopiju istog.
         </PredmetZalbe>
         <Postupak>
-            <DatumPostupka>2006-05-04</DatumPostupka>
+            Postupajuci po zalbi, Poverenik je dana
+            <DatumPostupka>2006-05-04</DatumPostupka> godine uputio je istu na izjasnjenje
             <Ustanova>
-                <Naziv type="type7" property="property7">Naziv1</Naziv>
-                <Adresa>Adresa1</Adresa>
+                <Naziv type="type7" property="property7">Uciteljskom fakultetu u </Naziv>
+                <Adresa>Prizrenu sa privremenim sedistem u Leposavicu</Adresa>
             </Ustanova>
-            <Zakon>
-                <Clan>50</Clan>
-                <Clan>50</Clan>
-                <NazivZakona type="type9" property="property9">NazivZakona0</NazivZakona>
-            </Zakon>
+            kao organu vlasti u
+            smislu člana 3. Zakona o slobodnom pristupu informacijama od javnog značaja i zatražio da se
+            izjasni o navodima žalbe, posebno o razlozima nepostupanja u zakonskom roku po podnetom zahtevu
+            u skladu sa odredbama člana 16. st.1-9. ili st. 10. Zakona, ostavljajući rok od osam dana, povodom
+            čega nije dobio odgovor.
         </Postupak>
         <Odluka>
-            <Zakon>
-                <Clan>50</Clan>
-                <Clan>50</Clan>
-                <NazivZakona type="type11" property="property11">NazivZakona1</NazivZakona>
-            </Zakon>
+            Po razmatranju žalbe i ostalih spisa ovog predmeta, doneta je odluka kao u dispozitivu
+            rešenja iz sledećih razloga:
+            Uvidom u spise predmeta utvrđeno je da je AA, dana 16.04.2020. godine, podneo Učiteljskom
+            fakultetu u Prizrenu sa privremenim sedištem u Leposaviću, zahtev za pristup informacijama
+            od javnog značaja, elektronskom poštom, kojim je tražio informacije od javnog značaja, bliže
+            navedene u stavu I dispozitiva ovog rešenja.
+            Takođe je uvidom u spise predmeta utvrđeno da po zahtevu žalioca od 16.04.2020. godine,
+            organ vlasti nije postupio, što je bio dužan da učini bez odlaganja, a najkasnije u roku od 15 dana
+            od prijema zahteva te da žalioca, u smislu člana 16. stav 1. Zakona o slobodnom pristupu
+
             <Lice>Lice0</Lice>
             <Mesto type="type13" property="property13">Mesto0</Mesto>
             <Iznos>50</Iznos>
