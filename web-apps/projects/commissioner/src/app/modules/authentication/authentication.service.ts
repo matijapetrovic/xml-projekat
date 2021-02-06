@@ -33,7 +33,7 @@ export class AuthenticationService {
     if (!user) {
       return null;
     }
-    user.role = Role[user.role];
+    user.role = Role[user.role._text];
     return user;
   }
 

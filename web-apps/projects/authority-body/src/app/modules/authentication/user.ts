@@ -6,6 +6,6 @@ export class User {
   password: string;
   firstName: string;
   lastName: string;
-  role: Array<Role>;
+  role: string;
   token?: string;
 }

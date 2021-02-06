@@ -19,7 +19,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { DataViewModule } from 'primeng/dataview';
 import { AccordionModule } from 'primeng/accordion';
-
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
     declarations: [],
@@ -40,7 +40,8 @@ import { AccordionModule } from 'primeng/accordion';
         ConfirmDialogModule,
         InputTextModule,
         DataViewModule,
-        AccordionModule
+        AccordionModule,
+
     ],
     exports: [
         FormsModule,
@@ -58,7 +59,8 @@ import { AccordionModule } from 'primeng/accordion';
         ConfirmDialogModule,
         InputTextModule,
         DataViewModule,
-        AccordionModule
+        AccordionModule,
+        DialogModule
     ],
     providers: [
         ConfirmationService
