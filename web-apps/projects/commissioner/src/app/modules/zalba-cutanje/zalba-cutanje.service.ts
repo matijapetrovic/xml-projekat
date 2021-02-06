@@ -2,6 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'projects/commissioner/src/environments/environment';
 import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import * as converter from 'xml-js';
+import { HandleError, HttpErrorHandler } from '../../core/services/http-error-handler.service';
 
 const postHeaders = new HttpHeaders({
   'Content-Type': 'application/xml'
@@ -14,7 +17,22 @@ export class ZalbaCutanjeService {
 
   private url = `${environment.apiUrl}/zalba-cutanje`;
 
-  constructor(private http: HttpClient) { }
+  private handleError: HandleError;
+
+  constructor( private http: HttpClient, httpErrorHandler: HttpErrorHandler
+    ) { 
+    this.handleError = httpErrorHandler.createHandleError('ZahteviService');
+    }
+
+  getAll(): Observable<Array<any>> {
+    const url = `${this.url}`;
+    return this.http.get(url, { responseType: 'text' })
+    .pipe(
+      map(dtoXML => {
+        let res = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }))['ZalbeNaCutanje']['ZalbaNaCutanje'];
+        return (res instanceof Array ? res : [res]);
+      }));
+  }
 
   add(zahtevId: number, document: string): Observable<void> {
     return this.http.post<void>(`${this.url}/?zahtevId=${zahtevId}`, document, { headers: postHeaders });
@@ -22,6 +40,30 @@ export class ZalbaCutanjeService {
 
   getExample(): Observable<string> {
     return this.http.get(`${this.url}/example`, {responseType: 'text'});
+  }
+
+  getOne(id: number): Observable<string> {
+    const url = `${this.url}/${id}`;
+    return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/xml'), responseType: 'text'})
+      .pipe(
+        catchError(this.handleError<string>('getOne'))
+    );
+  }
+
+  getOneXHTML(id: number): Observable<string> {
+    const url = `${this.url}/${id}`;
+    return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/xhtml+xml'), responseType: 'text' })
+      .pipe(
+        catchError(this.handleError<string>('getOneXHTML'))
+      );
+  }
+
+  getOnePDF(id: number): Observable<any> {
+    const url = `${this.url}/${id}`;
+    return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/pdf'), responseType: 'arraybuffer' })
+      .pipe(
+        catchError(this.handleError<string>('getOnePDF'))
+      );
   }
 
 }

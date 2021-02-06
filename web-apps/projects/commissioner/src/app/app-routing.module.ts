@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'zalba-cutanje/add',
+    redirectTo: 'auth/login',
     pathMatch: 'full'
   },
   { path: '**', redirectTo: '' }
