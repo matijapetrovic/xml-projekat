@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "LoginDTO")
+@XmlRootElement(name = "root")
 @Getter
 @Setter
 @AllArgsConstructor

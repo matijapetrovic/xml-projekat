@@ -159,11 +159,7 @@
                                                 </u>,
                                             </div>
                                             <xsl:variable name="dt" select="za:Zahtev/za:OstaliPodaci/co:Datum"/>
-                                            <xsl:variable name="date" select="xs:date(concat(
-                                                substring($dt,1,4),'-',
-                                                substring($dt,6,2),'-',
-                                                substring($dt,9,2)))"/>
-                                            <div>dana <u><xsl:value-of select="format-date($date,'[D].[M].[Y].')"/>godine</u></div>
+                                            <div>dana <u><xsl:value-of select="za:Zahtev/za:OstaliPodaci/co:Datum"/>godine</u></div>
                                         </div>
                                     </td>
                                     <td>	
