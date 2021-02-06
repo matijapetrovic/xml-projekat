@@ -5,15 +5,20 @@ import { ZalbeOdlukaViewComponent } from './components/zalbe-odluka-view/zalbe-o
 import { ZalbaOdlukaViewComponent } from '../zalba-odluka/components/zalba-odluka-view/zalba-odluka-view.component';
 import { ZalbaOdlukaXhtmlViewComponent } from '../zalba-odluka/components/zalba-odluka-xhtml-view/zalba-odluka-xhtml-view.component';
 import { UserZalbeOdlukaViewComponent } from '../zalba-odluka/components/user-zalbe-odluka-view/user-zalbe-odluka-view.component';
+import { AuthGuard } from 'projects/authority-body/src/app/core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: ZalbeOdlukaViewComponent
+    component: ZalbeOdlukaViewComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_COMMISSIONER'] }
   },
   {
     path: 'add/:zahtevId',
-    component: AddZalbaOdlukaComponent 
+    component: AddZalbaOdlukaComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_USER'] }
   },
   {
     path: ':id',
@@ -24,8 +29,10 @@ const routes: Routes = [
     component: ZalbaOdlukaXhtmlViewComponent
   },
   {
-    path: '',
-    component: UserZalbeOdlukaViewComponent
+    path: 'gradjanin',
+    component: UserZalbeOdlukaViewComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_USER'] }
   },
 ];
 

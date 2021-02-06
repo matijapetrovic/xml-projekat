@@ -31,7 +31,8 @@ export class ZalbaCutanjeService {
   }
 
   getAll(): Observable<Array<any>> {
-    const url = `${this.url}`;
+    const url = `${environment.apiUrl}/zalba-cutanje`;
+    console.log(url);
     return this.http.get(url, { responseType: 'text' })
     .pipe(
       map(dtoXML => {

@@ -27,12 +27,12 @@ export class HeaderComponent implements OnInit {
   userItems: MenuItem[] = [
     {
       label: 'Pregledaj podnete zalbe na cutanje',
-      routerLink: ['/zalba-cutanje'],
+      routerLink: ['/zalba-cutanje/gradjanin'],
       id: 'dashboard-nav-link'
     },
     {
       label: 'Pregledaj podnete zalbe na odluku',
-      routerLink: ['/zalba-odluka'],
+      routerLink: ['/zalba-odluka/gradjanin'],
       id: 'dashboard-nav-link'
     },
   ];

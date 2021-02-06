@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../../core/guards/auth.guard';
 import { AddZalbaCutanjeComponent } from './components/add-zalba-cutanje/add-zalba-cutanje.component';
 import { UserZalbeCutanjeViewComponent } from './components/user-zalbe-cutanje-view/user-zalbe-cutanje-view.component';
 import { ZalbaCutanjeViewComponent } from './components/zalba-cutanje-view/zalba-cutanje-view.component';
@@ -9,11 +10,15 @@ import { ZalbeCutanjeViewComponent } from './components/zalbe-cutanje-view/zalbe
 const routes: Routes = [
   {
     path: 'add/:zahtevId',
-    component: AddZalbaCutanjeComponent 
+    component: AddZalbaCutanjeComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_USER'] }
   },
   {
     path: '',
-    component: ZalbeCutanjeViewComponent
+    component: ZalbeCutanjeViewComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_COMMISSIONER'] }
   },
   {
     path: ':id',
@@ -24,8 +29,10 @@ const routes: Routes = [
     component: ZalbaCutanjeXhtmlViewComponent
   },
   {
-    path: '',
-    component: UserZalbeCutanjeViewComponent
+    path: 'gradjanin',
+    component: UserZalbeCutanjeViewComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_USER'] }
   },
 ];
 

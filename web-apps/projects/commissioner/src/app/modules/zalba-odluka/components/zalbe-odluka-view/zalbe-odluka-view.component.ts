@@ -29,7 +29,8 @@ export class ZalbeOdlukaViewComponent implements OnInit {
   }
 
   napisiResenje(zalba: any) {
-    this.router.navigate[`/resenje/add/zalba-odluka/${zalba.id}`];
+    console.log('usao');
+    this.router.navigate([`/resenje/add/zalba-odluka/${zalba.id}`]);
   }
 
   showRejectDialog(id: string): void {

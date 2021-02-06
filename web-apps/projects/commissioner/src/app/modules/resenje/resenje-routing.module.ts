@@ -7,9 +7,13 @@ import { ResenjaViewComponent } from './components/resenja-view/resenja-view.com
 
 const routes: Routes = [
   {
-    path: 'add',
+    path: 'add/zalba-odluka/:zalbaId',  
     component: AddResenjeComponent,
 
+  },
+  {
+    path:'add/zalba-cutanje/:zalbaId',
+    component: AddResenjeComponent
   },
   {
     path: '',
