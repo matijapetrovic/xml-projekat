@@ -1,13 +1,13 @@
 <div class="p-grid p-mt-6 p-justify-center centered-grid"></div>
 <div class="p-grid p-mt-6 p-justify-center centered-grid"></div>
 <div class="p-grid p-mt-6 p-justify-center centered-grid">
-  <div class="p-col p-sm-5 p-md-6 p-lg-6">
+  <div class="p-col">
     <p-card class="flat-card">
       <div class="p-card-header">
         <div class="p-grid p-justify-center">
           <h1>
             <strong>
-              Requests
+              Zahtevi
             </strong>
           </h1>
         </div>
@@ -28,22 +28,38 @@
         [globalFilterFields]="['name']">
         <ng-template pTemplate="header">
           <tr>
-            <th>Name</th>
-            <th>Show</th>
-            <th>Info</th>
+            <th>Organ vlasti</th>
+            <th>Sediste organa</th>
+            <th>Datum zahteva</th>
+            <th>Mesto zahteva</th>
+            <th>Akcije</th>
+            <th>Zalba cutanje</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-zahtev>
           <tr>
-            <td id="zahtev-name">
-              {{zahtev.name}}
+            <td>
+              {{ zahtev['za:Organ']['co:Naziv']['_text'] }}
+            </td>
+            <td>
+              {{ zahtev['za:Organ']['co:Sediste']['co:Mesto']['_text'] }}
+              
+              {{ zahtev['za:Organ']['co:Sediste']['co:Ulica']['_text'] }}
+              
+              {{ zahtev['za:Organ']['co:Sediste']['co:Broj']['_text'] }}
+            </td>
+            <td>
+              {{ zahtev['za:OstaliPodaci']['co:Datum']['_text'] }}
+            </td>
+            <td>
+              {{ zahtev['za:OstaliPodaci']['co:Mesto']['_text'] }}
             </td>
             <td>
               <div class="p-grid p-justify-center">
                 <button 
                   id="show-zahtev-dialog-button" 
                   pButton 
-                  label="Show request" 
+                  label="Pregledaj zahtev" 
                   icon="pi pi-external-link"
                   class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-6 p-mb-2"
                   (click)="showZahtev(zahtev.id)"
@@ -51,7 +67,7 @@
                 <button 
                   id="show-zahtev-dialog-button" 
                   pButton 
-                  label="Show XHTML" 
+                  label="Eksportuj XHTML" 
                   icon="pi pi-external-link"
                   class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
                   (click)="showXHTMLZahtev(zahtev.id)"
@@ -59,7 +75,7 @@
                 <button 
                   id="show-zahtev-dialog-button" 
                   pButton 
-                  label="Download PDF" 
+                  label="Eksportuj PDF" 
                   icon="pi pi-external-link"
                   class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
                   (click)="showPDFZahtev(zahtev.id)"
@@ -68,14 +84,18 @@
             </td>
             <td>
               <div class="p-grid p-justify-center">
-                <button 
+                <a 
                   *ngIf="zahtev.expired" 
                   id="show-zahtev-dialog-button" 
-                  pButton label="New information" 
+                  pButton label="Podnesi Zalbu" 
                   icon="pi pi-external-link"
                   class="p-button-danger p-button-rounded p-justify-right p-button-sm p-mb-2" 
-                  (click)="showNewInfo()"
-                ></button>
+                  [href]="zalbaCutanjeLink + zahtev.id"
+                  target="_blank"
+                ></a>
+                <p *ngIf="!zahtev.expired">
+                  Jos uvek ne mozete podneti zalbu na cutanje.
+                </p>
               </div>  
             </td>
           </tr>

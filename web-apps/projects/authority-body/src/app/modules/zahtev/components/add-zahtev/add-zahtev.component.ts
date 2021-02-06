@@ -3,6 +3,7 @@ import { XonomyService } from 'projects/xonomy/src/public-api';
 import zahtevSpec from '../../zahtev-xonomy-spec';
 import { ZahtevService } from '../../zahtev.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-add-zahtev',
@@ -16,7 +17,7 @@ export class AddZahtevComponent implements OnInit {
   constructor(
       private xonomyService: XonomyService,
       private zahtevService: ZahtevService,
-      private router: Router) { }
+      private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.zahtevService.getExample().subscribe((document) => this.document = document);
@@ -25,8 +26,7 @@ export class AddZahtevComponent implements OnInit {
   addZahtev(): void {
     const document: string = this.xonomyService.getCurrentDocument();
     this.zahtevService.add(document).subscribe(() => {
-      console.log('dodat zahtev');
-      this.router.navigate(['/obavestenja/add']);
+      this.messageService.add({severity: 'success', detail:'Uspesno ste poslali zahtev'});
     })
   }
 

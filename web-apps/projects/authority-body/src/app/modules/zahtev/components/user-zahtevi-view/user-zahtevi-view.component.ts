@@ -3,6 +3,7 @@ import { ZahtevService } from '../../zahtev.service';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { environment } from 'projects/authority-body/src/environments/environment';
 
 @Component({
   selector: 'app-user-zahtevi-view',
@@ -13,6 +14,8 @@ export class UserZahteviViewComponent implements OnInit {
   displayMessage: boolean;
   zahtevi: Array<any>;
 
+  zalbaCutanjeLink: string = `${environment.commissionerUrl}/zalba-cutanje/add/`;
+
   constructor(
     private zahtevService: ZahtevService,
     public confirmationService: ConfirmationService,
@@ -22,10 +25,6 @@ export class UserZahteviViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
-  }
-
-  showNewInfo() {
-    this.displayMessage = true;
   }
 
   showZahtev(id: string) {
@@ -65,11 +64,12 @@ export class UserZahteviViewComponent implements OnInit {
   getAll() {
     this.zahtevService.getAll().subscribe((zahtevi) => {
       this.zahtevi = zahtevi.map((zahtev) => {
+        console.log(zahtev);
         zahtev['name'] = zahtev['za:TrazilacInformacija']['co:Ime']['_text'] + ' ' + zahtev['za:TrazilacInformacija']['co:Prezime']['_text'];
         let about: Array<string> = zahtev['_attributes']['about'].split('/');
         zahtev['id'] = about[about.length - 1];
         let dateText = zahtev['za:OstaliPodaci']['co:Datum']['_text'];
-        zahtev['expired'] = this.responseTimeExpired(dateText);
+        zahtev['expired'] = true;
         return zahtev;
       })
     });

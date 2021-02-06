@@ -26,8 +26,12 @@ export class HeaderComponent implements OnInit {
 
   userItems: MenuItem[] = [
     {
+      label: 'Podnesi Zahtev',
+      routerLink: ['/zahtevi/add'],
+      id: 'home-nav-link'
+    },
+    {
       label: 'Pregledaj podnete zahteve',
-      icon: 'pi pi-home',
       routerLink: ['/zahtevi/user'],
       id: 'home-nav-link'
     }
