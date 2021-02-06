@@ -34,6 +34,7 @@
             <th>Mesto zahteva</th>
             <th>Akcije</th>
             <th>Zalba cutanje</th>
+            <th>Zalba na odluku</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-zahtev>
@@ -97,6 +98,24 @@
                   Jos uvek ne mozete podneti zalbu na cutanje.
                 </p>
               </div>  
+            </td>
+            <td>
+              <p *ngIf="zahtev.prihvacen === undefined">
+                Odluka za zahtev jos uvek nije doneta
+              </p>
+              <p *ngIf="zahtev.prihvacen === true">
+                Zahtev Vam je odobren i obavestenje poslato na email.
+              </p>
+              <div *ngIf="zahtev.prihvacen === false">
+                Zahtev vam je odbijen.
+                <a
+                  pButton label="Podnesi Zalbu" 
+                  icon="pi pi-external-link"
+                  class="p-button-danger p-button-rounded p-justify-right p-button-sm p-mb-2" 
+                  [href]="zalbaNaOdlukuLink + zahtev.id"
+                  target="_blank"
+                ></a>
+              </div>
             </td>
           </tr>
         </ng-template>

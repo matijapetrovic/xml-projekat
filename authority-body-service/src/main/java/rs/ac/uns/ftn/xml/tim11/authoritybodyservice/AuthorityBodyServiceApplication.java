@@ -35,7 +35,6 @@ public class AuthorityBodyServiceApplication {
 		SpringApplication.run(AuthorityBodyServiceApplication.class, args);
 	}
 
-
 	@Bean
 	public CommandLineRunner run(
 			AuthorityXmlRepository authorityXmlRepository,

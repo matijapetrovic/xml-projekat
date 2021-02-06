@@ -71,6 +71,10 @@ public class ObavestenjeService {
         xmlRepository.createWithId(obavestenje, id);
         rdfRepository.saveMetadata(obavestenje);
 
+        zahtev.setPrihvacen(true);
+        zahtevXmlRepository.createWithId(zahtev, zahtevId);
+
+
         String mail = zahtev.getTrazilacInformacija().getHref();
         mail = mail.substring(mail.lastIndexOf("/") + 1);
 
