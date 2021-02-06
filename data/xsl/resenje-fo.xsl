@@ -17,85 +17,120 @@
             </fo:layout-master-set>
             <fo:page-sequence master-reference="resenje-page">
                 <fo:flow flow-name="xsl-region-body" font-family="Times New Roman">
-                    <fo:block text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Naziv"/>
-                    </fo:block>
-                    <fo:block text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Ulica"/>
-                        <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Broj"/>
-                        <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Mesto"/>
-                    </fo:block>
                     <fo:block>
-                        (naziv i sediste organa)
+                        Resenje - 
+                        <xsl:if test="re:Resenje/re:Svrha = 'ZalbaOsnovanaNalazeSe'">
+                            <fo:inline>kada je zalba osnovana nalaze se:</fo:inline>
+                        </xsl:if>
+                        <xsl:if test="re:Resenje/re:Svrha = 'ZalbaNeosnovanaOdbijaSe'">
+                            <fo:inline>– odbija se kao neosnovana</fo:inline>
+                        </xsl:if>
+                        <xsl:if test="re:Resenje/re:Svrha = 'OdbijaSeZahtev'">
+                            <fo:inline>odbija se zahtev:</fo:inline>
+                        </xsl:if>
+                        <xsl:if test="re:Resenje/re:Svrha = 'PonistavaSe'">
+                            <fo:inline>ponistava se:</fo:inline>
+                        </xsl:if>
                     </fo:block>
+                    <fo:block>Br
+                        <xsl:value-of select="re:Resenje/re:BrojResenja"/>
+                    </fo:block>
+                    <fo:block margin-left="50px">
+                        <xsl:value-of select="re:Resenje/re:DatumResenja"/>
+                    </fo:block>
+                    <fo:block margin-top="10px">
+                        Poverenik za informacije od javnog značaja i zaštitu podataka o ličnosti, u postupku po albi
+                        koju je izjavio AA, zbog nepostupanja
+                        <fo:inline><xsl:value-of select="re:Resenje/re:OrganVlasti"/></fo:inline>
+                        po njegovom zahtevu od <fo:inline><xsl:value-of select="re:Resenje/re:DatumZalbe"/></fo:inline>
+                        godine za pristup informacijama od javnog značaja, na osnovu člana 35. stav 1. tačka 5. Zakona o slobodnom pristupu
+                        informacijama od javnog značaja („Sl. glasnik RS“, br. 120/04, 54/07, 104/09 i 36/10), a u vezi sa
+                        članom 4. tačka 22. Zakona o zaštiti podataka o ličnosti („Sl. glasnik RS“, broj 87/18), kao i člana
+                        23. i člana 24. stav 4. Zakona o slobodnom pristupu informacijama od javnog značaja i člana 173.
+                        stav 2. Zakona o opštem upravnom postupku („Sl. glasnik RS“, br. 18/2016 i 95/2018-autentično
+                        tumačenje), donosi
+                    </fo:block>
+                        I nalazi se <fo:inline><xsl:value-of select="re:Resenje/re:Sadrzaj/re:Ustanova/re:Naziv"/></fo:inline>
+                        u <fo:inline><xsl:value-of select="re:Resenje/re:Sadrzaj/re:Ustanova/re:Adresa"/></fo:inline>
                     <fo:block>
-                        <fo:leader></fo:leader>
+                        sa privremenim sedištem u Leposaviću, da
+                        bez odlaganja, a najkasnije u roku od pet dana od dana prijema ovog rešenja, obavesti AA, da li
+                        poseduje tražene informacije odnosno dokument u kome su iste sadržane, i to: Ugovor o radu koji
+                        je kao poslednji potpisan između tog Fakulteta i BB, te da mu, ukoliko takav dokument poseduje
+                        dostavi kopiju istog elektronskom poštom na adresu … ili poštom, s tim što će pre dostavljanja
+                        zaštititi i učiniti nedostupnim podatke o ličnosti kojima bi se povredilo pravo na privatnost
+                        lica na koje se informacije odnose, kao što su: adresa stanovanja, lični matični broj građana, ime
+                        oca, radni staž, prosečna ocena studiranja i sl. ukoliko su takvi podaci sadržani u traženom
+                        dokumentu.
+                        <fo:inline><xsl:value-of select="re:Resenje/re:Sadrzaj/re:Ishod"/></fo:inline>
                     </fo:block>
-                    <fo:block>
-                        Broj predmeta: <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:BrojPredmeta"/></fo:inline>
-                    </fo:block>
-                    <fo:block>
-                        Datum: <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:Datum"/></fo:inline>
-                    </fo:block>
-                    <fo:block>
-                        <fo:leader></fo:leader>
-                    </fo:block>
-                    <fo:block margin-top="10px" text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Ime"/><xsl:value-of select="$space"/>
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Prezime"/><xsl:value-of select="$space"/>
-                        
-                    </fo:block>
-                    <fo:block text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/co:Mesto"/><xsl:value-of select="$space"/>
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/ob:Ulica"/>,
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/ob:Broj"/>
-                    </fo:block>
-                    <fo:block>
-                        Ime i prezime/naziv/i adresa podnosioca zahteva
-                    </fo:block>
-                    <fo:block font-weight="bold" margin-top="20px" text-align="center">O B A V E S T E Nj E</fo:block>
-                    <fo:block font-weight="bold" text-align="center">o stavljanju na uvid dokument koji sadrzi</fo:block>
-                    <fo:block font-weight="bold" text-align="center">trazenu informaciju i o izradi kopije</fo:block>
-                    <xsl:variable name="date1" select="ob:Obavestenje/ob:TrazenaInformacija/co:DatumZahteva"/>
+                   
                     <fo:block text-indent="20px" margin-top="10px">
-                        Na osnovu clana 16. st. 1. Zakona o slobodnom pristupu informacijama od javnog znacaja, postupajuci po
-                        vasem zahtevu za slobodan pristup informacijama od <fo:inline text-decoration="underline"><xsl:value-of select="$date1"/></fo:inline> god.,
-                        kojim ste trazili uvid u dokument/e sa informacijama o/u vezi sa:
+                        PodnosilacZalbe0 , kao trazilac informacija izjavio je dana 
+                        <fo:inline><xsl:value-of select="re:Resenje/re:Obrazlozenje/re:PredmetSlanja/re:DatumIzjave"/></fo:inline>
+                        godine zalbu POvereniku zbog nepostupanja
+                        <fo:inline><xsl:value-of select="re:Resenje/re:Obrazlozenje/re:PredmetSlanja/re:OrganVlasti"/></fo:inline>
+                        po njegovom zahtevu od
+                        <fo:inline><xsl:value-of select="re:Resenje/re:Obrazlozenje/re:PredmetSlanja/re:DatumPotrazivanjaInformacija"/></fo:inline>
+                        godine za pristup informacijama od javnog znacaja i u prilogu
+                        dostavion kopiju istog.
                     </fo:block>
-                    <fo:block text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:TrazenaInformacija/co:TrazenaInformacija"/>
+                    <fo:block text-indent="20px">
+                        Postupajuci po zalbi, Poverenik je dana
+                        <fo:inline><xsl:value-of select="re:Resenje/re:Obrazlozenje/re:Postupak/re:DatumPostupka"/></fo:inline>
+                        godine uputio je istu na izjasnjenje
+                        <fo:inline><xsl:value-of select="re:Resenje/re:Obrazlozenje/re:Postupak/re:Ustanova/re:Naziv"/></fo:inline>u
+                        <fo:inline><xsl:value-of select="re:Resenje/re:Obrazlozenje/re:Postupak/re:Ustanova/re:Adresa"/></fo:inline>
+                        kao organu vlasti u
+                        smislu člana 3. Zakona o slobodnom pristupu informacijama od javnog značaja i zatražio da se
+                        izjasni o navodima žalbe, posebno o razlozima nepostupanja u zakonskom roku po podnetom zahtevu
+                        u skladu sa odredbama člana 16. st.1-9. ili st. 10. Zakona, ostavljajući rok od osam dana, povodom
+                        čega nije dobio odgovor.
                     </fo:block>
-                    <fo:block text-align="center" margin-bottom="10px">(opis trazene informacije)</fo:block>
-                    <xsl:variable name="date" select="ob:Obavestenje/ob:InformacijeOUvidu/ob:Datum"/>
-                    <xsl:variable name="time" select="ob:Obavestenje/ob:InformacijeOUvidu/ob:Satnica"/>
+                    <fo:block text-indent="20px">
+                        Po razmatranju žalbe i ostalih spisa ovog predmeta, doneta je odluka kao u dispozitivu
+                        rešenja iz sledećih razloga:
+                        Uvidom u spise predmeta utvrđeno je da je AA, dana 16.04.2020. godine, podneo Učiteljskom
+                        fakultetu u Prizrenu sa privremenim sedištem u Leposaviću, zahtev za pristup informacijama
+                        od javnog značaja, elektronskom poštom, kojim je tražio informacije od javnog značaja, bliže
+                        navedene u stavu I dispozitiva ovog rešenja.
+                        Takođe je uvidom u spise predmeta utvrđeno da po podnetom zahtevu žalioca organ vlasti
+                        nije postupio, što je bio dužan da učini bez odlaganja, a najkasnije u roku od 15 dana od dana
+                        prijema zahteva te da ga, u smislu člana 16. stav 1. Zakona o slobodnom pristupu informacijama od
+                        javnog značaja, obavesti da li poseduje tražene informacije i da mu, ukoliko iste poseduje, dostavi
+                        kopije dokumenata u kojima su one sadržane ili da, u suprotnom, donese rešenje o odbijanju zahteva,
+                        u smislu stava 10. istog člana.
+                        Članom 2. stav 1. Zakona o slobodnom pristupu informacijama od javnog značaja propisano
+                        je da je informacija od javnog značaja, u smislu ovog zakona, informacija kojom raspolaže organ
+                        javne vlasti, nastala u radu ili u vezi sa radom organa javne vlasti, sadržana u određenom
+                        dokumentu, a odnosi se na sve ono o čemu javnost ima opravdan interes da zna.
+                        Imajući u vidu da je žalilac podnetim zahtevom tražio odgovore na određena pitanja u vezi
+                        sa ranije dobijenim obaveštenjem tog Preduzeća od 29.10.2018. godine, Poverenik nalazi da se u
+                        konkretnom slučaju, ne radi o informacijama od javnog značaja, u smislu citirane odredbe člana
+                        2. stav 1. Zakona, te da je zahtev neosnovan. Ovo iz razloga što bi postupanje organa vlasti po
+                        podnetom zahtevu zahtevalo davanje odgovora na pitanja, objašnjenja, obrazloženja, komentare, što
+                        bi podrazumevalo sačinjavanje novog dokumenta, dok u smislu citirane odredbe Zakona, organ
+                        vlasti nema obavezu da to čini, jer informacija od javnog značaja može biti samo ona informacija
+                        koja je već sadržana, odnosno opredmećena u dokumentu, u momentu kada je zatražena, odnosno koja
+                        već postoji, a što ovde nije slučaj.
+                        Kako je organ vlasti propustio da odluči po podnetom zahtevu, odnosno da donese rešenje i
+                        odbije podneti zahtev, a nije opravdao razloge nedonošenja rešenja, Poverenik je, u postupku po
+                        žalbi, na osnovu člana 23. i člana 24. st. 1. Zakona o slobodnom pristupu informacijama od javnog
+                        značaja i člana 173. st. 2. Zakona o opštem upravnom postupku odlučio kao u dispozitivu ovog
+                        rešenja, odnosno odbio zahtev žalioca, kao neosnovan.
+                        
+                        Protiv ovog resenja nije dopuštena žalba već se, u skladu sa Zakonom o upravnim
+                        sporovima, može pokrenuti upravni spor tužbom Upravnom sudu u Beogradu, u roku od 30 dana od
+                        dana prijema rešenja
+                        Taksa na sluzbu iznosi
+                        <fo:inline><xsl:value-of select="re:Resenje/re:Obrazlozenje/re:Odluka/re:Iznos"/></fo:inline>dinara.
+                    </fo:block>
+                    
+                    <fo:block margin-top="10px">Poverenik:</fo:block>
                     <fo:block>
-                        obavestavamo Vas da dana <fo:inline text-decoration="underline"><xsl:value-of select="$date"/></fo:inline>, u <fo:inline text-decoration="underline"><xsl:value-of select="$time"/></fo:inline>
-                        , odnosno u vremenu od <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:InformacijeOUvidu/ob:SatnicaOd"/></fo:inline> do <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:InformacijeOUvidu/ob:SatnicaDo"/></fo:inline>
-                        casova, u prostorijama organa u <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:InformacijeOUvidu/ob:Adresa/ob:Mesto"/></fo:inline> ul. <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:InformacijeOUvidu/ob:Adresa/ob:Ulica"/></fo:inline>
-                        br. <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:InformacijeOUvidu/ob:Adresa/ob:Broj"/></fo:inline>, kancelarija br. <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:InformacijeOUvidu/ob:BrojKancelarije"/></fo:inline>
-                        mozete <fo:inline font-weight="bold">izvrsiti uvid</fo:inline> u dokument/e u kome je sadrzana trazena informacija.
+                        <xsl:value-of select="re:Resenje/re:Poverenik/re:Ime"/>
+                        <xsl:value-of select="re:Resenje/re:Poverenik/re:Prezime"/>
                     </fo:block>
-                    
-                    <fo:block><fo:leader></fo:leader></fo:block>
-                    <fo:block text-indent="20px">Tom prilikom, na Vas zahtev, moze Vam se izdati i kopija dokumenta sa trazenom informacijom.</fo:block>
-                    
-                    <fo:block><fo:leader></fo:leader></fo:block>
-                    <fo:block text-indent="20px">
-                        Troskovi su utvrdjeni Uredbom Vlade Republike Srbije ("Sl. glasnik RS", br 8/06), i to:
-                        kopija strane A4 formata iznosi <fo:inline><xsl:value-of select="ob:Obavestenje/ob:Troskovi/ob:CenaA4"/></fo:inline> dinara, A3 formata <fo:inline><xsl:value-of select="ob:Obavestenje/ob:Troskovi/ob:CenaA3"/></fo:inline> dinara, CD <fo:inline><xsl:value-of select="ob:Obavestenje/ob:Troskovi/ob:CenaCD"/></fo:inline> dinara, diskete <fo:inline><xsl:value-of select="ob:Obavestenje/ob:Troskovi/ob:CenaDisketa"/></fo:inline> dinara,
-                        DVD <fo:inline><xsl:value-of select="ob:Obavestenje/ob:Troskovi/ob:CenaDVD"/></fo:inline> dinara, audio-disketa - <fo:inline><xsl:value-of select="ob:Obavestenje/ob:Troskovi/ob:CenaAudioKaseta"/></fo:inline> dinara, video-kaseta <fo:inline><xsl:value-of select="ob:Obavestenje/ob:Troskovi/ob:VideoKaseta"/></fo:inline> dinara, pretvaranje jedne strane
-                        dokumenta iz fizickog u elektronski oblik - <fo:inline><xsl:value-of select="ob:Obavestenje/ob:Troskovi/ob:CenaEDokument"/></fo:inline> dinara.
-                    </fo:block>
-                    <fo:block><fo:leader></fo:leader></fo:block>
-                    <fo:block text-indent="20px">
-                        Iznos ukupnih troskova izrade kopije dokumenta po vasem zahtevu iznosi
-                        <fo:inline text-decoration="underline"><xsl:value-of select="ob:Obavestenje/ob:InformacijeOUplati/ob:UkupniTroskovi"/></fo:inline> dinara i uplacuje se
-                        na ziro-racun Budzeta Republike Srbije br. <xsl:value-of select="ob:Obavestenje/ob:InformacijeOUplati/ob:ZiroRacun"/>
-                        , s pozivom na broj <xsl:value-of select="ob:Obavestenje/ob:InformacijeOUplati/ob:BrojModela"/>
-                        - oznaka sifre opstine/grada gde se nalazi organ vlasti (iz Pravilnika o uslovima i nacinu vodjenja racuna - "Sl. glasnik RS", 20/07... 40/10).
-                    </fo:block>
-                    <fo:block margin-top="10px">Dostavljeno:</fo:block>
-                    <fo:block><xsl:value-of select="ob:Obavestenje/ob:Dostavljeno"/><xsl:value-of select="$space"/></fo:block>
                 </fo:flow>
             </fo:page-sequence>
         </fo:root>
