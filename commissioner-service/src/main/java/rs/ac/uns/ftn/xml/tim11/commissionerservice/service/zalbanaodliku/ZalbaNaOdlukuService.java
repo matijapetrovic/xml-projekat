@@ -98,7 +98,7 @@ public class ZalbaNaOdlukuService {
   }
   
   public List<ZalbaNaOdluku> searchMetadata(ZalbaNaOdlukuMetadataSearchRequest request) throws XMLDBException, IOException {
-      QueryBuilder queryBuilder = new QueryBuilder(properties.namedGraph(), "zalba-odluka");
+      QueryBuilder queryBuilder = new QueryBuilder(properties.namedGraph(), "zalbaOdluka");
       if(request.getImePodnosioca() != null)
           queryBuilder = queryBuilder.addParam("imePodnosioca", request.getImePodnosioca());
       if(request.getPrezimePodnosioca() != null)
