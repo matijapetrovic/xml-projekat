@@ -25,9 +25,9 @@ public class ResenjePortImpl implements ResenjePort {
     private ResenjeService service;
 
     @Override
-    public Resenje findResenjeByNumber(String brojResenja) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
-        Resenje resenje = service.findXmlByNumber(brojResenja);
-        return resenje;
+    public Resenje recieveResenje(Resenje brojResenja) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
+        //Resenje resenje = service.findXmlByNumber(brojResenja);
+        return null;
     }
 
     @Autowired

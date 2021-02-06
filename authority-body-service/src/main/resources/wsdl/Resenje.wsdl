@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ResenjeSoapService" targetNamespace="http://soap.spring.com/ws/resenje" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soap.spring.com/ws/resenje" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://www.ftn.uns.ac.rs/xml/tim11/resenje" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ftn.uns.ac.rs/xml/tim11/resenje" version="1.0">
+
+  <xs:element name="Resenje">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="BrojResenja" type="xs:string"/>
+        <xs:element form="qualified" name="DatumResenja" type="xs:date"/>
+        <xs:element form="qualified" name="Uvod" type="tns:CTUvod"/>
+        <xs:element form="qualified" name="Sadrzaj" type="tns:CTResenje"/>
+        <xs:element form="qualified" name="Obrazlozenje" type="tns:CTObrazlozenje"/>
+        <xs:element form="qualified" name="Poverenik" type="tns:CTPoverenik"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType mixed="true" name="CTUvod">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element form="qualified" name="DatumZalbe" type="xs:anySimpleType"/>
+        <xs:element form="qualified" name="OrganVlasti" type="xs:string"/>
+        <xs:element form="qualified" name="PozivNaZakon" type="tns:CTPozivNaZakon"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTPozivNaZakon">
+    <xs:sequence>
+      <xs:element form="qualified" name="Zakon" type="tns:CTZakon"/>
+      <xs:element form="qualified" name="BrojeviSluzbenogGlasnika">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element form="qualified" maxOccurs="unbounded" name="Broj" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTZakon">
+    <xs:sequence>
+      <xs:element form="qualified" maxOccurs="unbounded" name="Clan" type="xs:positiveInteger"/>
+      <xs:element form="qualified" minOccurs="0" name="Stav" type="xs:positiveInteger"/>
+      <xs:element form="qualified" minOccurs="0" name="Tacka" type="xs:positiveInteger"/>
+      <xs:element form="qualified" name="NazivZakona">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTPredmetZalbe">
+    <xs:sequence>
+      <xs:element form="qualified" name="DatumIzjave" type="xs:date"/>
+      <xs:element form="qualified" name="OrganVlasti" type="xs:string"/>
+      <xs:element form="qualified" name="DatumPotrazivanjaInformacija">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:anySimpleType">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTObrazlozenje">
+    <xs:sequence>
+      <xs:element form="qualified" name="PredmetZalbe" type="tns:CTPredmetZalbe"/>
+      <xs:element form="qualified" name="Postupak" type="tns:CTPostupak"/>
+      <xs:element form="qualified" name="Odluka" type="tns:CTOdluka"/>
+    </xs:sequence>
+    <xs:attribute name="about" type="xs:anyURI" use="required"/>
+    <xs:attribute name="vocab" type="xs:anyURI" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CTPostupak">
+    <xs:sequence>
+      <xs:element form="qualified" name="DatumPostupka" type="xs:date"/>
+      <xs:element form="qualified" name="Ustanova" type="tns:CTUstanova"/>
+      <xs:element form="qualified" name="Zakon" type="tns:CTZakon"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTUstanova">
+    <xs:sequence>
+      <xs:element form="qualified" name="Naziv">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Adresa" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTOdluka">
+    <xs:sequence>
+      <xs:element form="qualified" name="Zakon" type="tns:CTZakon"/>
+      <xs:element form="qualified" name="Lice" type="xs:string"/>
+      <xs:element form="qualified" name="Mesto">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Iznos" type="xs:positiveInteger"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTResenje">
+    <xs:sequence>
+      <xs:element form="qualified" name="OrganVlasti">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Ustanova" type="tns:CTUstanova"/>
+      <xs:element form="qualified" name="Ishod" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CTPoverenik">
+    <xs:sequence>
+      <xs:element form="qualified" name="Ime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element form="qualified" name="Prezime">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="type" type="xs:anySimpleType" use="required"/>
+              <xs:attribute name="property" type="xs:anySimpleType" use="required"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="findResenjeByNumberResponse">
+    <wsdl:part name="return">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findResenjeByNumber">
+    <wsdl:part name="text" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ResenjePort">
+    <wsdl:operation name="findResenjeByNumber">
+      <wsdl:input name="findResenjeByNumber" message="tns:findResenjeByNumber">
+    </wsdl:input>
+      <wsdl:output name="findResenjeByNumberResponse" message="tns:findResenjeByNumberResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ResenjeSoapServiceSoapBinding" type="tns:ResenjePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findResenjeByNumber">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="findResenjeByNumber">
+        <soap:body use="literal" namespace="http://soap.spring.com/ws/resenje"/>
+      </wsdl:input>
+      <wsdl:output name="findResenjeByNumberResponse">
+        <soap:body use="literal" namespace="http://soap.spring.com/ws/resenje"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ResenjeSoapService">
+    <wsdl:port name="ResenjeServicePort" binding="tns:ResenjeSoapServiceSoapBinding">
+      <soap:address location="http://localhost:9090/ResenjeServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
