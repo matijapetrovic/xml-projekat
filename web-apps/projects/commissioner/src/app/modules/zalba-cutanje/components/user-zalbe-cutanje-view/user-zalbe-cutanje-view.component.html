@@ -7,7 +7,7 @@
         <div class="p-grid p-justify-center">
           <h1>
             <strong>
-              Zalbe na odluku
+              Zalbe na cutanje
             </strong>
           </h1>
         </div>
@@ -23,43 +23,34 @@
             <th>Podnosilac</th>
             <th>Datum zahteva</th>
             <th>Mesto zahteva</th>
-            <th>Akcije</th>
             <th>Prikazi</th>
           </tr>
         </ng-template>
         <ng-template id="categories-table-item" pTemplate="body" let-zalba>
           <tr>
-            <td id="zahtev-name">
-              {{ zalba['zod:PodaciOResenju']['zod:OrganVlasti']['co:Naziv']['_text'] }}
+            <td id="zalba-name">
+              {{ zalba['zlb:OrganVlasti']['co:Naziv']['_text'] }}
             </td>
             <td>
-              {{ zalba['zod:PodaciOResenju']['zod:OrganVlasti']['co:Sediste']['co:Mesto']['_text'] }}
+              {{ zalba['zlb:OrganVlasti']['co:Sediste']['co:Mesto']['_text'] }}
 
-              {{ zalba['zod:PodaciOResenju']['zod:OrganVlasti']['co:Sediste']['co:Ulica']['_text'] }}
+              {{ zalba['zlb:OrganVlasti']['co:Sediste']['co:Ulica']['_text'] }}
 
-              {{ zalba['zod:PodaciOResenju']['zod:OrganVlasti']['co:Sediste']['co:Broj']['_text'] }}
+              {{ zalba['zlb:OrganVlasti']['co:Sediste']['co:Broj']['_text'] }}
             </td>
             <td>
-              {{ zalba.name }}
+              {{ zalba['zlb:PodnosilacZalbe']['co:Ime']['_text'] }}
+
+              {{ zalba['zlb:PodnosilacZalbe']['co:Prezime']['_text'] }}
             </td>
             <td>
-              {{ zalba['zod:OstaliPodaci']['co:Datum']['_text'] }}
+              {{ zalba['zlb:OstaliPodaci']['co:Datum']['_text'] }}
             </td>
             <td>
-              {{ zalba['zod:OstaliPodaci']['co:Mesto']['_text'] }}
+              {{ zalba['zlb:OstaliPodaci']['co:Mesto']['_text'] }}
             </td>
             <td>
-              <div class="p-grid p-justify-center">
-                <button id="show-update-zahtev-form-button" pButton label="Prihvati zalbu" icon="pi pi-check"
-                  class="p-button-info p-button-rounded p-justify-left p-button-sm p-mr-2 p-mb-2"
-                  (click)="showAcceptForm(zalba)"></button>
-                <button id="show-delete-zahtev-dialog-button" pButton label="Odbij zalbu" icon="pi pi-times"
-                  class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
-                  (click)="showRejectDialog(zalba.id)"></button>
-              </div>
-            </td>
-            <td>
-              <button id="show-zahtev-dialog-button" pButton label="Pregledaj zalbu" icon="pi pi-external-link"
+              <button id="show-zalba-dialog-button" pButton label="Pregledaj zalbu" icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
                 (click)="showZahtev(zalba.id)"></button>
               <button id="show-zahtev-dialog-button" pButton label="Eksportuj XHTML" icon="pi pi-external-link"

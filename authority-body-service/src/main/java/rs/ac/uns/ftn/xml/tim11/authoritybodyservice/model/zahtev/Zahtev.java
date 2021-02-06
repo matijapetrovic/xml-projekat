@@ -28,6 +28,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" /&gt;
  *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *       &lt;attribute name="prihvacen" type="{http://www.w3.org/2001/XMLSchema}boolean" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -62,6 +63,8 @@ public class Zahtev {
     @XmlAttribute(name = "about", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String about;
+    @XmlAttribute(name = "prihvacen")
+    protected Boolean prihvacen;
 
     /**
      * Gets the value of the organ property.
@@ -233,6 +236,30 @@ public class Zahtev {
      */
     public void setAbout(String value) {
         this.about = value;
+    }
+
+    /**
+     * Gets the value of the prihvacen property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isPrihvacen() {
+        return prihvacen;
+    }
+
+    /**
+     * Sets the value of the prihvacen property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setPrihvacen(Boolean value) {
+        this.prihvacen = value;
     }
 
 }

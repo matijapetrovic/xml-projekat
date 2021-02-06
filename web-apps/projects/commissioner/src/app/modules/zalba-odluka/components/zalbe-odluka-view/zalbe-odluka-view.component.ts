@@ -54,12 +54,25 @@ export class ZalbeOdlukaViewComponent implements OnInit {
 
   getPDF(id: string) {
     this.zalbaOdlukaService.getOnePDF(id).subscribe((zahtev) => {
-      const file = this.makeBlob(zahtev);
+      const file = this.makePdfBlob(zahtev);
       this.downloadPdf(file, id);
     });
   }
 
-  makeBlob(zahtev: any) {
+  getXhtml(id: string) {
+    this.zalbaOdlukaService.getOneXHTML(id).subscribe((zahtev) => {
+      const file = this.makeXHTMLBlob(zahtev);
+      this.downloadXHTML(file, id);
+    })
+  }
+
+  makeXHTMLBlob(zahtev: any) {
+    let file = new Blob([zahtev], { type: 'application/xhtml+xml' });
+    var fileURL = URL.createObjectURL(file);
+    return fileURL;
+  }
+
+  makePdfBlob(zahtev: any) {
     let file = new Blob([zahtev], { type: 'application/pdf' });
     var fileURL = URL.createObjectURL(file);
     return fileURL
@@ -73,6 +86,13 @@ export class ZalbeOdlukaViewComponent implements OnInit {
     link.click();
   }
 
+  downloadXHTML(file, fileName) {
+    const source = file;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${fileName}.xhtml`;
+    link.click();
+  }
   getAll() {
     this.zalbaOdlukaService.getAll().subscribe((zalbe) => {
       if (zalbe.length && zalbe[0] !== undefined) {

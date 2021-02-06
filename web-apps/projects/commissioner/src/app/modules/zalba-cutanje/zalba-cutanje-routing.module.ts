@@ -4,6 +4,8 @@ import { AddZalbaCutanjeComponent } from './components/add-zalba-cutanje/add-zal
 import { ZalbeCutanjeViewComponent } from './components/zalbe-cutanje-view/zalbe-cutanje-view.component';
 import { ZalbaCutanjeViewComponent } from '../zalba-cutanje/components/zalba-cutanje-view/zalba-cutanje-view.component';
 import { ZalbaCutanjeXhtmlViewComponent } from '../zalba-cutanje/components/zalba-cutanje-xhtml-view/zalba-cutanje-xhtml-view.component';
+import { UserZalbeCutanjeViewComponent } from '../zalba-cutanje/components/user-zalbe-cutanje-view/user-zalbe-cutanje-view.component';
+
 
 const routes: Routes = [
   {
@@ -21,6 +23,10 @@ const routes: Routes = [
   {
     path: 'xhtml/:id',
     component: ZalbaCutanjeXhtmlViewComponent
+  },
+  {
+    path: 'user',
+    component: UserZalbeCutanjeViewComponent
   },
 ];
 

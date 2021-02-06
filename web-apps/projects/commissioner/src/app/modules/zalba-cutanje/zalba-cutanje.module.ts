@@ -10,11 +10,12 @@ import { SharedModule } from 'projects/authority-body/src/app/shared/shared.modu
 import { ZalbeCutanjeViewComponent } from './components/zalbe-cutanje-view/zalbe-cutanje-view.component';
 import { ZalbaCutanjeViewComponent } from './components/zalba-cutanje-view/zalba-cutanje-view.component';
 import { ZalbaCutanjeXhtmlViewComponent } from './components/zalba-cutanje-xhtml-view/zalba-cutanje-xhtml-view.component';
+import { UserZalbeCutanjeViewComponent } from './components/user-zalbe-cutanje-view/user-zalbe-cutanje-view.component';
 
 
 
 @NgModule({
-  declarations: [AddZalbaCutanjeComponent, ZalbeCutanjeViewComponent, ZalbaCutanjeViewComponent, ZalbaCutanjeXhtmlViewComponent],
+  declarations: [AddZalbaCutanjeComponent, ZalbeCutanjeViewComponent, ZalbaCutanjeViewComponent, ZalbaCutanjeXhtmlViewComponent, UserZalbeCutanjeViewComponent],
   imports: [
     CommonModule,
     VendorsModule,

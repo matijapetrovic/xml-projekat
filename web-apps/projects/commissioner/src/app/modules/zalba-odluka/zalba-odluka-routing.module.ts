@@ -4,6 +4,7 @@ import { AddZalbaOdlukaComponent } from './components/add-zalba-odluka/add-zalba
 import { ZalbeOdlukaViewComponent } from './components/zalbe-odluka-view/zalbe-odluka-view.component';
 import { ZalbaOdlukaViewComponent } from '../zalba-odluka/components/zalba-odluka-view/zalba-odluka-view.component';
 import { ZalbaOdlukaXhtmlViewComponent } from '../zalba-odluka/components/zalba-odluka-xhtml-view/zalba-odluka-xhtml-view.component';
+import { UserZalbeOdlukaViewComponent } from '../zalba-odluka/components/user-zalbe-odluka-view/user-zalbe-odluka-view.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'xhtml/:id',
     component: ZalbaOdlukaXhtmlViewComponent
+  },
+  {
+    path: 'user',
+    component: UserZalbeOdlukaViewComponent
   },
 ];
 

@@ -12,16 +12,4 @@ public class EmailServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmailServiceApplication.class, args);
 	}
-
-	@Bean
-	public CommandLineRunner run(
-			EmailSender emailSender) {
-		return args -> {
-			sendEmail(emailSender);
-		};
-	}
-
-	private void sendEmail(EmailSender emailSender) {
-		emailSender.sendEmail("nikolakabasaj6@gmail.com", "nekome", "uspesno poslato");
-	}
 }

@@ -17,7 +17,9 @@ export class ZalbaOdlukaService {
 
   private url = `${environment.apiUrl}/zalba-odluka`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) { 
+    this.handleError = httpErrorHandler.createHandleError('ZahteviService');
+  }
 
   private handleError: HandleError;
 

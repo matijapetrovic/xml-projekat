@@ -1,5 +1,9 @@
 package rs.ac.uns.ftn.xml.tim11.emailservice.usecase;
 
+import rs.ac.uns.ftn.xml.tim11.emailservice.controller.EmailRequest;
+
+import javax.mail.MessagingException;
+
 public interface EmailSender {
-    void sendEmail(String to, String subject, String text);
+    void sendEmail(EmailRequest request) throws MessagingException;
 }

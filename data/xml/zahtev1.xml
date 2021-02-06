@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<za:Zahtev xmlns="http://www.w3.org/ns/rdfa#"
+<za:Zahtev xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+ xmlns="http://www.w3.org/ns/rdfa#"
  xmlns:za="http://www.ftn.uns.ac.rs/xml/tim11/zahtev"
- xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
  xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/zahtev file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/zahtevcir.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1">
@@ -14,12 +14,6 @@
         </co:Sediste>
     </za:Organ>
     <za:Zahtevi>
-        <za:Obavestenje>Uvid u obavestenje</za:Obavestenje>
-        <za:DostavljanjeKopije>
-            <za:NacinDostave>
-                <za:Posta>Dostava postom</za:Posta>
-            </za:NacinDostave>
-        </za:DostavljanjeKopije>
     </za:Zahtevi>
     <za:OpisInformacije>OpisInformacije0</za:OpisInformacije>
     <za:OstaliPodaci>

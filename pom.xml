@@ -12,7 +12,6 @@
         <module>commissioner-service</module>
         <module>authority-body-service</module>
         <module>xml-lib</module>
-        <module>mail-service</module>
         <module>email-service</module>
     </modules>
 

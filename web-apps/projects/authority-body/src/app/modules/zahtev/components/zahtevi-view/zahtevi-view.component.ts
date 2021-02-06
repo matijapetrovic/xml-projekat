@@ -25,7 +25,7 @@ export class ZahteviViewComponent implements OnInit {
   }
 
   showAcceptForm(zahtev: any): void {
-    this.router.navigate(['/obavestenja/add']);
+    this.router.navigate([`/obavestenje/add/${zahtev['id']}`]);
   }
 
   showRejectDialog(id: string): void {

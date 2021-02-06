@@ -45,8 +45,8 @@ public class ObavestenjeController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Void> add(@RequestBody Obavestenje enitity) throws XMLDBException, TransformerException, JAXBException, IOException {
-        obavestenjeService.create(enitity);
+    public ResponseEntity<Void> add(@RequestParam(value = "zahtevId") long zahtevId, @RequestBody Obavestenje obavestenje) throws XMLDBException, TransformerException, JAXBException, IOException, SAXException, ParserConfigurationException, XmlResourceNotFoundException {
+        obavestenjeService.create(zahtevId, obavestenje);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

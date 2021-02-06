@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:8082',
-  mailUrl: 'http://localhost:8083'
+  mailUrl: 'http://localhost:8083',
+  commissionerUrl: 'http://localhost:4201'
 };
 
 /*

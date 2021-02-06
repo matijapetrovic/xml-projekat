@@ -50,6 +50,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}string" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" /&gt;
  *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:resava" /&gt;
+ *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -94,6 +96,12 @@ public class Obavestenje {
     protected String vocab;
     @XmlAttribute(name = "about", required = true)
     protected String about;
+    @XmlAttribute(name = "rel", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String rel;
+    @XmlAttribute(name = "href", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String href;
 
     /**
      * Gets the value of the brojPredmeta property.
@@ -361,6 +369,58 @@ public class Obavestenje {
      */
     public void setAbout(String value) {
         this.about = value;
+    }
+
+    /**
+     * Gets the value of the rel property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRel() {
+        if (rel == null) {
+            return "pred:resava";
+        } else {
+            return rel;
+        }
+    }
+
+    /**
+     * Sets the value of the rel property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRel(String value) {
+        this.rel = value;
+    }
+
+    /**
+     * Gets the value of the href property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHref() {
+        return href;
+    }
+
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
     }
 
 
