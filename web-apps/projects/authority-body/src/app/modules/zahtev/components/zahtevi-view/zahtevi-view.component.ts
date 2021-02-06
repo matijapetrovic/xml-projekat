@@ -21,8 +21,12 @@ export class ZahteviViewComponent implements OnInit {
     private zahtevService: ZahtevService,
     public confirmationService: ConfirmationService,
     public messageService: MessageService,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {
+    this.zahtevService.zahtevi.subscribe((zahtevi) =>  {
+      this.zahtevi = this.mapZahtevi(zahtevi);
+    });
+   }
 
   ngOnInit(): void {
    this.getAll();
@@ -97,15 +101,17 @@ export class ZahteviViewComponent implements OnInit {
   }
 
   getAll() {
-    this.zahtevService.getAll().subscribe((zahtevi) => { 
-      this.zahtevi = zahtevi.map((zahtev) => { 
-        zahtev['name'] = zahtev['za:TrazilacInformacija']['co:Ime']['_text'] + ' ' + zahtev['za:TrazilacInformacija']['co:Prezime']['_text'];
-        let about: Array<string> = zahtev['_attributes']['about'].split('/');
-        zahtev['id'] = about[about.length - 1];
-        if (zahtev['_attributes']['prihvacen'])
-          zahtev['prihvacen'] = zahtev['_attributes']['prihvacen'] === 'true';
-        return zahtev;
-      })
+    this.zahtevService.getAll().subscribe();
+  }
+
+  mapZahtevi(zahtevi: Array<any>): Array<any> {
+    return zahtevi.map((zahtev) => { 
+      zahtev['name'] = zahtev['za:TrazilacInformacija']['co:Ime']['_text'] + ' ' + zahtev['za:TrazilacInformacija']['co:Prezime']['_text'];
+      let about: Array<string> = zahtev['_attributes']['about'].split('/');
+      zahtev['id'] = about[about.length - 1];
+      if (zahtev['_attributes']['prihvacen'])
+        zahtev['prihvacen'] = zahtev['_attributes']['prihvacen'] === 'true';
+      return zahtev;
     });
   }
 }

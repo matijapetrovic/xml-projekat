@@ -12,6 +12,7 @@
           </h1>
         </div>
       </div>
+      <app-zahtev-metadata-search></app-zahtev-metadata-search>
       <div class="p-grid p-mt-3 p-justify-center centered-grid"></div>
         <p-table
           id="zahtevi-table"
@@ -93,7 +94,7 @@
                     pButton 
                     label="Prihvati zahtev"
                     icon="pi pi-check" 
-                    class="p-button-info p-button-rounded p-justify-left p-button-sm p-mr-2 p-mb-2"
+                    class="p-button-success p-button-rounded p-justify-left p-button-sm p-mr-2 p-mb-2"
                     (click)="showAcceptForm(zahtev)"
                   ></button>
                   <button 

@@ -26,9 +26,9 @@ public class ZalbaNaCutanjeMetadataSearchRequest {
     @XmlElement(name = "PrezimePodnosioca", required = true)
     protected String prezimePodnosioca;
     
-    @XmlElement(name = "podnesenU", required = true)
+    @XmlElement(name = "PodnesenU", required = true)
     protected String podnesenU;	
 
-    @XmlElement(name = "podnesenDatuma", required = true)
+    @XmlElement(name = "PodnesenDatuma", required = true)
     protected String podnesenDatuma;
 }
