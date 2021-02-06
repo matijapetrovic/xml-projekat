@@ -1,0 +1,44 @@
+
+<form>
+    <h5>Pretraga metapodataka</h5>
+    <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" name="ime" pInputText [(ngModel)]="imePodnosioca" placeholder="Ime Podnosioca">         
+            </div>
+        </div>
+        
+        <div class="p-col-12 p-md-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" name="prezime" pInputText [(ngModel)]="prezimePodnosioca" placeholder="Prezime Podnosioca">         
+            </div>
+        </div>
+                
+        <div class="p-col-12 p-md-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-home"></i></span>
+                <input type="text" name="naziv" pInputText [(ngModel)]="nazivOrganaVlasti" placeholder="Naziv Organa Vlasti">      
+            </div>
+        </div>
+        
+        <div class="p-col-12 p-md-4 p-offset-2">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                <input type="text" name="mesto" pInputText [(ngModel)]="podnesenU" placeholder="Mesto podnosenja">         
+            </div>
+        </div>
+
+        <div class="p-col-12 p-md-4">
+            <p-calendar [(ngModel)]="podnesenDatuma" name="datum" placeholder="Datum podnosenja" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
+        </div>
+
+        <div class="p-col-12 p-md-2 p-offset-4">
+            <button [disabled]="submitDisabled()" pButton label="Reset" (click)="reset()" class="p-button-danger"></button>
+        </div>
+        <div class="p-col-12 p-md-2">
+            <button [disabled]="submitDisabled()" pButton label="Pretrazi" (click)="submit()" class="p-button-primary"></button>
+        </div>
+    </div>
+</form>

@@ -18,13 +18,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NoArgsConstructor
 public class ZahtevMetadataSearchRequest {
 
-	@XmlElement(name = "nazivOrganaVlasti", required = true)
+	@XmlElement(name = "NazivOrganaVlasti", required = true)
     protected String nazivOrganaVlasti;
 
-    @XmlElement(name = "podnesenU", required = true)
+    @XmlElement(name = "PodnesenU", required = true)
     protected String podnesenU;	
 
-    @XmlElement(name = "podnesenDatuma", required = true)
+    @XmlElement(name = "PodnesenDatuma", required = true)
     protected String podnesenDatuma;
 
     @XmlElement(name = "ImePodnosioca", required = true)
