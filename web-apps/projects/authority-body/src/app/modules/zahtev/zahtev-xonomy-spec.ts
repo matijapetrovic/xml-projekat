@@ -21,18 +21,21 @@ const positiveNumberValidate = function(jsElement) {
 
 
 const elements = {
-    "ns2:Zahtev": {
+    "za:Zahtev": {
       displayName: 'Zahtev',
       attributes: {
         "vocab": { isInvisible: true },
         "about": { isInvisible: true }
        }
     },  
-    "ns2:Organ": {
+    "za:Organ": {
       displayName: 'Organ',
-      attributes: {}
+      attributes: {
+        "rel": { isInvisible: true },
+        "href": { isInvisible: true }
+       }
     },  
-    "Naziv": {
+    "co:Naziv": {
       displayName: 'Naziv',
       attributes: {
         "property": { isInvisible: true },
@@ -43,26 +46,33 @@ const elements = {
         defaultValidate(jsElement);
       }
     },
-    "Broj": {
+    "co:Broj": {
+      displayName: 'Broj',
       asker: Xonomy.askNumber,
       validate: function(jsElement) {
         defaultValidate(jsElement);
         positiveNumberValidate(jsElement);
       }
     },
-    "ns2:Zahtevi": {
+    "za:Zahtevi": {
       displayName: 'Zahtevi',
       attributes: {}
     },
-    "ns2:OpisInformacije": {
+    "za:OpisInformacije": {
       displayName: 'OpisInformacije',
       attributes: {}
     },
-    "ns2:OstaliPodaci": {
+    "za:OstaliPodaci": {
       displayName: 'OstaliPodaci',
       attributes: {}
     },
-    "Mesto": {
+    "co:Sediste": {
+      displayName: 'Sediste',
+    },
+    "co:Ulica": {
+      displayName: 'Ulica'
+    },
+    "co:Mesto": {
       displayName: 'Mesto',
       attributes: {
         "property": { isInvisible: true },
@@ -72,7 +82,7 @@ const elements = {
         defaultValidate(jsElement);
       }
     },
-    "Datum": {
+    "co:Datum": {
       displayName: 'Datum',
       asker: Xonomy.askDate,
       attributes: {
@@ -84,41 +94,43 @@ const elements = {
       }
     },
 
-    "ns2:TrazilacInformacija": {
+    "za:TrazilacInformacija": {
       displayName: 'TrazilacInformacija',
       attributes: {
         "vocab": { isInvisible: true },
         "about": { isInvisible: true },
         "rel": { isInvisible: true },
         "href": { isInvisible: true }
-      },
-      hasText: true,
+      }
     },
 
-    "Ime": {
+    "co:Ime": {
+      displayName: 'Ime',
       attributes: {
         "property": { isInvisible: true },
         "datatype": { isInvisible: true }
       },
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "Prezime": {
+    "co:Prezime": {
+      displayName: 'Prezime',
       attributes: {
         "property": { isInvisible: true },
         "datatype": { isInvisible: true }
       },
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "ns2:DrugiKontaktPodaci": {
+    "za:DrugiKontaktPodaci": {
       displayName: 'DrugiKontaktPodaci',
       attributes: {}
     },
+    "co:Adresa": {
+      displayName: 'Adresa'
+    }
   };
 
 const validate = function(jsElement) {

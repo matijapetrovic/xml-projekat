@@ -16,8 +16,8 @@ export class ZalbaOdlukaService {
 
   constructor(private http: HttpClient) { }
 
-  add(document: string): Observable<void> {
-    return this.http.post<void>(this.url, document, { headers: postHeaders });
+  add(zahtevId: number, document: string): Observable<void> {
+    return this.http.post<void>(`${this.url}/?zahtevId=${zahtevId}`, document, { headers: postHeaders });
   }
 
   getExample(): Observable<string> {

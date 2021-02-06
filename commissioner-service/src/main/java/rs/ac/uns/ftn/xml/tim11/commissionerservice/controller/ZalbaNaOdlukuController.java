@@ -42,8 +42,8 @@ public class ZalbaNaOdlukuController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Void> add(@RequestBody ZalbaNaOdluku enitity) throws XMLDBException, TransformerException, JAXBException, IOException {
-    	zalbaNaOdlukuService.create(enitity);
+    public ResponseEntity<Void> add(@RequestParam(value="zahtevId") long zahtevId, @RequestBody ZalbaNaOdluku zalba) throws XMLDBException, TransformerException, JAXBException, IOException {
+    	zalbaNaOdlukuService.create(zahtevId, zalba);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

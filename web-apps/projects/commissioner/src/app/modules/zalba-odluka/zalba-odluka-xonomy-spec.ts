@@ -25,7 +25,9 @@ const elements = {
     displayName: 'Zalba Na Odluku',
     attributes: {
       "vocab": { isInvisible: true },
-      "about": { isInvisible: true }
+      "about": { isInvisible: true },
+      "rel": { isInvisible: true },
+      "href": { isInvisible: true }
      }
   },
   "zod:PodaciOResenju": {
@@ -114,7 +116,6 @@ const elements = {
       "rel": { isInvisible: true },
       "href": { isInvisible: true }
     },
-    hasText: true,
     validate: function(jsElement) {
       defaultValidate(jsElement);
     }
@@ -127,7 +128,6 @@ const elements = {
       "rel": { isInvisible: true },
       "href": { isInvisible: true }
     },
-    hasText: true,
     validate: function(jsElement) {
       defaultValidate(jsElement);
     }
@@ -147,7 +147,8 @@ const elements = {
     displayName: 'Trazena Informacija',
     validate: function(jsElement) {
       defaultValidate(jsElement);
-    }
+    },
+    asker: Xonomy.askLongString
   },
   "co:Ime": {
     displayName: 'Ime', 

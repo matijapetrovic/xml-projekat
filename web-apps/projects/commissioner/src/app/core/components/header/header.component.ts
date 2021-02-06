@@ -17,53 +17,47 @@ export class HeaderComponent implements OnInit {
 
   commonItems: MenuItem[] = [
     {
-      label: 'Home',
+      label: 'Pocetna',
       icon: 'pi pi-home',
       routerLink: [''],
       id: 'home-nav-link'
-    },
-    {
-      label: 'Map',
-      icon: 'pi pi-map',
-      routerLink: ['/map'],
-      id: 'map-nav-link'
     }
   ];
 
   userItems: MenuItem[] = [
     {
-      label: 'Dashboard',
-      routerLink: ['/dashboard'],
+      label: 'Podnesi zalbu na cutanje',
+      routerLink: ['/zalba-cutanje/add/123'],
       id: 'dashboard-nav-link'
-    }
+    },
+    {
+      label: 'Podnesi zalbu na odluku',
+      routerLink: ['/zalba-odluka/add/123'],
+      id: 'dashboard-nav-link'
+    },
+    {
+      label: 'Pregledaj podnete zalbe',
+      routerLink: ['/gradjanin/zalbe'],
+      id: 'dashboard-nav-link'
+    },
   ];
 
   adminItems: MenuItem[] = [
     {
-      label: 'Cultural Offers',
-      routerLink: ['/cultural-offers'],
+      label: 'Pregledaj podnete zalbe',
+      routerLink: ['/zalbe'],
       id: 'cultural-offers-nav-link'
-    },
-    {
-      label: 'Categories',
-      routerLink: ['/categories'],
-      id: 'categories-nav-link'
-    },
-    {
-      label: 'Subcategories',
-      routerLink: ['/subcategories'],
-      id: 'subcategories-nav-link'
-    },
+    }
   ];
 
   unauthenticatedItems: MenuItem[] = [
     {
-      label: 'Log in',
+      label: 'Prijava',
       routerLink: ['/auth/login'],
       id: 'login-nav-link'
     },
     {
-      label: 'Register',
+      label: 'Registracija',
       routerLink: ['/auth/register'],
       id: 'register-nav-link'
     }
@@ -78,13 +72,13 @@ export class HeaderComponent implements OnInit {
   updateItems(user: User): void {
     if (!!user) {
       this.authenticated = true;
-      if (user.role === Role.ROLE_AUTHORITY) {
+      if (user.role === 'ROLE_COMMISSIONER') {
         this.items = [
           ...this.commonItems,
           ...this.adminItems
         ];
       }
-      else if (user.role === Role.ROLE_USER) {
+      else if (user.role === 'ROLE_USER') {
         this.items = [
           ...this.commonItems,
           ...this.userItems
