@@ -6,20 +6,27 @@ import { ZahtevViewComponent } from './components/zahtev-view/zahtev-view.compon
 import { ZahtevXhtmlViewComponent } from './components/zahtev-xhtml-view/zahtev-xhtml-view.component';
 import { ZahtevPdfViewComponent } from './components/zahtev-pdf-view/zahtev-pdf-view.component';
 import { UserZahteviViewComponent } from './components/user-zahtevi-view/user-zahtevi-view.component';
+import { AuthGuard } from '../../core/guards/auth.guard';
 
 const routes: Routes = [
   
   {
     path: '',
-    component: ZahteviViewComponent
+    component: ZahteviViewComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_AUTHORITY_BODY'] }
   },
   {
     path: 'user',
-    component: UserZahteviViewComponent
+    component: UserZahteviViewComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_USER'] }
   },
   {
     path: 'add',
-    component: AddZahtevComponent 
+    component: AddZahtevComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_USER'] } 
   },
   {
     path: ':id',

@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   commonItems: MenuItem[] = [
     {
-      label: 'Home',
+      label: 'Pocetna',
       icon: 'pi pi-home',
       routerLink: [''],
       id: 'home-nav-link'
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
   userItems: MenuItem[] = [
     {
-      label: 'Home',
+      label: 'Pregledaj podnete zahteve',
       icon: 'pi pi-home',
       routerLink: ['/zahtevi/user'],
       id: 'home-nav-link'
@@ -34,17 +34,22 @@ export class HeaderComponent implements OnInit {
   ];
 
   adminItems: MenuItem[] = [
-    
+    {
+      label: 'Pregledaj podnete zahteve',
+      icon: 'pi pi-home',
+      routerLink: ['/zahtevi'],
+      id: 'home-nav-link'
+    }
   ];
 
   unauthenticatedItems: MenuItem[] = [
     {
-      label: 'Log in',
+      label: 'Prijava',
       routerLink: ['/auth/login'],
       id: 'login-nav-link'
     },
     {
-      label: 'Register',
+      label: 'Registracija',
       routerLink: ['/auth/register'],
       id: 'register-nav-link'
     },

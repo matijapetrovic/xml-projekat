@@ -33,7 +33,10 @@ export class AuthenticationService {
     if (!user) {
       return null;
     }
-    user.role = Role[user.role._text];
+   
+    user.token = user.token._text;
+    user.role = user.role._text;
+    user.expiresIn = +user.expiresIn._text;
     return user;
   }
 

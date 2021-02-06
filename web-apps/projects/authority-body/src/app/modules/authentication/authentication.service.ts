@@ -60,7 +60,7 @@ export class AuthenticationService {
       .pipe(
         catchError(this.handleError<string>('login')),
         map(dtoXML => {
-          let userInfo: User = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }))['LoginDTO'];
+          let userInfo: User = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }))['root'];
           if (userInfo && userInfo.token) {
             localStorage.setItem('currentUser', JSON.stringify(userInfo));
             this.currentUserSubject.next(this.getUserFromLocalStorage());

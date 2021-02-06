@@ -73,8 +73,7 @@ public class ZahtevService {
     }
 
     public Zahtev findById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
-    	//return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
-        return marshaller.unmarshal(new FileInputStream(new File("data/xml/zahtev1.xml")));
+    	return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
     }
     
     public Zahtev getExampleDocument() throws FileNotFoundException, JAXBException {
@@ -82,22 +81,20 @@ public class ZahtevService {
     }
     
     public byte[] generatePdf(Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, TransformerException, FOPException, FileNotFoundException {
-//      Zahtev obavestenje = xmlRepository.findById(id)
-//              .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
-      Zahtev zahtev = marshaller.unmarshal(new FileInputStream(new File("data/xml/zahtev1.xml")));
-      ByteArrayOutputStream out = new ByteArrayOutputStream();
-      this.marshaller.marshal(zahtev, out);
-      return XSLTransformer.generatePdf(new ByteArrayInputStream(out.toByteArray()));
-  }
+        Zahtev zahtev = xmlRepository.findById(id)
+                .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        this.marshaller.marshal(zahtev, out);
+        return XSLTransformer.generatePdf(new ByteArrayInputStream(out.toByteArray()));
+    }
 
-  public byte[] generateXHtml(Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, TransformerException, SAXException, IOException, ParserConfigurationException {
-//      Zahtev obavestenje = xmlRepository.findById(id)
-//              .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
-	  Zahtev zahtev = marshaller.unmarshal(new FileInputStream(new File("data/xml/zahtev1.xml")));
-      ByteArrayOutputStream out = new ByteArrayOutputStream();
-      this.marshaller.marshal(zahtev, out);
-      return XSLTransformer.generateXHtml(new ByteArrayInputStream(out.toByteArray()));
-  }
+    public byte[] generateXHtml(Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, TransformerException, SAXException, IOException, ParserConfigurationException {
+        Zahtev zahtev = xmlRepository.findById(id)
+              .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        this.marshaller.marshal(zahtev, out);
+        return XSLTransformer.generateXHtml(new ByteArrayInputStream(out.toByteArray()));
+    }
   
   public List<Zahtev> searchMetadata(ZahtevMetadataSearchRequest request) throws XMLDBException, IOException {
       QueryBuilder queryBuilder = new QueryBuilder(properties.namedGraph(), "zahtev");
@@ -117,16 +114,4 @@ public class ZahtevService {
       List<String> ids = rdfRepository.query(query);
       return xmlRepository.findAllByIds(ids);
   }
-
-    public void findRdf(){
-        rdfRepository.read();
-    }
-
-    public void update(Long id, Zahtev entity) throws XMLDBException, XmlResourceNotFoundException, JAXBException {
-        xmlRepository.update(id, entity);
-    }
-
-    public void delete(Long id) throws XMLDBException, XmlResourceNotFoundException {
-        xmlRepository.deleteById(id);
-    }
 }

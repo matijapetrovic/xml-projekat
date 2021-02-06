@@ -29,6 +29,13 @@ import java.io.IOException;
 public class ZalbaNaOdlukuController {
     private final ZalbaNaOdlukuService zalbaNaOdlukuService;
 
+    @GetMapping("")
+    public ResponseEntity<ZalbaNaOdlukuListDTO> findAll() throws XMLDBException, JAXBException {
+        ZalbaNaOdlukuListDTO response = new ZalbaNaOdlukuListDTO();
+        response.setZalbaNaOdluku(zalbaNaOdlukuService.findAll());
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/search/metadata")
     public ResponseEntity<ZalbaNaOdlukuListDTO> searchMetadata(@RequestBody ZalbaNaOdlukuMetadataSearchRequest request) throws XMLDBException, IOException {
     	ZalbaNaOdlukuListDTO response = new ZalbaNaOdlukuListDTO();
@@ -42,8 +49,8 @@ public class ZalbaNaOdlukuController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Void> add(@RequestBody ZalbaNaOdluku enitity) throws XMLDBException, TransformerException, JAXBException, IOException {
-    	zalbaNaOdlukuService.create(enitity);
+    public ResponseEntity<Void> add(@RequestParam(value="zahtevId") long zahtevId, @RequestBody ZalbaNaOdluku zalba) throws XMLDBException, TransformerException, JAXBException, IOException {
+    	zalbaNaOdlukuService.create(zahtevId, zalba);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
