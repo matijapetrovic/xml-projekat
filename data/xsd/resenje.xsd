@@ -26,8 +26,8 @@
 	
 	<xs:complexType name="CTUvod" mixed="true">
 		<xs:sequence>
-			<xs:element name="DatumZalbe" type="xs:date"/>
 			<xs:element name="OrganVlasti" type="xs:string"/>
+			<xs:element name="DatumZalbe" type="xs:date"/>
 			<xs:element  minOccurs = "0" maxOccurs="unbounded" name="PozivNaZakon" type="re:CTPozivNaZakon"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -69,7 +69,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	
-	<xs:complexType name="CTResenje">
+	<xs:complexType name="CTResenje" mixed="true">
 		<xs:sequence>
 			<xs:element name="OrganVlasti">
 				<xs:complexType>

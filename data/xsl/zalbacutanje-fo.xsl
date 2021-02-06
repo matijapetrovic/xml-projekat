@@ -36,6 +36,9 @@
                     <fo:block text-align="center">protiv</fo:block>
                     <fo:block text-align="center" text-decoration="underline">
                         <xsl:value-of select="zlb:ZalbaCutanje/zlb:OrganVlasti/co:Naziv"/>
+                        <xsl:value-of select="zlb:ZalbaCutanje/zlb:OrganVlasti/co:Sediste/co:Ulica"/>,
+                        <xsl:value-of select="zlb:ZalbaCutanje/zlb:OrganVlasti/co:Sediste/co:Broj"/> 
+                        <xsl:value-of select="zlb:ZalbaCutanje/zlb:OrganVlasti/co:Sediste/co:Mesto"/>
                     </fo:block>
                     <fo:block text-align="center">( navesti naziv organa )</fo:block>
                     <fo:block text-align="center">zbog toga sto organ vlasti </fo:block>
