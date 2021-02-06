@@ -4,7 +4,6 @@ import { AddZahtevComponent } from './components/add-zahtev/add-zahtev.component
 import { ZahteviViewComponent } from './components/zahtevi-view/zahtevi-view.component';
 import { ZahtevViewComponent } from './components/zahtev-view/zahtev-view.component';
 import { ZahtevXhtmlViewComponent } from './components/zahtev-xhtml-view/zahtev-xhtml-view.component';
-import { ZahtevPdfViewComponent } from './components/zahtev-pdf-view/zahtev-pdf-view.component';
 import { UserZahteviViewComponent } from './components/user-zahtevi-view/user-zahtevi-view.component';
 import { AuthGuard } from '../../core/guards/auth.guard';
 
@@ -35,10 +34,6 @@ const routes: Routes = [
   {
     path: 'xhtml/:id',
     component: ZahtevXhtmlViewComponent
-  },
-  {
-    path: 'pdf/:id',
-    component: ZahtevPdfViewComponent
   },
 ];
 
