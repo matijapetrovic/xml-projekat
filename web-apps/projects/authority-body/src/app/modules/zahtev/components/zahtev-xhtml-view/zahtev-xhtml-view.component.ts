@@ -21,12 +21,12 @@ export class ZahtevXhtmlViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.params.id;
+    const id = this.route.snapshot.params.id;
     this.getOne(id);
   }
 
-  getOne(id: number) {
-    this.zahtevService.getOneXHTML(id).subscribe((zahtev) => this.document = zahtev);
+  getOne(id: string) {
+    this.zahtevService.getOneXHTML(id).subscribe((zahtev) => { this.document = zahtev; console.log(zahtev) });
   }
 
 }

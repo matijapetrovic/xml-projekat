@@ -28,19 +28,19 @@ export class UserZahteviViewComponent implements OnInit {
     this.displayMessage = true;
   }
 
-  showZahtev(id: number) {
+  showZahtev(id: string) {
     this.router.navigate([`/zahtevi/${id}`]);
   }
 
-  showXHTMLZahtev(id: number) {
+  showXHTMLZahtev(id: string) {
     this.router.navigate([`/zahtevi/xhtml/${id}`]);
   }
 
-  showPDFZahtev(id: number) {
+  showPDFZahtev(id: string) {
     this.getPDF(id);
   }
 
-  getPDF(id: number) {
+  getPDF(id: string) {
     this.zahtevService.getOnePDF(id).subscribe((zahtev) => {
       const file = this.makeBlob(zahtev);
       this.downloadPdf(file, id);
@@ -68,13 +68,21 @@ export class UserZahteviViewComponent implements OnInit {
         zahtev['name'] = zahtev['za:TrazilacInformacija']['co:Ime']['_text'] + ' ' + zahtev['za:TrazilacInformacija']['co:Prezime']['_text'];
         let about: Array<string> = zahtev['_attributes']['about'].split('/');
         zahtev['id'] = about[about.length - 1];
-        zahtev['expired'] = true;
+        let dateText = zahtev['za:OstaliPodaci']['co:Datum']['_text'];
+        zahtev['expired'] = this.responseTimeExpired(dateText);
         return zahtev;
       })
     });
   }
 
-  newInfoMessage() {
+  responseTimeExpired(dateText: string): boolean {
+    let currentDate = new Date();
+    let date = new Date(dateText);
+    date.setDate(date.getDate() + 7)
+    return date > currentDate;
+  }
+
+  newInfoMessage(): string {
     return 'The time to respond to this request has expired, you can complain to the commissioner!';
   }
 }
