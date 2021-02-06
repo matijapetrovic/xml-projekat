@@ -1,10 +1,15 @@
 
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
+import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -21,7 +26,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence&gt;
  *         &lt;element name="DatumPostupka" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="Ustanova" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
- *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -32,90 +36,46 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTPostupak", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
-    "datumPostupka",
-    "ustanova",
-    "zakon"
+    "content"
 })
 public class CTPostupak {
 
-    @XmlElement(name = "DatumPostupka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar datumPostupka;
-    @XmlElement(name = "Ustanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTUstanova ustanova;
-    @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTZakon zakon;
+    @XmlElementRefs({
+        @XmlElementRef(name = "DatumPostupka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "Ustanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class)
+    })
+    @XmlMixed
+    protected List<Serializable> content;
 
     /**
-     * Gets the value of the datumPostupka property.
+     * Gets the value of the content property.
      * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getDatumPostupka() {
-        return datumPostupka;
-    }
-
-    /**
-     * Sets the value of the datumPostupka property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the content property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setDatumPostupka(XMLGregorianCalendar value) {
-        this.datumPostupka = value;
-    }
-
-    /**
-     * Gets the value of the ustanova property.
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getContent().add(newItem);
+     * </pre>
      * 
-     * @return
-     *     possible object is
-     *     {@link CTUstanova }
-     *     
-     */
-    public CTUstanova getUstanova() {
-        return ustanova;
-    }
-
-    /**
-     * Sets the value of the ustanova property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link CTUstanova }
-     *     
-     */
-    public void setUstanova(CTUstanova value) {
-        this.ustanova = value;
-    }
-
-    /**
-     * Gets the value of the zakon property.
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     * {@link JAXBElement }{@code <}{@link CTUstanova }{@code >}
+     * {@link String }
      * 
-     * @return
-     *     possible object is
-     *     {@link CTZakon }
-     *     
-     */
-    public CTZakon getZakon() {
-        return zakon;
-    }
-
-    /**
-     * Sets the value of the zakon property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link CTZakon }
-     *     
      */
-    public void setZakon(CTZakon value) {
-        this.zakon = value;
+    public List<Serializable> getContent() {
+        if (content == null) {
+            content = new ArrayList<Serializable>();
+        }
+        return this.content;
     }
 
 }

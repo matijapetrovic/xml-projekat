@@ -1,13 +1,16 @@
 
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
+import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.XmlValue;
 
 
 /**
@@ -20,16 +23,6 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="OrganVlasti"&gt;
- *           &lt;complexType&gt;
- *             &lt;simpleContent&gt;
- *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
- *                 &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *                 &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
- *               &lt;/extension&gt;
- *             &lt;/simpleContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
  *         &lt;element name="Ustanova" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
  *         &lt;element name="Ishod" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
@@ -42,197 +35,46 @@ import javax.xml.bind.annotation.XmlValue;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTResenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
-    "organVlasti",
-    "ustanova",
-    "ishod"
+    "content"
 })
 public class CTResenje {
 
-    @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTResenje.OrganVlasti organVlasti;
-    @XmlElement(name = "Ustanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTUstanova ustanova;
-    @XmlElement(name = "Ishod", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected String ishod;
+    @XmlElementRefs({
+        @XmlElementRef(name = "Ustanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "Ishod", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class)
+    })
+    @XmlMixed
+    protected List<Serializable> content;
 
     /**
-     * Gets the value of the organVlasti property.
+     * Gets the value of the content property.
      * 
-     * @return
-     *     possible object is
-     *     {@link CTResenje.OrganVlasti }
-     *     
-     */
-    public CTResenje.OrganVlasti getOrganVlasti() {
-        return organVlasti;
-    }
-
-    /**
-     * Sets the value of the organVlasti property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the content property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link CTResenje.OrganVlasti }
-     *     
-     */
-    public void setOrganVlasti(CTResenje.OrganVlasti value) {
-        this.organVlasti = value;
-    }
-
-    /**
-     * Gets the value of the ustanova property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CTUstanova }
-     *     
-     */
-    public CTUstanova getUstanova() {
-        return ustanova;
-    }
-
-    /**
-     * Sets the value of the ustanova property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CTUstanova }
-     *     
-     */
-    public void setUstanova(CTUstanova value) {
-        this.ustanova = value;
-    }
-
-    /**
-     * Gets the value of the ishod property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getIshod() {
-        return ishod;
-    }
-
-    /**
-     * Sets the value of the ishod property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setIshod(String value) {
-        this.ishod = value;
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     * <p>
+     * For example, to add a new item, do as follows:
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;simpleContent&gt;
-     *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
-     *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *       &lt;attribute name="property" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
-     *     &lt;/extension&gt;
-     *   &lt;/simpleContent&gt;
-     * &lt;/complexType&gt;
+     *    getContent().add(newItem);
      * </pre>
      * 
      * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link JAXBElement }{@code <}{@link CTUstanova }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link String }
+     * 
+     * 
      */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "value"
-    })
-    public static class OrganVlasti {
-
-        @XmlValue
-        protected String value;
-        @XmlAttribute(name = "type", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String type;
-        @XmlAttribute(name = "property", required = true)
-        @XmlSchemaType(name = "anySimpleType")
-        protected String property;
-
-        /**
-         * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getValue() {
-            return value;
+    public List<Serializable> getContent() {
+        if (content == null) {
+            content = new ArrayList<Serializable>();
         }
-
-        /**
-         * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setValue(String value) {
-            this.value = value;
-        }
-
-        /**
-         * Gets the value of the type property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getType() {
-            return type;
-        }
-
-        /**
-         * Sets the value of the type property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setType(String value) {
-            this.type = value;
-        }
-
-        /**
-         * Gets the value of the property property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getProperty() {
-            return property;
-        }
-
-        /**
-         * Sets the value of the property property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setProperty(String value) {
-            this.property = value;
-        }
-
+        return this.content;
     }
 
 }

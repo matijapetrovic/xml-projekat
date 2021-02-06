@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Resenje xmlns="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+<re:Resenje xmlns="http://www.w3.org/ns/rdfa#"
+ xmlns:re="http://www.ftn.uns.ac.rs/xml/tim11/resenje"
+ xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common"
+ xmlns:pred="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/resenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/resenje.xsd">
-    <BrojResenja>000-00-0000/0000-00</BrojResenja>
-    <DatumResenja>2006-05-04</DatumResenja>
-    <Uvod>
+ xsi:schemaLocation="http://www.ftn.uns.ac.rs/xml/tim11/resenje file:/C:/Dev/Faks/xml/xml-projekat/data/xsd/resenje.xsd" vocab="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" about="about1" rel="pred:resava" href="href1">
+    <re:BrojResenja>000-00-0000/0000-00</re:BrojResenja>
+    <re:Svrha>ZalbaOsnovanaNalazeSe</re:Svrha>
+    <re:DatumResenja>2006-05-04</re:DatumResenja>
+    <re:PodnosilacZalbe rel="pred:naZalbuPodnosioca" href="href3">PodnosilacZalbe0</re:PodnosilacZalbe>
+    <re:Uvod>
         Poverenik za informacije od javnog značaja i zaštitu podataka o ličnosti, u postupku po albi
         koju je izjavio AA, zbog nepostupanja
-        <OrganVlasti>OrganVlasti0</OrganVlasti> po njegovom zahtevu od
-        <DatumZalbe>2006-05-04</DatumZalbe>
+        <re:OrganVlasti>OrganVlasti0</re:OrganVlasti>po njegovom zahtevu od
+        <re:DatumZalbe>2006-05-04</re:DatumZalbe>
         godine za pristup informacijama od javnog značaja, na osnovu člana 35. stav 1. tačka 5. Zakona o slobodnom pristupu
         informacijama od javnog značaja („Sl. glasnik RS“, br. 120/04, 54/07, 104/09 i 36/10), a u vezi sa
         članom 4. tačka 22. Zakona o zaštiti podataka o ličnosti („Sl. glasnik RS“, broj 87/18), kao i člana
         23. i člana 24. stav 4. Zakona o slobodnom pristupu informacijama od javnog značaja i člana 173.
         stav 2. Zakona o opštem upravnom postupku („Sl. glasnik RS“, br. 18/2016 i 95/2018-autentično
         tumačenje), donosi
-    </Uvod>
-    <Sadrzaj>
-        <OrganVlasti type="type1" property="property1">OrganVlasti1</OrganVlasti>
-        <Ustanova>
-            <Naziv type="type3" property="property3">Naziv0</Naziv>
-            <Adresa>Adresa0</Adresa>
-        </Ustanova>
-
-        I Nalaže se Učiteljskom fakultetu u Prizrenu sa privremenim sedištem u Leposaviću, da
+    </re:Uvod>
+    <re:Sadrzaj>
+        I nalaze se<re:Ustanova>
+            <re:Naziv type="type1" property="property1">Uciteljskom fakultetu</re:Naziv> u
+            <re:Adresa>Prizrenu</re:Adresa>
+        </re:Ustanova>
+        sa privremenim sedištem u Leposaviću, da
         bez odlaganja, a najkasnije u roku od pet dana od dana prijema ovog rešenja, obavesti AA, da li
         poseduje tražene informacije odnosno dokument u kome su iste sadržane, i to: Ugovor o radu koji
         je kao poslednji potpisan između tog Fakulteta i BB, te da mu, ukoliko takav dokument poseduje
@@ -32,40 +35,71 @@
         lica na koje se informacije odnose, kao što su: adresa stanovanja, lični matični broj građana, ime
         oca, radni staž, prosečna ocena studiranja i sl. ukoliko su takvi podaci sadržani u traženom
         dokumentu.
-        <Ishod>II O izvršenju rešenja Učiteljski fakultet u Prizrenu sa privremenim sedištem u
-        Leposaviću, će obavestiti Poverenika u roku od sedam dana od prijema ovog rešenja.</Ishod>
-    </Sadrzaj>
-    <Obrazlozenje about="http://www.oxygenxml.com/" vocab="http://www.oxygenxml.com/">
-        <PredmetZalbe>
-            <DatumIzjave>2006-05-04</DatumIzjave>
-            <OrganVlasti>OrganVlasti2</OrganVlasti>
-            <DatumPotrazivanjaInformacija type="type5" property="property5">2006-05-04</DatumPotrazivanjaInformacija>
-        </PredmetZalbe>
-        <Postupak>
-            <DatumPostupka>2006-05-04</DatumPostupka>
-            <Ustanova>
-                <Naziv type="type7" property="property7">Naziv1</Naziv>
-                <Adresa>Adresa1</Adresa>
-            </Ustanova>
-            <Zakon>
-                <Clan>50</Clan>
-                <Clan>50</Clan>
-                <NazivZakona type="type9" property="property9">NazivZakona0</NazivZakona>
-            </Zakon>
-        </Postupak>
-        <Odluka>
-            <Zakon>
-                <Clan>50</Clan>
-                <Clan>50</Clan>
-                <NazivZakona type="type11" property="property11">NazivZakona1</NazivZakona>
-            </Zakon>
-            <Lice>Lice0</Lice>
-            <Mesto type="type13" property="property13">Mesto0</Mesto>
-            <Iznos>50</Iznos>
-        </Odluka>
-    </Obrazlozenje>
-    <Poverenik>
-        <Ime type="type15" property="property15">Ime0</Ime>
-        <Prezime type="type17" property="property17">Prezime0</Prezime>
-    </Poverenik>
-</Resenje>
+        <re:Ishod>II O izvršenju rešenja Učiteljski fakultet u Prizrenu sa privremenim sedištem u
+            Leposaviću, će obavestiti Poverenika u roku od sedam dana od prijema ovog rešenja.</re:Ishod>
+    </re:Sadrzaj>
+    <re:Obrazlozenje about="http://www.oxygenxml.com/" vocab="http://www.oxygenxml.com/">
+        <re:PredmetZalbe>
+            PodnosilacZalbe0 , kao trazilac informacija izjavio je dana
+            <re:DatumIzjave>2006-05-04</re:DatumIzjave>godine zalbu POvereniku zbog nepostupanja
+            <re:OrganVlasti>Uciteljskog fakulteta u Prizrrenu </re:OrganVlasti>po njegovom zahtevu od
+            <re:DatumPotrazivanjaInformacija type="type3" property="property3">2006-05-04</re:DatumPotrazivanjaInformacija>
+            godine za pristup informacijama od javnog znacaja i u prilogu
+            dostavion kopiju istog.
+        </re:PredmetZalbe>
+        <re:Postupak>
+            Postupajuci po zalbi, Poverenik je dana
+            <re:DatumPostupka>2006-05-04</re:DatumPostupka>godine uputio je istu na izjasnjenje
+            <re:Ustanova>
+                <re:Naziv type="type5" property="property5">Uciteljskom fakultetu</re:Naziv>u
+                <re:Adresa>Prizrenu sa privremenim sedistem u Leposavicu</re:Adresa>
+            </re:Ustanova>
+            kao organu vlasti u
+            smislu člana 3. Zakona o slobodnom pristupu informacijama od javnog značaja i zatražio da se
+            izjasni o navodima žalbe, posebno o razlozima nepostupanja u zakonskom roku po podnetom zahtevu
+            u skladu sa odredbama člana 16. st.1-9. ili st. 10. Zakona, ostavljajući rok od osam dana, povodom
+            čega nije dobio odgovor.
+        </re:Postupak>
+        <re:Odluka>
+            Po razmatranju žalbe i ostalih spisa ovog predmeta, doneta je odluka kao u dispozitivu
+            rešenja iz sledećih razloga:
+            Uvidom u spise predmeta utvrđeno je da je AA, dana 16.04.2020. godine, podneo Učiteljskom
+            fakultetu u Prizrenu sa privremenim sedištem u Leposaviću, zahtev za pristup informacijama
+            od javnog značaja, elektronskom poštom, kojim je tražio informacije od javnog značaja, bliže
+            navedene u stavu I dispozitiva ovog rešenja.
+            Takođe je uvidom u spise predmeta utvrđeno da po podnetom zahtevu žalioca organ vlasti
+            nije postupio, što je bio dužan da učini bez odlaganja, a najkasnije u roku od 15 dana od dana
+            prijema zahteva te da ga, u smislu člana 16. stav 1. Zakona o slobodnom pristupu informacijama od
+            javnog značaja, obavesti da li poseduje tražene informacije i da mu, ukoliko iste poseduje, dostavi
+            kopije dokumenata u kojima su one sadržane ili da, u suprotnom, donese rešenje o odbijanju zahteva,
+            u smislu stava 10. istog člana.
+            Članom 2. stav 1. Zakona o slobodnom pristupu informacijama od javnog značaja propisano
+            je da je informacija od javnog značaja, u smislu ovog zakona, informacija kojom raspolaže organ
+            javne vlasti, nastala u radu ili u vezi sa radom organa javne vlasti, sadržana u određenom
+            dokumentu, a odnosi se na sve ono o čemu javnost ima opravdan interes da zna.
+            Imajući u vidu da je žalilac podnetim zahtevom tražio odgovore na određena pitanja u vezi
+            sa ranije dobijenim obaveštenjem tog Preduzeća od 29.10.2018. godine, Poverenik nalazi da se u
+            konkretnom slučaju, ne radi o informacijama od javnog značaja, u smislu citirane odredbe člana
+            2. stav 1. Zakona, te da je zahtev neosnovan. Ovo iz razloga što bi postupanje organa vlasti po
+            podnetom zahtevu zahtevalo davanje odgovora na pitanja, objašnjenja, obrazloženja, komentare, što
+            bi podrazumevalo sačinjavanje novog dokumenta, dok u smislu citirane odredbe Zakona, organ
+            vlasti nema obavezu da to čini, jer informacija od javnog značaja može biti samo ona informacija
+            koja je već sadržana, odnosno opredmećena u dokumentu, u momentu kada je zatražena, odnosno koja
+            već postoji, a što ovde nije slučaj.
+            Kako je organ vlasti propustio da odluči po podnetom zahtevu, odnosno da donese rešenje i
+            odbije podneti zahtev, a nije opravdao razloge nedonošenja rešenja, Poverenik je, u postupku po
+            žalbi, na osnovu člana 23. i člana 24. st. 1. Zakona o slobodnom pristupu informacijama od javnog
+            značaja i člana 173. st. 2. Zakona o opštem upravnom postupku odlučio kao u dispozitivu ovog
+            rešenja, odnosno odbio zahtev žalioca, kao neosnovan.
+
+            Protiv ovog resenja nije dopuštena žalba već se, u skladu sa Zakonom o upravnim
+            sporovima, može pokrenuti upravni spor tužbom Upravnom sudu u Beogradu, u roku od 30 dana od
+            dana prijema rešenja
+            Taksa na sluzbu iznosi <re:Iznos>50</re:Iznos> dinara
+        </re:Odluka>
+    </re:Obrazlozenje>
+    <re:Poverenik>
+        <re:Ime type="type9" property="property9">Milan</re:Ime>
+        <re:Prezime type="type11" property="property11">Marinovic</re:Prezime>
+    </re:Poverenik>
+</re:Resenje>

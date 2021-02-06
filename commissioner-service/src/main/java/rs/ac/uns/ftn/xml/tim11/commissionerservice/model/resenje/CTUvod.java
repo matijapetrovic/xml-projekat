@@ -24,8 +24,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="DatumZalbe" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="OrganVlasti" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="DatumZalbe" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="PozivNaZakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTPozivNaZakon" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -42,8 +42,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 public class CTUvod {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "DatumZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
         @XmlElementRef(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "DatumZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
         @XmlElementRef(name = "PozivNaZakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class)
     })
     @XmlMixed
@@ -67,8 +67,8 @@ public class CTUvod {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
      * {@link JAXBElement }{@code <}{@link CTPozivNaZakon }{@code >}
      * {@link String }
      * 

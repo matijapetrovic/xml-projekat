@@ -12,6 +12,7 @@ import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ResenjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ResenjeXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.ResenjeProperties;
+import rs.ac.uns.ftn.xml.tim11.xmllib.email.EmailMessage;
 import rs.ac.uns.ftn.xml.tim11.xmllib.email.EmailSender;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
@@ -22,6 +23,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.*;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ResenjeService {
@@ -55,10 +57,26 @@ public class ResenjeService {
         return xmlRepository.findAll();
     }
 
-    public Long create(long zahtevId, Resenje resenje) throws JAXBException, XMLDBException, IOException, TransformerException {
-        Long createdId = xmlRepository.create(resenje);
+    public Long create(long zalbaId, Resenje resenje) throws JAXBException, XMLDBException, IOException, TransformerException {
+        long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
+        String self = properties.namespace() + "/" + id;
+
+        xmlRepository.createWithId(resenje, id);
         rdfRepository.saveMetadata(resenje);
-        return createdId;
+
+
+
+        return id;
+    }
+
+    private EmailMessage buildEmail(String userEmail, Long resenjeId) throws SAXException, ParserConfigurationException, TransformerException, XmlResourceNotFoundException, JAXBException, XMLDBException, IOException {
+        return new EmailMessage(
+                userEmail,
+                "Resenje na zalbu",
+                "U prilogu se nalazi resenje na vasu zalbu",
+                generatePdf(resenjeId),
+                generateXHtml(resenjeId)
+        );
     }
 
     public Resenje getExampleDocument() throws FileNotFoundException, JAXBException {

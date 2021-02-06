@@ -1,10 +1,16 @@
 
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
+import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
@@ -43,90 +49,48 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTPredmetZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
-    "datumIzjave",
-    "organVlasti",
-    "datumPotrazivanjaInformacija"
+    "content"
 })
 public class CTPredmetZalbe {
 
-    @XmlElement(name = "DatumIzjave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar datumIzjave;
-    @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected String organVlasti;
-    @XmlElement(name = "DatumPotrazivanjaInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTPredmetZalbe.DatumPotrazivanjaInformacija datumPotrazivanjaInformacija;
+    @XmlElementRefs({
+        @XmlElementRef(name = "DatumIzjave", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "DatumPotrazivanjaInformacija", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class)
+    })
+    @XmlMixed
+    protected List<Serializable> content;
 
     /**
-     * Gets the value of the datumIzjave property.
+     * Gets the value of the content property.
      * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getDatumIzjave() {
-        return datumIzjave;
-    }
-
-    /**
-     * Sets the value of the datumIzjave property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the content property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setDatumIzjave(XMLGregorianCalendar value) {
-        this.datumIzjave = value;
-    }
-
-    /**
-     * Gets the value of the organVlasti property.
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getContent().add(newItem);
+     * </pre>
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getOrganVlasti() {
-        return organVlasti;
-    }
-
-    /**
-     * Sets the value of the organVlasti property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setOrganVlasti(String value) {
-        this.organVlasti = value;
-    }
-
-    /**
-     * Gets the value of the datumPotrazivanjaInformacija property.
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link CTPredmetZalbe.DatumPotrazivanjaInformacija }{@code >}
+     * {@link String }
      * 
-     * @return
-     *     possible object is
-     *     {@link CTPredmetZalbe.DatumPotrazivanjaInformacija }
-     *     
-     */
-    public CTPredmetZalbe.DatumPotrazivanjaInformacija getDatumPotrazivanjaInformacija() {
-        return datumPotrazivanjaInformacija;
-    }
-
-    /**
-     * Sets the value of the datumPotrazivanjaInformacija property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link CTPredmetZalbe.DatumPotrazivanjaInformacija }
-     *     
      */
-    public void setDatumPotrazivanjaInformacija(CTPredmetZalbe.DatumPotrazivanjaInformacija value) {
-        this.datumPotrazivanjaInformacija = value;
+    public List<Serializable> getContent() {
+        if (content == null) {
+            content = new ArrayList<Serializable>();
+        }
+        return this.content;
     }
 
 
