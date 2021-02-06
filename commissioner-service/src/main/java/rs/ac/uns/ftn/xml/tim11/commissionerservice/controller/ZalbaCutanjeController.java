@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.dto.ZalbaNaCutanjeListDTO;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.requests.ZalbaNaCutanjeMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.ZalbaCutanje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.zalbacutanje.ZalbaCutanjeService;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
@@ -28,6 +30,13 @@ public class ZalbaCutanjeController {
     private final ZalbaCutanjeService zalbaCutanjeService;
 
 
+    @GetMapping("/search/metadata")
+    public ResponseEntity<ZalbaNaCutanjeListDTO> searchMetadata(@RequestBody ZalbaNaCutanjeMetadataSearchRequest request) throws XMLDBException, IOException {
+    	ZalbaNaCutanjeListDTO response = new ZalbaNaCutanjeListDTO();
+        response.setZalbaNaCutanje(zalbaCutanjeService.searchMetadata(request));
+        return ResponseEntity.ok(response);
+    }
+    
     @GetMapping("/example")
     public ResponseEntity<ZalbaCutanje> getExample() throws FileNotFoundException, JAXBException {
         return ResponseEntity.ok(zalbaCutanjeService.getExampleDocument());

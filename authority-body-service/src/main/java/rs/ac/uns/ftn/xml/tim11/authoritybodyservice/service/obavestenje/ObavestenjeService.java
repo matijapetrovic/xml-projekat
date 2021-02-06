@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.ObavestenjeMetadataSearchRequest;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.AuthenticationService;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ObavestenjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.ObavestenjeXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.ObavestenjeProperties;
@@ -32,7 +34,11 @@ public class ObavestenjeService {
     private final ObavestenjeProperties properties;
     private final XSLTransformer XSLTransformer;
 
-    public ObavestenjeService(ObavestenjeRDFRepository rdfRepository, ObavestenjeXmlRepository xmlRepository, ObavestenjeProperties properties)
+    public ObavestenjeService(
+            ObavestenjeRDFRepository rdfRepository,
+            ObavestenjeXmlRepository xmlRepository,
+            ObavestenjeProperties properties,
+            AuthenticationService authenticationService)
             throws JAXBException, SAXException, IOException {
         this.rdfRepository = rdfRepository;
         this.xmlRepository = xmlRepository;

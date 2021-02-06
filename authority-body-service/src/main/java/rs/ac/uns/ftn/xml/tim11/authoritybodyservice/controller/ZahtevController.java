@@ -12,6 +12,7 @@ import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.dto.ZahtevListDTO;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.ZahtevMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
@@ -33,6 +34,13 @@ public class ZahtevController {
     public ResponseEntity<ZahtevListDTO> getAll() throws XMLDBException, JAXBException {
         ZahtevListDTO response = new ZahtevListDTO();
         response.setZahtev(zahtevService.findAll());
+        return ResponseEntity.ok(response);
+    }
+    
+    @GetMapping("/search/metadata")
+    public ResponseEntity<ZahtevListDTO> searchMetadata(@RequestBody ZahtevMetadataSearchRequest request) throws XMLDBException, IOException {
+    	ZahtevListDTO response = new ZahtevListDTO();
+        response.setZahtev(zahtevService.searchMetadata(request));
         return ResponseEntity.ok(response);
     }
 

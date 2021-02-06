@@ -6,16 +6,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Authority;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.User;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ObavestenjeRDFRepository;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ZahtevRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.*;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.AccountProperties;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.AuthorityProperties;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.UserProperties;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.*;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.transform.TransformerException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,19 +32,6 @@ public class AuthorityBodyServiceApplication {
 	}
 
 
-//	@Bean
-//	public CommandLineRunner run(
-//			ObavestenjeXmlRepository obavestenjeXmlRepository,
-//			ZahtevXmlRepository zahtevXmlRepository,
-//			ObavestenjeRDFRepository obavestenjeRDFRepository,
-//			ZahtevRDFRepository zahtevRDFRepository,
-//			ObavestenjeProperties obavestenjeProperties,
-//			ZahtevProperties zahtevProperties) {
-//		return args -> {
-//			testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
-//			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
-//		};
-//	}
 	@Bean
 	public CommandLineRunner run(
 			AuthorityXmlRepository authorityXmlRepository,
@@ -50,9 +41,9 @@ public class AuthorityBodyServiceApplication {
 			UserXmlRepository userXmlRepository,
 			UserProperties userProperties) {
 		return args -> {
-//			insertAuthority(authorityXmlRepository, authorityProperties);
-//			insertAccount(accountXmlRepository, accountProperties);
-//			insertUser(userXmlRepository, userProperties);
+			insertAuthority(authorityXmlRepository, authorityProperties);
+			insertAccount(accountXmlRepository, accountProperties);
+			insertUser(userXmlRepository, userProperties);
 		};
 	}
 
@@ -63,34 +54,34 @@ public class AuthorityBodyServiceApplication {
 //			ObavestenjeRDFRepository obavestenjeRDFRepository,
 //			ZahtevRDFRepository zahtevRDFRepository,
 //			ObavestenjeProperties obavestenjeProperties,
-//			ZahtevProperties zahtevProperties) {
+//			ZahtevProperties zahtevProperties,
+//			ZahtevService zahtevService) {
 //		return args -> {
-//			//testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
-//			//testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties);
-//
+//			testObavestenje(obavestenjeXmlRepository, obavestenjeRDFRepository, obavestenjeProperties);
+//			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties, zahtevService);
 //		};
 //	}
-//
-//	public void testObavestenje(ObavestenjeXmlRepository xmlRepository, ObavestenjeRDFRepository rdfRepository, ObavestenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
-//		JaxbMarshaller<Obavestenje> m = new JaxbMarshaller<>(properties);
-//		Obavestenje resenje = m.unmarshal(new FileInputStream("data/xml/obavestenje1.xml"));
-//
-//		rdfRepository.saveMetadata(resenje);
-//	}
-//
-//	public void testZahtev(ZahtevXmlRepository xmlRepository, ZahtevRDFRepository rdfRepository, ZahtevProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
-//		JaxbMarshaller<Zahtev> m = new JaxbMarshaller<>(properties);
-//		Zahtev resenje = m.unmarshal(new FileInputStream("data/xml/zahtev1.xml"));
-//
-//		rdfRepository.saveMetadata(resenje);
-//	}
+
+	public void testObavestenje(ObavestenjeXmlRepository xmlRepository, ObavestenjeRDFRepository rdfRepository, ObavestenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
+		JaxbMarshaller<Obavestenje> m = new JaxbMarshaller<>(properties);
+		Obavestenje resenje = m.unmarshal(new FileInputStream("data/xml/obavestenje1.xml"));
+
+		rdfRepository.saveMetadata(resenje);
+	}
+
+	public void testZahtev(ZahtevXmlRepository xmlRepository, ZahtevRDFRepository rdfRepository, ZahtevProperties properties, ZahtevService zahtevService) throws JAXBException, SAXException, IOException, TransformerException, XMLDBException {
+		JaxbMarshaller<Zahtev> m = new JaxbMarshaller<>(properties);
+		Zahtev resenje = m.unmarshal(new FileInputStream("data/xml/zahtev1.xml"));
+		zahtevService.create(resenje);
+
+	}
 
 		public void insertAuthority(AuthorityXmlRepository xmlRepository, AuthorityProperties properties) throws JAXBException, SAXException, IOException, XMLDBException {
 		JaxbMarshaller<Authority> m = new JaxbMarshaller<>(properties);
 
 		Authority authority = m.unmarshal(new FileInputStream("data/xml/authority.xml"));
 
-		Long id = xmlRepository.createWithId(authority, 1L);
+		Long id = xmlRepository.createWithId(authority, 2L);
 		authority = xmlRepository.findById(id).get();
 	}
 
@@ -99,7 +90,7 @@ public class AuthorityBodyServiceApplication {
 
 		Account authority = m.unmarshal(new FileInputStream("data/xml/account.xml"));
 
-		Long id = xmlRepository.createWithId(authority, 1L);
+		Long id = xmlRepository.createWithId(authority, 2L);
 		authority = xmlRepository.findById(id).get();
 	}
 
@@ -108,7 +99,7 @@ public class AuthorityBodyServiceApplication {
 
 		User authority = m.unmarshal(new FileInputStream("data/xml/user.xml"));
 
-		Long id = xmlRepository.createWithId(authority, 1L);
+		Long id = xmlRepository.createWithId(authority, 2L);
 		authority = xmlRepository.findById(id).get();
 	}
 

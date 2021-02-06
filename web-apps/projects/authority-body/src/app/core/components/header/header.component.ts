@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
-import { AuthenticationService } from 'src/app/modules/authentication/authentication.service';
-import { Role } from 'src/app/modules/authentication/role';
-import { User } from 'src/app/modules/authentication/user';
+import { AuthenticationService } from '../../../modules/authentication/authentication.service';
+import { Role } from '../../../modules/authentication/role';
+import { User } from '../../../modules/authentication/user';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
       id: 'home-nav-link'
     },
     {
-      label: 'Map',
+      label: 'Obavestenja',
       icon: 'pi pi-map',
       routerLink: ['/map'],
       id: 'map-nav-link'
@@ -78,13 +78,13 @@ export class HeaderComponent implements OnInit {
   updateItems(user: User): void {
     if (!!user) {
       this.authenticated = true;
-      if (user.role.includes(Role.ROLE_ADMIN)) {
+      if (user.role === Role.ROLE_AUTHORITY) {
         this.items = [
           ...this.commonItems,
           ...this.adminItems
         ];
       }
-      else if (user.role.includes(Role.ROLE_USER)) {
+      else if (user.role === Role.ROLE_USER) {
         this.items = [
           ...this.commonItems,
           ...this.userItems

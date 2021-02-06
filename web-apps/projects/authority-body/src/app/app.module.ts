@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardModule } from 'primeng/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { CoreModule } from './core/core.module';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -15,11 +20,14 @@ import { CardModule } from 'primeng/card';
     AppRoutingModule,
     HttpClientModule,
     CardModule,
+    CoreModule,
+    ToastModule,
+    BrowserAnimationsModule
   ],
   exports: [
     CardModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

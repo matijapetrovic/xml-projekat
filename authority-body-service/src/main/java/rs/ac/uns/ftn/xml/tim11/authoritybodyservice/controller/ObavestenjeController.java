@@ -34,7 +34,7 @@ public class ObavestenjeController {
     @GetMapping("/search/metadata")
     public ResponseEntity<ObavestenjeListDTO> searchMetadata(@RequestBody ObavestenjeMetadataSearchRequest request) throws XMLDBException, IOException {
         ObavestenjeListDTO response = new ObavestenjeListDTO();
-        response.setZahtev(obavestenjeService.searchMetadata(request));
+        response.setObavestenje(obavestenjeService.searchMetadata(request));
         return ResponseEntity.ok(response);
     }
 
@@ -53,6 +53,11 @@ public class ObavestenjeController {
     @GetMapping("/{id}")
     public ResponseEntity<Obavestenje> get(@PathVariable Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
         return ResponseEntity.ok(obavestenjeService.findById(id));
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<Obavestenje> getAll() throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
+        return ResponseEntity.ok(obavestenjeService.getExampleDocument());
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_PDF_VALUE)

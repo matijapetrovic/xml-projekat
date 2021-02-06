@@ -23,7 +23,7 @@ public class ObavestenjeListDTO {
         return obavestenje;
     }
 
-    public void setZahtev(List<Obavestenje> obavestenje) {
+    public void setObavestenje(List<Obavestenje> obavestenje) {
         this.obavestenje = obavestenje;
     }
 }
