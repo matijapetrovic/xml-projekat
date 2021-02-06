@@ -1,13 +1,13 @@
 <div class="p-grid p-mt-6 p-justify-center centered-grid"></div>
 <div class="p-grid p-mt-6 p-justify-center centered-grid"></div>
 <div class="p-grid p-mt-6 p-justify-center centered-grid">
-  <div class="p-col p-sm-5 p-md-6 p-lg-6">
+  <div class="p-col">
     <p-card class="flat-card">
       <div class="p-card-header">
         <div class="p-grid p-justify-center">
           <h1>
             <strong>
-              Requests
+              Zahtevi
             </strong>
           </h1>
         </div>
@@ -26,9 +26,12 @@
         >
         <ng-template pTemplate="header">
           <tr>
-            <th>Name</th>
-            <th>Actions</th>
-            <th>Show</th>
+            <th>Ime i prezime trazioca</th>
+            <th>Adresa trazioca</th>
+            <th>Datum zahteva</th>
+            <th>Mesto zahteva</th>
+            <th>Eksport</th>
+            <th>Akcije</th>
           </tr>
         </ng-template>
         <ng-template 
@@ -37,54 +40,80 @@
         let-zahtev
         >
           <tr>
-            <td id="zahtev-name">
-              {{zahtev.name}}
+            <td>
+              {{ zahtev['za:TrazilacInformacija']['co:Ime']['_text'] }}
+              {{ zahtev['za:TrazilacInformacija']['co:Prezime']['_text'] }}
+            </td>
+            <td>
+              {{ zahtev['za:TrazilacInformacija']['co:Adresa']['co:Mesto']['_text'] }}
+              
+              {{ zahtev['za:TrazilacInformacija']['co:Adresa']['co:Ulica']['_text'] }}
+              
+              {{ zahtev['za:TrazilacInformacija']['co:Adresa']['co:Broj']['_text'] }}
+            </td>
+            <td>
+              {{ zahtev['za:OstaliPodaci']['co:Datum']['_text'] }}
+            </td>
+            <td>
+              {{ zahtev['za:OstaliPodaci']['co:Mesto']['_text'] }}
             </td>
             <td>
               <div class="p-grid p-justify-center">
-                <button
-                  id="show-update-zahtev-form-button"
+                <button 
+                  id="show-zahtev-dialog-button" 
                   pButton 
-                  label="Accept request"
-                  icon="pi pi-check" 
-                  class="p-button-info p-button-rounded p-justify-left p-button-sm p-mr-2 p-mb-2"
-                  (click)="showAcceptForm(zahtev)"
+                  label="Pregledaj zahtev" 
+                  icon="pi pi-external-link"
+                  class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-6 p-mb-2"
+                  (click)="showZahtev(zahtev.id)"
                 ></button>
                 <button 
-                  id="show-delete-zahtev-dialog-button"
-                  pButton
-                  label="Reject request"
-                  icon="pi pi-times" 
-                  class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
-                  (click)="showRejectDialog(zahtev.id)"
+                  id="show-zahtev-dialog-button" 
+                  pButton 
+                  label="Eksportuj XHTML" 
+                  icon="pi pi-external-link"
+                  class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
+                  (click)="showXHTMLZahtev(zahtev.id)"
+                ></button>
+                <button 
+                  id="show-zahtev-dialog-button" 
+                  pButton 
+                  label="Eksportuj PDF" 
+                  icon="pi pi-external-link"
+                  class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
+                  (click)="showPDFZahtev(zahtev.id)"
                 ></button>
               </div>
             </td>
             <td>
-              <button 
-                id="show-zahtev-dialog-button" 
-                pButton label="Show XML" 
-                icon="pi pi-external-link"
-                class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
-                (click)="showZahtev(zahtev.id)"
-              ></button>
-              <button 
-                id="show-zahtev-dialog-button" 
-                pButton 
-                label="Show XHTML" 
-                icon="pi pi-external-link"
-                class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
-                (click)="showXHTMLZahtev(zahtev.id)"
-              ></button>
-              <button 
-                id="show-zahtev-dialog-button" 
-                pButton 
-                label="Download PDF" 
-                icon="pi pi-external-link"
-                class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
-                (click)="showPDFZahtev(zahtev.id)"
-              ></button>
+              <div *ngIf="zahtev.prihvacen === undefined">
+                <div class="p-grid p-justify-center">
+                  <button
+                    id="show-update-zahtev-form-button"
+                    pButton 
+                    label="Prihvati zahtev"
+                    icon="pi pi-check" 
+                    class="p-button-info p-button-rounded p-justify-left p-button-sm p-mr-2 p-mb-2"
+                    (click)="showAcceptForm(zahtev)"
+                  ></button>
+                  <button 
+                    id="show-delete-zahtev-dialog-button"
+                    pButton
+                    label="Odbij zahtev"
+                    icon="pi pi-times" 
+                    class="p-button-danger p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
+                    (click)="showRejectDialog(zahtev.id)"
+                  ></button>
+                </div>
+              </div>
+              <p *ngIf="zahtev.prihvacen === true">
+                Zahtev je prihvacen.
+              </p>
+              <p *ngIf="zahtev.prihvacen === false">
+                Zahtev je odbijen.
+              </p>
             </td>
+            
           </tr>
         </ng-template>
       </p-table>
@@ -92,4 +121,10 @@
   </div>
 </div>
 
-<p-confirmDialog></p-confirmDialog>
+<p-dialog header="Odbijanje zahteva" [(visible)]="displayMessage">
+  <p>Unesite razlog odbijanja:</p>
+  <textarea [(ngModel)]="odbijenZahtevRazlog"></textarea>
+  <ng-template pTemplate="footer">
+    <button pButton icon="pi pi-check" (click)="odbijZahtev()" label="Posalji" styleClass="p-button-success"></button>
+  </ng-template>
+</p-dialog>

@@ -66,6 +66,15 @@ export class ZahtevService {
       );
   }
 
+  rejectZahtev(id: string, poruka: string): Observable<any> {
+    const url = `${this.url}/${id}/reject`;
+    const req: string = `<OdbijenZahtev><Poruka>${poruka}</Poruka></OdbijenZahtev>`;
+    return this.http.post(url, req, {headers: postHeaders})
+      .pipe(
+        catchError(this.handleError('rejectZahtev'))
+      );
+  }
+
   deleteZahtev(id: string): Observable<{}> {
     const url = `${this.url}/${id}`;
     return this.http.delete(url, { headers: postHeaders })
