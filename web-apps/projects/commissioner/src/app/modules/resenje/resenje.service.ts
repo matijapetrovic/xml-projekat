@@ -24,9 +24,13 @@ export class ResenjeService {
     this.handleError = httpErrorHandler.createHandleError('ZahteviService');
     }
 
-  // add(zahtevId: number, document: string): Observable<void> {
-  //   return this.http.post<void>(`${this.url}/?zahtevId=${zahtevId}`, document, { headers: postHeaders });
-  // }
+    addCutanje(zalbaId: number, document: string): Observable<void> {
+      return this.http.post<void>(`${this.url}/zalba-cutanje?zalbaId=${zalbaId}`, document, { headers: postHeaders });
+    }
+
+    addOdluka(zalbaId: number, document: string): Observable<void> {
+      return this.http.post<void>(`${this.url}/zalba-odluka?zalbaId=${zalbaId}`, document, { headers: postHeaders });
+    }
 
   getExample(): Observable<string> {
     return this.http.get(`${this.url}/example`, {headers: postHeaders, responseType: 'text'});

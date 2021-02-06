@@ -43,10 +43,17 @@ public class ResenjeController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("")
+    @PostMapping("/zalba-cutanje")
     @PreAuthorize("hasRole('ROLE_COMMISSIONER')")
-    public ResponseEntity<Void> createResenje(@RequestParam("zalbaId") long zalbaId, @RequestBody Resenje resenje, UriComponentsBuilder uriBuilder) throws XMLDBException, IOException, TransformerException, JAXBException {
-        resenjeService.create(zalbaId, resenje);
+    public ResponseEntity<Void> createCutanjeResenje(@RequestParam("zalbaId") long zalbaId, @RequestBody Resenje resenje, UriComponentsBuilder uriBuilder) throws XMLDBException, IOException, TransformerException, JAXBException, SAXException, ParserConfigurationException, XmlResourceNotFoundException {
+        resenjeService.createCutanje(zalbaId, resenje);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("/zalba-odluka")
+    @PreAuthorize("hasRole('ROLE_COMMISSIONER')")
+    public ResponseEntity<Void> createOdlukaResenje(@RequestParam("zalbaId") long zalbaId, @RequestBody Resenje resenje, UriComponentsBuilder uriBuilder) throws XMLDBException, IOException, TransformerException, JAXBException, SAXException, ParserConfigurationException, XmlResourceNotFoundException {
+        resenjeService.createOdluka(zalbaId, resenje);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 

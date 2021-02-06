@@ -9,8 +9,12 @@ import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.AuthenticationService;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.ZalbaCutanje;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku.ZalbaNaOdluku;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ResenjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ResenjeXmlRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ZalbaCutanjeXmlRepository;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ZalbaNaOdlukuXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.ResenjeProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.email.EmailMessage;
 import rs.ac.uns.ftn.xml.tim11.xmllib.email.EmailSender;
@@ -32,6 +36,9 @@ public class ResenjeService {
     private final ResenjeRDFRepository rdfRepository;
     private final ResenjeXmlRepository xmlRepository;
 
+    private final ZalbaCutanjeXmlRepository zalbaCutanjeXmlRepository;
+    private final ZalbaNaOdlukuXmlRepository zalbaNaOdlukuXmlRepository;
+
     private final JaxbMarshaller<Resenje> marshaller;
     private final EmailSender emailSender;
     private final XSLTransformer XSLTransformer;
@@ -39,32 +46,59 @@ public class ResenjeService {
     @Value("${email.service}")
     private String emailService;
 
-    public ResenjeService(AuthenticationService authenticationService, ResenjeProperties properties, ResenjeRDFRepository rdfRepository, ResenjeXmlRepository xmlRepository) throws JAXBException, SAXException, IOException {
+    public ResenjeService(ZalbaNaOdlukuXmlRepository zalbaNaOdlukuXmlRepository, ZalbaCutanjeXmlRepository zalbaCutanjeXmlRepository,
+            AuthenticationService authenticationService, ResenjeProperties properties, ResenjeRDFRepository rdfRepository, ResenjeXmlRepository xmlRepository) throws JAXBException, SAXException, IOException {
         this.emailSender = new EmailSender();
         this.properties = properties;
         this.rdfRepository = rdfRepository;
         this.xmlRepository = xmlRepository;
         this.marshaller = new JaxbMarshaller<>(properties);
         this.XSLTransformer = new XSLTransformer(properties);
+        this.zalbaCutanjeXmlRepository = zalbaCutanjeXmlRepository;
+        this.zalbaNaOdlukuXmlRepository = zalbaNaOdlukuXmlRepository;
         this.authenticationService = authenticationService;
     }
 
     public List<Resenje> findAll() throws XMLDBException, JAXBException {
-//        Account account = authenticationService.getAuthenticated();
-//        if(account.hasRole("ROLE_USER"))
-//            return xmlRepository.findAllByGradjanin(account.getEmail());
+        Account account = authenticationService.getAuthenticated();
+        if(account.hasRole("ROLE_USER"))
+            return xmlRepository.findAllByGradjanin(account.getEmail());
 
         return xmlRepository.findAll();
     }
 
-    public Long create(long zalbaId, Resenje resenje) throws JAXBException, XMLDBException, IOException, TransformerException {
+    public Long createCutanje(long zalbaId, Resenje resenje) throws JAXBException, XMLDBException, IOException, TransformerException, XmlResourceNotFoundException, ParserConfigurationException, SAXException {
+        ZalbaCutanje zalba = zalbaCutanjeXmlRepository.findById(zalbaId).orElseThrow(() -> new XmlResourceNotFoundException(""));
         long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
         String self = properties.namespace() + "/" + id;
-
+        resenje.setAbout(self);
+        resenje.setHref(zalba.getAbout());
+        resenje.getPodnosilacZalbe().setHref(zalba.getPodnosilacZalbe().getHref());
         xmlRepository.createWithId(resenje, id);
         rdfRepository.saveMetadata(resenje);
 
+        String mail = zalba.getPodnosilacZalbe().getHref();
+        mail = mail.substring(mail.lastIndexOf("/") + 1);
 
+        emailSender.sendEmail(emailService, buildEmail(mail, id));
+
+        return id;
+    }
+
+    public Long createOdluka(long zalbaId, Resenje resenje) throws JAXBException, XMLDBException, IOException, TransformerException, XmlResourceNotFoundException, ParserConfigurationException, SAXException {
+        ZalbaNaOdluku zalba = zalbaNaOdlukuXmlRepository.findById(zalbaId).orElseThrow(() -> new XmlResourceNotFoundException(""));
+        long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
+        String self = properties.namespace() + "/" + id;
+        resenje.setAbout(self);
+        resenje.setHref(zalba.getAbout());
+        resenje.getPodnosilacZalbe().setHref(zalba.getPodnosilacZalbe().getHref());
+        xmlRepository.createWithId(resenje, id);
+        rdfRepository.saveMetadata(resenje);
+
+        String mail = zalba.getPodnosilacZalbe().getHref();
+        mail = mail.substring(mail.lastIndexOf("/") + 1);
+
+        emailSender.sendEmail(emailService, buildEmail(mail, id));
 
         return id;
     }

@@ -41,7 +41,7 @@ export class ZalbeCutanjeViewComponent implements OnInit {
   }
 
   napisiResenje(zalba: any) {
-    this.router.navigate[`/resenje/add/${zalba.id}`];
+    this.router.navigate[`/resenje/add/zalba-cutanje/${zalba.id}`];
   }
 
   showZahtev(id: string) {
