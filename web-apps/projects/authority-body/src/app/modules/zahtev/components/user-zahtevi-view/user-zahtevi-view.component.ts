@@ -32,12 +32,43 @@ export class UserZahteviViewComponent implements OnInit {
     this.router.navigate([`/zahtevi/${id}`]);
   }
 
+  showXHTMLZahtev(id: number) {
+    this.router.navigate([`/zahtevi/xhtml/${id}`]);
+  }
+
+  showPDFZahtev(id: number) {
+    this.getPDF(id);
+  }
+
+  getPDF(id: number) {
+    this.zahtevService.getOnePDF(id).subscribe((zahtev) => {
+      const file = this.makeBlob(zahtev);
+      this.downloadPdf(file, id);
+    });
+  }
+
+  makeBlob(zahtev: any) {
+    let file = new Blob([zahtev], { type: 'application/pdf' });
+    var fileURL = URL.createObjectURL(file);
+    return fileURL
+  }
+
+  downloadPdf(file, fileName) {
+    const source = file;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${fileName}.pdf`
+    link.click();
+  }
+
+
   getAll() {
     this.zahtevService.getAll().subscribe((zahtevi) => {
       this.zahtevi = zahtevi.map((zahtev) => {
         zahtev['name'] = zahtev['za:TrazilacInformacija']['co:Ime']['_text'] + ' ' + zahtev['za:TrazilacInformacija']['co:Prezime']['_text'];
         let about: Array<string> = zahtev['_attributes']['about'].split('/');
         zahtev['id'] = about[about.length - 1];
+        zahtev['expired'] = true;
         return zahtev;
       })
     });

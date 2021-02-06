@@ -3,6 +3,9 @@ import { ZahtevService } from '../../zahtev.service';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-zahtevi-view',
@@ -11,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ZahteviViewComponent implements OnInit {
   zahtevi: Array<any>;
+  
 
   constructor(
     private zahtevService: ZahtevService,
@@ -54,7 +58,28 @@ export class ZahteviViewComponent implements OnInit {
   }
 
   showPDFZahtev(id: number) {
-    this.router.navigate([`/zahtevi/pdf/${id}`]);
+    this.getPDF(id);
+  }
+
+  getPDF(id: number) {
+    this.zahtevService.getOnePDF(id).subscribe((zahtev) => {
+      const file = this.makeBlob(zahtev);
+      this.downloadPdf(file, id);
+    });
+  }
+
+  makeBlob(zahtev: any) {
+    let file = new Blob([zahtev], { type: 'application/pdf' });
+    var fileURL = URL.createObjectURL(file);
+    return fileURL
+  }
+
+  downloadPdf(file, fileName) {
+    const source = file;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${fileName}.pdf`
+    link.click();
   }
 
   getAll() {
