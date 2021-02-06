@@ -1,23 +1,20 @@
 
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.resenje11;
+package rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje;
 
 import javax.xml.bind.annotation.*;
-import java.math.BigInteger;
 
 
 /**
- * <p>Java class for CTOdluka complex type.
+ * <p>Java class for CTResenje complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CTOdluka"&gt;
+ * &lt;complexType name="CTResenje"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
- *         &lt;element name="Lice" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="Mesto"&gt;
+ *         &lt;element name="OrganVlasti"&gt;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
@@ -27,7 +24,8 @@ import java.math.BigInteger;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="Iznos" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
+ *         &lt;element name="Ustanova" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
+ *         &lt;element name="Ishod" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -37,118 +35,90 @@ import java.math.BigInteger;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTOdluka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
-    "zakon",
-    "lice",
-    "mesto",
-    "iznos"
+@XmlType(name = "CTResenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
+    "organVlasti",
+    "ustanova",
+    "ishod"
 })
-public class CTOdluka {
+public class CTResenje {
 
-    @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTZakon zakon;
-    @XmlElement(name = "Lice", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected String lice;
-    @XmlElement(name = "Mesto", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTOdluka.Mesto mesto;
-    @XmlElement(name = "Iznos", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger iznos;
+    @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected CTResenje.OrganVlasti organVlasti;
+    @XmlElement(name = "Ustanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected CTUstanova ustanova;
+    @XmlElement(name = "Ishod", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected String ishod;
 
     /**
-     * Gets the value of the zakon property.
+     * Gets the value of the organVlasti property.
      *
      * @return
      *     possible object is
-     *     {@link CTZakon }
+     *     {@link CTResenje.OrganVlasti }
      *
      */
-    public CTZakon getZakon() {
-        return zakon;
+    public CTResenje.OrganVlasti getOrganVlasti() {
+        return organVlasti;
     }
 
     /**
-     * Sets the value of the zakon property.
+     * Sets the value of the organVlasti property.
      *
      * @param value
      *     allowed object is
-     *     {@link CTZakon }
+     *     {@link CTResenje.OrganVlasti }
      *
      */
-    public void setZakon(CTZakon value) {
-        this.zakon = value;
+    public void setOrganVlasti(CTResenje.OrganVlasti value) {
+        this.organVlasti = value;
     }
 
     /**
-     * Gets the value of the lice property.
-     *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
-     */
-    public String getLice() {
-        return lice;
-    }
-
-    /**
-     * Sets the value of the lice property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
-     */
-    public void setLice(String value) {
-        this.lice = value;
-    }
-
-    /**
-     * Gets the value of the mesto property.
-     *
-     * @return
-     *     possible object is
-     *     {@link CTOdluka.Mesto }
-     *
-     */
-    public CTOdluka.Mesto getMesto() {
-        return mesto;
-    }
-
-    /**
-     * Sets the value of the mesto property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link CTOdluka.Mesto }
-     *
-     */
-    public void setMesto(CTOdluka.Mesto value) {
-        this.mesto = value;
-    }
-
-    /**
-     * Gets the value of the iznos property.
+     * Gets the value of the ustanova property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link CTUstanova }
      *     
      */
-    public BigInteger getIznos() {
-        return iznos;
+    public CTUstanova getUstanova() {
+        return ustanova;
     }
 
     /**
-     * Sets the value of the iznos property.
+     * Sets the value of the ustanova property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link CTUstanova }
      *     
      */
-    public void setIznos(BigInteger value) {
-        this.iznos = value;
+    public void setUstanova(CTUstanova value) {
+        this.ustanova = value;
+    }
+
+    /**
+     * Gets the value of the ishod property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getIshod() {
+        return ishod;
+    }
+
+    /**
+     * Sets the value of the ishod property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setIshod(String value) {
+        this.ishod = value;
     }
 
 
@@ -174,7 +144,7 @@ public class CTOdluka {
     @XmlType(name = "", propOrder = {
         "value"
     })
-    public static class Mesto {
+    public static class OrganVlasti {
 
         @XmlValue
         protected String value;

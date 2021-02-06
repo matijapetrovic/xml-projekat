@@ -8,7 +8,7 @@ import javax.xml.ws.WebServiceFeature;
 import java.net.URL;
 
 @WebServiceClient(name = "ResenjeSoapService",
-        wsdlLocation = "classpath:wsdl/Resenje.wsdl",
+        wsdlLocation = "/src/main/resources/wsdl/Resenje.wsdl",
         targetNamespace = "http://soap.spring.com/ws/resenje")
 public class ResenjeSoapService extends Service{
 
@@ -17,7 +17,7 @@ public class ResenjeSoapService extends Service{
     public final static QName SERVICE = new QName("http://soap.spring.com/ws/resenje", "ResenjeSoapService");
     public final static QName ResenjeServicePort = new QName("http://soap.spring.com/ws/resenje", "ResenjeServicePort");
     static {
-        URL url = ResenjeSoapService.class.getClassLoader().getResource("wsdl/Resenje.wsdl");
+        URL url = ResenjeSoapService.class.getClassLoader().getResource("/src/main/resources/wsdl/Resenje.wsdl");
         if (url == null) {
             java.util.logging.Logger.getLogger(ResenjeSoapService.class.getName())
                     .log(java.util.logging.Level.INFO,
@@ -54,9 +54,9 @@ public class ResenjeSoapService extends Service{
     /**
      *
      * @return
-     *     returns Hello
+     *     returns ResenjeServicePort
      */
-    @WebEndpoint(name = "ResenjePort")
+    @WebEndpoint(name = "ResenjeServicePort")
     public ResenjePort getResenjePort() {
         return super.getPort(ResenjeServicePort, ResenjePort.class);
     }
@@ -68,7 +68,7 @@ public class ResenjeSoapService extends Service{
      * @return
      *     returns ResenjePort
      */
-    @WebEndpoint(name = "ResenjePort")
+    @WebEndpoint(name = "ResenjeServicePort")
     public ResenjePort getResenjePort(WebServiceFeature... features) {
         return super.getPort(ResenjeServicePort, ResenjePort.class, features);
     }

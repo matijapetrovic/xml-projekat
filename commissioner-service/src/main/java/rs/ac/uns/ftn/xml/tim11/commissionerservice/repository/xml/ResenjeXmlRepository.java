@@ -3,7 +3,7 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml;
 import org.springframework.stereotype.Repository;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
+import rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.ResenjeProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.XmlRepository;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.DbConnection;

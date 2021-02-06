@@ -2,7 +2,7 @@ package rs.ac.uns.ftn.xml.tim11.commissionerservice.util;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
+import rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.XQueryExpressions;
 

@@ -1,5 +1,5 @@
 
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.resenje11;
+package rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.*;

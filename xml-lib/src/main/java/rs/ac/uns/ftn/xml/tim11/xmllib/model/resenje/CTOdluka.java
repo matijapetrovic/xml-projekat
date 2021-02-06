@@ -1,20 +1,23 @@
 
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.resenje11;
+package rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje;
 
 import javax.xml.bind.annotation.*;
+import java.math.BigInteger;
 
 
 /**
- * <p>Java class for CTUstanova complex type.
+ * <p>Java class for CTOdluka complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CTUstanova"&gt;
+ * &lt;complexType name="CTOdluka"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Naziv"&gt;
+ *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
+ *         &lt;element name="Lice" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Mesto"&gt;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
@@ -24,7 +27,7 @@ import javax.xml.bind.annotation.*;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="Adresa" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Iznos" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,63 +37,118 @@ import javax.xml.bind.annotation.*;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTUstanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
-    "naziv",
-    "adresa"
+@XmlType(name = "CTOdluka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
+    "zakon",
+    "lice",
+    "mesto",
+    "iznos"
 })
-public class CTUstanova {
+public class CTOdluka {
 
-    @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTUstanova.Naziv naziv;
-    @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected String adresa;
+    @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected CTZakon zakon;
+    @XmlElement(name = "Lice", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected String lice;
+    @XmlElement(name = "Mesto", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected CTOdluka.Mesto mesto;
+    @XmlElement(name = "Iznos", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    @XmlSchemaType(name = "positiveInteger")
+    protected BigInteger iznos;
 
     /**
-     * Gets the value of the naziv property.
+     * Gets the value of the zakon property.
      *
      * @return
      *     possible object is
-     *     {@link CTUstanova.Naziv }
+     *     {@link CTZakon }
      *
      */
-    public CTUstanova.Naziv getNaziv() {
-        return naziv;
+    public CTZakon getZakon() {
+        return zakon;
     }
 
     /**
-     * Sets the value of the naziv property.
+     * Sets the value of the zakon property.
      *
      * @param value
      *     allowed object is
-     *     {@link CTUstanova.Naziv }
+     *     {@link CTZakon }
      *
      */
-    public void setNaziv(CTUstanova.Naziv value) {
-        this.naziv = value;
+    public void setZakon(CTZakon value) {
+        this.zakon = value;
     }
 
     /**
-     * Gets the value of the adresa property.
-     * 
+     * Gets the value of the lice property.
+     *
      * @return
      *     possible object is
      *     {@link String }
-     *     
+     *
      */
-    public String getAdresa() {
-        return adresa;
+    public String getLice() {
+        return lice;
     }
 
     /**
-     * Sets the value of the adresa property.
-     * 
+     * Sets the value of the lice property.
+     *
      * @param value
      *     allowed object is
      *     {@link String }
+     *
+     */
+    public void setLice(String value) {
+        this.lice = value;
+    }
+
+    /**
+     * Gets the value of the mesto property.
+     *
+     * @return
+     *     possible object is
+     *     {@link CTOdluka.Mesto }
+     *
+     */
+    public CTOdluka.Mesto getMesto() {
+        return mesto;
+    }
+
+    /**
+     * Sets the value of the mesto property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link CTOdluka.Mesto }
+     *
+     */
+    public void setMesto(CTOdluka.Mesto value) {
+        this.mesto = value;
+    }
+
+    /**
+     * Gets the value of the iznos property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
      *     
      */
-    public void setAdresa(String value) {
-        this.adresa = value;
+    public BigInteger getIznos() {
+        return iznos;
+    }
+
+    /**
+     * Sets the value of the iznos property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
+     */
+    public void setIznos(BigInteger value) {
+        this.iznos = value;
     }
 
 
@@ -116,7 +174,7 @@ public class CTUstanova {
     @XmlType(name = "", propOrder = {
         "value"
     })
-    public static class Naziv {
+    public static class Mesto {
 
         @XmlValue
         protected String value;

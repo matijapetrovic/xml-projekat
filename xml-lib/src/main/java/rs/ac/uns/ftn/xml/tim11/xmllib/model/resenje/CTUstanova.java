@@ -1,20 +1,20 @@
 
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.resenje11;
+package rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje;
 
 import javax.xml.bind.annotation.*;
 
 
 /**
- * <p>Java class for CTResenje complex type.
+ * <p>Java class for CTUstanova complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CTResenje"&gt;
+ * &lt;complexType name="CTUstanova"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="OrganVlasti"&gt;
+ *         &lt;element name="Naziv"&gt;
  *           &lt;complexType&gt;
  *             &lt;simpleContent&gt;
  *               &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
@@ -24,8 +24,7 @@ import javax.xml.bind.annotation.*;
  *             &lt;/simpleContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element name="Ustanova" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTUstanova"/&gt;
- *         &lt;element name="Ishod" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="Adresa" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -35,90 +34,63 @@ import javax.xml.bind.annotation.*;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CTResenje", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
-    "organVlasti",
-    "ustanova",
-    "ishod"
+@XmlType(name = "CTUstanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
+    "naziv",
+    "adresa"
 })
-public class CTResenje {
+public class CTUstanova {
 
-    @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTResenje.OrganVlasti organVlasti;
-    @XmlElement(name = "Ustanova", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTUstanova ustanova;
-    @XmlElement(name = "Ishod", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected String ishod;
+    @XmlElement(name = "Naziv", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected CTUstanova.Naziv naziv;
+    @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
+    protected String adresa;
 
     /**
-     * Gets the value of the organVlasti property.
+     * Gets the value of the naziv property.
      *
      * @return
      *     possible object is
-     *     {@link CTResenje.OrganVlasti }
+     *     {@link CTUstanova.Naziv }
      *
      */
-    public CTResenje.OrganVlasti getOrganVlasti() {
-        return organVlasti;
+    public CTUstanova.Naziv getNaziv() {
+        return naziv;
     }
 
     /**
-     * Sets the value of the organVlasti property.
+     * Sets the value of the naziv property.
      *
      * @param value
      *     allowed object is
-     *     {@link CTResenje.OrganVlasti }
+     *     {@link CTUstanova.Naziv }
      *
      */
-    public void setOrganVlasti(CTResenje.OrganVlasti value) {
-        this.organVlasti = value;
+    public void setNaziv(CTUstanova.Naziv value) {
+        this.naziv = value;
     }
 
     /**
-     * Gets the value of the ustanova property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CTUstanova }
-     *     
-     */
-    public CTUstanova getUstanova() {
-        return ustanova;
-    }
-
-    /**
-     * Sets the value of the ustanova property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CTUstanova }
-     *     
-     */
-    public void setUstanova(CTUstanova value) {
-        this.ustanova = value;
-    }
-
-    /**
-     * Gets the value of the ishod property.
+     * Gets the value of the adresa property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getIshod() {
-        return ishod;
+    public String getAdresa() {
+        return adresa;
     }
 
     /**
-     * Sets the value of the ishod property.
+     * Sets the value of the adresa property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setIshod(String value) {
-        this.ishod = value;
+    public void setAdresa(String value) {
+        this.adresa = value;
     }
 
 
@@ -144,7 +116,7 @@ public class CTResenje {
     @XmlType(name = "", propOrder = {
         "value"
     })
-    public static class OrganVlasti {
+    public static class Naziv {
 
         @XmlValue
         protected String value;

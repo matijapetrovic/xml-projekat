@@ -85,7 +85,13 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>rs.ac.uns.ftn.xml.tim11</groupId>
+            <artifactId>authority-body-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>

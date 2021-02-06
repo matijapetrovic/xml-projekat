@@ -3,7 +3,7 @@ package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.resenje;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.xmldb.api.base.XMLDBException;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.resenje11.Resenje;
+import rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 
 import javax.xml.bind.JAXBException;
@@ -21,7 +21,7 @@ public class ResenjePortImpl implements ResenjePort {
     //private ResenjeService service;
 
     @Override
-    public Resenje findResenjeByNumber(Resenje resenje) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
+    public Resenje receiveResenje(Resenje resenje) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
 //        Resenje resenje = service.findXmlByNumber(brojResenja);
         return null;
     }

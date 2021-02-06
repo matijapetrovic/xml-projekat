@@ -6,27 +6,29 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.resenje.ResenjePort;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.resenje.ResenjeSoapService;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.PasswordEncoder;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Authority;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.User;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.ZalbaCutanje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ZalbaCutanjeRDFRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.AccountXmlRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.AuthorityXmlRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.UserXmlRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.ZalbaCutanjeXmlRepository;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.AccountProperties;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.AuthorityProperties;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.UserProperties;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.ZalbaCutanjeProperties;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.*;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.*;
+import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
+import rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje.Resenje;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.namespace.QName;
 import javax.xml.transform.TransformerException;
+import javax.xml.ws.Service;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 @SpringBootApplication
@@ -45,12 +47,34 @@ public class CommissionerServiceApplication {
 			AccountProperties accountProperties,
 			UserXmlRepository userXmlRepository,
 			UserProperties userProperties,
+			ResenjeXmlRepository xmlRepository,
+			ResenjeProperties resenjeProperties,
 			PasswordEncoder encoder) {
 		return args -> {
-			insertAuthority(authorityXmlRepository, authorityProperties);
-			insertAccount(accountXmlRepository, accountProperties, encoder);
-			insertUser(userXmlRepository, userProperties, encoder);
+			sendResenjeToAuthority(xmlRepository, resenjeProperties);
+//			insertAuthority(authorityXmlRepository, authorityProperties);
+//			insertAccount(accountXmlRepository, accountProperties, encoder);
+//			insertUser(userXmlRepository, userProperties, encoder);
 		};
+	}
+
+	public void sendResenjeToAuthority(ResenjeXmlRepository xmlRepository, ResenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, MalformedURLException, XMLDBException, XmlResourceNotFoundException, MalformedURLException, XmlResourceNotFoundException {
+		JaxbMarshaller<Resenje> m = new JaxbMarshaller<>(properties);
+		Resenje resenje = m.unmarshal(new FileInputStream("data/xml/resenje1.xml"));
+
+//
+//		URL wsdlLocation = new URL("http://localhost:8082/ws/resenje?wsdl");
+//		QName serviceName = new QName("http://soap.spring.com/ws/resenje", "ResenjeSoapService");
+//		QName portName = new QName("http://soap.spring.com/ws/resenje", "ResenjeServicePort");
+//
+//		Service service = Service.create(wsdlLocation, serviceName);
+//
+//		ResenjePort resenjePort = service.getPort(portName, ResenjePort.class);
+
+//		resenjePort.receiveResenje(resenje) ;
+		ResenjeSoapService service = new ResenjeSoapService(new URL("http://localhost:8082/ws/resenje?wsdl"));
+		ResenjePort resenjePort = service.getResenjePort();
+		resenjePort.receiveResenje(resenje);
 	}
 
 	public void insertAuthority(AuthorityXmlRepository xmlRepository, AuthorityProperties properties) throws JAXBException, SAXException, IOException, XMLDBException {

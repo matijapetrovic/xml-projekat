@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.xmldb.api.base.XMLDBException;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
+import rs.ac.uns.ftn.xml.tim11.xmllib.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.resenje.ResenjeService;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 

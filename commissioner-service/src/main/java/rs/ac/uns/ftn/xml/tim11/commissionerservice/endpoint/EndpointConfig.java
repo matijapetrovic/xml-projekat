@@ -5,7 +5,6 @@ import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.resenje.ResenjePortImpl;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.zalbacutanje.ZalbaCutanjePortImpl;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.zalbanaodluku.ZalbaNaOdlukuPortImpl;
 
@@ -21,13 +20,6 @@ public class EndpointConfig {
 //    private ZalbaNaOdlukuPortImpl zalbaNaOdlukuPort;
 //    @Autowired
 //    private ZalbaCutanjePortImpl zalbaCutanjePort;
-
-    @Bean
-    public Endpoint resenjeEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new ResenjePortImpl());
-        endpoint.publish("/resenje");
-        return endpoint;
-    }
 
     @Bean
     public Endpoint zalbaCutanjeEndpoint() {

@@ -44,9 +44,9 @@ public class AuthorityBodyServiceApplication {
 			UserProperties userProperties,
 			PasswordEncoder encoder) {
 		return args -> {
-			insertAuthority(authorityXmlRepository, authorityProperties);
-			insertAccount(accountXmlRepository, accountProperties, encoder);
-			insertUser(userXmlRepository, userProperties, encoder);
+//			insertAuthority(authorityXmlRepository, authorityProperties);
+//			insertAccount(accountXmlRepository, accountProperties, encoder);
+//			insertUser(userXmlRepository, userProperties, encoder);
 		};
 	}
 
