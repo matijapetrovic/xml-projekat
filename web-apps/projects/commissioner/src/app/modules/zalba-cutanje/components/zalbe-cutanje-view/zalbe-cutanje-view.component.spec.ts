@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ZalbeCutanjeViewComponent } from './zalbe-cutanje-view.component';
 
-import { ZahteviViewComponent } from './zahtevi-view.component';
 
 describe('ZahteviViewComponent', () => {
-  let component: ZahteviViewComponent;
-  let fixture: ComponentFixture<ZahteviViewComponent>;
+  let component: ZalbeCutanjeViewComponent;
+  let fixture: ComponentFixture<ZalbeCutanjeViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ZahteviViewComponent ]
+      declarations: [ ZalbeCutanjeViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ZahteviViewComponent);
+    fixture = TestBed.createComponent(ZalbeCutanjeViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
