@@ -4,8 +4,7 @@ import org.springframework.stereotype.Repository;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.obavestenje.ObavestenjePort;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.ObavestenjeProperties;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.ObavestenjeProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.XmlRepository;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.DbConnection;
 

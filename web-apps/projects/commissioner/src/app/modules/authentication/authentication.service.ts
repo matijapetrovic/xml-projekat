@@ -14,7 +14,7 @@ import * as converter from 'xml-js';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/xml'
+    'Content-Type': 'application/xml',
   })
 };
 

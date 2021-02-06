@@ -4,22 +4,26 @@ import org.xml.sax.SAXException;
 import org.xmldb.api.base.*;
 import org.xmldb.api.base.Collection;
 import org.xmldb.api.modules.XMLResource;
+import org.xmldb.api.modules.XPathQueryService;
 import org.xmldb.api.modules.XQueryService;
 import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.DbConnection;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
+import rs.ac.uns.ftn.xml.tim11.xmllib.util.UncheckException;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.transform.OutputKeys;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.StringWriter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class XmlRepository<T> {
-    private final XmlResourceProperties properties;
-    private final DbConnection conn;
-    private final JaxbMarshaller<T> marshaller;
+    protected final XmlResourceProperties properties;
+    protected final DbConnection conn;
+    protected final JaxbMarshaller<T> marshaller;
 
     public XmlRepository(DbConnection conn, XmlResourceProperties properties)
             throws JAXBException, SAXException {
@@ -43,6 +47,15 @@ public class XmlRepository<T> {
         }
 
         return result;
+    }
+
+    public List<T> findAllByIds(List<String> ids) throws XMLDBException {
+        Collection collection = conn.getCollection(properties.collectionId());
+
+        return ids.stream()
+                .map(UncheckException.wrapper(id -> (XMLResource) collection.getResource(id + ".xml")))
+                .map(UncheckException.wrapper(resource -> marshaller.unmarshal(resource.getContentAsDOM())))
+                .collect(Collectors.toList());
     }
 
     @SuppressWarnings("unchecked")
@@ -115,6 +128,14 @@ public class XmlRepository<T> {
         XQueryService xQueryService = (XQueryService) collection.getService("XQueryService", "1.0");
         CompiledExpression compiledExpression = xQueryService.compile(query);
         return xQueryService.execute(compiledExpression);
+    }
+
+    protected ResourceSet executeXPathQuery(Collection collection, String query) throws XMLDBException {
+        XPathQueryService xPathQueryService = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
+        xPathQueryService.setProperty(OutputKeys.INDENT, "yes");
+        xPathQueryService.setNamespace("", properties.namespace());
+
+        return xPathQueryService.query(query);
     }
 
 }

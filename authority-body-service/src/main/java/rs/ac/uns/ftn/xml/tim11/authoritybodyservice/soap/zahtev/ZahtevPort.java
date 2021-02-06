@@ -1,6 +1,5 @@
 package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.zahtev;
 
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 
 import javax.jws.WebMethod;

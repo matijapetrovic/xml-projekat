@@ -4,11 +4,15 @@ import org.apache.fop.apps.FOPException;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.ObavestenjeMetadataSearchRequest;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.AuthenticationService;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ObavestenjeRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.ObavestenjeXmlRepository;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.ObavestenjeProperties;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.ObavestenjeProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
+import rs.ac.uns.ftn.xml.tim11.xmllib.fuseki.queries.QueryBuilder;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 import rs.ac.uns.ftn.xml.tim11.xmllib.xslfo.XSLTransformer;
 
@@ -16,6 +20,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -24,11 +30,15 @@ public class ObavestenjeService {
     private final ObavestenjeRDFRepository rdfRepository;
     private final ObavestenjeXmlRepository xmlRepository;
     private final JaxbMarshaller<Obavestenje> marshaller;
-    private final ObavestenjeProperties properties;
 
+    private final ObavestenjeProperties properties;
     private final XSLTransformer XSLTransformer;
 
-    public ObavestenjeService(ObavestenjeRDFRepository rdfRepository, ObavestenjeXmlRepository xmlRepository, ObavestenjeProperties properties)
+    public ObavestenjeService(
+            ObavestenjeRDFRepository rdfRepository,
+            ObavestenjeXmlRepository xmlRepository,
+            ObavestenjeProperties properties,
+            AuthenticationService authenticationService)
             throws JAXBException, SAXException, IOException {
         this.rdfRepository = rdfRepository;
         this.xmlRepository = xmlRepository;
@@ -41,11 +51,8 @@ public class ObavestenjeService {
         long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
         String self = properties.namespace() + "/" + id;
         obavestenje.setAbout(self);
-        obavestenje.getPodnosiocZahteva().setAbout("");
-        obavestenje.getPodnosiocZahteva().setHref(self);
-        StringWriter sw = new StringWriter();
-        marshaller.marshal(obavestenje, sw);
-        System.out.println(sw.toString());
+        obavestenje.getPodnosilacZahteva().setHref("http://placholder/gradjanin/123");
+        obavestenje.getOrgan().setHref("http://placholder/organ/123");
         xmlRepository.createWithId(obavestenje, id);
         rdfRepository.saveMetadata(obavestenje);
         return id;
@@ -79,5 +86,22 @@ public class ObavestenjeService {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         this.marshaller.marshal(obavestenje, out);
         return XSLTransformer.generateXHtml(new ByteArrayInputStream(out.toByteArray()));
+    }
+
+    public List<Obavestenje> searchMetadata(ObavestenjeMetadataSearchRequest request) throws XMLDBException, IOException {
+        QueryBuilder queryBuilder = new QueryBuilder(properties.namedGraph(), "obavestenje");
+        if(request.getImePodnosioca() != null)
+            queryBuilder = queryBuilder.addParam("imePodnosioca", request.getImePodnosioca());
+        if(request.getPrezimePodnosioca() != null)
+            queryBuilder = queryBuilder.addParam("prezimePodnosioca", request.getPrezimePodnosioca());
+        if(request.getNazivOrganaVlasti() != null)
+            queryBuilder = queryBuilder.addParam("nazivOrganaVlasti", request.getNazivOrganaVlasti());
+        if(request.getPodnesenoDatuma() != null)
+            queryBuilder = queryBuilder.addParam("podnesenoDatuma", request.getPodnesenoDatuma());
+
+        String query = queryBuilder.build();
+        System.out.println(query);
+        List<String> ids = rdfRepository.query(query);
+        return xmlRepository.findAllByIds(ids);
     }
 }

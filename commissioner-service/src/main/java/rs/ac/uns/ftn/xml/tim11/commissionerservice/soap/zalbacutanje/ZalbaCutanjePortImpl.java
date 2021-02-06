@@ -1,6 +1,8 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.zalbacutanje;
 
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.ZalbaCutanje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.zalbacutanje.ZalbaCutanjeService;
@@ -15,6 +17,8 @@ import javax.xml.bind.JAXBException;
         targetNamespace = "http://soap.spring.com/ws/zalbacutanje",
         // wsdlLocation = "classpath:wsdl/Resenje.wsdl",
         endpointInterface = "rs.ac.uns.ftn.xml.tim11.commissionerservice.soap.zalbacutanje.ZalbaCutanjePort")
+@Service
+@NoArgsConstructor
 public class ZalbaCutanjePortImpl implements ZalbaCutanjePort{
 
     @Autowired

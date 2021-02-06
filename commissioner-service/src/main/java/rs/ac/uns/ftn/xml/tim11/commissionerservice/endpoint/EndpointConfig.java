@@ -15,12 +15,16 @@ import javax.xml.ws.Endpoint;
 public class EndpointConfig {
     @Autowired
     private Bus bus;
-    @Autowired
-    private ResenjePortImpl resenjePort;
+//    @Autowired
+//    private ResenjePortImpl resenjePort;
+//    @Autowired
+//    private ZalbaNaOdlukuPortImpl zalbaNaOdlukuPort;
+//    @Autowired
+//    private ZalbaCutanjePortImpl zalbaCutanjePort;
 
     @Bean
     public Endpoint resenjeEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, resenjePort);
+        EndpointImpl endpoint = new EndpointImpl(bus, new ResenjePortImpl());
         endpoint.publish("/resenje");
         return endpoint;
     }
@@ -32,11 +36,11 @@ public class EndpointConfig {
         return endpoint;
     }
 
-    @Bean
-    public Endpoint zalbaNaOdlukuEndpoint() {
-        EndpointImpl endpoint = new EndpointImpl(bus, new ZalbaNaOdlukuPortImpl());
-        endpoint.publish("/zalbanaodluku");
-        return endpoint;
-    }
+//    @Bean
+//    public Endpoint zalbaNaOdlukuEndpoint() {
+//        EndpointImpl endpoint = new EndpointImpl(bus, new ZalbaNaOdlukuPortImpl());
+//        endpoint.publish("/zalbanaodluku");
+//        return endpoint;
+//    }
 
 }

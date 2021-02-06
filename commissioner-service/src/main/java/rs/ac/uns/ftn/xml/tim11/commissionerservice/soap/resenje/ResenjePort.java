@@ -20,8 +20,8 @@ public interface ResenjePort {
 
     @WebMethod
     @WebResult(name = "return", targetNamespace = "http://soap.spring.com/ws/resenje", partName = "return")
-    public Resenje findResenjeByNumber(
-        @WebParam(partName = "text", name = "text") String brojResenja
+    public Resenje recieveResenje(
+        @WebParam(partName = "text", name = "text") Resenje resenje
     ) throws XMLDBException, JAXBException, XmlResourceNotFoundException;
 
 }

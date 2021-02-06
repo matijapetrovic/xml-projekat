@@ -8,6 +8,7 @@ import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 
 import javax.xml.bind.JAXBException;
+import java.io.FileNotFoundException;
 
 @javax.jws.WebService(
         serviceName = "ZahtevSoapService",
@@ -22,13 +23,15 @@ public class ZahtevPortImpl implements ZahtevPort{
     public Zahtev findZahtevById(Long zahtevId) {
         Zahtev zahtev;
         try {
-            zahtev = service.findXmlById(zahtevId);
+            zahtev = service.findById(zahtevId);
             return zahtev;
         } catch (XMLDBException e) {
             e.printStackTrace();
         } catch (JAXBException e) {
             e.printStackTrace();
         } catch (XmlResourceNotFoundException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         return null;

@@ -72,6 +72,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
 
 		<!-- JWT -->
 		<dependency>
@@ -79,6 +84,12 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.9.1</version>
 		</dependency>
+
+		<!-- REST Web Service needs to respond with XML media type -->
+<!--		<dependency>-->
+<!--			<groupId>com.fasterxml.jackson.dataformat</groupId>-->
+<!--			<artifactId>jackson-dataformat-xml</artifactId>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>
@@ -135,6 +146,19 @@
 							<genWsdl>true</genWsdl>
 							<verbose>false</verbose>
 							<outputFile>${project.build.directory}/generated/wsdl/Zahtev.wsdl</outputFile>
+						</configuration>
+						<goals>
+							<goal>java2ws</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>process-classes2</id>
+						<phase>package</phase>
+						<configuration>
+							<className>rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.resenje.ResenjePortImpl</className>
+							<genWsdl>true</genWsdl>
+							<verbose>false</verbose>
+							<outputFile>${project.build.directory}/generated/wsdl/Resenje.wsdl</outputFile>
 						</configuration>
 						<goals>
 							<goal>java2ws</goal>

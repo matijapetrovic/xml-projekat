@@ -1,33 +1,33 @@
-package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util;
+package rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Authority;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.xmllib.XmlResourceProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.util.XQueryExpressions;
 
 @Component
-public class AuthorityProperties implements XmlResourceProperties {
-    @Value("${rdf.named-graph.authority}")
+public class AccountProperties implements XmlResourceProperties {
+    @Value("${rdf.named-graph.account}")
     private String namedGraph;
 
-    @Value("${xml.collectionId.authority}")
+    @Value("${xml.collectionId.account}")
     private String collectionId;
 
-    @Value("${xml.namespace.authority}")
+    @Value("${xml.namespace.account}")
     private String namespace;
 
-    @Value("${xml.schema.authority}")
+    @Value("${xml.schema.account}")
     private String schemaPath;
+
+    @Override
+    public String contextPath() {
+        return Account.class.getPackage().getName();
+    }
 
     @Override
     public String namespace() {
         return namespace;
-    }
-
-    @Override
-    public String contextPath() {
-        return Authority.class.getPackage().getName();
     }
 
     @Override
@@ -60,7 +60,7 @@ public class AuthorityProperties implements XmlResourceProperties {
         return new XQueryExpressions(
                 namespace,
                 collectionId,
-                Authority.class.getSimpleName()
+                Account.class.getSimpleName()
         );
     }
 }

@@ -1,8 +1,6 @@
 package rs.ac.uns.ftn.xml.tim11.xmllib.jaxb;
 
 
-
-
 import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
 
 import javax.xml.bind.annotation.XmlTransient;
@@ -41,6 +39,7 @@ public class NSPrefixMapper extends NamespacePrefixMapper {
         addMapping("http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", "zlb");
         addMapping("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "re");
         addMapping("http://www.ftn.uns.ac.rs/xml/tim11/common", "co");
+        addMapping("http://www.w3.org/2001/XMLSchema#", "xs");
     }
 
     public void addMapping(String uri, String prefix){
