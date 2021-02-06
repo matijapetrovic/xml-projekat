@@ -1,18 +1,24 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.fop.apps.FOPException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.dto.ResenjeListDTO;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.resenje.ResenjeService;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 @RequiredArgsConstructor
@@ -21,14 +27,34 @@ import java.io.IOException;
 public class ResenjeController {
     private final ResenjeService resenjeService;
 
+    @GetMapping("")
+    public ResponseEntity<ResenjeListDTO> findAll() throws XMLDBException, JAXBException {
+        ResenjeListDTO response = new ResenjeListDTO();
+        response.setResenje(resenjeService.findAll());
+        return ResponseEntity.ok(response);
+    }
+
     @PostMapping("")
-    public ResponseEntity<Void> createResenje(@RequestBody Resenje resenje, UriComponentsBuilder uriBuilder) throws XMLDBException, IOException, TransformerException, JAXBException {
-        Long id = resenjeService.create(resenje);
+    @PreAuthorize("hasRole('ROLE_COMMISSIONER')")
+    public ResponseEntity<Void> createResenje(@RequestParam("zalbaId") long zalbaId, @RequestBody Resenje resenje, UriComponentsBuilder uriBuilder) throws XMLDBException, IOException, TransformerException, JAXBException {
+        resenjeService.create(zalbaId, resenje);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Resenje> getResenje(@PathVariable Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
         return ResponseEntity.ok(resenjeService.findXmlById(id));
+    }
+
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<byte[]> generatePdfDocument(@PathVariable Long id)
+            throws XMLDBException, TransformerException, FOPException, XmlResourceNotFoundException, JAXBException, FileNotFoundException {
+        return ResponseEntity.ok(resenjeService.generatePdf(id));
+    }
+
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_XHTML_XML_VALUE)
+    public ResponseEntity<byte[]> generateXHtmlDocument(@PathVariable Long id)
+            throws XMLDBException, TransformerException, SAXException, XmlResourceNotFoundException, JAXBException, IOException, ParserConfigurationException {
+        return ResponseEntity.ok(resenjeService.generateXHtml(id));
     }
 }
