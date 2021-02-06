@@ -6,10 +6,10 @@ import { AddObavestenjeComponent } from './components/add-obavestenje/add-obaves
 
 const routes: Routes = [
   {
-    path: 'add',
+    path: 'add/:zahtevId',
     component: AddObavestenjeComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['ROLE_USER'] }
+    data: { roles: ['ROLE_AUTHORITY_BODY'] }
   }
 ];
 

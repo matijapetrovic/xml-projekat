@@ -20,8 +20,6 @@ const positiveNumberValidate = function(jsElement) {
   }
 };
 
-// TODO: dodati ziro racun validaciju
-
 const elements = {
     "ob:Obavestenje": {
       displayName: 'Obavestenje',
@@ -30,6 +28,21 @@ const elements = {
         "about": { isInvisible: true },
         "rel": { isInvisible: true },
         "href": { isInvisible: true }
+      }
+    },
+    "ob:Organ": {
+      displayName: 'Organ',
+      attributes: {
+        "rel": { isInvisible: true },
+        "href": { isInvisible: true }
+      }
+    },
+
+    "co:Naziv": {
+      displayName: 'Naziv',
+      attributes: {
+        "property": { isInvisible: true },
+        "datatype": { isInvisible: true }
       }
     },
     "ob:PodnosilacZahteva": {
@@ -183,6 +196,15 @@ const elements = {
     },
     "co:Adresa": {
       displayName: 'Adresa'
+    },
+    "co:Sediste": {
+      displayName: 'Sediste'
+    },
+    "co:Broj": {
+      displayName: 'Broj'
+    },
+    "co:Ulica": {
+      displayName: 'Ulica'
     }
   };
 

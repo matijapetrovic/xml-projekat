@@ -1,22 +1,26 @@
-package rs.ac.uns.ftn.xml.tim11.emailservice.controller;
+package rs.ac.uns.ftn.xml.tim11.xmllib.email;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
+@XmlType(name = "", propOrder = {
+        "to",
+        "subject",
+        "text",
+        "pdfAttachment",
+        "xhtmlAttachment"
+})
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "Email")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmailRequest {
+public class EmailMessage {
     @XmlElement(name = "to")
     private String to;
     @XmlElement(name = "subject")
