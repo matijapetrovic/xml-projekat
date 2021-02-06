@@ -23,7 +23,7 @@ export class ZahteviViewComponent implements OnInit {
     public messageService: MessageService,
     private router: Router
   ) {
-    this.zahtevService.getAll().subscribe((zahtevi) =>  {
+    this.zahtevService.zahtevi.subscribe((zahtevi) =>  {
       this.zahtevi = this.mapZahtevi(zahtevi);
     });
    }
@@ -33,7 +33,7 @@ export class ZahteviViewComponent implements OnInit {
   }
 
   showAcceptForm(zahtev: any): void {
-    this.router.navigate([`/obavestenje/add/${zahtev['id']}`]);
+    this.router.navigate([`/obavestenje/add`]);
   }
 
   showRejectDialog(id: string): void {

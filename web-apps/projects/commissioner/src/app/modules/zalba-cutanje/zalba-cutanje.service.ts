@@ -36,7 +36,9 @@ export class ZalbaCutanjeService {
     .pipe(
       map(dtoXML => {
         let res = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }))['ZalbeNaCutanje']['ZalbaNaCutanje'];
-        return (res instanceof Array ? res : [res]);
+        let zalbe = (res instanceof Array ? res : [res]);
+        this.zalbeSubject.next(zalbe);
+        return zalbe;
       }));
   }
 

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import * as converter from 'xml-js';
 import { HandleError, HttpErrorHandler } from '../../core/services/http-error-handler.service';
+import { BehaviorSubject } from 'rxjs';
 
 const postHeaders = new HttpHeaders({
   'Content-Type': 'application/xml'
@@ -17,11 +18,17 @@ export class ZalbaOdlukaService {
 
   private url = `${environment.apiUrl}/zalba-odluka`;
 
-  constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) { 
-    this.handleError = httpErrorHandler.createHandleError('ZahteviService');
-  }
+  private zalbeSubject: BehaviorSubject<Array<any>>;
+  public zalbe: Observable<Array<any>>
 
   private handleError: HandleError;
+
+  constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) { 
+    this.handleError = httpErrorHandler.createHandleError('ZahteviService');
+    this.zalbeSubject = new BehaviorSubject<Array<any>>([]);
+    this.zalbe = this.zalbeSubject.asObservable();
+  }
+  
 
   add(zahtevId: string, document: string): Observable<void> {
     return this.http.post<void>(`${this.url}/?zahtevId=${zahtevId}`, document, { headers: postHeaders });
@@ -37,7 +44,9 @@ export class ZalbaOdlukaService {
       .pipe(
         map(dtoXML => {
           let res = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }))['ZalbeNaOdluku']['ZalbaNaOdluku'];
-          return (res instanceof Array ? res : [res]);
+          let zalbe = (res instanceof Array ? res : [res]);
+          this.zalbeSubject.next(zalbe);
+          return zalbe;
         }));
   }
 
@@ -63,5 +72,32 @@ export class ZalbaOdlukaService {
       .pipe(
         catchError(this.handleError<string>('getOnePDF'))
       );
+  }
+
+  searchMetadata(searchReq: any): Observable<Array<any>> {
+    const url = `${this.url}/search/metadata`;
+
+    let request = '<ZalbaNaOdlukuMetadataSearchRequest>';
+
+    if (searchReq.nazivOrganaVlasti)
+      request += `<NazivOrganaVlasti>${searchReq.nazivOrganaVlasti}</NazivOrganVlasti>`;
+    if (searchReq.imePodnosioca)
+      request += `<ImePodnosioca>${searchReq.imePodnosioca}</ImePodnosioca>`;
+    if (searchReq.prezimePodnosioca)
+      request += `<PrezimePodnosioca>${searchReq.prezimePodnosioca}</PrezimePodnosioca>`;
+    if (searchReq.podnesenU)
+      request += `<PodnesenU>${searchReq.podnesenU}</PodnesenU>`;
+    if (searchReq.podnesenDatuma)
+      request += `<PodnesenDatuma>${searchReq.podnesenDatuma}</PodnesenDatuma>`;
+    request += '</ZalbaNaOdlukuMetadataSearchRequest>';
+    return this.http.post(url, request, { headers: new HttpHeaders({ 'Content-Type': 'application/xml', 'Accept': 'application/xml' }), responseType: 'text' })
+      .pipe(
+        map(dtoXML => {
+          let res = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }))['ZalbeNaOdluku']['ZalbaNaOdluku'];
+          let zahtevi = (res instanceof Array ? res : [res]);
+          this.zalbeSubject.next(zahtevi);
+          console.log(zahtevi);
+          return zahtevi;
+        }));
   }
 }
