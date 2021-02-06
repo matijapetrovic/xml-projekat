@@ -24,7 +24,7 @@ export class ZalbeCutanjeViewComponent implements OnInit {
   }
 
   showAcceptForm(zahtev: any): void {
-    this.router.navigate(['/obavestenja/add']);
+    this.router.navigate([`/obavestenja/add/${zahtev.id}`]);
   }
 
   showRejectDialog(id: string): void {

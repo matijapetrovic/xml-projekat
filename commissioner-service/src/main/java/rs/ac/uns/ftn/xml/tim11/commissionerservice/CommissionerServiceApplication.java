@@ -53,9 +53,13 @@ public class CommissionerServiceApplication {
 			AuthenticationService authenticationService
 			) {
 		return args -> {
+
 			insertAuthority(authorityXmlRepository, authorityProperties);
 			insertAccount(accountXmlRepository, accountProperties, encoder);
 			insertUser(userXmlRepository, userProperties, encoder);
+//			authenticationService.authenticate("admin@gmail.com", "admin");
+//			insertZalbaCutanje(zalbaCutanjeService, zalbaCutanjeXmlRepository,zalbaCutanjeProperties);
+//			insertZalbaOdluka(zalbaNaOdlukuService, zalbaNaOdlukuXmlRepository, zalbaNaOdlukuProperties);
 		};
 	}
 

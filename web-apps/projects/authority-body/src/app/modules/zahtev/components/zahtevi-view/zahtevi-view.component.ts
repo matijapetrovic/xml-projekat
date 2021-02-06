@@ -23,7 +23,7 @@ export class ZahteviViewComponent implements OnInit {
     public messageService: MessageService,
     private router: Router
   ) {
-    this.zahtevService.zahtevi.subscribe((zahtevi) =>  {
+    this.zahtevService.getAll().subscribe((zahtevi) =>  {
       this.zahtevi = this.mapZahtevi(zahtevi);
     });
    }

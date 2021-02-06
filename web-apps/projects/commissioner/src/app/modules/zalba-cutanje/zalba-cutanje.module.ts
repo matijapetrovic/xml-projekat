@@ -11,11 +11,12 @@ import { ZalbeCutanjeViewComponent } from './components/zalbe-cutanje-view/zalbe
 import { ZalbaCutanjeViewComponent } from './components/zalba-cutanje-view/zalba-cutanje-view.component';
 import { ZalbaCutanjeXhtmlViewComponent } from './components/zalba-cutanje-xhtml-view/zalba-cutanje-xhtml-view.component';
 import { UserZalbeCutanjeViewComponent } from './components/user-zalbe-cutanje-view/user-zalbe-cutanje-view.component';
+import { ZalbaCutanjeMetadataSearchComponent } from './components/zalba-cutanje-metadata-search/zalba-cutanje-metadata-search.component';
 
 
 
 @NgModule({
-  declarations: [AddZalbaCutanjeComponent, ZalbeCutanjeViewComponent, ZalbaCutanjeViewComponent, ZalbaCutanjeXhtmlViewComponent, UserZalbeCutanjeViewComponent],
+  declarations: [AddZalbaCutanjeComponent, ZalbeCutanjeViewComponent, ZalbaCutanjeViewComponent, ZalbaCutanjeXhtmlViewComponent, UserZalbeCutanjeViewComponent, ZalbaCutanjeMetadataSearchComponent],
   imports: [
     CommonModule,
     VendorsModule,
