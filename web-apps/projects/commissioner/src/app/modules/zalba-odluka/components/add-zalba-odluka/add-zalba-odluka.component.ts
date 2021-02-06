@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { XonomyService } from 'projects/xonomy/src/public-api';
 import ZalbaOdlukaSpec from '../../zalba-odluka-xonomy-spec';
 import { ZalbaOdlukaService } from '../../zalba-odluka.service';
@@ -18,6 +19,7 @@ export class AddZalbaOdlukaComponent implements OnInit {
 
   constructor(private xonomyService: XonomyService,
               private zalbaOdlukaService: ZalbaOdlukaService,
+              private messageService: MessageService,
               route: ActivatedRoute) {
                 route.params.subscribe((params) => this.zahtevId = params['zahtevId']);
                }
@@ -29,7 +31,7 @@ export class AddZalbaOdlukaComponent implements OnInit {
   addZalbaOdluka(): void {
     const document: string = this.xonomyService.getCurrentDocument();
     this.zalbaOdlukaService.add(this.zahtevId, document).subscribe(() => {
-      console.log('dodata zalba-odluka');
+      this.messageService.add({severity: 'success', detail: 'Uspesno ste poslali zalbu'});
     })
   }
 

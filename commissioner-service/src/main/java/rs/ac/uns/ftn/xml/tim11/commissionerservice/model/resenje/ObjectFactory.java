@@ -26,8 +26,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CTOdlukaLice_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Lice");
-    private final static QName _CTOdlukaMesto_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Mesto");
     private final static QName _CTOdlukaIznos_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Iznos");
     private final static QName _CTPostupakDatumPostupka_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "DatumPostupka");
     private final static QName _CTPostupakUstanova_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Ustanova");
@@ -78,14 +76,6 @@ public class ObjectFactory {
      */
     public CTUstanova createCTUstanova() {
         return new CTUstanova();
-    }
-
-    /**
-     * Create an instance of {@link CTOdluka }
-     * 
-     */
-    public CTOdluka createCTOdluka() {
-        return new CTOdluka();
     }
 
     /**
@@ -161,6 +151,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTOdluka }
+     * 
+     */
+    public CTOdluka createCTOdluka() {
+        return new CTOdluka();
+    }
+
+    /**
      * Create an instance of {@link CTAdresa }
      * 
      */
@@ -225,14 +223,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTOdluka.Mesto }
-     * 
-     */
-    public CTOdluka.Mesto createCTOdlukaMesto() {
-        return new CTOdluka.Mesto();
-    }
-
-    /**
      * Create an instance of {@link CTPredmetZalbe.DatumPotrazivanjaInformacija }
      * 
      */
@@ -262,32 +252,6 @@ public class ObjectFactory {
      */
     public CTPoverenik.Prezime createCTPoverenikPrezime() {
         return new CTPoverenik.Prezime();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Lice", scope = CTOdluka.class)
-    public JAXBElement<String> createCTOdlukaLice(String value) {
-        return new JAXBElement<String>(_CTOdlukaLice_QNAME, String.class, CTOdluka.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CTOdluka.Mesto }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link CTOdluka.Mesto }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Mesto", scope = CTOdluka.class)
-    public JAXBElement<CTOdluka.Mesto> createCTOdlukaMesto(CTOdluka.Mesto value) {
-        return new JAXBElement<CTOdluka.Mesto>(_CTOdlukaMesto_QNAME, CTOdluka.Mesto.class, CTOdluka.class, value);
     }
 
     /**
