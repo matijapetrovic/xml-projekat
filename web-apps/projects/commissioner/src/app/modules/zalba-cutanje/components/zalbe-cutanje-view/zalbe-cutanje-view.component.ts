@@ -17,14 +17,19 @@ export class ZalbeCutanjeViewComponent implements OnInit {
     public confirmationService: ConfirmationService,
     public messageService: MessageService,
     private router: Router,
-  ) { }
+  ) { 
+    this.zalbaCutanjeService.zalbe.subscribe((zahtevi) => {
+      this.zalbe = this.mapZalbe(zahtevi);
+    });
+
+  }
 
   ngOnInit(): void {
    this.getAll();
   }
 
   showAcceptForm(zahtev: any): void {
-    this.router.navigate(['/obavestenja/add']);
+    this.router.navigate([`/obavestenja/add/${zahtev.id}`]);
   }
 
   showRejectDialog(id: string): void {
@@ -99,15 +104,19 @@ export class ZalbeCutanjeViewComponent implements OnInit {
   }
   
   getAll() {
-    this.zalbaCutanjeService.getAll().subscribe((zalbe) => { 
-      if (zalbe.length && zalbe[0] !== undefined) {
-        this.zalbe = zalbe.map((zalba) => {
-          zalba['name'] = zalba['zlb:PodnosilacZalbe']['co:Ime']['_text'] + ' ' + zalba['zlb:PodnosilacZalbe']['co:Prezime']['_text'];
-          let about: Array<string> = zalba['_attributes']['about'].split('/');
-          zalba['id'] = about[about.length - 1];
-          return zalba;
-        })
-      }
-    });
+    this.zalbaCutanjeService.getAll().subscribe();
+  }
+
+  mapZalbe(zalbe: Array<any>) {
+    console.log(zalbe);
+    if (zalbe.length && zalbe[0] !== undefined) {
+      return  zalbe.map((zalba) => {
+        zalba['name'] = zalba['zlb:PodnosilacZalbe']['co:Ime']['_text'] + ' ' + zalba['zlb:PodnosilacZalbe']['co:Prezime']['_text'];
+        let about: Array<string> = zalba['_attributes']['about'].split('/');
+        zalba['id'] = about[about.length - 1];
+        return zalba;
+      })
+    }
+    return [];
   }
 }

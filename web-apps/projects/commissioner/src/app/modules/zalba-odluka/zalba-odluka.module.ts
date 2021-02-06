@@ -8,10 +8,11 @@ import { ZalbeOdlukaViewComponent } from './components/zalbe-odluka-view/zalbe-o
 import { ZalbaOdlukaViewComponent } from './components/zalba-odluka-view/zalba-odluka-view.component';
 import { ZalbaOdlukaXhtmlViewComponent } from './components/zalba-odluka-xhtml-view/zalba-odluka-xhtml-view.component';
 import { UserZalbeOdlukaViewComponent } from './components/user-zalbe-odluka-view/user-zalbe-odluka-view.component';
+import { ZalbaOdlukaMetadataSearchComponent } from './components/zalba-odluka-metadata-search/zalba-odluka-metadata-search.component';
 
 
 @NgModule({
-  declarations: [AddZalbaOdlukaComponent, ZalbeOdlukaViewComponent, ZalbaOdlukaViewComponent, ZalbaOdlukaXhtmlViewComponent, UserZalbeOdlukaViewComponent],
+  declarations: [AddZalbaOdlukaComponent, ZalbeOdlukaViewComponent, ZalbaOdlukaViewComponent, ZalbaOdlukaXhtmlViewComponent, UserZalbeOdlukaViewComponent, ZalbaOdlukaMetadataSearchComponent],
   imports: [
     CommonModule,
     VendorsModule,

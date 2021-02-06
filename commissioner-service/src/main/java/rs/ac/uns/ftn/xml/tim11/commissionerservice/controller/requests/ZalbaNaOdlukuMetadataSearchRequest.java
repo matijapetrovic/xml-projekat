@@ -20,15 +20,15 @@ public class ZalbaNaOdlukuMetadataSearchRequest {
     @XmlElement(name = "NazivOrganaVlasti", required = true)
     protected String nazivOrganaVlasti;
 
+    @XmlElement(name = "PodnesenU", required = true)
+    protected String podnesenU;
+
+    @XmlElement(name = "PodnesenDatuma", required = true)
+    protected String podnesenDatuma;
+
     @XmlElement(name = "ImePodnosioca", required = true)
     protected String imePodnosioca;
 
     @XmlElement(name = "PrezimePodnosioca", required = true)
     protected String prezimePodnosioca;
-    
-    @XmlElement(name = "PodnesenU", required = true)
-    protected String podnesenU;	
-
-    @XmlElement(name = "PodnesenDatuma", required = true)
-    protected String podnesenDatuma;
 }
