@@ -26,16 +26,6 @@ export class HeaderComponent implements OnInit {
 
   userItems: MenuItem[] = [
     {
-      label: 'Podnesi zalbu na cutanje',
-      routerLink: ['/zalba-cutanje/add/123'],
-      id: 'dashboard-nav-link'
-    },
-    {
-      label: 'Podnesi zalbu na odluku',
-      routerLink: ['/zalba-odluka/add/123'],
-      id: 'dashboard-nav-link'
-    },
-    {
       label: 'Pregledaj podnete zalbe na cutanje',
       routerLink: ['/zalba-cutanje'],
       id: 'dashboard-nav-link'
