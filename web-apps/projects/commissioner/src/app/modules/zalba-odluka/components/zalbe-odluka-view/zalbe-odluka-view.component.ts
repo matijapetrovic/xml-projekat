@@ -17,7 +17,12 @@ export class ZalbeOdlukaViewComponent implements OnInit {
     public confirmationService: ConfirmationService,
     public messageService: MessageService,
     private router: Router,
-  ) { }
+  ) { 
+    this.zalbaOdlukaService.zalbe.subscribe((zahtevi) => {
+      this.zalbe = this.mapZalbe(zahtevi);
+    });
+
+  }
 
   ngOnInit(): void {
     this.getAll();
@@ -94,15 +99,18 @@ export class ZalbeOdlukaViewComponent implements OnInit {
     link.click();
   }
   getAll() {
-    this.zalbaOdlukaService.getAll().subscribe((zalbe) => {
-      if (zalbe.length && zalbe[0] !== undefined) {
-        this.zalbe = zalbe.map((zalba) => {
-          zalba['name'] = zalba['zod:PodnosilacZalbe']['co:Ime']['_text'] + ' ' + zalba['zod:PodnosilacZalbe']['co:Prezime']['_text'];
-          let about: Array<string> = zalba['_attributes']['about'].split('/');
-          zalba['id'] = about[about.length - 1];
-          return zalba;
-        })
-      }
-    });
+    this.zalbaOdlukaService.getAll().subscribe();
+  }
+
+  mapZalbe(zalbe: Array<any>) {
+    if (zalbe.length && zalbe[0] !== undefined) {
+      this.zalbe = zalbe.map((zalba) => {
+        zalba['name'] = zalba['zod:PodnosilacZalbe']['co:Ime']['_text'] + ' ' + zalba['zod:PodnosilacZalbe']['co:Prezime']['_text'];
+        let about: Array<string> = zalba['_attributes']['about'].split('/');
+        zalba['id'] = about[about.length - 1];
+        return zalba;
+      })
+    }
+    return zalbe;
   }
 }

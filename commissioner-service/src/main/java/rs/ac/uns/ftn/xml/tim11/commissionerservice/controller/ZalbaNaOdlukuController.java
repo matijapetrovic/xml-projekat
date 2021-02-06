@@ -36,7 +36,7 @@ public class ZalbaNaOdlukuController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/search/metadata")
+    @PostMapping("/search/metadata")
     public ResponseEntity<ZalbaNaOdlukuListDTO> searchMetadata(@RequestBody ZalbaNaOdlukuMetadataSearchRequest request) throws XMLDBException, IOException {
     	ZalbaNaOdlukuListDTO response = new ZalbaNaOdlukuListDTO();
         response.setZalbaNaOdluku(zalbaNaOdlukuService.searchMetadata(request));
