@@ -58,9 +58,9 @@ export class ZahtevService {
       );
   }
 
-  getOnePDF(id: number): Observable<string> {
+  getOnePDF(id: number): Observable<any> {
     const url = `${this.url}/${id}`;
-    return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/pdf'), responseType: 'text' })
+    return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/pdf'), responseType: 'arraybuffer' })
       .pipe(
         catchError(this.handleError<string>('getOnePDF'))
       );

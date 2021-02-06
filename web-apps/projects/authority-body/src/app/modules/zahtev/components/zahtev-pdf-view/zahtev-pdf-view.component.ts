@@ -25,7 +25,7 @@ export class ZahtevPdfViewComponent implements OnInit {
   }
 
   getOne(id: number) {
-    this.zahtevService.getOneXHTML(id).subscribe((zahtev) => this.document = zahtev);
+    this.zahtevService.getOnePDF(id).subscribe((zahtev) => { this.document = zahtev;  } );
   }
 
 }

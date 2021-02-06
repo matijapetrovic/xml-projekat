@@ -13,6 +13,7 @@ import { ZahtevViewComponent } from './components/zahtev-view/zahtev-view.compon
 import { ZahtevXhtmlViewComponent } from './components/zahtev-xhtml-view/zahtev-xhtml-view.component';
 import { ZahteviViewComponent } from './components/zahtevi-view/zahtevi-view.component';
 
+
 @NgModule({
   declarations: [AddZahtevComponent, ZahteviViewComponent, ZahtevViewComponent, UserZahteviViewComponent, ZahtevXhtmlViewComponent, ZahtevPdfViewComponent],
   imports: [
