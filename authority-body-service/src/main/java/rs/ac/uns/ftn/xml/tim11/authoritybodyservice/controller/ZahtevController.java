@@ -12,6 +12,7 @@ import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.dto.ZahtevListDTO;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.RejectZahtevRequest;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.controller.requests.ZahtevMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.zahtev.Zahtev;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService;
@@ -49,13 +50,19 @@ public class ZahtevController {
         return ResponseEntity.ok(zahtevService.getExampleDocument());
     }
     
-    @PostMapping("")
+    @PostMapping(value = "", consumes = MediaType.APPLICATION_XML_VALUE)
     @PreAuthorize("hasRole('ROLE_USER')")
     public ResponseEntity<Void> addXMLZahtev(@RequestBody Zahtev zahtev) throws XMLDBException, IOException, TransformerException, JAXBException {
         zahtevService.create(zahtev);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @PostMapping(value = "/{id}/reject", consumes = MediaType.APPLICATION_XML_VALUE)
+    @PreAuthorize("hasRole('ROLE_AUTHORITY_BODY')")
+    public ResponseEntity<Void> rejectZahtev(@PathVariable(value="id") long id, @RequestBody RejectZahtevRequest request) throws XMLDBException, IOException, XmlResourceNotFoundException, JAXBException {
+        zahtevService.rejectZahtev(id, request);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
     @GetMapping("/{id}")
     public ResponseEntity<Zahtev> findXMLZahtevById(@PathVariable Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
         return ResponseEntity.ok(zahtevService.findById(id));
