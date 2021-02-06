@@ -100,14 +100,11 @@
                             </u> godine.
                         </div>
                         <div class="tekst">
-                            <xsl:variable name="zahtev" select="zod:ZalbaNaOdluku/zod:PodaciOZahtevu/zod:DatumZahteva"/>
-                            <xsl:variable name="z" select="xs:string(concat(
-                                substring($zahtev,9,2),'.',
-                                substring($zahtev,6,2),'.',
-                                substring($zahtev,1,4),'.'))"/>
                             Navedenom odlukom organa vlasti (resenjem, zakljuckom, obavestenjem u pisanoj formi
                             sa elementima odluke), suprotno zakonu, odbijen-odbacen je moj zahtev koji sam podneo/la-
-                            uputio/la dana <u><xsl:value-of select="$z"/></u> godine i tako mi uskraceno-onemoguceno ostvarivanje ustavnog i 
+                            uputio/la dana 
+                            <u><xsl:value-of select="zod:ZalbaNaOdluku/zod:PodaciOZahtevu/zod:DatumZahteva"/></u> 
+                            godine i tako mi uskraceno-onemoguceno ostvarivanje ustavnog i 
                             zakonskog prava na slobodan pristup informacijama od javnog znacaja. Odluku pobijam u 
                             celosti, odnosno u delu kojim 
                             <u><xsl:value-of select="zod:ZalbaNaOdluku/zod:PodaciOZahtevu/zod:TrazenaInformacija"/></u>
@@ -126,13 +123,10 @@
                                 <tr>
                                     <td>
                                         <div class="levo">
-                                            <xsl:variable name="datum" select="zod:ZalbaNaOdluku/zod:OstaliPodaci/co:Datum"/>
-                                            <xsl:variable name="d" select="xs:string(concat(
-                                                substring($datum,9,2),'.',
-                                                substring($datum,6,2),'.',
-                                                substring($datum,1,4),'.'))"/>
                                             <div>U <u><xsl:value-of select="zod:ZalbaNaOdluku/zod:OstaliPodaci/co:Mesto"/></u>,</div>
-                                            <div>dana <u><xsl:value-of select="$d"/></u> godine</div>
+                                            <div>dana 
+                                                <u><xsl:value-of select="zod:ZalbaNaOdluku/zod:OstaliPodaci/co:Datum"/></u> godine
+                                            </div>
                                         </div>
                                     </td>
                                     <td>
@@ -153,7 +147,7 @@
                                             </u></div>
                                             <div>adresa</div>
                                             <div>
-                                                <u><xsl:value-of select="zod:ZalbaNaOdluku/zod:PodnosilacZalbe/co:DrugiKontaktPodaci"/></u>
+                                                <u><xsl:value-of select="zod:ZalbaNaOdluku/zod:PodnosilacZalbe/zod:DrugiKontaktPodaci"/></u>
                                             </div>
                                             <div>drugi podaci za kontakt</div>
                                         </div>

@@ -3,7 +3,8 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     exclude-result-prefixes="xs"
     version="2.0"
-    xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje">
+    xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
+    xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
     
     <xsl:variable name="space" select="'&#xA0;'"/>
     
@@ -57,10 +58,12 @@
                 <div class="a4">
                     <div class="sadrzaj">
                         <div>
-                            <u><xsl:value-of select="ob:Obavestenje/ob:Organ/ob:Naziv"/></u>
+                            <u><xsl:value-of select="ob:Obavestenje/ob:Organ/co:Naziv"/></u>
                         </div>
                         <div>
-                            <u><xsl:value-of select="ob:Obavestenje/ob:Organ/ob:Sediste"/></u>
+                            <u><xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Ulica"/>
+                                <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Broj"/>
+                                <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Mesto"/></u>
                         </div>
                         <div>(naziv i sediste organa)</div>
                         <br/>
@@ -73,28 +76,28 @@
                         <br/>
                         <div>
                             <u>
-                                <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Ime"/><xsl:value-of select="$space"/>
-                                <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Prezime"/><xsl:value-of select="$space"/>
+                                <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Ime"/><xsl:value-of select="$space"/>
+                                <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Prezime"/><xsl:value-of select="$space"/>
                                 <u><xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Naziv"/></u>
                             </u>
                         </div>
                         <div>
-                            <u><xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Adresa/ob:Mesto"/><xsl:value-of select="$space"/>
-                                <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Adresa/ob:Ulica"/>, 
-                                <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Adresa/ob:Broj"/></u>
+                            <u><xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/co:Mesto"/><xsl:value-of select="$space"/>
+                                <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/ob:Ulica"/>,
+                                <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/ob:Broj"/></u>
                         </div>
                         <div class="trazilac">Ime i prezime/naziv/i adresa podnosioca zahteva</div>
                         <div class="obavestenje"><b>O B A V E S T E Nj E</b></div>
                         <div class="obavestenje"><b>o stavljanju na uvid dokument koji sadrzi</b></div>
                         <div class="obavestenje_opis"><b>trazenu informaciju i o izradi kopije</b></div>
                         <div class="tekst">
-                            <xsl:variable name="date1" select="ob:Obavestenje/ob:TrazenaInformacija/ob:DatumZahteva"/>
+                            <xsl:variable name="date1" select="ob:Obavestenje/ob:TrazenaInformacija/co:DatumZahteva"/>
 
                             Na osnovu clana 16. st. 1. Zakona o slobodnom pristupu informacijama od javnog znacaja, postupajuci po
                             vasem zahtevu za slobodan pristup informacijama od <xsl:value-of select="$date1"/> god.,
                             kojim ste trazili uvid u dokument/e sa informacijama o/u vezi sa:
                         </div>
-                        <div><u><xsl:value-of select="ob:Obavestenje/ob:TrazenaInformacija/ob:OpisInformacije"/></u></div>
+                        <div><u><xsl:value-of select="ob:Obavestenje/ob:TrazenaInformacija/co:TrazenaInformacija"/></u></div>
                         <div class="informacija_opis">(opis trazene informacije)</div>
                         <xsl:variable name="date" select="ob:Obavestenje/ob:InformacijeOUvidu/ob:Datum"/>
                         <xsl:variable name="time" select="ob:Obavestenje/ob:InformacijeOUvidu/ob:Satnica"/>

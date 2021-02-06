@@ -17,6 +17,7 @@ import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ObavestenjeRD
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ZahtevRDFRepository;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.*;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.obavestenje.ObavestenjePort;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.*;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
@@ -43,7 +44,9 @@ public class AuthorityBodyServiceApplication {
 			AccountProperties accountProperties,
 			UserXmlRepository userXmlRepository,
 			UserProperties userProperties,
-			PasswordEncoder encoder
+			PasswordEncoder encoder,
+			ObavestenjeXmlRepository obavestenjeXmlRepository,
+			ObavestenjeProperties obavestenjeProperties
 //			ZahtevRDFRepository zahtevRDFRepository,
 //			ZahtevXmlRepository zahtevXmlRepository,
 //			ZahtevProperties zahtevProperties,
@@ -54,6 +57,7 @@ public class AuthorityBodyServiceApplication {
 			insertAuthority(authorityXmlRepository, authorityProperties);
 			insertAccount(accountXmlRepository, accountProperties, encoder);
 			insertUser(userXmlRepository, userProperties, encoder);
+			testObavestenje(obavestenjeXmlRepository,obavestenjeProperties);
 //			authenticationService.authenticate("admin@gmail.com", "admin");
 //			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties, zahtevService);
 		};
@@ -148,11 +152,11 @@ public class AuthorityBodyServiceApplication {
 //		};
 //	}
 
-	public void testObavestenje(ObavestenjeXmlRepository xmlRepository, ObavestenjeRDFRepository rdfRepository, ObavestenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
+	public void testObavestenje(ObavestenjeXmlRepository xmlRepository, ObavestenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
 		JaxbMarshaller<Obavestenje> m = new JaxbMarshaller<>(properties);
 		Obavestenje resenje = m.unmarshal(new FileInputStream("data/xml/obavestenje1.xml"));
 
-		rdfRepository.saveMetadata(resenje);
+		xmlRepository.create(resenje);
 	}
 
 	public void testZahtev(ZahtevXmlRepository xmlRepository, ZahtevRDFRepository rdfRepository, ZahtevProperties properties, ZahtevService zahtevService) throws JAXBException, SAXException, IOException, TransformerException, XMLDBException {
