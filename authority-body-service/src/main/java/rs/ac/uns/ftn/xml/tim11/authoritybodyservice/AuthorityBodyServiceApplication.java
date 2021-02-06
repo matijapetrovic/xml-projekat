@@ -59,7 +59,7 @@ public class AuthorityBodyServiceApplication {
 
 		authority = xmlRepository.findById(id).get();
 		authority = new Authority();
-		authority.setName("ROLE_COMMISSIONER");
+		authority.setName("ROLE_AUTHORITY_BODY");
 
 		id = xmlRepository.createWithId(authority, 2L);
 
@@ -79,7 +79,7 @@ public class AuthorityBodyServiceApplication {
 		account = xmlRepository.findById(id).get();
 
 		authority = new Authority();
-		authority.setName("ROLE_COMMISSIONER");
+		authority.setName("ROLE_AUTHORITY_BODY");
 		account = new Account();
 		account.setEmail("admin@gmail.com");
 		account.setPassword(encoder.encode("admin"));
@@ -109,7 +109,7 @@ public class AuthorityBodyServiceApplication {
 
 
 		authority = new Authority();
-		authority.setName("ROLE_COMMISSIONER");
+		authority.setName("ROLE_AUTHORITY_BODY");
 		account = new Account();
 		account.setEmail("admin@gmail.com");
 		account.setPassword(encoder.encode("admin"));
@@ -118,8 +118,8 @@ public class AuthorityBodyServiceApplication {
 		account.setAuthorities(authorities);
 		user = new User();
 		user.setAccount(account);
-		user.setFirstName("Commissioner Name");
-		user.setLastName("Commissioner Last name");
+		user.setFirstName("Authority body Name");
+		user.setLastName("Authority body  Last name");
 		id = xmlRepository.createWithId(user, 2L);
 		xmlRepository.findById(id);
 	}
