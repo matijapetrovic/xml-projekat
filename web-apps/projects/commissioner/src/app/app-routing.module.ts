@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'resenje',
+    loadChildren: () => import('./modules/resenje/resenje.module').then(m => m.ResenjeModule)
+  },
+  {
     path: 'zalba-cutanje',
     loadChildren: () => import('./modules/zalba-cutanje/zalba-cutanje.module').then(m => m.ZalbaCutanjeModule)
   },
