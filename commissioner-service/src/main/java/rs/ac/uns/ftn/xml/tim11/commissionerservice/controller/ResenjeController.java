@@ -13,7 +13,9 @@ import org.xmldb.api.base.XMLDBException;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.dto.ResenjeListDTO;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.resenje.ResenjeService;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.util.ResenjeProperties;
 import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
+import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
@@ -26,6 +28,13 @@ import java.io.IOException;
 @RequestMapping(value="/resenje", produces = MediaType.APPLICATION_XML_VALUE, consumes = MediaType.APPLICATION_XML_VALUE)
 public class ResenjeController {
     private final ResenjeService resenjeService;
+    private final ResenjeProperties properties;
+
+    @GetMapping("/example")
+    public ResponseEntity<String> getExample() throws FileNotFoundException, JAXBException, SAXException {
+        String res = new JaxbMarshaller<Resenje>(properties).marshal(resenjeService.getExampleDocument());
+        return ResponseEntity.ok(res);
+    }
 
     @GetMapping("")
     public ResponseEntity<ResenjeListDTO> findAll() throws XMLDBException, JAXBException {

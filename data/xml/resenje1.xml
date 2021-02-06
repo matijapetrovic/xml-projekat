@@ -5,8 +5,16 @@
     <BrojResenja>000-00-0000/0000-00</BrojResenja>
     <DatumResenja>2006-05-04</DatumResenja>
     <Uvod>
+        Poverenik za informacije od javnog značaja i zaštitu podataka o ličnosti, u postupku po albi
+        koju je izjavio AA, zbog nepostupanja
+        <OrganVlasti>OrganVlasti0</OrganVlasti> po njegovom zahtevu od
         <DatumZalbe>2006-05-04</DatumZalbe>
-        <OrganVlasti>OrganVlasti0</OrganVlasti>
+        godine za pristup informacijama od javnog značaja, na osnovu člana 35. stav 1. tačka 5. Zakona o slobodnom pristupu
+        informacijama od javnog značaja („Sl. glasnik RS“, br. 120/04, 54/07, 104/09 i 36/10), a u vezi sa
+        članom 4. tačka 22. Zakona o zaštiti podataka o ličnosti („Sl. glasnik RS“, broj 87/18), kao i člana
+        23. i člana 24. stav 4. Zakona o slobodnom pristupu informacijama od javnog značaja i člana 173.
+        stav 2. Zakona o opštem upravnom postupku („Sl. glasnik RS“, br. 18/2016 i 95/2018-autentično
+        tumačenje), donosi
     </Uvod>
     <Sadrzaj>
         <OrganVlasti type="type1" property="property1">OrganVlasti1</OrganVlasti>
@@ -14,7 +22,18 @@
             <Naziv type="type3" property="property3">Naziv0</Naziv>
             <Adresa>Adresa0</Adresa>
         </Ustanova>
-        <Ishod>Ishod0</Ishod>
+
+        I Nalaže se Učiteljskom fakultetu u Prizrenu sa privremenim sedištem u Leposaviću, da
+        bez odlaganja, a najkasnije u roku od pet dana od dana prijema ovog rešenja, obavesti AA, da li
+        poseduje tražene informacije odnosno dokument u kome su iste sadržane, i to: Ugovor o radu koji
+        je kao poslednji potpisan između tog Fakulteta i BB, te da mu, ukoliko takav dokument poseduje
+        dostavi kopiju istog elektronskom poštom na adresu … ili poštom, s tim što će pre dostavljanja
+        zaštititi i učiniti nedostupnim podatke o ličnosti kojima bi se povredilo pravo na privatnost
+        lica na koje se informacije odnose, kao što su: adresa stanovanja, lični matični broj građana, ime
+        oca, radni staž, prosečna ocena studiranja i sl. ukoliko su takvi podaci sadržani u traženom
+        dokumentu.
+        <Ishod>II O izvršenju rešenja Učiteljski fakultet u Prizrenu sa privremenim sedištem u
+        Leposaviću, će obavestiti Poverenika u roku od sedam dana od prijema ovog rešenja.</Ishod>
     </Sadrzaj>
     <Obrazlozenje about="http://www.oxygenxml.com/" vocab="http://www.oxygenxml.com/">
         <PredmetZalbe>

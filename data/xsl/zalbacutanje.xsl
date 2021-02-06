@@ -81,22 +81,21 @@
                         <div class="centriran_text">( navesti naziv organa )</div>
                         <div class="centriran_text">zbog toga sto organ vlasti</div>
                         <div  class="centriran_text">
-                            <xsl:variable name="razlog" select="zlb:Zalbacutanje/zlb:RazlogSlanja"/>
-                            <xsl:choose>
-                                <xsl:when test="$razlog = 'nije postupio'">
-                                    <b><u>nije postupio</u>/nije postupio u celosti/u zakonskom roku</b>
-                                </xsl:when>
-                                <xsl:when test="$razlog = 'nije postupio u celosti'">
-                                    <b>nije postupio/<u>nije postupio u celosti</u>/u zakonskom roku</b>
-                                </xsl:when>
-                                <xsl:otherwise>
+                            
+                            <xsl:if test="boolean(zlb:ZalbaCutanje/zlb:RazlogSlanja/zlb:NijePostupio)">
+                                <b><u>nije postupio</u>/nije postupio u celosti/u zakonskom roku</b>
+                            </xsl:if>
+                            <xsl:if test="boolean(zlb:ZalbaCutanje/zlb:RazlogSlanja/zlb:NijePostupioUCelosti)">
+                                <b>nije postupio/<u>nije postupio u celosti</u>/u zakonskom roku</b>
+                            </xsl:if>
+                            <xsl:if test="boolean(zlb:ZalbaCutanje/zlb:RazlogSlanja/zlb:UZakonsomRoku)">
                                     <b>nije postupio/nije postupio u celosti/<u>u zakonskom roku</u></b>
-                                </xsl:otherwise>
-                            </xsl:choose>
+                            </xsl:if>
+                            
                         </div>
                         <div class="centriran_text">( podvuci zbog cega se izjavljuje zalba)</div>
                         <div class="obican_tekst">
-                            <xsl:variable name="datum" select="zlb:ZalbaCutanje/zlb:PodaciOZahtevu/zlb:DatumZahteva"/>
+                            <xsl:variable name="datum" select="zlb:ZalbaCutanje/zlb:PodaciOZahtevu/co:DatumZahteva"/>
                             <xsl:variable name="d" select="xs:string(concat(
                                 substring($datum,9,2),'.',
                                 substring($datum,6,2),'.',
@@ -107,7 +106,7 @@
                             dokumenta koji sadrzi trazene informacije o/u vezi sa:
                         </div>
                         <div>
-                            <u><xsl:value-of select="zlb:ZalbaCutanje/zlb:PodaciOZahtevu/zlb:TrazenaInformacija"/></u>
+                            <u><xsl:value-of select="zlb:ZalbaCutanje/zlb:PodaciOZahtevu/co:TrazenaInformacija"/></u>
                         </div>
                         <div class="centriran_text">( navesti podatke o zahtevu i informaciji/ama)</div>
                         <div class="tekst">Na osnovu iznetog, predlazem da Poverenik uvazi moju zalbu i omoguci mi pristup trazenoj/im informaciji/ama.</div>
@@ -134,13 +133,10 @@
                             <div>drugi podaci za kontakt</div>
                         </div>
                         <div class="levo">
-                            <xsl:variable name="datum1" select="zlb:ZalbaCutanje/zlb:OstaliPodaci/zlb:Datum"/>
-                            <xsl:variable name="d1" select="xs:string(concat(
-                                substring($datum1,9,2),'.',
-                                substring($datum1,6,2),'.',
-                                substring($datum1,1,4),'.'))"/>
-                            U <u><xsl:value-of select="zlb:ZalbaCutanje/zlb:OstaliPodaci/zlb:Mesto"/></u>,
-                            dana <u><xsl:value-of select="$d1"/></u> godine
+                            <xsl:variable name="datum1" select="zlb:ZalbaCutanje/zlb:OstaliPodaci/co:Datum"/>
+                            
+                            U <u><xsl:value-of select="zlb:ZalbaCutanje/zlb:OstaliPodaci/co:Mesto"/></u>,
+                            dana <u><xsl:value-of select="zlb:ZalbaCutanje/zlb:OstaliPodaci/co:Datum"/></u>
                         </div>
                     </div>
                 </div>

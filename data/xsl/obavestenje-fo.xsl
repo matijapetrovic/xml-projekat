@@ -4,7 +4,8 @@
                 xmlns:fo="http://www.w3.org/1999/XSL/Format"
                 exclude-result-prefixes="xs"
                 version="2.0"
-                xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje">
+                xmlns:ob="http://www.ftn.uns.ac.rs/xml/tim11/obavestenje"
+                xmlns:co="http://www.ftn.uns.ac.rs/xml/tim11/common">
 
     <xsl:variable name="space" select="'&#xA0;'"/>
 
@@ -19,10 +20,12 @@
             <fo:page-sequence master-reference="obavestenje-page">
                 <fo:flow flow-name="xsl-region-body" font-family="Times New Roman">
                     <fo:block text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:Organ/ob:Naziv"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Naziv"/>
                     </fo:block>
                     <fo:block text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:Organ/ob:Sediste"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Ulica"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Broj"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:Organ/co:Sediste/co:Mesto"/>
                     </fo:block>
                     <fo:block>
                         (naziv i sediste organa)
@@ -40,14 +43,14 @@
                         <fo:leader></fo:leader>
                     </fo:block>
                     <fo:block margin-top="10px" text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Ime"/><xsl:value-of select="$space"/>
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Prezime"/><xsl:value-of select="$space"/>
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Naziv"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Ime"/><xsl:value-of select="$space"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Prezime"/><xsl:value-of select="$space"/>
+                        
                     </fo:block>
                     <fo:block text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Adresa/ob:Mesto"/><xsl:value-of select="$space"/>
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Adresa/ob:Ulica"/>,
-                        <xsl:value-of select="ob:Obavestenje/ob:PodnosiocZahteva/ob:Adresa/ob:Broj"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/co:Mesto"/><xsl:value-of select="$space"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/ob:Ulica"/>,
+                        <xsl:value-of select="ob:Obavestenje/ob:PodnosilacZahteva/co:Adresa/ob:Broj"/>
                     </fo:block>
                     <fo:block>
                         Ime i prezime/naziv/i adresa podnosioca zahteva
@@ -55,14 +58,14 @@
                     <fo:block font-weight="bold" margin-top="20px" text-align="center">O B A V E S T E Nj E</fo:block>
                     <fo:block font-weight="bold" text-align="center">o stavljanju na uvid dokument koji sadrzi</fo:block>
                     <fo:block font-weight="bold" text-align="center">trazenu informaciju i o izradi kopije</fo:block>
-                    <xsl:variable name="date1" select="ob:Obavestenje/ob:TrazenaInformacija/ob:DatumZahteva"/>
+                    <xsl:variable name="date1" select="ob:Obavestenje/ob:TrazenaInformacija/co:DatumZahteva"/>
                     <fo:block text-indent="20px" margin-top="10px">
                         Na osnovu clana 16. st. 1. Zakona o slobodnom pristupu informacijama od javnog znacaja, postupajuci po
                         vasem zahtevu za slobodan pristup informacijama od <fo:inline text-decoration="underline"><xsl:value-of select="$date1"/></fo:inline> god.,
                         kojim ste trazili uvid u dokument/e sa informacijama o/u vezi sa:
                     </fo:block>
                     <fo:block text-decoration="underline">
-                        <xsl:value-of select="ob:Obavestenje/ob:TrazenaInformacija/ob:OpisInformacije"/>
+                        <xsl:value-of select="ob:Obavestenje/ob:TrazenaInformacija/co:TrazenaInformacija"/>
                     </fo:block>
                     <fo:block text-align="center" margin-bottom="10px">(opis trazene informacije)</fo:block>
                     <xsl:variable name="date" select="ob:Obavestenje/ob:InformacijeOUvidu/ob:Datum"/>

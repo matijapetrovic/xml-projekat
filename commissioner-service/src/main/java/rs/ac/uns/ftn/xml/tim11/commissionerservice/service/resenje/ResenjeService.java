@@ -20,10 +20,7 @@ import rs.ac.uns.ftn.xml.tim11.xmllib.xslfo.XSLTransformer;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 @Service
@@ -62,6 +59,10 @@ public class ResenjeService {
         Long createdId = xmlRepository.create(resenje);
         rdfRepository.saveMetadata(resenje);
         return createdId;
+    }
+
+    public Resenje getExampleDocument() throws FileNotFoundException, JAXBException {
+        return marshaller.unmarshal(new FileInputStream(new File("data/xml/resenje1.xml")));
     }
 
     public Resenje findXmlById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
