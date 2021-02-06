@@ -14,7 +14,7 @@ import * as converter from 'xml-js';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/xml',
+    'Content-Type': 'application/xml'
   })
 };
 
@@ -33,7 +33,10 @@ export class AuthenticationService {
     if (!user) {
       return null;
     }
-    user.role = Role[user.role];
+   
+    user.token = user.token._text;
+    user.role = user.role._text;
+    user.expiresIn = +user.expiresIn._text;
     return user;
   }
 
@@ -57,8 +60,7 @@ export class AuthenticationService {
       .pipe(
         catchError(this.handleError<string>('login')),
         map(dtoXML => {
-          let jsonDTO: User = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }));
-          let userInfo = jsonDTO['LoginDTO'];
+          let userInfo: User = JSON.parse(converter.xml2json(dtoXML.toString(), { compact: true, spaces: 2 }))['LoginDTO'];
           if (userInfo && userInfo.token) {
             localStorage.setItem('currentUser', JSON.stringify(userInfo));
             this.currentUserSubject.next(this.getUserFromLocalStorage());

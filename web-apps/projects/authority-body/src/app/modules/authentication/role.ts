@@ -1,4 +1,4 @@
 export enum Role {
-  ROLE_AUTHORITY,
+  ROLE_AUTHORITY_BODY,
   ROLE_USER
 }

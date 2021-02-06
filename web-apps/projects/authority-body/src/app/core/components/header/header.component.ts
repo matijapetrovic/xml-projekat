@@ -22,38 +22,19 @@ export class HeaderComponent implements OnInit {
       routerLink: [''],
       id: 'home-nav-link'
     },
-    {
-      label: 'Obavestenja',
-      icon: 'pi pi-map',
-      routerLink: ['/map'],
-      id: 'map-nav-link'
-    }
   ];
 
   userItems: MenuItem[] = [
     {
-      label: 'Dashboard',
-      routerLink: ['/dashboard'],
-      id: 'dashboard-nav-link'
+      label: 'Home',
+      icon: 'pi pi-home',
+      routerLink: ['/zahtevi/user'],
+      id: 'home-nav-link'
     }
   ];
 
   adminItems: MenuItem[] = [
-    {
-      label: 'Cultural Offers',
-      routerLink: ['/cultural-offers'],
-      id: 'cultural-offers-nav-link'
-    },
-    {
-      label: 'Categories',
-      routerLink: ['/categories'],
-      id: 'categories-nav-link'
-    },
-    {
-      label: 'Subcategories',
-      routerLink: ['/subcategories'],
-      id: 'subcategories-nav-link'
-    },
+    
   ];
 
   unauthenticatedItems: MenuItem[] = [
@@ -66,7 +47,7 @@ export class HeaderComponent implements OnInit {
       label: 'Register',
       routerLink: ['/auth/register'],
       id: 'register-nav-link'
-    }
+    },
   ];
 
   constructor(private authenticationService: AuthenticationService) { }
@@ -78,13 +59,13 @@ export class HeaderComponent implements OnInit {
   updateItems(user: User): void {
     if (!!user) {
       this.authenticated = true;
-      if (user.role === Role.ROLE_AUTHORITY) {
+      if (user.role === 'ROLE_AUTHORITY_BODY') {
         this.items = [
           ...this.commonItems,
           ...this.adminItems
         ];
       }
-      else if (user.role === Role.ROLE_USER) {
+      else if (user.role === 'ROLE_USER') {
         this.items = [
           ...this.commonItems,
           ...this.userItems

@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpErrorHandler } from './services/http-error-handler.service';
 
-import {MenubarModule} from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from './guards/auth.guard';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
