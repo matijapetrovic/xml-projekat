@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.obavestenje.ObavestenjePortImpl;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.resenje.ResenjePortImpl;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.soap.zahtev.ZahtevPortImpl;
 
 import javax.xml.ws.Endpoint;
@@ -14,6 +15,13 @@ import javax.xml.ws.Endpoint;
 public class EndpointConfig {
     @Autowired
     private Bus bus;
+
+    @Bean
+    public Endpoint resenjeEndpoint() {
+        EndpointImpl endpoint = new EndpointImpl(bus, new ResenjePortImpl());
+        endpoint.publish("/resenje");
+        return endpoint;
+    }
 
     @Bean
     public Endpoint obavestenjeEndpoint() {

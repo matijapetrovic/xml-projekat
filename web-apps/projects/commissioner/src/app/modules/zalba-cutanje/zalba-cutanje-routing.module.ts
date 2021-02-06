@@ -5,7 +5,7 @@ import { AddZalbaCutanjeComponent } from './components/add-zalba-cutanje/add-zal
 
 const routes: Routes = [
   {
-    path: 'add',
+    path: 'add/:zahtevId',
     component: AddZalbaCutanjeComponent 
   }
 ];

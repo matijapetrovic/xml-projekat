@@ -1,13 +1,16 @@
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.service.zalbacutanje;
 
 import org.apache.fop.apps.FOPException;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
 
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.requests.ZalbaNaCutanjeMetadataSearchRequest;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.controller.requests.ZalbaNaOdlukuMetadataSearchRequest;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.AuthenticationService;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje.Resenje;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbacutanje.ZalbaCutanje;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.zalbanaodluku.ZalbaNaOdluku;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.rdf.ZalbaCutanjeRDFRepository;
@@ -37,11 +40,14 @@ public class ZalbaCutanjeService {
     private final ZalbaCutanjeXmlRepository xmlRepository;
     private final JaxbMarshaller<ZalbaCutanje> marshaller;
     private final ZalbaCutanjeProperties properties;
+
+    private final AuthenticationService authenticationService;
     
     private final XSLTransformer XSLTransformer;
     
-    public ZalbaCutanjeService(ZalbaCutanjeRDFRepository rdfRepository, ZalbaCutanjeXmlRepository xmlRepository, ZalbaCutanjeProperties properties)
+    public ZalbaCutanjeService(AuthenticationService authenticationService, ZalbaCutanjeRDFRepository rdfRepository, ZalbaCutanjeXmlRepository xmlRepository, ZalbaCutanjeProperties properties)
             throws JAXBException, SAXException, IOException {
+        this.authenticationService = authenticationService;
         this.rdfRepository = rdfRepository;
         this.xmlRepository = xmlRepository;
         this.properties = properties;
@@ -49,11 +55,15 @@ public class ZalbaCutanjeService {
         this.XSLTransformer = new XSLTransformer(properties);
     }
 
-    public Long create(ZalbaCutanje entity) throws JAXBException, XMLDBException, TransformerException {
-    	long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
-        entity.setAbout(properties.namespace() + "/" + id);
-    	Long createdId = xmlRepository.create(entity);
-        rdfRepository.saveMetadata(entity);
+    public Long create(long zahtevId, ZalbaCutanje zalba) throws JAXBException, XMLDBException, TransformerException {
+    	Account account = authenticationService.getAuthenticated();
+        long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
+        zalba.setAbout(properties.namespace() + "/" + id);
+        zalba.setHref("http://www.ftn.uns.ac.rs/xml/tim11/zahtev/" + zahtevId);
+        zalba.getPodnosilacZalbe().setHref(
+                String.format("http://www.ftn.uns.ac.rs/xml/tim11/gradjanin/%s", account.getEmail()));
+    	Long createdId = xmlRepository.create(zalba);
+        rdfRepository.saveMetadata(zalba);
         return createdId;
     }
 

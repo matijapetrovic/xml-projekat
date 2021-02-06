@@ -30,14 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ZalbaCutanje }
-     * 
-     */
-    public ZalbaCutanje createZalbaCutanje() {
-        return new ZalbaCutanje();
-    }
-
-    /**
      * Create an instance of {@link CTPodnosilac }
      * 
      */
@@ -62,19 +54,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ZalbaCutanje.ZaglavljeZalbe }
+     * Create an instance of {@link ZalbaCutanje }
      * 
      */
-    public ZalbaCutanje.ZaglavljeZalbe createZalbaCutanjeZaglavljeZalbe() {
-        return new ZalbaCutanje.ZaglavljeZalbe();
-    }
-
-    /**
-     * Create an instance of {@link ZalbaCutanje.RazlogSlanja }
-     * 
-     */
-    public ZalbaCutanje.RazlogSlanja createZalbaCutanjeRazlogSlanja() {
-        return new ZalbaCutanje.RazlogSlanja();
+    public ZalbaCutanje createZalbaCutanje() {
+        return new ZalbaCutanje();
     }
 
     /**

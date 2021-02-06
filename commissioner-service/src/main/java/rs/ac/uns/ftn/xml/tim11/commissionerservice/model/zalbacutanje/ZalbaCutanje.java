@@ -21,38 +21,14 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="OrganVlasti" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTOrganVlasti"/&gt;
- *         &lt;element name="ZaglavljeZalbe"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="Clan"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&gt;
- *                         &lt;minInclusive value="1"/&gt;
- *                         &lt;maxInclusive value="1000"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="Zakon" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                   &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTAdresa"/&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
  *         &lt;element name="RazlogSlanja"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;choice&gt;
- *                   &lt;element name="NijePostupio" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                   &lt;element name="NijePostupioUCelosti" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                   &lt;element name="UZakonsomRoku" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *                 &lt;/choice&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
+ *           &lt;simpleType&gt;
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *               &lt;enumeration value="NijePostupio"/&gt;
+ *               &lt;enumeration value="NijePostupioUCelosti"/&gt;
+ *               &lt;enumeration value="UZakonsomRoku"/&gt;
+ *             &lt;/restriction&gt;
+ *           &lt;/simpleType&gt;
  *         &lt;/element&gt;
  *         &lt;element name="PodaciOZahtevu" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTPodaciOZahtevu"/&gt;
  *         &lt;element name="PodnosilacZalbe" type="{http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje}CTPodnosilacZalbe"/&gt;
@@ -60,6 +36,8 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="vocab" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/" /&gt;
  *       &lt;attribute name="about" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *       &lt;attribute name="rel" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" fixed="pred:zalbaNa" /&gt;
+ *       &lt;attribute name="href" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -70,7 +48,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "organVlasti",
-    "zaglavljeZalbe",
     "razlogSlanja",
     "podaciOZahtevu",
     "podnosilacZalbe",
@@ -81,10 +58,8 @@ public class ZalbaCutanje {
 
     @XmlElement(name = "OrganVlasti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected CTOrganVlasti organVlasti;
-    @XmlElement(name = "ZaglavljeZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
-    protected ZalbaCutanje.ZaglavljeZalbe zaglavljeZalbe;
     @XmlElement(name = "RazlogSlanja", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
-    protected ZalbaCutanje.RazlogSlanja razlogSlanja;
+    protected String razlogSlanja;
     @XmlElement(name = "PodaciOZahtevu", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
     protected CTPodaciOZahtevu podaciOZahtevu;
     @XmlElement(name = "PodnosilacZalbe", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
@@ -97,6 +72,12 @@ public class ZalbaCutanje {
     @XmlAttribute(name = "about", required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String about;
+    @XmlAttribute(name = "rel", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String rel;
+    @XmlAttribute(name = "href", required = true)
+    @XmlSchemaType(name = "anySimpleType")
+    protected String href;
 
     /**
      * Gets the value of the organVlasti property.
@@ -123,38 +104,14 @@ public class ZalbaCutanje {
     }
 
     /**
-     * Gets the value of the zaglavljeZalbe property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link ZalbaCutanje.ZaglavljeZalbe }
-     *     
-     */
-    public ZalbaCutanje.ZaglavljeZalbe getZaglavljeZalbe() {
-        return zaglavljeZalbe;
-    }
-
-    /**
-     * Sets the value of the zaglavljeZalbe property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ZalbaCutanje.ZaglavljeZalbe }
-     *     
-     */
-    public void setZaglavljeZalbe(ZalbaCutanje.ZaglavljeZalbe value) {
-        this.zaglavljeZalbe = value;
-    }
-
-    /**
      * Gets the value of the razlogSlanja property.
      * 
      * @return
      *     possible object is
-     *     {@link ZalbaCutanje.RazlogSlanja }
+     *     {@link String }
      *     
      */
-    public ZalbaCutanje.RazlogSlanja getRazlogSlanja() {
+    public String getRazlogSlanja() {
         return razlogSlanja;
     }
 
@@ -163,10 +120,10 @@ public class ZalbaCutanje {
      * 
      * @param value
      *     allowed object is
-     *     {@link ZalbaCutanje.RazlogSlanja }
+     *     {@link String }
      *     
      */
-    public void setRazlogSlanja(ZalbaCutanje.RazlogSlanja value) {
+    public void setRazlogSlanja(String value) {
         this.razlogSlanja = value;
     }
 
@@ -294,225 +251,56 @@ public class ZalbaCutanje {
         this.about = value;
     }
 
-
     /**
-     * <p>Java class for anonymous complex type.
+     * Gets the value of the rel property.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;choice&gt;
-     *         &lt;element name="NijePostupio" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *         &lt;element name="NijePostupioUCelosti" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *         &lt;element name="UZakonsomRoku" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *       &lt;/choice&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "nijePostupio",
-        "nijePostupioUCelosti",
-        "uZakonsomRoku"
-    })
-    public static class RazlogSlanja {
-
-        @XmlElement(name = "NijePostupio", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
-        protected String nijePostupio;
-        @XmlElement(name = "NijePostupioUCelosti", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
-        protected String nijePostupioUCelosti;
-        @XmlElement(name = "UZakonsomRoku", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
-        protected String uZakonsomRoku;
-
-        /**
-         * Gets the value of the nijePostupio property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getNijePostupio() {
-            return nijePostupio;
+    public String getRel() {
+        if (rel == null) {
+            return "pred:zalbaNa";
+        } else {
+            return rel;
         }
-
-        /**
-         * Sets the value of the nijePostupio property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setNijePostupio(String value) {
-            this.nijePostupio = value;
-        }
-
-        /**
-         * Gets the value of the nijePostupioUCelosti property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getNijePostupioUCelosti() {
-            return nijePostupioUCelosti;
-        }
-
-        /**
-         * Sets the value of the nijePostupioUCelosti property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setNijePostupioUCelosti(String value) {
-            this.nijePostupioUCelosti = value;
-        }
-
-        /**
-         * Gets the value of the uZakonsomRoku property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getUZakonsomRoku() {
-            return uZakonsomRoku;
-        }
-
-        /**
-         * Sets the value of the uZakonsomRoku property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setUZakonsomRoku(String value) {
-            this.uZakonsomRoku = value;
-        }
-
     }
 
+    /**
+     * Sets the value of the rel property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRel(String value) {
+        this.rel = value;
+    }
 
     /**
-     * <p>Java class for anonymous complex type.
+     * Gets the value of the href property.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="Clan"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}int"&gt;
-     *               &lt;minInclusive value="1"/&gt;
-     *               &lt;maxInclusive value="1000"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="Zakon" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
-     *         &lt;element name="Adresa" type="{http://www.ftn.uns.ac.rs/xml/tim11/common}CTAdresa"/&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "clan",
-        "zakon",
-        "adresa"
-    })
-    public static class ZaglavljeZalbe {
+    public String getHref() {
+        return href;
+    }
 
-        @XmlElement(name = "Clan", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje")
-        protected int clan;
-        @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
-        protected String zakon;
-        @XmlElement(name = "Adresa", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/zalbacutanje", required = true)
-        protected CTAdresa adresa;
-
-        /**
-         * Gets the value of the clan property.
-         * 
-         */
-        public int getClan() {
-            return clan;
-        }
-
-        /**
-         * Sets the value of the clan property.
-         * 
-         */
-        public void setClan(int value) {
-            this.clan = value;
-        }
-
-        /**
-         * Gets the value of the zakon property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getZakon() {
-            return zakon;
-        }
-
-        /**
-         * Sets the value of the zakon property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setZakon(String value) {
-            this.zakon = value;
-        }
-
-        /**
-         * Gets the value of the adresa property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link CTAdresa }
-         *     
-         */
-        public CTAdresa getAdresa() {
-            return adresa;
-        }
-
-        /**
-         * Sets the value of the adresa property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link CTAdresa }
-         *     
-         */
-        public void setAdresa(CTAdresa value) {
-            this.adresa = value;
-        }
-
+    /**
+     * Sets the value of the href property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHref(String value) {
+        this.href = value;
     }
 
 }
