@@ -5,11 +5,11 @@ import { Router } from '@angular/router';
 import { ZalbaCutanjeService } from '../../zalba-cutanje.service';
 
 @Component({
-  selector: 'app-zalbe-cutanje-view',
-  templateUrl: './zalbe-cutanje-view.component.html',
-  styleUrls: ['./zalbe-cutanje-view.component.scss']
+  selector: 'app-user-zalbe-cutanje-view',
+  templateUrl: './user-zalbe-cutanje-view.component.html',
+  styleUrls: ['./user-zalbe-cutanje-view.component.scss']
 })
-export class ZalbeCutanjeViewComponent implements OnInit {
+export class UserZalbeCutanjeViewComponent implements OnInit {
   zalbe: Array<any>;
 
   constructor(
@@ -20,7 +20,7 @@ export class ZalbeCutanjeViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   this.getAll();
+    this.getAll();
   }
 
   showAcceptForm(zahtev: any): void {
@@ -33,15 +33,11 @@ export class ZalbeCutanjeViewComponent implements OnInit {
       header: 'Delete Confirmation',
       icon: 'pi pi-info-circle',
       accept: () => {
-        this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have successfuly rejected request!' });  
+        this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have successfuly rejected request!' });
       },
       reject: () => {
       }
     });
-  }
-
-  napisiResenje(zalba: any) {
-    this.router.navigate[`/resenje/add/${zalba.id}`];
   }
 
   showZahtev(id: string) {
@@ -97,9 +93,10 @@ export class ZalbeCutanjeViewComponent implements OnInit {
     link.download = `${fileName}.xhtml`;
     link.click();
   }
-  
+
   getAll() {
-    this.zalbaCutanjeService.getAll().subscribe((zalbe) => { 
+    console.log('usao');
+    this.zalbaCutanjeService.getAll().subscribe((zalbe) => {
       if (zalbe.length && zalbe[0] !== undefined) {
         this.zalbe = zalbe.map((zalba) => {
           zalba['name'] = zalba['zlb:PodnosilacZalbe']['co:Ime']['_text'] + ' ' + zalba['zlb:PodnosilacZalbe']['co:Prezime']['_text'];

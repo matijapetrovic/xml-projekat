@@ -36,17 +36,27 @@ export class HeaderComponent implements OnInit {
       id: 'dashboard-nav-link'
     },
     {
-      label: 'Pregledaj podnete zalbe',
+      label: 'Pregledaj podnete zalbe na cutanje',
       routerLink: ['/zalba-cutanje'],
+      id: 'dashboard-nav-link'
+    },
+    {
+      label: 'Pregledaj podnete zalbe na odluku',
+      routerLink: ['/zalba-odluka'],
       id: 'dashboard-nav-link'
     },
   ];
 
   adminItems: MenuItem[] = [
     {
-      label: 'Pregledaj podnete zalbe',
-      routerLink: ['/zalbe'],
-      id: 'cultural-offers-nav-link'
+      label: 'Pregledaj podnete zalbe na cutanje',
+      routerLink: ['/zalba-cutanje'],
+      id: 'zalba-na-cutanje-nav-link'
+    },
+    {
+      label: 'Pregledaj podnete zalbe na odluku',
+      routerLink: ['/zalba-odluka'],
+      id: 'zalba-na-odluku-nav-link'
     }
   ];
 

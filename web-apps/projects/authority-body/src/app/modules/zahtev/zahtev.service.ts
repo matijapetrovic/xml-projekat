@@ -51,7 +51,6 @@ export class ZahtevService {
   }
 
   getOne(id: string): Observable<string> {
-    console.log(id);
     const url = `${this.url}/${id}`;
     return this.http.get(url, { headers: new HttpHeaders().append('Accept', 'application/xml'), responseType: 'text'})
       .pipe(

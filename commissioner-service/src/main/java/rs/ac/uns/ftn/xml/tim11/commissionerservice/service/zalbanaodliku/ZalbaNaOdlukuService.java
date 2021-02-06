@@ -68,7 +68,7 @@ public class ZalbaNaOdlukuService {
                 String.format("http://www.ftn.uns.ac.rs/xml/tim11/gradjanin/%s", account.getEmail()));
         zalba.setHref("http://www.ftn.uns.ac.rs/xml/tim11/zahtev/" + zahtevId);
 
-        Long createdId = xmlRepository.create(zalba);
+        Long createdId = xmlRepository.createWithId(zalba, id);
         rdfRepository.saveMetadata(zalba);
         return createdId;
     }

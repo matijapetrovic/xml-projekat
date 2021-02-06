@@ -13,17 +13,9 @@
         </div>
       </div>
       <div class="p-grid p-mt-3 p-justify-center centered-grid"></div>
-        <p-table
-          id="zahtevi-table"
-          #dt 
-          *ngIf="zalbe"
-          [value]="zalbe"
-          [editable]="true"  [paginator]="false" [rows]="10" [responsive]="true"
-          [showCurrentPageReport]="true"
-          styleClass="p-datatable-categoriesPage p-datatable-gridlines"
-          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-          [globalFilterFields]="['name']"
-        >
+      <p-table id="zahtevi-table" #dt *ngIf="zalbe" [value]="zalbe" [editable]="true" [paginator]="false" [rows]="10"
+        [responsive]="true" [showCurrentPageReport]="true" styleClass="p-datatable-categoriesPage p-datatable-gridlines"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['name']">
         <ng-template pTemplate="header">
           <tr>
             <th>Organ vlasti</th>
@@ -31,15 +23,10 @@
             <th>Podnosilac</th>
             <th>Datum zahteva</th>
             <th>Mesto zahteva</th>
-            <th>Akcije</th>
             <th>Prikazi</th>
           </tr>
         </ng-template>
-        <ng-template 
-        id="categories-table-item" 
-        pTemplate="body" 
-        let-zalba
-        >
+        <ng-template id="categories-table-item" pTemplate="body" let-zalba>
           <tr>
             <td id="zalba-name">
               {{ zalba['zlb:OrganVlasti']['co:Naziv']['_text'] }}
@@ -63,41 +50,15 @@
               {{ zalba['zlb:OstaliPodaci']['co:Mesto']['_text'] }}
             </td>
             <td>
-              <div class="p-grid p-justify-center">
-                <button
-                  id="show-update-zalba-form-button"
-                  pButton 
-                  label="Napisi resenje"
-                  icon="pi pi-check" 
-                  class="p-button-info p-button-rounded p-justify-left p-button-sm p-mr-2 p-mb-2"
-                  (click)="napisiResenje(zalba)"
-                ></button>
-              </div>
-            </td>
-            <td>
-              <button 
-                id="show-zalba-dialog-button" 
-                pButton label="Pregledaj zalbu" 
-                icon="pi pi-external-link"
+              <button id="show-zalba-dialog-button" pButton label="Pregledaj zalbu" icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
-                (click)="showZahtev(zalba.id)"
-              ></button>
-              <button 
-                id="show-zahtev-dialog-button" 
-                pButton 
-                label="Eksportuj XHTML" 
-                icon="pi pi-external-link"
+                (click)="showZahtev(zalba.id)"></button>
+              <button id="show-zahtev-dialog-button" pButton label="Eksportuj XHTML" icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
-                (click)="showXHTMLZahtev(zalba.id)"
-              ></button>
-              <button 
-                id="show-zahtev-dialog-button" 
-                pButton 
-                label="Eksportuj PDF" 
-                icon="pi pi-external-link"
+                (click)="showXHTMLZahtev(zalba.id)"></button>
+              <button id="show-zahtev-dialog-button" pButton label="Eksportuj PDF" icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
-                (click)="showPDFZahtev(zalba.id)"
-              ></button>
+                (click)="showPDFZahtev(zalba.id)"></button>
             </td>
           </tr>
         </ng-template>

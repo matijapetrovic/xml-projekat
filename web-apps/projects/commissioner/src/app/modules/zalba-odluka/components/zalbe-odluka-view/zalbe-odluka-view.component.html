@@ -1,0 +1,81 @@
+<div class="p-grid p-mt-6 p-justify-center centered-grid"></div>
+<div class="p-grid p-mt-6 p-justify-center centered-grid"></div>
+<div class="p-grid p-mt-6 p-justify-center centered-grid">
+  <div class="p-col p-sm-5 p-md-6 p-lg-6">
+    <p-card class="flat-card">
+      <div class="p-card-header">
+        <div class="p-grid p-justify-center">
+          <h1>
+            <strong>
+              Zalbe na odluku
+            </strong>
+          </h1>
+        </div>
+      </div>
+      <div class="p-grid p-mt-3 p-justify-center centered-grid"></div>
+      <p-table id="zahtevi-table" #dt *ngIf="zalbe" [value]="zalbe" [editable]="true" [paginator]="false" [rows]="10"
+        [responsive]="true" [showCurrentPageReport]="true" styleClass="p-datatable-categoriesPage p-datatable-gridlines"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [globalFilterFields]="['name']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Organ vlasti</th>
+            <th>Sediste organa</th>
+            <th>Podnosilac</th>
+            <th>Datum zahteva</th>
+            <th>Mesto zahteva</th>
+            <th>Akcije</th>
+            <th>Prikazi</th>
+          </tr>
+        </ng-template>
+        <ng-template id="categories-table-item" pTemplate="body" let-zalba>
+          <tr>
+            <td id="zahtev-name">
+              {{ zalba['zod:PodaciOResenju']['zod:OrganVlasti']['co:Naziv']['_text'] }}
+            </td>
+            <td>
+              {{ zalba['zod:PodaciOResenju']['zod:OrganVlasti']['co:Sediste']['co:Mesto']['_text'] }}
+
+              {{ zalba['zod:PodaciOResenju']['zod:OrganVlasti']['co:Sediste']['co:Ulica']['_text'] }}
+
+              {{ zalba['zod:PodaciOResenju']['zod:OrganVlasti']['co:Sediste']['co:Broj']['_text'] }}
+            </td>
+            <td>
+              {{ zalba.name }}
+            </td>
+            <td>
+              {{ zalba['zod:OstaliPodaci']['co:Datum']['_text'] }}
+            </td>
+            <td>
+              {{ zalba['zod:OstaliPodaci']['co:Mesto']['_text'] }}
+            </td>
+            <td>
+              <div class="p-grid p-justify-center">
+                <button 
+                  id="show-update-zahtev-form-button" 
+                  pButton 
+                  label="Napisi resenje" 
+                  icon="pi pi-check"
+                  class="p-button-info p-button-rounded p-justify-left p-button-sm p-mr-2 p-mb-2"
+                  (click)="napisiResenje(zalba)"
+                ></button>
+              </div>
+            </td>
+            <td>
+              <button id="show-zahtev-dialog-button" pButton label="Pregledaj zalbu" icon="pi pi-external-link"
+                class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
+                (click)="showZahtev(zalba.id)"></button>
+              <button id="show-zahtev-dialog-button" pButton label="Eksportuj XHTML" icon="pi pi-external-link"
+                class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
+                (click)="showXHTMLZahtev(zalba.id)"></button>
+              <button id="show-zahtev-dialog-button" pButton label="Eksportuj PDF" icon="pi pi-external-link"
+                class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
+                (click)="showPDFZahtev(zalba.id)"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>
+</div>
+
+<p-confirmDialog></p-confirmDialog>
