@@ -1,6 +1,7 @@
 
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
+import java.math.BigInteger;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
@@ -25,8 +26,19 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _CTOdlukaLice_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Lice");
+    private final static QName _CTOdlukaMesto_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Mesto");
+    private final static QName _CTOdlukaIznos_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Iznos");
+    private final static QName _CTPostupakDatumPostupka_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "DatumPostupka");
+    private final static QName _CTPostupakUstanova_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Ustanova");
+    private final static QName _CTPredmetZalbeDatumIzjave_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "DatumIzjave");
+    private final static QName _CTPredmetZalbeOrganVlasti_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "OrganVlasti");
+    private final static QName _CTPredmetZalbeDatumPotrazivanjaInformacija_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "DatumPotrazivanjaInformacija");
+    private final static QName _CTObrazlozenjePredmetZalbe_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "PredmetZalbe");
+    private final static QName _CTObrazlozenjePostupak_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Postupak");
+    private final static QName _CTObrazlozenjeOdluka_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Odluka");
+    private final static QName _CTResenjeIshod_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "Ishod");
     private final static QName _CTUvodDatumZalbe_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "DatumZalbe");
-    private final static QName _CTUvodOrganVlasti_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "OrganVlasti");
     private final static QName _CTUvodPozivNaZakon_QNAME = new QName("http://www.ftn.uns.ac.rs/xml/tim11/resenje", "PozivNaZakon");
 
     /**
@@ -34,6 +46,30 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link CTOstaliPodaci }
+     * 
+     */
+    public CTOstaliPodaci createCTOstaliPodaci() {
+        return new CTOstaliPodaci();
+    }
+
+    /**
+     * Create an instance of {@link CTOrganVlasti }
+     * 
+     */
+    public CTOrganVlasti createCTOrganVlasti() {
+        return new CTOrganVlasti();
+    }
+
+    /**
+     * Create an instance of {@link CTPodnosilac }
+     * 
+     */
+    public CTPodnosilac createCTPodnosilac() {
+        return new CTPodnosilac();
     }
 
     /**
@@ -61,14 +97,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTZakon }
-     * 
-     */
-    public CTZakon createCTZakon() {
-        return new CTZakon();
-    }
-
-    /**
      * Create an instance of {@link CTPozivNaZakon }
      * 
      */
@@ -85,14 +113,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTResenje }
-     * 
-     */
-    public CTResenje createCTResenje() {
-        return new CTResenje();
-    }
-
-    /**
      * Create an instance of {@link Resenje }
      * 
      */
@@ -101,11 +121,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link CTPodnosilacZahteva }
+     * 
+     */
+    public CTPodnosilacZahteva createCTPodnosilacZahteva() {
+        return new CTPodnosilacZahteva();
+    }
+
+    /**
      * Create an instance of {@link CTUvod }
      * 
      */
     public CTUvod createCTUvod() {
         return new CTUvod();
+    }
+
+    /**
+     * Create an instance of {@link CTResenje }
+     * 
+     */
+    public CTResenje createCTResenje() {
+        return new CTResenje();
     }
 
     /**
@@ -122,6 +158,62 @@ public class ObjectFactory {
      */
     public CTPostupak createCTPostupak() {
         return new CTPostupak();
+    }
+
+    /**
+     * Create an instance of {@link CTAdresa }
+     * 
+     */
+    public CTAdresa createCTAdresa() {
+        return new CTAdresa();
+    }
+
+    /**
+     * Create an instance of {@link CTPodaciOZahtevu }
+     * 
+     */
+    public CTPodaciOZahtevu createCTPodaciOZahtevu() {
+        return new CTPodaciOZahtevu();
+    }
+
+    /**
+     * Create an instance of {@link CTOstaliPodaci.Mesto }
+     * 
+     */
+    public CTOstaliPodaci.Mesto createCTOstaliPodaciMesto() {
+        return new CTOstaliPodaci.Mesto();
+    }
+
+    /**
+     * Create an instance of {@link CTOstaliPodaci.Datum }
+     * 
+     */
+    public CTOstaliPodaci.Datum createCTOstaliPodaciDatum() {
+        return new CTOstaliPodaci.Datum();
+    }
+
+    /**
+     * Create an instance of {@link CTOrganVlasti.Naziv }
+     * 
+     */
+    public CTOrganVlasti.Naziv createCTOrganVlastiNaziv() {
+        return new CTOrganVlasti.Naziv();
+    }
+
+    /**
+     * Create an instance of {@link CTPodnosilac.Ime }
+     * 
+     */
+    public CTPodnosilac.Ime createCTPodnosilacIme() {
+        return new CTPodnosilac.Ime();
+    }
+
+    /**
+     * Create an instance of {@link CTPodnosilac.Prezime }
+     * 
+     */
+    public CTPodnosilac.Prezime createCTPodnosilacPrezime() {
+        return new CTPodnosilac.Prezime();
     }
 
     /**
@@ -149,14 +241,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTZakon.NazivZakona }
-     * 
-     */
-    public CTZakon.NazivZakona createCTZakonNazivZakona() {
-        return new CTZakon.NazivZakona();
-    }
-
-    /**
      * Create an instance of {@link CTPozivNaZakon.BrojeviSluzbenogGlasnika }
      * 
      */
@@ -181,11 +265,185 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CTResenje.OrganVlasti }
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
      */
-    public CTResenje.OrganVlasti createCTResenjeOrganVlasti() {
-        return new CTResenje.OrganVlasti();
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Lice", scope = CTOdluka.class)
+    public JAXBElement<String> createCTOdlukaLice(String value) {
+        return new JAXBElement<String>(_CTOdlukaLice_QNAME, String.class, CTOdluka.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CTOdluka.Mesto }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CTOdluka.Mesto }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Mesto", scope = CTOdluka.class)
+    public JAXBElement<CTOdluka.Mesto> createCTOdlukaMesto(CTOdluka.Mesto value) {
+        return new JAXBElement<CTOdluka.Mesto>(_CTOdlukaMesto_QNAME, CTOdluka.Mesto.class, CTOdluka.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Iznos", scope = CTOdluka.class)
+    public JAXBElement<BigInteger> createCTOdlukaIznos(BigInteger value) {
+        return new JAXBElement<BigInteger>(_CTOdlukaIznos_QNAME, BigInteger.class, CTOdluka.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "DatumPostupka", scope = CTPostupak.class)
+    public JAXBElement<XMLGregorianCalendar> createCTPostupakDatumPostupka(XMLGregorianCalendar value) {
+        return new JAXBElement<XMLGregorianCalendar>(_CTPostupakDatumPostupka_QNAME, XMLGregorianCalendar.class, CTPostupak.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CTUstanova }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CTUstanova }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Ustanova", scope = CTPostupak.class)
+    public JAXBElement<CTUstanova> createCTPostupakUstanova(CTUstanova value) {
+        return new JAXBElement<CTUstanova>(_CTPostupakUstanova_QNAME, CTUstanova.class, CTPostupak.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link XMLGregorianCalendar }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "DatumIzjave", scope = CTPredmetZalbe.class)
+    public JAXBElement<XMLGregorianCalendar> createCTPredmetZalbeDatumIzjave(XMLGregorianCalendar value) {
+        return new JAXBElement<XMLGregorianCalendar>(_CTPredmetZalbeDatumIzjave_QNAME, XMLGregorianCalendar.class, CTPredmetZalbe.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "OrganVlasti", scope = CTPredmetZalbe.class)
+    public JAXBElement<String> createCTPredmetZalbeOrganVlasti(String value) {
+        return new JAXBElement<String>(_CTPredmetZalbeOrganVlasti_QNAME, String.class, CTPredmetZalbe.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CTPredmetZalbe.DatumPotrazivanjaInformacija }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CTPredmetZalbe.DatumPotrazivanjaInformacija }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "DatumPotrazivanjaInformacija", scope = CTPredmetZalbe.class)
+    public JAXBElement<CTPredmetZalbe.DatumPotrazivanjaInformacija> createCTPredmetZalbeDatumPotrazivanjaInformacija(CTPredmetZalbe.DatumPotrazivanjaInformacija value) {
+        return new JAXBElement<CTPredmetZalbe.DatumPotrazivanjaInformacija>(_CTPredmetZalbeDatumPotrazivanjaInformacija_QNAME, CTPredmetZalbe.DatumPotrazivanjaInformacija.class, CTPredmetZalbe.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CTPredmetZalbe }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CTPredmetZalbe }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "PredmetZalbe", scope = CTObrazlozenje.class)
+    public JAXBElement<CTPredmetZalbe> createCTObrazlozenjePredmetZalbe(CTPredmetZalbe value) {
+        return new JAXBElement<CTPredmetZalbe>(_CTObrazlozenjePredmetZalbe_QNAME, CTPredmetZalbe.class, CTObrazlozenje.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CTPostupak }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CTPostupak }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Postupak", scope = CTObrazlozenje.class)
+    public JAXBElement<CTPostupak> createCTObrazlozenjePostupak(CTPostupak value) {
+        return new JAXBElement<CTPostupak>(_CTObrazlozenjePostupak_QNAME, CTPostupak.class, CTObrazlozenje.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CTOdluka }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CTOdluka }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Odluka", scope = CTObrazlozenje.class)
+    public JAXBElement<CTOdluka> createCTObrazlozenjeOdluka(CTOdluka value) {
+        return new JAXBElement<CTOdluka>(_CTObrazlozenjeOdluka_QNAME, CTOdluka.class, CTObrazlozenje.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CTUstanova }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CTUstanova }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Ustanova", scope = CTResenje.class)
+    public JAXBElement<CTUstanova> createCTResenjeUstanova(CTUstanova value) {
+        return new JAXBElement<CTUstanova>(_CTPostupakUstanova_QNAME, CTUstanova.class, CTResenje.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "Ishod", scope = CTResenje.class)
+    public JAXBElement<String> createCTResenjeIshod(String value) {
+        return new JAXBElement<String>(_CTResenjeIshod_QNAME, String.class, CTResenje.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "OrganVlasti", scope = CTUvod.class)
+    public JAXBElement<String> createCTUvodOrganVlasti(String value) {
+        return new JAXBElement<String>(_CTPredmetZalbeOrganVlasti_QNAME, String.class, CTUvod.class, value);
     }
 
     /**
@@ -199,19 +457,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "DatumZalbe", scope = CTUvod.class)
     public JAXBElement<XMLGregorianCalendar> createCTUvodDatumZalbe(XMLGregorianCalendar value) {
         return new JAXBElement<XMLGregorianCalendar>(_CTUvodDatumZalbe_QNAME, XMLGregorianCalendar.class, CTUvod.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link String }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", name = "OrganVlasti", scope = CTUvod.class)
-    public JAXBElement<String> createCTUvodOrganVlasti(String value) {
-        return new JAXBElement<String>(_CTUvodOrganVlasti_QNAME, String.class, CTUvod.class, value);
     }
 
     /**

@@ -19,7 +19,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
  *         &lt;element name="BrojeviSluzbenogGlasnika"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
@@ -47,39 +46,12 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTPozivNaZakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
-    "zakon",
     "brojeviSluzbenogGlasnika"
 })
 public class CTPozivNaZakon {
 
-    @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTZakon zakon;
     @XmlElement(name = "BrojeviSluzbenogGlasnika", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
     protected CTPozivNaZakon.BrojeviSluzbenogGlasnika brojeviSluzbenogGlasnika;
-
-    /**
-     * Gets the value of the zakon property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CTZakon }
-     *     
-     */
-    public CTZakon getZakon() {
-        return zakon;
-    }
-
-    /**
-     * Sets the value of the zakon property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CTZakon }
-     *     
-     */
-    public void setZakon(CTZakon value) {
-        this.zakon = value;
-    }
 
     /**
      * Gets the value of the brojeviSluzbenogGlasnika property.

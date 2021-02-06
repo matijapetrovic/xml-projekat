@@ -4,11 +4,12 @@ import { AddResenjeComponent } from './components/add-resenje/add-resenje.compon
 import { XonomyModule } from 'projects/xonomy/src/public-api';
 import { VendorsModule } from 'projects/vendors/src/projects';
 import { ResenjeRoutingModule } from './resenje-routing.module';
+import { ResenjaViewComponent } from './components/resenja-view/resenja-view.component';
 
 
 
 @NgModule({
-  declarations: [AddResenjeComponent],
+  declarations: [AddResenjeComponent, ResenjaViewComponent],
   imports: [
     CommonModule,
     VendorsModule,

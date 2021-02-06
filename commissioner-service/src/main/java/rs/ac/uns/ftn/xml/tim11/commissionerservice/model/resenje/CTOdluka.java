@@ -1,11 +1,17 @@
 
 package rs.ac.uns.ftn.xml.tim11.commissionerservice.model.resenje;
 
+import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
+import javax.xml.bind.annotation.XmlMixed;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
@@ -21,7 +27,6 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="Zakon" type="{http://www.ftn.uns.ac.rs/xml/tim11/resenje}CTZakon"/&gt;
  *         &lt;element name="Lice" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="Mesto"&gt;
  *           &lt;complexType&gt;
@@ -44,117 +49,48 @@ import javax.xml.bind.annotation.XmlValue;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "CTOdluka", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", propOrder = {
-    "zakon",
-    "lice",
-    "mesto",
-    "iznos"
+    "content"
 })
 public class CTOdluka {
 
-    @XmlElement(name = "Zakon", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTZakon zakon;
-    @XmlElement(name = "Lice", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected String lice;
-    @XmlElement(name = "Mesto", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    protected CTOdluka.Mesto mesto;
-    @XmlElement(name = "Iznos", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", required = true)
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger iznos;
+    @XmlElementRefs({
+        @XmlElementRef(name = "Lice", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "Mesto", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class),
+        @XmlElementRef(name = "Iznos", namespace = "http://www.ftn.uns.ac.rs/xml/tim11/resenje", type = JAXBElement.class)
+    })
+    @XmlMixed
+    protected List<Serializable> content;
 
     /**
-     * Gets the value of the zakon property.
+     * Gets the value of the content property.
      * 
-     * @return
-     *     possible object is
-     *     {@link CTZakon }
-     *     
-     */
-    public CTZakon getZakon() {
-        return zakon;
-    }
-
-    /**
-     * Sets the value of the zakon property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the content property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link CTZakon }
-     *     
-     */
-    public void setZakon(CTZakon value) {
-        this.zakon = value;
-    }
-
-    /**
-     * Gets the value of the lice property.
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getContent().add(newItem);
+     * </pre>
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLice() {
-        return lice;
-    }
-
-    /**
-     * Sets the value of the lice property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLice(String value) {
-        this.lice = value;
-    }
-
-    /**
-     * Gets the value of the mesto property.
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link CTOdluka.Mesto }{@code >}
+     * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
+     * {@link String }
      * 
-     * @return
-     *     possible object is
-     *     {@link CTOdluka.Mesto }
-     *     
-     */
-    public CTOdluka.Mesto getMesto() {
-        return mesto;
-    }
-
-    /**
-     * Sets the value of the mesto property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link CTOdluka.Mesto }
-     *     
      */
-    public void setMesto(CTOdluka.Mesto value) {
-        this.mesto = value;
-    }
-
-    /**
-     * Gets the value of the iznos property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getIznos() {
-        return iznos;
-    }
-
-    /**
-     * Sets the value of the iznos property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setIznos(BigInteger value) {
-        this.iznos = value;
+    public List<Serializable> getContent() {
+        if (content == null) {
+            content = new ArrayList<Serializable>();
+        }
+        return this.content;
     }
 
 
