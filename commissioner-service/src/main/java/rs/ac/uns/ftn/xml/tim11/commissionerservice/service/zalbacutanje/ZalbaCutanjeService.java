@@ -55,6 +55,13 @@ public class ZalbaCutanjeService {
         this.XSLTransformer = new XSLTransformer(properties);
     }
 
+    public List<ZalbaCutanje> findAll() throws XMLDBException, JAXBException {
+        Account account = authenticationService.getAuthenticated();
+        if (account.hasRole("ROLE_USER"))
+            return xmlRepository.findAllByGradjanin(account.getEmail());
+        return xmlRepository.findAll();
+    }
+
     public Long create(long zahtevId, ZalbaCutanje zalba) throws JAXBException, XMLDBException, TransformerException {
     	Account account = authenticationService.getAuthenticated();
         long id = Math.abs(UUID.randomUUID().getLeastSignificantBits());
@@ -68,9 +75,7 @@ public class ZalbaCutanjeService {
     }
 
     public ZalbaCutanje findById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
-//        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
-        return marshaller.unmarshal(new FileInputStream(new File("data/xml/zalbacutanje1.xml")));
-
+        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found", id)));
     }
     
     public ZalbaCutanje findXmlById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
@@ -81,19 +86,18 @@ public class ZalbaCutanjeService {
     }
     
     public byte[] generatePdf(Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, TransformerException, FOPException, FileNotFoundException {
-//      ZalbaCutanje zalbaCutanje = xmlRepository.findById(id)
-//              .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
-      ZalbaCutanje zalbaCutanje = marshaller.unmarshal(new FileInputStream(new File("data/xml/zalbacutanje1.xml")));
+      ZalbaCutanje zalbaCutanje = xmlRepository.findById(id)
+              .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
+
       ByteArrayOutputStream out = new ByteArrayOutputStream();
       this.marshaller.marshal(zalbaCutanje, out);
       return XSLTransformer.generatePdf(new ByteArrayInputStream(out.toByteArray()));
   }
 
   public byte[] generateXHtml(Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, TransformerException, SAXException, IOException, ParserConfigurationException {
-//      Obavestenje obavestenje = xmlRepository.findById(id)
-//              .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
-	  ZalbaCutanje zalbaCutanje = marshaller.unmarshal(new FileInputStream(new File("data/xml/zalbacutanje1.xml")));
-      ByteArrayOutputStream out = new ByteArrayOutputStream();
+      ZalbaCutanje zalbaCutanje = xmlRepository.findById(id)
+              .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
       this.marshaller.marshal(zalbaCutanje, out);
       return XSLTransformer.generateXHtml(new ByteArrayInputStream(out.toByteArray()));
   }
@@ -116,16 +120,4 @@ public class ZalbaCutanjeService {
       List<String> ids = rdfRepository.query(query);
       return xmlRepository.findAllByIds(ids);
   }
-
-    public void findRdf(){
-        rdfRepository.read();
-    }
-
-    public void update(Long id, ZalbaCutanje entity) throws XMLDBException, XmlResourceNotFoundException, JAXBException {
-        xmlRepository.update(id, entity);
-    }
-
-    public void delete(Long id) throws XMLDBException, XmlResourceNotFoundException {
-        xmlRepository.deleteById(id);
-    }
 }

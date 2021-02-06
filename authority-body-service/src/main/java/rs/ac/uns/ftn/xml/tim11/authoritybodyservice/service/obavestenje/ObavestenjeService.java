@@ -59,8 +59,7 @@ public class ObavestenjeService {
     }
 
     public Obavestenje findById(Long id ) throws XMLDBException, JAXBException, XmlResourceNotFoundException, FileNotFoundException {
-//        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
-        return marshaller.unmarshal(new FileInputStream(new File("data/xml/obavestenje1.xml")));
+        return xmlRepository.findById(id).orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
     }
 
     public Obavestenje findXmlByNumber(String number) throws XMLDBException, JAXBException, XmlResourceNotFoundException {
@@ -71,18 +70,17 @@ public class ObavestenjeService {
     }
 
     public byte[] generatePdf(Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, TransformerException, FOPException, FileNotFoundException {
-//        Obavestenje obavestenje = xmlRepository.findById(id)
-//                .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
-        Obavestenje obavestenje = marshaller.unmarshal(new FileInputStream(new File("data/xml/obavestenje1.xml")));
+        Obavestenje obavestenje = xmlRepository.findById(id)
+                .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
+
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         this.marshaller.marshal(obavestenje, out);
         return XSLTransformer.generatePdf(new ByteArrayInputStream(out.toByteArray()));
     }
 
     public byte[] generateXHtml(Long id) throws XMLDBException, JAXBException, XmlResourceNotFoundException, TransformerException, SAXException, IOException, ParserConfigurationException {
-//        Obavestenje obavestenje = xmlRepository.findById(id)
-//                .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
-        Obavestenje obavestenje = marshaller.unmarshal(new FileInputStream(new File("data/xml/obavestenje1.xml")));
+        Obavestenje obavestenje = xmlRepository.findById(id)
+                .orElseThrow( () -> new XmlResourceNotFoundException(String.format("Entity with %d not found",id)));
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         this.marshaller.marshal(obavestenje, out);
         return XSLTransformer.generateXHtml(new ByteArrayInputStream(out.toByteArray()));

@@ -29,6 +29,12 @@ import java.io.IOException;
 public class ZalbaCutanjeController {
     private final ZalbaCutanjeService zalbaCutanjeService;
 
+    @GetMapping("")
+    public ResponseEntity<ZalbaNaCutanjeListDTO> findAll() throws XMLDBException, JAXBException {
+        ZalbaNaCutanjeListDTO response = new ZalbaNaCutanjeListDTO();
+        response.setZalbaNaCutanje(zalbaCutanjeService.findAll());
+        return ResponseEntity.ok(response);
+    }
 
     @GetMapping("/search/metadata")
     public ResponseEntity<ZalbaNaCutanjeListDTO> searchMetadata(@RequestBody ZalbaNaCutanjeMetadataSearchRequest request) throws XMLDBException, IOException {

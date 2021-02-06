@@ -8,7 +8,7 @@ import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "zalbaNaOdluku"
+        "zalbeNaOdluku"
 })
 @XmlRootElement(name = "ZalbeNaOdluku")
 public class ZalbaNaOdlukuListDTO {
