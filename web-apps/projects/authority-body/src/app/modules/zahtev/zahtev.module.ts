@@ -11,10 +11,11 @@ import { UserZahteviViewComponent } from './components/user-zahtevi-view/user-za
 import { ZahtevViewComponent } from './components/zahtev-view/zahtev-view.component';
 import { ZahtevXhtmlViewComponent } from './components/zahtev-xhtml-view/zahtev-xhtml-view.component';
 import { ZahteviViewComponent } from './components/zahtevi-view/zahtevi-view.component';
+import { ZahtevMetadataSearchComponent } from './components/zahtev-metadata-search/zahtev-metadata-search.component';
 
 
 @NgModule({
-  declarations: [AddZahtevComponent, ZahteviViewComponent, ZahtevViewComponent, UserZahteviViewComponent, ZahtevXhtmlViewComponent],
+  declarations: [AddZahtevComponent, ZahteviViewComponent, ZahtevViewComponent, UserZahteviViewComponent, ZahtevXhtmlViewComponent, ZahtevMetadataSearchComponent],
   imports: [
     CommonModule,
     VendorsModule,

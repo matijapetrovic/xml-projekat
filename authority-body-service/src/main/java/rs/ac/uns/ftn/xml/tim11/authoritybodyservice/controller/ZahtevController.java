@@ -38,7 +38,7 @@ public class ZahtevController {
         return ResponseEntity.ok(response);
     }
     
-    @GetMapping("/search/metadata")
+    @PostMapping("/search/metadata")
     public ResponseEntity<ZahtevListDTO> searchMetadata(@RequestBody ZahtevMetadataSearchRequest request) throws XMLDBException, IOException {
     	ZahtevListDTO response = new ZahtevListDTO();
         response.setZahtev(zahtevService.searchMetadata(request));

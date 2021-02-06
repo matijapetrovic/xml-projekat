@@ -45,7 +45,7 @@ export class UserZalbeCutanjeViewComponent implements OnInit {
   }
 
   showXHTMLZahtev(id: string) {
-    this.router.navigate([`/zalba-cutanje/xhtml/${id}`]);
+    this.getXhtml(id);
   }
 
   showPDFZahtev(id: string) {
@@ -95,6 +95,7 @@ export class UserZalbeCutanjeViewComponent implements OnInit {
   }
 
   getAll() {
+    console.log('usao');
     this.zalbaCutanjeService.getAll().subscribe((zalbe) => {
       if (zalbe.length && zalbe[0] !== undefined) {
         this.zalbe = zalbe.map((zalba) => {

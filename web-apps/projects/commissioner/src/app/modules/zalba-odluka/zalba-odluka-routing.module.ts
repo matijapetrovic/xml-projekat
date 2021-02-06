@@ -24,7 +24,7 @@ const routes: Routes = [
     component: ZalbaOdlukaXhtmlViewComponent
   },
   {
-    path: 'user',
+    path: '',
     component: UserZalbeOdlukaViewComponent
   },
 ];

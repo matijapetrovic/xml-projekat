@@ -31,7 +31,7 @@ public class ObavestenjeController {
     private final ObavestenjeService obavestenjeService;
     private final ObavestenjeProperties properties;
 
-    @GetMapping("/search/metadata")
+    @PostMapping("/search/metadata")
     public ResponseEntity<ObavestenjeListDTO> searchMetadata(@RequestBody ObavestenjeMetadataSearchRequest request) throws XMLDBException, IOException {
         ObavestenjeListDTO response = new ObavestenjeListDTO();
         response.setObavestenje(obavestenjeService.searchMetadata(request));

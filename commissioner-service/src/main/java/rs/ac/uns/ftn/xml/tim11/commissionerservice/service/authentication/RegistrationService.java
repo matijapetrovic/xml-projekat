@@ -9,6 +9,7 @@ import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.RegisterUseCase;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Authority;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.User;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.AccountXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.UserXmlRepository;
 
 import javax.xml.bind.JAXBException;
@@ -19,17 +20,20 @@ import java.util.List;
 public class RegistrationService implements RegisterUseCase {
     private final UserXmlRepository userXmlRepository;
     private final PasswordEncoder passwordEncoder;
+    private final AccountXmlRepository accountXmlRepository;
 
     @Override
     public void register(RegisterRequest request) throws XMLDBException, JAXBException {
+        Account account = Account.of(request.getUsername(),
+                passwordEncoder.encode(request.getPassword()),
+                List.of(Authority.of("ROLE_USER")));
         User user = User.of(
                 request.getFirstName(),
                 request.getLastName(),
-                Account.of(
-                        request.getUsername(),
-                        passwordEncoder.encode(request.getPassword()),
-                        // TODO: pogledaj koje ce vrste usera da postoje
-                        List.of(Authority.of("ROLE_USER"))));
+                account
+                );
+
+        accountXmlRepository.create(account);
         userXmlRepository.create(user);
     }
 }

@@ -14,6 +14,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RatingModule } from 'primeng/rating';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TableModule } from 'primeng/table';
+import {CalendarModule} from 'primeng/calendar';
+import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
 
 @NgModule({
   declarations: [],
@@ -31,11 +33,12 @@ import { TableModule } from 'primeng/table';
     ConfirmDialogModule,
     InputTextModule,
     DataViewModule,
-    AccordionModule
-
+    AccordionModule,
+    CalendarModule,
+    TriStateCheckboxModule
   ],
   exports: [
-    ButtonModule,        
+    ButtonModule,
     CarouselModule,
     ConfirmPopupModule,
     ScrollPanelModule,
@@ -48,7 +51,9 @@ import { TableModule } from 'primeng/table';
     ConfirmDialogModule,
     InputTextModule,
     DataViewModule,
-    AccordionModule
+    AccordionModule,
+    CalendarModule,
+    TriStateCheckboxModule
   ]
 })
 export class PrimengModule { }

@@ -23,8 +23,8 @@ export class ZalbeOdlukaViewComponent implements OnInit {
     this.getAll();
   }
 
-  showAcceptForm(zahtev: any): void {
-    this.router.navigate(['/obavestenja/add']);
+  napisiResenje(zalba: any) {
+    this.router.navigate[`/resenje/add/${zalba.id}`];
   }
 
   showRejectDialog(id: string): void {
@@ -45,7 +45,7 @@ export class ZalbeOdlukaViewComponent implements OnInit {
   }
 
   showXHTMLZahtev(id: string) {
-    this.router.navigate([`/zalba-odluka/xhtml/${id}`]);
+    this.getXhtml(id);
   }
 
   showPDFZahtev(id: string) {

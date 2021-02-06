@@ -45,7 +45,7 @@ export class UserZalbeOdlukaViewComponent implements OnInit {
   }
 
   showXHTMLZahtev(id: string) {
-    this.router.navigate([`/zalba-odluka/xhtml/${id}`]);
+    this.getXhtml(id);
   }
 
   showPDFZahtev(id: string) {

@@ -17,7 +17,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ZalbaNaOdlukuMetadataSearchRequest {
-
     @XmlElement(name = "NazivOrganaVlasti", required = true)
     protected String nazivOrganaVlasti;
 
@@ -27,9 +26,9 @@ public class ZalbaNaOdlukuMetadataSearchRequest {
     @XmlElement(name = "PrezimePodnosioca", required = true)
     protected String prezimePodnosioca;
     
-    @XmlElement(name = "podnesenU", required = true)
+    @XmlElement(name = "PodnesenU", required = true)
     protected String podnesenU;	
 
-    @XmlElement(name = "podnesenDatuma", required = true)
+    @XmlElement(name = "PodnesenDatuma", required = true)
     protected String podnesenDatuma;
 }
