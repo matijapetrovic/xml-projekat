@@ -14,7 +14,7 @@ export class AddZalbaOdlukaComponent implements OnInit {
   document: string;
   spec: any = ZalbaOdlukaSpec;
 
-  zahtevId: number;
+  zahtevId: string;
 
   constructor(private xonomyService: XonomyService,
               private zalbaOdlukaService: ZalbaOdlukaService,
