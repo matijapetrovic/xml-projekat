@@ -124,17 +124,7 @@
 	
 	<xs:complexType name="CTOdluka" mixed="true">
 		<xs:sequence>
-			<xs:element name="Lice" type="xs:string"></xs:element>
-			<xs:element name="Mesto">
-				<xs:complexType>
-					<xs:simpleContent>
-						<xs:extension base="xs:string">
-							<xs:attribute name="type" use="required"/>
-							<xs:attribute name="property" use="required"/>
-						</xs:extension>
-					</xs:simpleContent>
-				</xs:complexType>
-			</xs:element>
+			
 			<xs:element name="Iznos" type="xs:positiveInteger"></xs:element>
 		</xs:sequence>
 	</xs:complexType>
