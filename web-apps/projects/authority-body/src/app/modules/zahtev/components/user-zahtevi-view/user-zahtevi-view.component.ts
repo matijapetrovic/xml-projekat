@@ -86,7 +86,6 @@ export class UserZahteviViewComponent implements OnInit {
   getAll() {
     this.zahtevService.getAll().subscribe((zahtevi) => {
       this.zahtevi = zahtevi.map((zahtev) => {
-        console.log(zahtev);
         zahtev['name'] = zahtev['za:TrazilacInformacija']['co:Ime']['_text'] + ' ' + zahtev['za:TrazilacInformacija']['co:Prezime']['_text'];
         let about: Array<string> = zahtev['_attributes']['about'].split('/');
         zahtev['id'] = about[about.length - 1];

@@ -2,25 +2,25 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { ZalbaCutanjeService } from '../../zalba-cutanje.service';
+import { ZalbaOdlukaService } from '../../zalba-odluka.service';
 
 @Component({
-  selector: 'app-zalbe-cutanje-view',
-  templateUrl: './zalbe-cutanje-view.component.html',
-  styleUrls: ['./zalbe-cutanje-view.component.scss']
+  selector: 'app-zalbe-odluka-view',
+  templateUrl: './zalbe-odluka-view.component.html',
+  styleUrls: ['./zalbe-odluka-view.component.scss']
 })
-export class ZalbeCutanjeViewComponent implements OnInit {
+export class ZalbeOdlukaViewComponent implements OnInit {
   zalbe: Array<any>;
 
   constructor(
-    private zalbaCutanjeService: ZalbaCutanjeService,
+    private zalbaOdlukaService: ZalbaOdlukaService,
     public confirmationService: ConfirmationService,
     public messageService: MessageService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
-   this.getAll();
+    this.getAll();
   }
 
   showAcceptForm(zahtev: any): void {
@@ -33,7 +33,7 @@ export class ZalbeCutanjeViewComponent implements OnInit {
       header: 'Delete Confirmation',
       icon: 'pi pi-info-circle',
       accept: () => {
-        this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have successfuly rejected request!' });  
+        this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have successfuly rejected request!' });
       },
       reject: () => {
       }
@@ -41,11 +41,11 @@ export class ZalbeCutanjeViewComponent implements OnInit {
   }
 
   showZahtev(id: string) {
-    this.router.navigate([`/zalba-cutanje/${id}`]);
+    this.router.navigate([`/zalba-odluka/${id}`]);
   }
 
   showXHTMLZahtev(id: string) {
-    this.router.navigate([`/zalba-cutanje/xhtml/${id}`]);
+    this.router.navigate([`/zalba-odluka/xhtml/${id}`]);
   }
 
   showPDFZahtev(id: string) {
@@ -53,14 +53,14 @@ export class ZalbeCutanjeViewComponent implements OnInit {
   }
 
   getPDF(id: string) {
-    this.zalbaCutanjeService.getOnePDF(id).subscribe((zahtev) => {
+    this.zalbaOdlukaService.getOnePDF(id).subscribe((zahtev) => {
       const file = this.makePdfBlob(zahtev);
       this.downloadPdf(file, id);
     });
   }
 
   getXhtml(id: string) {
-    this.zalbaCutanjeService.getOneXHTML(id).subscribe((zahtev) => {
+    this.zalbaOdlukaService.getOneXHTML(id).subscribe((zahtev) => {
       const file = this.makeXHTMLBlob(zahtev);
       this.downloadXHTML(file, id);
     })
@@ -93,12 +93,11 @@ export class ZalbeCutanjeViewComponent implements OnInit {
     link.download = `${fileName}.xhtml`;
     link.click();
   }
-  
   getAll() {
-    this.zalbaCutanjeService.getAll().subscribe((zalbe) => { 
+    this.zalbaOdlukaService.getAll().subscribe((zalbe) => {
       if (zalbe.length && zalbe[0] !== undefined) {
         this.zalbe = zalbe.map((zalba) => {
-          zalba['name'] = zalba['zlb:PodnosilacZalbe']['co:Ime']['_text'] + ' ' + zalba['zlb:PodnosilacZalbe']['co:Prezime']['_text'];
+          zalba['name'] = zalba['zod:PodnosilacZalbe']['co:Ime']['_text'] + ' ' + zalba['zod:PodnosilacZalbe']['co:Prezime']['_text'];
           let about: Array<string> = zalba['_attributes']['about'].split('/');
           zalba['id'] = about[about.length - 1];
           return zalba;
