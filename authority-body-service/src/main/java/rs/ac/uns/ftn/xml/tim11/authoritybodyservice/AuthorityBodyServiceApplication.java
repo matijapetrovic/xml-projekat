@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.AuthenticationService;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.PasswordEncoder;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
@@ -17,6 +18,7 @@ import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.rdf.ZahtevRDFRepo
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.repository.xml.*;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.service.zahtev.ZahtevService;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.util.properties.*;
+import rs.ac.uns.ftn.xml.tim11.xmllib.exist.exception.XmlResourceNotFoundException;
 import rs.ac.uns.ftn.xml.tim11.xmllib.jaxb.JaxbMarshaller;
 
 import javax.xml.bind.JAXBException;
@@ -42,11 +44,19 @@ public class AuthorityBodyServiceApplication {
 			AccountProperties accountProperties,
 			UserXmlRepository userXmlRepository,
 			UserProperties userProperties,
-			PasswordEncoder encoder) {
+			PasswordEncoder encoder
+//			ZahtevRDFRepository zahtevRDFRepository,
+//			ZahtevXmlRepository zahtevXmlRepository,
+//			ZahtevProperties zahtevProperties,
+//			ZahtevService zahtevService,
+//			AuthenticationService authenticationService
+	) {
 		return args -> {
 			insertAuthority(authorityXmlRepository, authorityProperties);
 			insertAccount(accountXmlRepository, accountProperties, encoder);
 			insertUser(userXmlRepository, userProperties, encoder);
+//			authenticationService.authenticate("admin@gmail.com", "admin");
+//			testZahtev(zahtevXmlRepository, zahtevRDFRepository, zahtevProperties, zahtevService);
 		};
 	}
 

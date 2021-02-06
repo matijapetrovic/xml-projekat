@@ -3,9 +3,6 @@ import { ZahtevService } from '../../zahtev.service';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-zahtevi-view',
@@ -31,7 +28,7 @@ export class ZahteviViewComponent implements OnInit {
     this.router.navigate(['/obavestenja/add']);
   }
 
-  showRejectDialog(id: number): void {
+  showRejectDialog(id: string): void {
     this.confirmationService.confirm({
       message: 'Do you want to reject this request?',
       header: 'Delete Confirmation',
@@ -49,19 +46,19 @@ export class ZahteviViewComponent implements OnInit {
     });
   }
 
-  showZahtev(id: number) {
+  showZahtev(id: string) {
     this.router.navigate([`/zahtevi/${id}`]);
   }
 
-  showXHTMLZahtev(id: number) {
+  showXHTMLZahtev(id: string) {
     this.router.navigate([`/zahtevi/xhtml/${id}`]);
   }
 
-  showPDFZahtev(id: number) {
+  showPDFZahtev(id: string) {
     this.getPDF(id);
   }
 
-  getPDF(id: number) {
+  getPDF(id: string) {
     this.zahtevService.getOnePDF(id).subscribe((zahtev) => {
       const file = this.makeBlob(zahtev);
       this.downloadPdf(file, id);
