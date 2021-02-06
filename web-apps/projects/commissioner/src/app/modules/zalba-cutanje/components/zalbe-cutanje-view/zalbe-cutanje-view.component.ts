@@ -32,11 +32,32 @@ export class ZalbeCutanjeViewComponent implements OnInit {
   }
 
   showXHTMLZahtev(id: number) {
-    this.router.navigate([`/zalba-cutanje/xhtml/${id}`]);
+    this.router.navigate([`/zahtevi/xhtml/${id}`]);
   }
 
   showPDFZahtev(id: number) {
-    this.router.navigate([`/zalba-cutanje/pdf/${id}`]);
+    this.getPDF(id);
+  }
+
+  getPDF(id: number) {
+    this.zalbaCutanjeService.getOnePDF(id).subscribe((zahtev) => {
+      const file = this.makeBlob(zahtev);
+      this.downloadPdf(file, id);
+    });
+  }
+
+  makeBlob(zahtev: any) {
+    let file = new Blob([zahtev], { type: 'application/pdf' });
+    var fileURL = URL.createObjectURL(file);
+    return fileURL
+  }
+
+  downloadPdf(file, fileName) {
+    const source = file;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${fileName}.pdf`
+    link.click();
   }
 
   getAll() {

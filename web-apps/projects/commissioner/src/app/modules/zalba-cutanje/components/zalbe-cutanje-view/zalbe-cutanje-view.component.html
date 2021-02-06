@@ -16,8 +16,8 @@
         <p-table
           id="zahtevi-table"
           #dt 
-          *ngIf="zahtevi"
-          [value]="zahtevi"
+          *ngIf="zalbe"
+          [value]="zalbe"
           [editable]="true"  [paginator]="false" [rows]="10" [responsive]="true"
           [showCurrentPageReport]="true"
           styleClass="p-datatable-categoriesPage p-datatable-gridlines"
@@ -34,11 +34,11 @@
         <ng-template 
         id="categories-table-item" 
         pTemplate="body" 
-        let-zahtev
+        let-zalba
         >
           <tr>
             <td id="zahtev-name">
-              {{zahtev.name}}
+              {{zalba.name}}
             </td>
             <td>
               <div class="p-grid p-justify-center">
@@ -63,7 +63,7 @@
             <td>
               <button 
                 id="show-zahtev-dialog-button" 
-                pButton label="Show xml" 
+                pButton label="Show XML" 
                 icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm p-mr-2 p-mb-2"
                 (click)="showZahtev(zahtev.id)"
@@ -71,7 +71,7 @@
               <button 
                 id="show-zahtev-dialog-button" 
                 pButton 
-                label="Show xhtml" 
+                label="Show XHTML" 
                 icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
                 (click)="showXHTMLZahtev(zahtev.id)"
@@ -79,7 +79,7 @@
               <button 
                 id="show-zahtev-dialog-button" 
                 pButton 
-                label="Show pdf" 
+                label="Download PDF" 
                 icon="pi pi-external-link"
                 class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
                 (click)="showPDFZahtev(zahtev.id)"

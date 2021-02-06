@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'zahtevi',
+    redirectTo: 'auth/login',
     pathMatch: 'full'
   },
   { path: '**', redirectTo: '' }

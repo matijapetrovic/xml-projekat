@@ -4,6 +4,9 @@ import { AddZalbaCutanjeComponent } from './components/add-zalba-cutanje/add-zal
 import { ZalbaCutanjeRoutingModule } from './zalba-cutanje-routing.module';
 import { XonomyModule } from 'projects/xonomy/src/public-api';
 import { VendorsModule } from 'projects/vendors/src/projects';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from 'projects/authority-body/src/app/shared/shared.module';
 
 
 
@@ -13,7 +16,10 @@ import { VendorsModule } from 'projects/vendors/src/projects';
     CommonModule,
     VendorsModule,
     XonomyModule,
-    ZalbaCutanjeRoutingModule
+    ZalbaCutanjeRoutingModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class ZalbaCutanjeModule { }

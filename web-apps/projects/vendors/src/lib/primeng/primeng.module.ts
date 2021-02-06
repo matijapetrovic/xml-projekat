@@ -1,14 +1,54 @@
 import { NgModule } from '@angular/core';
+import { AccordionModule } from 'primeng/accordion';
 
 import {ButtonModule} from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { CarouselModule } from 'primeng/carousel';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { DataViewModule } from 'primeng/dataview';
+import { DropdownModule } from 'primeng/dropdown';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
+import { GMapModule } from 'primeng/gmap';
+import { InputTextModule } from 'primeng/inputtext';
+import { RatingModule } from 'primeng/rating';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [],
   imports: [
-    ButtonModule
+    ButtonModule,        
+    CarouselModule,
+    ConfirmPopupModule,
+    ScrollPanelModule,
+    CardModule,
+    GMapModule,
+    RatingModule,
+    DropdownModule,
+    TableModule,
+    DynamicDialogModule,
+    ConfirmDialogModule,
+    InputTextModule,
+    DataViewModule,
+    AccordionModule
+
   ],
   exports: [
-    ButtonModule
+    ButtonModule,        
+    CarouselModule,
+    ConfirmPopupModule,
+    ScrollPanelModule,
+    CardModule,
+    GMapModule,
+    RatingModule,
+    DropdownModule,
+    TableModule,
+    DynamicDialogModule,
+    ConfirmDialogModule,
+    InputTextModule,
+    DataViewModule,
+    AccordionModule
   ]
 })
 export class PrimengModule { }
