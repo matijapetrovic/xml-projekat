@@ -23,7 +23,7 @@ const positiveNumberValidate = function(jsElement) {
 // TODO: dodati ziro racun validaciju
 
 const elements = {
-    "Obavestenje": {
+    "ob:Obavestenje": {
       displayName: 'Obavestenje',
       attributes: {
         "vocab": { isInvisible: true },
@@ -32,7 +32,7 @@ const elements = {
         "href": { isInvisible: true }
       }
     },
-    "PodnosiocZahteva": {
+    "ob:PodnosilacZahteva": {
       displayName: 'Podnosioc zahteva',
       attributes: {
         "vocab": { isInvisible: true },
@@ -41,18 +41,17 @@ const elements = {
         "href": { isInvisible: true }
       }
     },
-    "BrojPredmeta": {
+    "ob:BrojPredmeta": {
       displayName: 'Broj Predmeta',
       attributes: {
         "property": { isInvisible: true },
         "datatype": { isInvisible: true }
       },
-      hasText: true,
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
     },
-    "Datum": {
+    "ob:Datum": {
       displayName: 'Datum',
       asker: Xonomy.askDate,
       attributes: {
@@ -63,131 +62,127 @@ const elements = {
         defaultValidate(jsElement);
       }
     },
-    "Naziv": {
+    "ob:Naziv": {
       attributes: {
         "property": { isInvisible: true },
         "datatype": { isInvisible: true }
       },
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "Ime": {
+    "co:Ime": {
       attributes: {
         "property": { isInvisible: true },
         "datatype": { isInvisible: true }
       },
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "Prezime": {
+    "co:Prezime": {
       attributes: {
         "property": { isInvisible: true },
         "datatype": { isInvisible: true }
       },
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "DatumZahteva": {
+    "ob:DatumZahteva": {
       displayName: 'Datum zahteva',
       asker: Xonomy.askDate,
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
     },
-    "Satnica": {
+    "ob:Satnica": {
       asker: Xonomy.askTime,
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
     },
-    "SatnicaOd": {
+    "ob:SatnicaOd": {
       displayName: 'Satnica od',
       asker: Xonomy.askTime,
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
     },
-    "SatnicaDo": {
+    "ob:SatnicaDo": {
       displayName: 'Satnica do',
       asker: Xonomy.askTime,
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
     },
-    "Troskovi": {
+    "ob:Troskovi": {
       isInvisible: true
     },
-    "BrojModela": {
+    "ob:BrojModela": {
       displayName: 'Broj modela',
       isReadOnly: true
     },
-    "Broj": {
+    "ob:Broj": {
       asker: Xonomy.askNumber,
       validate: function(jsElement) {
         defaultValidate(jsElement);
         positiveNumberValidate(jsElement);
       }
     },
-    "TrazenaInformacija": {
+    "ob:TrazenaInformacija": {
       displayName: 'Trazena informacija'
     },
-    "OpisInformacije": {
+    "ob:OpisInformacije": {
       displayName: 'Opis informacije',
       asker: Xonomy.askLongString,
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "InformacijeOUvidu": {
+    "ob:InformacijeOUvidu": {
       displayName: 'Informacije o uvidu',
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
     },
-    "InformacijeOUplati": {
+    "ob:InformacijeOUplati": {
       displayName: 'Informacije o uplati',
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
     },
-    "UkupniTroskovi": {
+    "ob:UkupniTroskovi": {
       displayName: 'Ukupni troskovi',
       asker: Xonomy.askNumber,
       validate: function(jsElement) {
         defaultValidate(jsElement);
         positiveNumberValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "ZiroRacun": {
+    "ob:ZiroRacun": {
       displayName: 'Ziro racun',
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "BrojKancelarije": {
+    "ob:BrojKancelarije": {
       displayName: 'Broj kancelarije',
       asker: Xonomy.askNumber,
       validate: function(jsElement) {
         defaultValidate(jsElement);
         positiveNumberValidate(jsElement);
-      },
-      hasText: true
+      }
     },
-    "Dostavljeno": {
+    "ob:Dostavljeno": {
       asker: Xonomy.askPicklist,
       askerParameter: ['Imenovanom', 'Arhivi'],
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
+    },
+    "co:Adresa": {
+      displayName: 'Adresa'
     }
   };
 

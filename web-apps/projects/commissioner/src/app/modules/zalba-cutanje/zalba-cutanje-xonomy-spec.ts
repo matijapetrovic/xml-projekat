@@ -25,7 +25,9 @@ const elements = {
       displayName: 'Zalba Cutanje',
       attributes: {
         "vocab": { isInvisible: true },
-        "about": { isInvisible: true }
+        "about": { isInvisible: true },
+        "rel": { isInvisible: true },
+        "href": { isInvisible: true }
        }
     },
     
@@ -53,7 +55,6 @@ const elements = {
         "property": { isInvisible: true },
         "datatype": { isInvisible: true }
       },
-      hasText: true,
       validate: function(jsElement) {
         defaultValidate(jsElement);
         
@@ -105,32 +106,8 @@ const elements = {
     },
 
     "zlb:ZaglavljeZalbe": {
-      displayName: 'Zaglavlje Zalbe',
-      attributes: {
-        "vocab": { isInvisible: true },
-        "about": { isInvisible: true }
-       },
-       validate: function(jsElement) {
-        defaultValidate(jsElement);
-      }
+      isInivisible: true
     },
-
-    "zlb:Clan": {
-      displayName: 'Clan',
-    },
-    "zlb:Zakon": {
-      displayName: 'Zakon',
-      validate: function(jsElement) {
-        defaultValidate(jsElement);
-      }
-    },
-    "zlb:Adresa": {
-      displayName: 'Adresa',
-      validate: function(jsElement) {
-        defaultValidate(jsElement);
-      }
-    },
-
     "zlb:PodnosilacZalbe": {
       displayName: 'Podnosilac Zalbe',
       attributes: {
@@ -146,6 +123,11 @@ const elements = {
 
     "zlb:RazlogSlanja": {
       displayName: 'Razlog Slanja',
+      asker: Xonomy.askPicklist,
+      askerParameter: [ 
+        {value: 'NijePostupio', caption: 'Nije postupio'},
+        {value: 'NijePostupioUCelosti', caption: 'Nije postupio u celosti'},
+        {value: 'UZakonskomRoku', caption: 'Nije postupio u zakonskom roku'}],
       validate: function(jsElement) {
         defaultValidate(jsElement);
       }
@@ -209,7 +191,8 @@ const elements = {
       displayName: 'Trazena Informacija', 
       validate: function(jsElement) {
         defaultValidate(jsElement);
-      }
+      },
+      asker: Xonomy.askLongString
     },
 
   };

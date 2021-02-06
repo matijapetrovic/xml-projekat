@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/zalba-odluka/zalba-odluka.module').then(m => m.ZalbaOdlukaModule)
   },
   {
+    path: 'auth',
+    loadChildren: () => import('./modules/authentication/authentication.module').then(m => m.AuthenticationModule),
+  },
+  {
     path: '',
     redirectTo: 'zalba-cutanje/add',
     pathMatch: 'full'

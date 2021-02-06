@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.commissionerservice.core.PasswordEncoder;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Authority;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.User;
@@ -21,6 +22,7 @@ import javax.xml.bind.JAXBException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 @SpringBootApplication
 public class CommissionerServiceApplication {
@@ -30,78 +32,93 @@ public class CommissionerServiceApplication {
 	}
 
 
-//	@Bean
-//	public CommandLineRunner run(
-//			ZalbaCutanjeXmlRepository zalbaCutanjeXmlRepository,
-//			ZalbaNaOdlukuXmlRepository zalbaNaOdlukuXmlRepository,
-//			ResenjeXmlRepository resenjeXmlRepository,
-//			ZalbaCutanjeRDFRepository zalbaCutanjeRDFRepository,
-//			ZalbaNaOdlukuRDFRepository zalbaNaOdlukuRDFRepository,
-//			ResenjeRDFRepository resenjeRDFRepository,
-//			ZalbaCutanjeProperties zalbaCutanjeProperties,
-//			ZalbaNaOdlukuProperties zalbaNaOdlukuProperties,
-//			ResenjeProperties resenjeProperties) {
-//		return args -> {
-//			testZalbaCutanje(zalbaCutanjeXmlRepository, zalbaCutanjeRDFRepository, zalbaCutanjeProperties);
-//			testZalbaNaOdluku(zalbaNaOdlukuXmlRepository, zalbaNaOdlukuRDFRepository, zalbaNaOdlukuProperties);
-//			testResenje(resenjeXmlRepository, resenjeRDFRepository, resenjeProperties);
-//		};
-//	}
-//
-//	public void testZalbaCutanje(ZalbaCutanjeXmlRepository xmlRepository, ZalbaCutanjeRDFRepository rdfRepository, ZalbaCutanjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
-//		JaxbMarshaller<ZalbaCutanje> m = new JaxbMarshaller<>(properties);
-//		ZalbaCutanje resenje = m.unmarshal(new FileInputStream("data/xml/zalbacutanje1.xml"));
-//
-//		Long id = xmlRepository.create(resenje);
-//		resenje = xmlRepository.findById(id).get();
-//
-//		rdfRepository.saveMetadata(resenje);
-//	}
-//
-//	public void testZalbaNaOdluku(ZalbaNaOdlukuXmlRepository xmlRepository, ZalbaNaOdlukuRDFRepository rdfRepository, ZalbaNaOdlukuProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
-//		JaxbMarshaller<ZalbaNaOdluku> m = new JaxbMarshaller<>(properties);
-//		ZalbaNaOdluku resenje = m.unmarshal(new FileInputStream("data/xml/zalbanaodluku1.xml"));
-//
-//		Long id = xmlRepository.create(resenje);
-//		resenje = xmlRepository.findById(id).get();
-//
-//		rdfRepository.saveMetadata(resenje);
-//	}
-//
-//	public void testResenje(ResenjeXmlRepository xmlRepository, ResenjeRDFRepository rdfRepository, ResenjeProperties properties) throws JAXBException, SAXException, FileNotFoundException, TransformerException, XMLDBException {
-//		JaxbMarshaller<Resenje> m = new JaxbMarshaller<>(properties);
-//		Resenje resenje = m.unmarshal(new FileInputStream("data/xml/resenje1.xml"));
-//
-//		Long id = xmlRepository.create(resenje);
-//		resenje = xmlRepository.findById(id).get();
-//
-//		rdfRepository.saveMetadata(resenje);
-//	}
+	@Bean
+	public CommandLineRunner run(
+			AuthorityXmlRepository authorityXmlRepository,
+			AuthorityProperties authorityProperties,
+			AccountXmlRepository accountXmlRepository,
+			AccountProperties accountProperties,
+			UserXmlRepository userXmlRepository,
+			UserProperties userProperties,
+			PasswordEncoder encoder) {
+		return args -> {
+			insertAuthority(authorityXmlRepository, authorityProperties);
+			insertAccount(accountXmlRepository, accountProperties, encoder);
+			insertUser(userXmlRepository, userProperties, encoder);
+		};
+	}
 
-//	public void insertAuthority(AuthorityXmlRepository xmlRepository, AuthorityProperties properties) throws JAXBException, SAXException, IOException, XMLDBException {
-//		JaxbMarshaller<Authority> m = new JaxbMarshaller<>(properties);
-//
-//		Authority authority = m.unmarshal(new FileInputStream("data/xml/authority.xml"));
-//
-//		Long id = xmlRepository.createWithId(authority, 1L);
-//		authority = xmlRepository.findById(id).get();
-//	}
-//
-//	public void insertAccount(AccountXmlRepository xmlRepository, AccountProperties properties) throws JAXBException, XMLDBException, FileNotFoundException, SAXException {
-//		JaxbMarshaller<Account> m = new JaxbMarshaller<>(properties);
-//
-//		Account authority = m.unmarshal(new FileInputStream("data/xml/account.xml"));
-//
-//		Long id = xmlRepository.createWithId(authority, 1L);
-//		authority = xmlRepository.findById(id).get();
-//	}
-//
-//	public void insertUser(UserXmlRepository xmlRepository, UserProperties properties) throws FileNotFoundException, JAXBException, XMLDBException, SAXException {
-//		JaxbMarshaller<User> m = new JaxbMarshaller<>(properties);
-//
-//		User authority = m.unmarshal(new FileInputStream("data/xml/user.xml"));
-//
-//		Long id = xmlRepository.createWithId(authority, 1L);
-//		authority = xmlRepository.findById(id).get();
-//	}
+	public void insertAuthority(AuthorityXmlRepository xmlRepository, AuthorityProperties properties) throws JAXBException, SAXException, IOException, XMLDBException {
+		JaxbMarshaller<Authority> m = new JaxbMarshaller<>(properties);
+
+		Authority authority = new Authority();
+		authority.setName("ROLE_USER");
+		Long id = xmlRepository.createWithId(authority, 1L);
+
+		authority = xmlRepository.findById(id).get();
+		authority = new Authority();
+		authority.setName("ROLE_COMMISSIONER");
+
+		id = xmlRepository.createWithId(authority, 2L);
+
+		authority = xmlRepository.findById(id).get();
+	}
+
+	public void insertAccount(AccountXmlRepository xmlRepository, AccountProperties properties, PasswordEncoder encoder) throws JAXBException, XMLDBException, FileNotFoundException, SAXException {
+		Authority authority = new Authority();
+		authority.setName("ROLE_USER");
+		Account account = new Account();
+		account.setEmail("user@gmail.com");
+		account.setPassword(encoder.encode("admin"));
+		Account.Authorities authorities = new Account.Authorities();
+		authorities.setAuthority(List.of(authority));
+		account.setAuthorities(authorities);
+		Long id = xmlRepository.createWithId(account, 1L);
+		account = xmlRepository.findById(id).get();
+
+		authority = new Authority();
+		authority.setName("ROLE_COMMISSIONER");
+		account = new Account();
+		account.setEmail("admin@gmail.com");
+		account.setPassword(encoder.encode("admin"));
+		authorities = new Account.Authorities();
+		authorities.setAuthority(List.of(authority));
+		account.setAuthorities(authorities);
+		id = xmlRepository.createWithId(account, 2L);
+		account = xmlRepository.findById(id).get();
+
+	}
+
+	public void insertUser(UserXmlRepository xmlRepository, UserProperties properties, PasswordEncoder encoder) throws FileNotFoundException, JAXBException, XMLDBException, SAXException {
+		Authority authority = new Authority();
+		authority.setName("ROLE_USER");
+		Account account = new Account();
+		account.setEmail("user@gmail.com");
+		account.setPassword(encoder.encode("admin"));
+		Account.Authorities authorities = new Account.Authorities();
+		authorities.setAuthority(List.of(authority));
+		account.setAuthorities(authorities);
+		User user = new User();
+		user.setAccount(account);
+		user.setFirstName("User Name");
+		user.setLastName("User Last name");
+		Long id = xmlRepository.createWithId(user, 1L);
+		xmlRepository.findById(id);
+
+
+		authority = new Authority();
+		authority.setName("ROLE_COMMISSIONER");
+		account = new Account();
+		account.setEmail("admin@gmail.com");
+		account.setPassword(encoder.encode("admin"));
+		authorities = new Account.Authorities();
+		authorities.setAuthority(List.of(authority));
+		account.setAuthorities(authorities);
+		user = new User();
+		user.setAccount(account);
+		user.setFirstName("Commissioner Name");
+		user.setLastName("Commissioner Last name");
+		id = xmlRepository.createWithId(user, 2L);
+		xmlRepository.findById(id);
+	}
 }

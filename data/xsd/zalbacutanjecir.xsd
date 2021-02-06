@@ -12,30 +12,14 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="OrganVlasti" type="co:CTOrganVlasti"> </xs:element>
-                <xs:element name="ZaglavljeZalbe">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="Clan">
-                                <xs:simpleType>
-                                    <xs:restriction base="xs:int">
-                                        <xs:minInclusive value="1"/>
-                                        <xs:maxInclusive value="1000"/>
-                                    </xs:restriction>
-                                </xs:simpleType>
-                            </xs:element>
-                            <xs:element name="Zakon" type="xs:string"/>
-                            <xs:element name="Adresa" type="co:CTAdresa"/>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
                 <xs:element name="RazlogSlanja">
-                    <xs:complexType>
-                        <xs:choice>
-                            <xs:element name="NijePostupio" type="xs:string"/>
-                            <xs:element name="NijePostupioUCelosti" type="xs:string"/>
-                            <xs:element name="UZakonsomRoku" type="xs:string"/>
-                        </xs:choice>
-                    </xs:complexType>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="NijePostupio" />
+                            <xs:enumeration value="NijePostupioUCelosti"/>
+                            <xs:enumeration value="UZakonsomRoku"/>
+                        </xs:restriction>
+                    </xs:simpleType>
                 </xs:element>
                 <xs:element name="PodaciOZahtevu" type="co:CTPodaciOZahtevu"> </xs:element>
                 <xs:element name="PodnosilacZalbe" type="zlb:CTPodnosilacZalbe"/>
@@ -44,6 +28,8 @@
             <xs:attribute name="vocab" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
                 use="required"/>
             <xs:attribute name="about" use="required"/>
+            <xs:attribute name="rel" fixed="pred:zalbaNa" use="required"/>
+            <xs:attribute name="href" use="required"/>
         </xs:complexType>
     </xs:element>
     <xs:complexType name="CTPodnosilacZalbe">
@@ -55,7 +41,7 @@
                 <xs:attribute name="vocab" fixed="http://www.ftn.uns.ac.rs/xml/tim11/predicate/"
                     use="required"/>
                 <xs:attribute name="about" use="required"/>
-                <xs:attribute name="rel" fixed="podneoZalbu" use="required"/>
+                <xs:attribute name="rel" fixed="pred:podneoZalbu" use="required"/>
                 <xs:attribute name="href" use="required"/>
             </xs:extension>
         </xs:complexContent>

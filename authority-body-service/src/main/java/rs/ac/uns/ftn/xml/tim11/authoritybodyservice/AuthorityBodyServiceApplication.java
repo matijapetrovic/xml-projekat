@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.xml.sax.SAXException;
 import org.xmldb.api.base.XMLDBException;
+import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.core.PasswordEncoder;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.obavestenje.Obavestenje;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.authoritybodyservice.model.user.Authority;
@@ -23,6 +24,7 @@ import javax.xml.transform.TransformerException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 @SpringBootApplication
 public class AuthorityBodyServiceApplication {
@@ -39,12 +41,87 @@ public class AuthorityBodyServiceApplication {
 			AccountXmlRepository accountXmlRepository,
 			AccountProperties accountProperties,
 			UserXmlRepository userXmlRepository,
-			UserProperties userProperties) {
+			UserProperties userProperties,
+			PasswordEncoder encoder) {
 		return args -> {
 			insertAuthority(authorityXmlRepository, authorityProperties);
-			insertAccount(accountXmlRepository, accountProperties);
-			insertUser(userXmlRepository, userProperties);
+			insertAccount(accountXmlRepository, accountProperties, encoder);
+			insertUser(userXmlRepository, userProperties, encoder);
 		};
+	}
+
+	public void insertAuthority(AuthorityXmlRepository xmlRepository, AuthorityProperties properties) throws JAXBException, SAXException, IOException, XMLDBException {
+		JaxbMarshaller<Authority> m = new JaxbMarshaller<>(properties);
+
+		Authority authority = new Authority();
+		authority.setName("ROLE_USER");
+		Long id = xmlRepository.createWithId(authority, 1L);
+
+		authority = xmlRepository.findById(id).get();
+		authority = new Authority();
+		authority.setName("ROLE_COMMISSIONER");
+
+		id = xmlRepository.createWithId(authority, 2L);
+
+		authority = xmlRepository.findById(id).get();
+	}
+
+	public void insertAccount(AccountXmlRepository xmlRepository, AccountProperties properties, PasswordEncoder encoder) throws JAXBException, XMLDBException, FileNotFoundException, SAXException {
+		Authority authority = new Authority();
+		authority.setName("ROLE_USER");
+		Account account = new Account();
+		account.setEmail("user@gmail.com");
+		account.setPassword(encoder.encode("admin"));
+		Account.Authorities authorities = new Account.Authorities();
+		authorities.setAuthority(List.of(authority));
+		account.setAuthorities(authorities);
+		Long id = xmlRepository.createWithId(account, 1L);
+		account = xmlRepository.findById(id).get();
+
+		authority = new Authority();
+		authority.setName("ROLE_COMMISSIONER");
+		account = new Account();
+		account.setEmail("admin@gmail.com");
+		account.setPassword(encoder.encode("admin"));
+		authorities = new Account.Authorities();
+		authorities.setAuthority(List.of(authority));
+		account.setAuthorities(authorities);
+		id = xmlRepository.createWithId(account, 2L);
+		account = xmlRepository.findById(id).get();
+
+	}
+
+	public void insertUser(UserXmlRepository xmlRepository, UserProperties properties, PasswordEncoder encoder) throws FileNotFoundException, JAXBException, XMLDBException, SAXException {
+		Authority authority = new Authority();
+		authority.setName("ROLE_USER");
+		Account account = new Account();
+		account.setEmail("user@gmail.com");
+		account.setPassword(encoder.encode("admin"));
+		Account.Authorities authorities = new Account.Authorities();
+		authorities.setAuthority(List.of(authority));
+		account.setAuthorities(authorities);
+		User user = new User();
+		user.setAccount(account);
+		user.setFirstName("User Name");
+		user.setLastName("User Last name");
+		Long id = xmlRepository.createWithId(user, 1L);
+		xmlRepository.findById(id);
+
+
+		authority = new Authority();
+		authority.setName("ROLE_COMMISSIONER");
+		account = new Account();
+		account.setEmail("admin@gmail.com");
+		account.setPassword(encoder.encode("admin"));
+		authorities = new Account.Authorities();
+		authorities.setAuthority(List.of(authority));
+		account.setAuthorities(authorities);
+		user = new User();
+		user.setAccount(account);
+		user.setFirstName("Commissioner Name");
+		user.setLastName("Commissioner Last name");
+		id = xmlRepository.createWithId(user, 2L);
+		xmlRepository.findById(id);
 	}
 
 //	@Bean
@@ -74,33 +151,6 @@ public class AuthorityBodyServiceApplication {
 		Zahtev resenje = m.unmarshal(new FileInputStream("data/xml/zahtev1.xml"));
 		zahtevService.create(resenje);
 
-	}
-
-		public void insertAuthority(AuthorityXmlRepository xmlRepository, AuthorityProperties properties) throws JAXBException, SAXException, IOException, XMLDBException {
-		JaxbMarshaller<Authority> m = new JaxbMarshaller<>(properties);
-
-		Authority authority = m.unmarshal(new FileInputStream("data/xml/authority.xml"));
-
-		Long id = xmlRepository.createWithId(authority, 2L);
-		authority = xmlRepository.findById(id).get();
-	}
-
-	public void insertAccount(AccountXmlRepository xmlRepository, AccountProperties properties) throws JAXBException, XMLDBException, FileNotFoundException, SAXException {
-		JaxbMarshaller<Account> m = new JaxbMarshaller<>(properties);
-
-		Account authority = m.unmarshal(new FileInputStream("data/xml/account.xml"));
-
-		Long id = xmlRepository.createWithId(authority, 2L);
-		authority = xmlRepository.findById(id).get();
-	}
-
-	public void insertUser(UserXmlRepository xmlRepository, UserProperties properties) throws FileNotFoundException, JAXBException, XMLDBException, SAXException {
-		JaxbMarshaller<User> m = new JaxbMarshaller<>(properties);
-
-		User authority = m.unmarshal(new FileInputStream("data/xml/user.xml"));
-
-		Long id = xmlRepository.createWithId(authority, 2L);
-		authority = xmlRepository.findById(id).get();
 	}
 
 }
