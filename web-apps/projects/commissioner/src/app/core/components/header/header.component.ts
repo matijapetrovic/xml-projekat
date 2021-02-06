@@ -37,12 +37,12 @@ export class HeaderComponent implements OnInit {
     },
     {
       label: 'Pregledaj podnete zalbe na cutanje',
-      routerLink: ['/zalba-cutanje/user'],
+      routerLink: ['/zalba-cutanje'],
       id: 'dashboard-nav-link'
     },
     {
       label: 'Pregledaj podnete zalbe na odluku',
-      routerLink: ['/zalba-odluka/user'],
+      routerLink: ['/zalba-odluka'],
       id: 'dashboard-nav-link'
     },
   ];

@@ -56,7 +56,6 @@ public class CommissionerServiceApplication {
 			insertAuthority(authorityXmlRepository, authorityProperties);
 			insertAccount(accountXmlRepository, accountProperties, encoder);
 			insertUser(userXmlRepository, userProperties, encoder);
-
 		};
 	}
 

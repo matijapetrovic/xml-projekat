@@ -40,12 +40,16 @@ export class ZalbeCutanjeViewComponent implements OnInit {
     });
   }
 
+  napisiResenje(zalba: any) {
+    this.router.navigate[`/resenje/add/${zalba.id}`];
+  }
+
   showZahtev(id: string) {
     this.router.navigate([`/zalba-cutanje/${id}`]);
   }
 
   showXHTMLZahtev(id: string) {
-    this.router.navigate([`/zalba-cutanje/xhtml/${id}`]);
+    this.getXhtml(id);
   }
 
   showPDFZahtev(id: string) {

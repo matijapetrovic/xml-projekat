@@ -11,6 +11,7 @@ import rs.ac.uns.ftn.xml.tim11.commissionerservice.model.user.Account;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.repository.xml.AccountXmlRepository;
 import rs.ac.uns.ftn.xml.tim11.commissionerservice.service.exceptions.AccountNotFoundException;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -21,6 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @SneakyThrows
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        List<Account> accountList = accountRepository.findAll();
        Optional<Account> account = accountRepository.findByEmail(email);
        if(!account.isPresent())
            throw new AccountNotFoundException(email);
