@@ -28,7 +28,7 @@ export class ZahteviViewComponent implements OnInit {
     this.router.navigate(['/obavestenja/add']);
   }
 
-  showRejectDialog(id: number): void {
+  showRejectDialog(id: string): void {
     this.confirmationService.confirm({
       message: 'Do you want to reject this request?',
       header: 'Delete Confirmation',
@@ -46,19 +46,19 @@ export class ZahteviViewComponent implements OnInit {
     });
   }
 
-  showZahtev(id: number) {
+  showZahtev(id: string) {
     this.router.navigate([`/zahtevi/${id}`]);
   }
 
-  showXHTMLZahtev(id: number) {
+  showXHTMLZahtev(id: string) {
     this.router.navigate([`/zahtevi/xhtml/${id}`]);
   }
 
-  showPDFZahtev(id: number) {
+  showPDFZahtev(id: string) {
     this.getPDF(id);
   }
 
-  getPDF(id: number) {
+  getPDF(id: string) {
     this.zahtevService.getOnePDF(id).subscribe((zahtev) => {
       const file = this.makeBlob(zahtev);
       this.downloadPdf(file, id);

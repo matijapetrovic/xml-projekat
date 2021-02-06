@@ -21,11 +21,11 @@ export class ZahtevViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.params.id;
+    const id = this.route.snapshot.params.id;
     this.getOne(id);
   }
 
-  getOne(id: number) {
+  getOne(id: string) {
     this.zahtevService.getOne(id).subscribe((zahtev) => this.document = zahtev);
   }
 
