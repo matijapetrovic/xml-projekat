@@ -30,6 +30,7 @@
           <tr>
             <th>Name</th>
             <th>Show</th>
+            <th>Info</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-zahtev>
@@ -48,14 +49,34 @@
                   (click)="showZahtev(zahtev.id)"
                 ></button>
                 <button 
-                  *ngIf="zahtev.expired"
                   id="show-zahtev-dialog-button" 
                   pButton 
-                  label="New information" 
+                  label="Show XHTML" 
                   icon="pi pi-external-link"
-                  class="p-button-danger p-button-rounded p-justify-right p-button-sm p-mb-2"
-                  (click)="showNewInfo()"></button>
+                  class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
+                  (click)="showXHTMLZahtev(zahtev.id)"
+                ></button>
+                <button 
+                  id="show-zahtev-dialog-button" 
+                  pButton 
+                  label="Download PDF" 
+                  icon="pi pi-external-link"
+                  class="p-button-secondary p-button-rounded p-justify-right p-button-sm  p-mr-2 p-mb-2"
+                  (click)="showPDFZahtev(zahtev.id)"
+                ></button>
               </div>
+            </td>
+            <td>
+              <div class="p-grid p-justify-center">
+                <button 
+                  *ngIf="zahtev.expired" 
+                  id="show-zahtev-dialog-button" 
+                  pButton label="New information" 
+                  icon="pi pi-external-link"
+                  class="p-button-danger p-button-rounded p-justify-right p-button-sm p-mb-2" 
+                  (click)="showNewInfo()"
+                ></button>
+              </div>  
             </td>
           </tr>
         </ng-template>

@@ -52,7 +52,6 @@ public class ZahtevService {
     }
 
     public List<Zahtev> findAll() throws XMLDBException, JAXBException {
-        // TODO: ispravi
 //        Account account = authenticationService.getAuthenticated();
 //        if(account.hasRole("ROLE_USER"))
 //            return xmlRepository.findAllByGradjanin(account.getEmail());
